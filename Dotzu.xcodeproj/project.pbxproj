@@ -72,12 +72,16 @@
 		BB1B40F51E429B6200DF4E57 /* UITableViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1B40B81E429B6200DF4E57 /* UITableViewExtensions.swift */; };
 		BB1B40F61E429B6200DF4E57 /* UserDefaultsExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1B40B91E429B6200DF4E57 /* UserDefaultsExtensions.swift */; };
 		BB1B40F91E429B7000DF4E57 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB1B40F71E429B7000DF4E57 /* LaunchScreen.storyboard */; };
-		BB1B40FA1E429B7000DF4E57 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB1B40F81E429B7000DF4E57 /* Main.storyboard */; };
 		BB1B41021E429BC000DF4E57 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1B41011E429BC000DF4E57 /* AppDelegate.swift */; };
 		BB1B41041E429BC000DF4E57 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1B41031E429BC000DF4E57 /* ViewController.swift */; };
 		BB1B41071E429BC000DF4E57 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB1B41051E429BC000DF4E57 /* Main.storyboard */; };
 		BB1B41091E429BC000DF4E57 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BB1B41081E429BC000DF4E57 /* Assets.xcassets */; };
 		BB1B410C1E429BC000DF4E57 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB1B410A1E429BC000DF4E57 /* LaunchScreen.storyboard */; };
+		BB1B41251E429E8600DF4E57 /* Logs.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB1B41241E429E8600DF4E57 /* Logs.storyboard */; };
+		BB1B41271E429F2000DF4E57 /* Application.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB1B41261E429F2000DF4E57 /* Application.storyboard */; };
+		BB1B41291E429F4E00DF4E57 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB1B41281E429F4E00DF4E57 /* Settings.storyboard */; };
+		BB1B412A1E42A02200DF4E57 /* Dotzu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB1B40611E428B8300DF4E57 /* Dotzu.framework */; };
+		BB1B412B1E42A02200DF4E57 /* Dotzu.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BB1B40611E428B8300DF4E57 /* Dotzu.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,7 +92,28 @@
 			remoteGlobalIDString = BB1B40601E428B8300DF4E57;
 			remoteInfo = Dotzu;
 		};
+		BB1B412C1E42A02200DF4E57 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BB1B40581E428B8300DF4E57 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BB1B40601E428B8300DF4E57;
+			remoteInfo = Dotzu;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		BB1B412E1E42A02200DF4E57 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				BB1B412B1E42A02200DF4E57 /* Dotzu.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		BB1B40611E428B8300DF4E57 /* Dotzu.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Dotzu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -159,7 +184,6 @@
 		BB1B40B81E429B6200DF4E57 /* UITableViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableViewExtensions.swift; sourceTree = "<group>"; };
 		BB1B40B91E429B6200DF4E57 /* UserDefaultsExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsExtensions.swift; sourceTree = "<group>"; };
 		BB1B40F71E429B7000DF4E57 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
-		BB1B40F81E429B7000DF4E57 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		BB1B40FF1E429BC000DF4E57 /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB1B41011E429BC000DF4E57 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BB1B41031E429BC000DF4E57 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -167,6 +191,9 @@
 		BB1B41081E429BC000DF4E57 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BB1B410B1E429BC000DF4E57 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BB1B410D1E429BC000DF4E57 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BB1B41241E429E8600DF4E57 /* Logs.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Logs.storyboard; sourceTree = "<group>"; };
+		BB1B41261E429F2000DF4E57 /* Application.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Application.storyboard; sourceTree = "<group>"; };
+		BB1B41281E429F4E00DF4E57 /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,6 +216,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BB1B412A1E42A02200DF4E57 /* Dotzu.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -219,7 +247,6 @@
 			isa = PBXGroup;
 			children = (
 				BB1B40F71E429B7000DF4E57 /* LaunchScreen.storyboard */,
-				BB1B40F81E429B7000DF4E57 /* Main.storyboard */,
 				BB1B407D1E429B6100DF4E57 /* ApplicationInformation.swift */,
 				BB1B407E1E429B6100DF4E57 /* Assets.xcassets */,
 				BB1B407F1E429B6100DF4E57 /* Color.swift */,
@@ -263,7 +290,7 @@
 				BB1B40A51E429B6200DF4E57 /* LogTableViewCell.swift */,
 				BB1B40A61E429B6200DF4E57 /* LogTableViewCell.xib */,
 				BB1B40A71E429B6200DF4E57 /* LogViewNotification.swift */,
-				BB1B40A81E429B6200DF4E57 /* Manager.storyboard */,
+				BB1B41231E429E6900DF4E57 /* Storyboards */,
 				BB1B40A91E429B6200DF4E57 /* DotzuManager.swift */,
 				BB1B40AA1E429B6200DF4E57 /* ManagerListLogState.swift */,
 				BB1B40AB1E429B6200DF4E57 /* ManagerListLogViewController.swift */,
@@ -307,6 +334,17 @@
 				BB1B410D1E429BC000DF4E57 /* Info.plist */,
 			);
 			path = Example;
+			sourceTree = "<group>";
+		};
+		BB1B41231E429E6900DF4E57 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				BB1B40A81E429B6200DF4E57 /* Manager.storyboard */,
+				BB1B41241E429E8600DF4E57 /* Logs.storyboard */,
+				BB1B41261E429F2000DF4E57 /* Application.storyboard */,
+				BB1B41281E429F4E00DF4E57 /* Settings.storyboard */,
+			);
+			name = Storyboards;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -366,10 +404,12 @@
 				BB1B40FB1E429BC000DF4E57 /* Sources */,
 				BB1B40FC1E429BC000DF4E57 /* Frameworks */,
 				BB1B40FD1E429BC000DF4E57 /* Resources */,
+				BB1B412E1E42A02200DF4E57 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				BB1B412D1E42A02200DF4E57 /* PBXTargetDependency */,
 			);
 			name = Example;
 			productName = Example;
@@ -430,13 +470,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				BB1B40F91E429B7000DF4E57 /* LaunchScreen.storyboard in Resources */,
-				BB1B40FA1E429B7000DF4E57 /* Main.storyboard in Resources */,
 				BB1B40BB1E429B6200DF4E57 /* Assets.xcassets in Resources */,
 				BB1B40DB1E429B6200DF4E57 /* LogNetworkTableViewCell.xib in Resources */,
+				BB1B41291E429F4E00DF4E57 /* Settings.storyboard in Resources */,
+				BB1B41251E429E8600DF4E57 /* Logs.storyboard in Resources */,
 				BB1B40F21E429B6200DF4E57 /* ResponseDataTableViewCell.xib in Resources */,
 				BB1B40F01E429B6200DF4E57 /* RequestHeadersTableViewCell.xib in Resources */,
 				BB1B40E31E429B6200DF4E57 /* LogTableViewCell.xib in Resources */,
 				BB1B40BF1E429B6200DF4E57 /* CrashListTableViewCell.xib in Resources */,
+				BB1B41271E429F2000DF4E57 /* Application.storyboard in Resources */,
 				BB1B40EE1E429B6200DF4E57 /* RequestErrorTableViewCell.xib in Resources */,
 				BB1B40E51E429B6200DF4E57 /* Manager.storyboard in Resources */,
 			);
@@ -546,6 +588,11 @@
 			isa = PBXTargetDependency;
 			target = BB1B40601E428B8300DF4E57 /* Dotzu */;
 			targetProxy = BB1B406C1E428B8300DF4E57 /* PBXContainerItemProxy */;
+		};
+		BB1B412D1E42A02200DF4E57 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BB1B40601E428B8300DF4E57 /* Dotzu */;
+			targetProxy = BB1B412C1E42A02200DF4E57 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -738,6 +785,7 @@
 		BB1B411A1E429BC000DF4E57 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 44Q2J6374R;
 				INFOPLIST_FILE = Example/Info.plist;
@@ -751,6 +799,7 @@
 		BB1B411B1E429BC000DF4E57 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 44Q2J6374R;
 				INFOPLIST_FILE = Example/Info.plist;
