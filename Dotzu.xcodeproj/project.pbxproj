@@ -78,7 +78,6 @@
 		BB1B41071E429BC000DF4E57 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB1B41051E429BC000DF4E57 /* Main.storyboard */; };
 		BB1B41091E429BC000DF4E57 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BB1B41081E429BC000DF4E57 /* Assets.xcassets */; };
 		BB1B410C1E429BC000DF4E57 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB1B410A1E429BC000DF4E57 /* LaunchScreen.storyboard */; };
-		BB1B41171E429BC000DF4E57 /* ExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1B41161E429BC000DF4E57 /* ExampleTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,13 +87,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = BB1B40601E428B8300DF4E57;
 			remoteInfo = Dotzu;
-		};
-		BB1B41131E429BC000DF4E57 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BB1B40581E428B8300DF4E57 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = BB1B40FE1E429BC000DF4E57;
-			remoteInfo = Example;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -175,9 +167,6 @@
 		BB1B41081E429BC000DF4E57 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BB1B410B1E429BC000DF4E57 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BB1B410D1E429BC000DF4E57 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BB1B41121E429BC000DF4E57 /* ExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		BB1B41161E429BC000DF4E57 /* ExampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleTests.swift; sourceTree = "<group>"; };
-		BB1B41181E429BC000DF4E57 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -203,13 +192,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		BB1B410F1E429BC000DF4E57 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -219,7 +201,6 @@
 				BB1B40631E428B8300DF4E57 /* Dotzu */,
 				BB1B406E1E428B8300DF4E57 /* DotzuTests */,
 				BB1B41001E429BC000DF4E57 /* Example */,
-				BB1B41151E429BC000DF4E57 /* ExampleTests */,
 				BB1B40621E428B8300DF4E57 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -230,7 +211,6 @@
 				BB1B40611E428B8300DF4E57 /* Dotzu.framework */,
 				BB1B406A1E428B8300DF4E57 /* DotzuTests.xctest */,
 				BB1B40FF1E429BC000DF4E57 /* Example.app */,
-				BB1B41121E429BC000DF4E57 /* ExampleTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -329,15 +309,6 @@
 			path = Example;
 			sourceTree = "<group>";
 		};
-		BB1B41151E429BC000DF4E57 /* ExampleTests */ = {
-			isa = PBXGroup;
-			children = (
-				BB1B41161E429BC000DF4E57 /* ExampleTests.swift */,
-				BB1B41181E429BC000DF4E57 /* Info.plist */,
-			);
-			path = ExampleTests;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -405,24 +376,6 @@
 			productReference = BB1B40FF1E429BC000DF4E57 /* Example.app */;
 			productType = "com.apple.product-type.application";
 		};
-		BB1B41111E429BC000DF4E57 /* ExampleTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = BB1B411C1E429BC000DF4E57 /* Build configuration list for PBXNativeTarget "ExampleTests" */;
-			buildPhases = (
-				BB1B410E1E429BC000DF4E57 /* Sources */,
-				BB1B410F1E429BC000DF4E57 /* Frameworks */,
-				BB1B41101E429BC000DF4E57 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				BB1B41141E429BC000DF4E57 /* PBXTargetDependency */,
-			);
-			name = ExampleTests;
-			productName = ExampleTests;
-			productReference = BB1B41121E429BC000DF4E57 /* ExampleTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -449,12 +402,6 @@
 						DevelopmentTeam = 44Q2J6374R;
 						ProvisioningStyle = Automatic;
 					};
-					BB1B41111E429BC000DF4E57 = {
-						CreatedOnToolsVersion = 8.2;
-						DevelopmentTeam = 44Q2J6374R;
-						ProvisioningStyle = Automatic;
-						TestTargetID = BB1B40FE1E429BC000DF4E57;
-					};
 				};
 			};
 			buildConfigurationList = BB1B405B1E428B8300DF4E57 /* Build configuration list for PBXProject "Dotzu" */;
@@ -473,7 +420,6 @@
 				BB1B40601E428B8300DF4E57 /* Dotzu */,
 				BB1B40691E428B8300DF4E57 /* DotzuTests */,
 				BB1B40FE1E429BC000DF4E57 /* Example */,
-				BB1B41111E429BC000DF4E57 /* ExampleTests */,
 			);
 		};
 /* End PBXProject section */
@@ -510,13 +456,6 @@
 				BB1B410C1E429BC000DF4E57 /* LaunchScreen.storyboard in Resources */,
 				BB1B41091E429BC000DF4E57 /* Assets.xcassets in Resources */,
 				BB1B41071E429BC000DF4E57 /* Main.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		BB1B41101E429BC000DF4E57 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -600,14 +539,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		BB1B410E1E429BC000DF4E57 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				BB1B41171E429BC000DF4E57 /* ExampleTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -615,11 +546,6 @@
 			isa = PBXTargetDependency;
 			target = BB1B40601E428B8300DF4E57 /* Dotzu */;
 			targetProxy = BB1B406C1E428B8300DF4E57 /* PBXContainerItemProxy */;
-		};
-		BB1B41141E429BC000DF4E57 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = BB1B40FE1E429BC000DF4E57 /* Example */;
-			targetProxy = BB1B41131E429BC000DF4E57 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -835,36 +761,6 @@
 			};
 			name = Release;
 		};
-		BB1B411D1E429BC000DF4E57 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				DEVELOPMENT_TEAM = 44Q2J6374R;
-				INFOPLIST_FILE = ExampleTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = remi.robert.ExampleTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Example.app/Example";
-			};
-			name = Debug;
-		};
-		BB1B411E1E429BC000DF4E57 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				DEVELOPMENT_TEAM = 44Q2J6374R;
-				INFOPLIST_FILE = ExampleTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = remi.robert.ExampleTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Example.app/Example";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -900,14 +796,6 @@
 			buildConfigurations = (
 				BB1B411A1E429BC000DF4E57 /* Debug */,
 				BB1B411B1E429BC000DF4E57 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-		};
-		BB1B411C1E429BC000DF4E57 /* Build configuration list for PBXNativeTarget "ExampleTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				BB1B411D1E429BC000DF4E57 /* Debug */,
-				BB1B411E1E429BC000DF4E57 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
