@@ -10,10 +10,18 @@ import UIKit
 import Darwin
 
 func exceptionHandler(exception: NSException) {
+    if LoggerCrash.shared.crashed {
+        return
+    }
+    LoggerCrash.shared.crashed = true
     LoggerCrash.addCrash(name: exception.name.rawValue, reason: exception.reason)
 }
 
 func handleSignal(signal: Int32) {
+    if LoggerCrash.shared.crashed {
+        return
+    }
+    LoggerCrash.shared.crashed = true
     switch signal {
     case SIGILL:
         LoggerCrash.addCrash(name: "SIGILL", reason: nil)
@@ -34,6 +42,9 @@ func handleSignal(signal: Int32) {
 }
 
 class LoggerCrash {
+
+    static let shared = LoggerCrash()
+    var crashed = false
 
     static func register() {
         NSSetUncaughtExceptionHandler(exceptionHandler)

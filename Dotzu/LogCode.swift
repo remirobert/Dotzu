@@ -8,11 +8,21 @@
 
 import UIKit
 
-enum LogCode: Int {
-    case code200 = 200
-    case code300 = 300
-    case code400 = 400
-    case code500 = 500
+enum LogCode {
+    case code200
+    case code300
+    case code400
+    case code500
+
+    static func codeFrom(code: Int) -> LogCode {
+        switch code {
+        case 200...299: return .code200
+        case 300...399: return .code300
+        case 400...499: return .code400
+        case 500...600: return .code500
+        default: return .code200
+        }
+    }
 
     static func color(code: Int) -> UIColor {
         switch code {
@@ -22,9 +32,5 @@ enum LogCode: Int {
         case 500...600: return UIColor.red
         default: return UIColor.gray
         }
-    }
-
-    var color: UIColor {
-        return LogCode.color(code: self.rawValue)
     }
 }

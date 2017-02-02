@@ -12,7 +12,7 @@ class LogViewNotification {
 
     static var countCrash: Int {
         get {
-            return UserDefaults.standard.object(forKey: "lognotificationcount") as? Int ?? 0
+            return UserDefaults.standard.integer(forKey: "lognotificationcount")
         }
         set {
             UserDefaults.standard.set(newValue, forKey: "lognotificationcount")

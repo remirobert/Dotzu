@@ -19,16 +19,17 @@ class LogRequest: NSObject, NSCoding {
     let date: Date
     let method: String
     let headers: [String: String]?
-    var code: LogCode?
+    var code: Int
     var dataResponse: NSData?
     var errorClientDescription: String?
     var duration: Double?
 
     var colorCode: UIColor {
-        return code?.color ?? UIColor.gray
+        return LogCode.color(code: code)
     }
 
     init(request: NSURLRequest) {
+        code = 0
         date = Date()
         id = UUID().uuidString
         method = request.httpMethod ?? "N/A"
@@ -38,7 +39,7 @@ class LogRequest: NSObject, NSCoding {
 
     func initResponse(response: URLResponse) {
         guard let responseHttp = response as? HTTPURLResponse else {return}
-        code = LogCode(rawValue: responseHttp.statusCode)
+        code = responseHttp.statusCode
     }
 
     func encode(with aCoder: NSCoder) {
@@ -46,7 +47,7 @@ class LogRequest: NSObject, NSCoding {
         aCoder.encode(url, forKey: "url")
         aCoder.encode(method, forKey: "method")
         aCoder.encode(headers, forKey: "headers")
-        aCoder.encode(code?.rawValue, forKey: "code")
+        aCoder.encode(code, forKey: "code")
         aCoder.encode(date, forKey: "date")
         aCoder.encode(dataResponse, forKey: "dataResponse")
         aCoder.encode(errorClientDescription, forKey: "errorClientDescription")
@@ -58,7 +59,7 @@ class LogRequest: NSObject, NSCoding {
         url = aDecoder.decodeObject(forKey: "url") as? String ?? ""
         method = aDecoder.decodeObject(forKey: "method") as? String ?? ""
         headers = aDecoder.decodeObject(forKey: "headers") as? [String: String]
-        code = LogCode(rawValue: aDecoder.decodeObject(forKey: "code") as? Int ?? 0)
+        code = aDecoder.decodeInteger(forKey: "code") 
         date = aDecoder.decodeObject(forKey: "date") as? Date ?? Date()
         dataResponse = aDecoder.decodeObject(forKey: "dataResponse") as? NSData
         errorClientDescription = aDecoder.decodeObject(forKey: "errorClientDescription") as? String
@@ -73,7 +74,7 @@ extension LogRequest: LogProtocol {
 
     class func source() -> [LogProtocol] {
         return StoreManager<LogRequest>(store: .network).logs().filter({
-            LogCodeFilter.shared.enabled.contains($0.code ?? .code200)
+            LogCodeFilter.shared.enabled.contains(LogCode.codeFrom(code: $0.code))
         })
     }
 }

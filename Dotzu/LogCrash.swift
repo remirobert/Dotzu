@@ -22,7 +22,6 @@ class LogCrash: NSObject, NSCoding {
         self.reason = reason
         self.name = name
         callStacks = Thread.callStackSymbols
-        Logger.error(Thread.callStackSymbols)
     }
 
     func encode(with aCoder: NSCoder) {

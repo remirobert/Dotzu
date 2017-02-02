@@ -41,8 +41,12 @@ class LogNetworkTableViewCell: UITableViewCell, LogCellProtocol {
         attstr.addAttribute(NSFontAttributeName, value: UIFont.boldSystemFont(ofSize: 17), range: range)
         textViewContent.attributedText = attstr
 
-        labelCode.text = "\(request.code?.rawValue ?? 0)"
+        labelCode.text = "\(request.code)"
         viewStatus.backgroundColor = request.colorCode
         labelCode.textColor = request.colorCode
+
+        if request.errorClientDescription != nil && request.code == 0 {
+            viewStatus.backgroundColor = UIColor.red
+        }
     }
 }
