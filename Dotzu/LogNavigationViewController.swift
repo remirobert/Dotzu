@@ -18,7 +18,9 @@ class LogNavigationViewController: UINavigationController {
                                              NSForegroundColorAttributeName: Color.mainGreen]
 
         let selector = #selector(LogNavigationViewController.exit)
-        let leftButton = UIBarButtonItem(image: UIImage(named: "Close Window Filled-60"),
+
+        let image = UIImage(named: "close", in: Bundle(for: LogNavigationViewController.self), compatibleWith: nil)
+        let leftButton = UIBarButtonItem(image: image,
                                          style: .done, target: self, action: selector)
         topViewController?.navigationItem.leftBarButtonItem = leftButton
     }

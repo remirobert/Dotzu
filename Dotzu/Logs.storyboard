@@ -19,7 +19,7 @@
                         <viewControllerLayoutGuide type="top" id="1FG-Xc-gaP"/>
                         <viewControllerLayoutGuide type="bottom" id="E80-LL-KES"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" misplaced="YES" id="vD5-tz-SMX">
+                    <view key="view" contentMode="scaleToFill" id="vD5-tz-SMX">
                         <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -153,7 +153,7 @@
                             </connections>
                         </segmentedControl>
                         <rightBarButtonItems>
-                            <barButtonItem image="Filter-60" id="H8s-CQ-trf">
+                            <barButtonItem image="filter" id="H8s-CQ-trf">
                                 <connections>
                                     <segue destination="4xb-fk-IJe" kind="presentation" identifier="filterSegue" modalPresentationStyle="overFullScreen" id="ZEU-l6-M97"/>
                                 </connections>
@@ -176,7 +176,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Xf-kz-irU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-738.39999999999998" y="2408.5457271364321"/>
+            <point key="canvasLocation" x="-740" y="2267"/>
         </scene>
         <!--Container Filter View Controller-->
         <scene sceneID="0og-qw-MfJ">
@@ -495,9 +495,9 @@
         <scene sceneID="afz-qj-lGc">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="3CJ-ep-uee" customClass="LogNavigationViewController" customModule="Dotzu" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="logs" image="Page Overview 4-60" selectedImage="Page Overview 4-60" id="Uuf-aW-P9g"/>
+                    <tabBarItem key="tabBarItem" title="logs" image="tabbar-logs" selectedImage="tabbar-logs" id="Uuf-aW-P9g"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="EEW-tV-ACR">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="EEW-tV-ACR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.1215686277" green="0.1294117719" blue="0.1411764771" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -512,7 +512,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r5V-jJ-LUb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-737" y="1720"/>
+            <point key="canvasLocation" x="-739" y="1481"/>
         </scene>
         <!--Filter Network Table View Controller-->
         <scene sceneID="BLN-Lb-eKz">
@@ -747,7 +747,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Filter-60" width="30" height="30"/>
-        <image name="Page Overview 4-60" width="30" height="30"/>
+        <image name="filter" width="30" height="30"/>
+        <image name="tabbar-logs" width="30" height="30"/>
     </resources>
 </document>

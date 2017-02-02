@@ -6,7 +6,7 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "iOS App Icon Shape-60.png",
+      "filename" : "Close Window Filled-60.png",
       "scale" : "2x"
     },
     {
@@ -17,5 +17,11 @@
   "info" : {
     "version" : 1,
     "author" : "xcode"
+  },
+  "properties" : {
+    "template-rendering-intent" : "template",
+    "on-demand-resource-tags" : [
+      "New"
+    ]
   }
 }

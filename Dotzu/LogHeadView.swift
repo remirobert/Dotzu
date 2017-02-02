@@ -23,7 +23,8 @@ class LogHeadView: UIView {
         let frame = CGRect(origin: CGPoint(x: 20, y: 20), size: CGSize(width: 40, height: 40))
         let imageView = UIImageView(frame: frame)
         imageView.contentMode = .scaleAspectFit
-        imageView.image = UIImage(named: "logo_stack_log")?.withRenderingMode(.alwaysTemplate)
+        let image = UIImage(named: "logo", in: Bundle(for: LogHeadView.self), compatibleWith: nil)
+        imageView.image = image?.withRenderingMode(.alwaysTemplate)
         imageView.tintColor = Color.mainGreen
         imageView.layer.cornerRadius = 40
         return imageView

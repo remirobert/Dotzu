@@ -6,7 +6,7 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "Filter-60.png",
+      "filename" : "Page Overview 4-60.png",
       "scale" : "2x"
     },
     {
@@ -19,6 +19,8 @@
     "author" : "xcode"
   },
   "properties" : {
-    "template-rendering-intent" : "template"
+    "on-demand-resource-tags" : [
+      "New"
+    ]
   }
 }

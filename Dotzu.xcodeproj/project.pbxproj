@@ -40,7 +40,7 @@
 		BB1B40D51E429B6200DF4E57 /* LogHeadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1B40981E429B6100DF4E57 /* LogHeadView.swift */; };
 		BB1B40D61E429B6200DF4E57 /* LogLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1B40991E429B6100DF4E57 /* LogLevel.swift */; };
 		BB1B40D71E429B6200DF4E57 /* LogLevelFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1B409A1E429B6100DF4E57 /* LogLevelFilter.swift */; };
-		BB1B40D81E429B6200DF4E57 /* LogManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1B409B1E429B6100DF4E57 /* LogManager.swift */; };
+		BB1B40D81E429B6200DF4E57 /* StoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1B409B1E429B6100DF4E57 /* StoreManager.swift */; };
 		BB1B40D91E429B6200DF4E57 /* LogNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1B409C1E429B6100DF4E57 /* LogNavigationViewController.swift */; };
 		BB1B40DA1E429B6200DF4E57 /* LogNetworkTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1B409D1E429B6100DF4E57 /* LogNetworkTableViewCell.swift */; };
 		BB1B40DB1E429B6200DF4E57 /* LogNetworkTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB1B409E1E429B6100DF4E57 /* LogNetworkTableViewCell.xib */; };
@@ -59,7 +59,6 @@
 		BB1B40E81E429B6200DF4E57 /* ManagerListLogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1B40AB1E429B6200DF4E57 /* ManagerListLogViewController.swift */; };
 		BB1B40E91E429B6200DF4E57 /* ManagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1B40AC1E429B6200DF4E57 /* ManagerViewController.swift */; };
 		BB1B40EA1E429B6200DF4E57 /* ManagerWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1B40AD1E429B6200DF4E57 /* ManagerWindow.swift */; };
-		BB1B40EB1E429B6200DF4E57 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1B40AE1E429B6200DF4E57 /* Network.swift */; };
 		BB1B40EC1E429B6200DF4E57 /* NotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1B40AF1E429B6200DF4E57 /* NotificationCenter.swift */; };
 		BB1B40ED1E429B6200DF4E57 /* RequestErrorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1B40B01E429B6200DF4E57 /* RequestErrorTableViewCell.swift */; };
 		BB1B40EE1E429B6200DF4E57 /* RequestErrorTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB1B40B11E429B6200DF4E57 /* RequestErrorTableViewCell.xib */; };
@@ -71,7 +70,6 @@
 		BB1B40F41E429B6200DF4E57 /* UITableViewCellExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1B40B71E429B6200DF4E57 /* UITableViewCellExtensions.swift */; };
 		BB1B40F51E429B6200DF4E57 /* UITableViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1B40B81E429B6200DF4E57 /* UITableViewExtensions.swift */; };
 		BB1B40F61E429B6200DF4E57 /* UserDefaultsExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1B40B91E429B6200DF4E57 /* UserDefaultsExtensions.swift */; };
-		BB1B40F91E429B7000DF4E57 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB1B40F71E429B7000DF4E57 /* LaunchScreen.storyboard */; };
 		BB1B41021E429BC000DF4E57 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1B41011E429BC000DF4E57 /* AppDelegate.swift */; };
 		BB1B41041E429BC000DF4E57 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1B41031E429BC000DF4E57 /* ViewController.swift */; };
 		BB1B41071E429BC000DF4E57 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB1B41051E429BC000DF4E57 /* Main.storyboard */; };
@@ -80,8 +78,6 @@
 		BB1B41251E429E8600DF4E57 /* Logs.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB1B41241E429E8600DF4E57 /* Logs.storyboard */; };
 		BB1B41271E429F2000DF4E57 /* Application.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB1B41261E429F2000DF4E57 /* Application.storyboard */; };
 		BB1B41291E429F4E00DF4E57 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB1B41281E429F4E00DF4E57 /* Settings.storyboard */; };
-		BB1B412A1E42A02200DF4E57 /* Dotzu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB1B40611E428B8300DF4E57 /* Dotzu.framework */; };
-		BB1B412B1E42A02200DF4E57 /* Dotzu.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BB1B40611E428B8300DF4E57 /* Dotzu.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,28 +88,7 @@
 			remoteGlobalIDString = BB1B40601E428B8300DF4E57;
 			remoteInfo = Dotzu;
 		};
-		BB1B412C1E42A02200DF4E57 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BB1B40581E428B8300DF4E57 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = BB1B40601E428B8300DF4E57;
-			remoteInfo = Dotzu;
-		};
 /* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		BB1B412E1E42A02200DF4E57 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				BB1B412B1E42A02200DF4E57 /* Dotzu.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		BB1B40611E428B8300DF4E57 /* Dotzu.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Dotzu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -152,7 +127,7 @@
 		BB1B40981E429B6100DF4E57 /* LogHeadView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogHeadView.swift; sourceTree = "<group>"; };
 		BB1B40991E429B6100DF4E57 /* LogLevel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogLevel.swift; sourceTree = "<group>"; };
 		BB1B409A1E429B6100DF4E57 /* LogLevelFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogLevelFilter.swift; sourceTree = "<group>"; };
-		BB1B409B1E429B6100DF4E57 /* LogManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogManager.swift; sourceTree = "<group>"; };
+		BB1B409B1E429B6100DF4E57 /* StoreManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreManager.swift; sourceTree = "<group>"; };
 		BB1B409C1E429B6100DF4E57 /* LogNavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogNavigationViewController.swift; sourceTree = "<group>"; };
 		BB1B409D1E429B6100DF4E57 /* LogNetworkTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogNetworkTableViewCell.swift; sourceTree = "<group>"; };
 		BB1B409E1E429B6100DF4E57 /* LogNetworkTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LogNetworkTableViewCell.xib; sourceTree = "<group>"; };
@@ -171,7 +146,6 @@
 		BB1B40AB1E429B6200DF4E57 /* ManagerListLogViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagerListLogViewController.swift; sourceTree = "<group>"; };
 		BB1B40AC1E429B6200DF4E57 /* ManagerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagerViewController.swift; sourceTree = "<group>"; };
 		BB1B40AD1E429B6200DF4E57 /* ManagerWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagerWindow.swift; sourceTree = "<group>"; };
-		BB1B40AE1E429B6200DF4E57 /* Network.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		BB1B40AF1E429B6200DF4E57 /* NotificationCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationCenter.swift; sourceTree = "<group>"; };
 		BB1B40B01E429B6200DF4E57 /* RequestErrorTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestErrorTableViewCell.swift; sourceTree = "<group>"; };
 		BB1B40B11E429B6200DF4E57 /* RequestErrorTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RequestErrorTableViewCell.xib; sourceTree = "<group>"; };
@@ -183,7 +157,6 @@
 		BB1B40B71E429B6200DF4E57 /* UITableViewCellExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableViewCellExtensions.swift; sourceTree = "<group>"; };
 		BB1B40B81E429B6200DF4E57 /* UITableViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableViewExtensions.swift; sourceTree = "<group>"; };
 		BB1B40B91E429B6200DF4E57 /* UserDefaultsExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsExtensions.swift; sourceTree = "<group>"; };
-		BB1B40F71E429B7000DF4E57 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BB1B40FF1E429BC000DF4E57 /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB1B41011E429BC000DF4E57 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BB1B41031E429BC000DF4E57 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -216,7 +189,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BB1B412A1E42A02200DF4E57 /* Dotzu.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -246,70 +218,17 @@
 		BB1B40631E428B8300DF4E57 /* Dotzu */ = {
 			isa = PBXGroup;
 			children = (
-				BB1B40F71E429B7000DF4E57 /* LaunchScreen.storyboard */,
-				BB1B407D1E429B6100DF4E57 /* ApplicationInformation.swift */,
-				BB1B407E1E429B6100DF4E57 /* Assets.xcassets */,
-				BB1B407F1E429B6100DF4E57 /* Color.swift */,
-				BB1B40801E429B6100DF4E57 /* ContainerFilterViewController.swift */,
-				BB1B40811E429B6100DF4E57 /* CrashListTableViewCell.swift */,
-				BB1B40821E429B6100DF4E57 /* CrashListTableViewCell.xib */,
-				BB1B40831E429B6100DF4E57 /* DetailCrashTableViewController.swift */,
-				BB1B40841E429B6100DF4E57 /* DetailRequestViewController.swift */,
-				BB1B40851E429B6100DF4E57 /* DetailResponseBodyViewController.swift */,
-				BB1B40861E429B6100DF4E57 /* Device.swift */,
-				BB1B40871E429B6100DF4E57 /* DeviceModel.swift */,
-				BB1B40881E429B6100DF4E57 /* FilterLogTableViewController.swift */,
-				BB1B40891E429B6100DF4E57 /* FilterNetworkTableViewController.swift */,
-				BB1B408A1E429B6100DF4E57 /* FilterViewControllerProtocol.swift */,
-				BB1B408B1E429B6100DF4E57 /* InformationsTableViewController.swift */,
-				BB1B408C1E429B6100DF4E57 /* ListCrashesViewController.swift */,
-				BB1B408D1E429B6100DF4E57 /* ListLogViewModel.swift */,
-				BB1B408E1E429B6100DF4E57 /* Log.swift */,
-				BB1B408F1E429B6100DF4E57 /* LogBadgeView.swift */,
-				BB1B40901E429B6100DF4E57 /* LogCellProtocol.swift */,
-				BB1B40911E429B6100DF4E57 /* LogCode.swift */,
-				BB1B40921E429B6100DF4E57 /* LogCodeFilter.swift */,
-				BB1B40931E429B6100DF4E57 /* LogCrash.swift */,
-				BB1B40941E429B6100DF4E57 /* Logger.swift */,
-				BB1B40951E429B6100DF4E57 /* LoggerCrash.swift */,
-				BB1B40961E429B6100DF4E57 /* LoggerFormat.swift */,
-				BB1B40971E429B6100DF4E57 /* LoggerNetwork.swift */,
-				BB1B40981E429B6100DF4E57 /* LogHeadView.swift */,
-				BB1B40991E429B6100DF4E57 /* LogLevel.swift */,
-				BB1B409A1E429B6100DF4E57 /* LogLevelFilter.swift */,
-				BB1B409B1E429B6100DF4E57 /* LogManager.swift */,
-				BB1B409C1E429B6100DF4E57 /* LogNavigationViewController.swift */,
-				BB1B409D1E429B6100DF4E57 /* LogNetworkTableViewCell.swift */,
-				BB1B409E1E429B6100DF4E57 /* LogNetworkTableViewCell.xib */,
-				BB1B409F1E429B6100DF4E57 /* LogNotification.swift */,
-				BB1B40A01E429B6100DF4E57 /* LogProtocol.swift */,
-				BB1B40A11E429B6100DF4E57 /* LogRequest.swift */,
-				BB1B40A21E429B6200DF4E57 /* LogResponseBodyViewModel.swift */,
-				BB1B40A31E429B6200DF4E57 /* LogsSettings.swift */,
-				BB1B40A41E429B6200DF4E57 /* LogTabBarViewController.swift */,
-				BB1B40A51E429B6200DF4E57 /* LogTableViewCell.swift */,
-				BB1B40A61E429B6200DF4E57 /* LogTableViewCell.xib */,
-				BB1B40A71E429B6200DF4E57 /* LogViewNotification.swift */,
+				BB1B413E1E43728C00DF4E57 /* ViewModels */,
+				BB1B413D1E43723400DF4E57 /* ManagerWindow */,
+				BB1B413C1E43721200DF4E57 /* Utils */,
+				BB1B413B1E4371FE00DF4E57 /* Logger */,
+				BB1B413A1E4371C300DF4E57 /* Models */,
+				BB1B41391E43718400DF4E57 /* Extensions */,
+				BB1B41381E4370B600DF4E57 /* Protocols */,
+				BB1B41371E43709C00DF4E57 /* ViewControllers */,
+				BB1B41361E43703600DF4E57 /* Views */,
+				BB1B413F1E4372A300DF4E57 /* Ressources */,
 				BB1B41231E429E6900DF4E57 /* Storyboards */,
-				BB1B40A91E429B6200DF4E57 /* DotzuManager.swift */,
-				BB1B40AA1E429B6200DF4E57 /* ManagerListLogState.swift */,
-				BB1B40AB1E429B6200DF4E57 /* ManagerListLogViewController.swift */,
-				BB1B40AC1E429B6200DF4E57 /* ManagerViewController.swift */,
-				BB1B40AD1E429B6200DF4E57 /* ManagerWindow.swift */,
-				BB1B40AE1E429B6200DF4E57 /* Network.swift */,
-				BB1B40AF1E429B6200DF4E57 /* NotificationCenter.swift */,
-				BB1B40B01E429B6200DF4E57 /* RequestErrorTableViewCell.swift */,
-				BB1B40B11E429B6200DF4E57 /* RequestErrorTableViewCell.xib */,
-				BB1B40B21E429B6200DF4E57 /* RequestHeadersTableViewCell.swift */,
-				BB1B40B31E429B6200DF4E57 /* RequestHeadersTableViewCell.xib */,
-				BB1B40B41E429B6200DF4E57 /* ResponseDataTableViewCell.swift */,
-				BB1B40B51E429B6200DF4E57 /* ResponseDataTableViewCell.xib */,
-				BB1B40B61E429B6200DF4E57 /* SettingsTableViewController.swift */,
-				BB1B40B71E429B6200DF4E57 /* UITableViewCellExtensions.swift */,
-				BB1B40B81E429B6200DF4E57 /* UITableViewExtensions.swift */,
-				BB1B40B91E429B6200DF4E57 /* UserDefaultsExtensions.swift */,
-				BB1B40641E428B8300DF4E57 /* Dotzu.h */,
-				BB1B40651E428B8300DF4E57 /* Info.plist */,
 			);
 			path = Dotzu;
 			sourceTree = "<group>";
@@ -345,6 +264,137 @@
 				BB1B41281E429F4E00DF4E57 /* Settings.storyboard */,
 			);
 			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		BB1B41361E43703600DF4E57 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BB1B40B41E429B6200DF4E57 /* ResponseDataTableViewCell.swift */,
+				BB1B40B51E429B6200DF4E57 /* ResponseDataTableViewCell.xib */,
+				BB1B40B21E429B6200DF4E57 /* RequestHeadersTableViewCell.swift */,
+				BB1B40B31E429B6200DF4E57 /* RequestHeadersTableViewCell.xib */,
+				BB1B40B01E429B6200DF4E57 /* RequestErrorTableViewCell.swift */,
+				BB1B40B11E429B6200DF4E57 /* RequestErrorTableViewCell.xib */,
+				BB1B408F1E429B6100DF4E57 /* LogBadgeView.swift */,
+				BB1B409D1E429B6100DF4E57 /* LogNetworkTableViewCell.swift */,
+				BB1B409E1E429B6100DF4E57 /* LogNetworkTableViewCell.xib */,
+				BB1B40A51E429B6200DF4E57 /* LogTableViewCell.swift */,
+				BB1B40A61E429B6200DF4E57 /* LogTableViewCell.xib */,
+				BB1B40981E429B6100DF4E57 /* LogHeadView.swift */,
+				BB1B40811E429B6100DF4E57 /* CrashListTableViewCell.swift */,
+				BB1B40821E429B6100DF4E57 /* CrashListTableViewCell.xib */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		BB1B41371E43709C00DF4E57 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				BB1B40AB1E429B6200DF4E57 /* ManagerListLogViewController.swift */,
+				BB1B40B61E429B6200DF4E57 /* SettingsTableViewController.swift */,
+				BB1B40AC1E429B6200DF4E57 /* ManagerViewController.swift */,
+				BB1B409C1E429B6100DF4E57 /* LogNavigationViewController.swift */,
+				BB1B40A41E429B6200DF4E57 /* LogTabBarViewController.swift */,
+				BB1B40801E429B6100DF4E57 /* ContainerFilterViewController.swift */,
+				BB1B40831E429B6100DF4E57 /* DetailCrashTableViewController.swift */,
+				BB1B40841E429B6100DF4E57 /* DetailRequestViewController.swift */,
+				BB1B40851E429B6100DF4E57 /* DetailResponseBodyViewController.swift */,
+				BB1B40881E429B6100DF4E57 /* FilterLogTableViewController.swift */,
+				BB1B40891E429B6100DF4E57 /* FilterNetworkTableViewController.swift */,
+				BB1B408A1E429B6100DF4E57 /* FilterViewControllerProtocol.swift */,
+				BB1B408B1E429B6100DF4E57 /* InformationsTableViewController.swift */,
+				BB1B408C1E429B6100DF4E57 /* ListCrashesViewController.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		BB1B41381E4370B600DF4E57 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				BB1B40A01E429B6100DF4E57 /* LogProtocol.swift */,
+				BB1B40901E429B6100DF4E57 /* LogCellProtocol.swift */,
+			);
+			name = Protocols;
+			sourceTree = "<group>";
+		};
+		BB1B41391E43718400DF4E57 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				BB1B40B71E429B6200DF4E57 /* UITableViewCellExtensions.swift */,
+				BB1B40B81E429B6200DF4E57 /* UITableViewExtensions.swift */,
+				BB1B40B91E429B6200DF4E57 /* UserDefaultsExtensions.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
+		BB1B413A1E4371C300DF4E57 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				BB1B40AA1E429B6200DF4E57 /* ManagerListLogState.swift */,
+				BB1B407D1E429B6100DF4E57 /* ApplicationInformation.swift */,
+				BB1B409A1E429B6100DF4E57 /* LogLevelFilter.swift */,
+				BB1B40A71E429B6200DF4E57 /* LogViewNotification.swift */,
+				BB1B407F1E429B6100DF4E57 /* Color.swift */,
+				BB1B40861E429B6100DF4E57 /* Device.swift */,
+				BB1B40871E429B6100DF4E57 /* DeviceModel.swift */,
+				BB1B40991E429B6100DF4E57 /* LogLevel.swift */,
+				BB1B408E1E429B6100DF4E57 /* Log.swift */,
+				BB1B40911E429B6100DF4E57 /* LogCode.swift */,
+				BB1B40921E429B6100DF4E57 /* LogCodeFilter.swift */,
+				BB1B40931E429B6100DF4E57 /* LogCrash.swift */,
+				BB1B409F1E429B6100DF4E57 /* LogNotification.swift */,
+				BB1B40A11E429B6100DF4E57 /* LogRequest.swift */,
+				BB1B40A31E429B6200DF4E57 /* LogsSettings.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		BB1B413B1E4371FE00DF4E57 /* Logger */ = {
+			isa = PBXGroup;
+			children = (
+				BB1B40941E429B6100DF4E57 /* Logger.swift */,
+				BB1B40951E429B6100DF4E57 /* LoggerCrash.swift */,
+				BB1B40961E429B6100DF4E57 /* LoggerFormat.swift */,
+				BB1B40971E429B6100DF4E57 /* LoggerNetwork.swift */,
+			);
+			name = Logger;
+			sourceTree = "<group>";
+		};
+		BB1B413C1E43721200DF4E57 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				BB1B409B1E429B6100DF4E57 /* StoreManager.swift */,
+				BB1B40AF1E429B6200DF4E57 /* NotificationCenter.swift */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
+		BB1B413D1E43723400DF4E57 /* ManagerWindow */ = {
+			isa = PBXGroup;
+			children = (
+				BB1B40AD1E429B6200DF4E57 /* ManagerWindow.swift */,
+				BB1B40A91E429B6200DF4E57 /* DotzuManager.swift */,
+			);
+			name = ManagerWindow;
+			sourceTree = "<group>";
+		};
+		BB1B413E1E43728C00DF4E57 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				BB1B408D1E429B6100DF4E57 /* ListLogViewModel.swift */,
+				BB1B40A21E429B6200DF4E57 /* LogResponseBodyViewModel.swift */,
+			);
+			name = ViewModels;
+			sourceTree = "<group>";
+		};
+		BB1B413F1E4372A300DF4E57 /* Ressources */ = {
+			isa = PBXGroup;
+			children = (
+				BB1B407E1E429B6100DF4E57 /* Assets.xcassets */,
+				BB1B40641E428B8300DF4E57 /* Dotzu.h */,
+				BB1B40651E428B8300DF4E57 /* Info.plist */,
+			);
+			name = Ressources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -404,12 +454,10 @@
 				BB1B40FB1E429BC000DF4E57 /* Sources */,
 				BB1B40FC1E429BC000DF4E57 /* Frameworks */,
 				BB1B40FD1E429BC000DF4E57 /* Resources */,
-				BB1B412E1E42A02200DF4E57 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				BB1B412D1E42A02200DF4E57 /* PBXTargetDependency */,
 			);
 			name = Example;
 			productName = Example;
@@ -422,13 +470,15 @@
 		BB1B40581E428B8300DF4E57 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				KnownAssetTags = (
+					New,
+				);
 				LastSwiftUpdateCheck = 0820;
 				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "Remi Robert";
 				TargetAttributes = {
 					BB1B40601E428B8300DF4E57 = {
 						CreatedOnToolsVersion = 8.2;
-						DevelopmentTeam = 44Q2J6374R;
 						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 					};
@@ -469,7 +519,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BB1B40F91E429B7000DF4E57 /* LaunchScreen.storyboard in Resources */,
 				BB1B40BB1E429B6200DF4E57 /* Assets.xcassets in Resources */,
 				BB1B40DB1E429B6200DF4E57 /* LogNetworkTableViewCell.xib in Resources */,
 				BB1B41291E429F4E00DF4E57 /* Settings.storyboard in Resources */,
@@ -514,7 +563,6 @@
 				BB1B40F51E429B6200DF4E57 /* UITableViewExtensions.swift in Sources */,
 				BB1B40E41E429B6200DF4E57 /* LogViewNotification.swift in Sources */,
 				BB1B40DE1E429B6200DF4E57 /* LogRequest.swift in Sources */,
-				BB1B40EB1E429B6200DF4E57 /* Network.swift in Sources */,
 				BB1B40BA1E429B6200DF4E57 /* ApplicationInformation.swift in Sources */,
 				BB1B40DA1E429B6200DF4E57 /* LogNetworkTableViewCell.swift in Sources */,
 				BB1B40ED1E429B6200DF4E57 /* RequestErrorTableViewCell.swift in Sources */,
@@ -541,7 +589,7 @@
 				BB1B40C61E429B6200DF4E57 /* FilterNetworkTableViewController.swift in Sources */,
 				BB1B40E21E429B6200DF4E57 /* LogTableViewCell.swift in Sources */,
 				BB1B40D61E429B6200DF4E57 /* LogLevel.swift in Sources */,
-				BB1B40D81E429B6200DF4E57 /* LogManager.swift in Sources */,
+				BB1B40D81E429B6200DF4E57 /* StoreManager.swift in Sources */,
 				BB1B40C91E429B6200DF4E57 /* ListCrashesViewController.swift in Sources */,
 				BB1B40DF1E429B6200DF4E57 /* LogResponseBodyViewModel.swift in Sources */,
 				BB1B40C51E429B6200DF4E57 /* FilterLogTableViewController.swift in Sources */,
@@ -588,11 +636,6 @@
 			isa = PBXTargetDependency;
 			target = BB1B40601E428B8300DF4E57 /* Dotzu */;
 			targetProxy = BB1B406C1E428B8300DF4E57 /* PBXContainerItemProxy */;
-		};
-		BB1B412D1E42A02200DF4E57 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = BB1B40601E428B8300DF4E57 /* Dotzu */;
-			targetProxy = BB1B412C1E42A02200DF4E57 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -720,8 +763,9 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 44Q2J6374R;
+				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -741,8 +785,9 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 44Q2J6374R;
+				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -785,11 +830,14 @@
 		BB1B411A1E429BC000DF4E57 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 44Q2J6374R;
 				INFOPLIST_FILE = Example/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Dotzu,
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = remi.robert.Example;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
@@ -799,7 +847,6 @@
 		BB1B411B1E429BC000DF4E57 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 44Q2J6374R;
 				INFOPLIST_FILE = Example/Info.plist;

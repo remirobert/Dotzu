@@ -18,7 +18,7 @@
                         <viewControllerLayoutGuide type="top" id="4Gw-A9-ME3"/>
                         <viewControllerLayoutGuide type="bottom" id="A5n-Uy-R5M"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" misplaced="YES" id="fg9-qD-AOn">
+                    <view key="view" contentMode="scaleToFill" id="fg9-qD-AOn">
                         <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -175,7 +175,7 @@
         <scene sceneID="PWc-Aa-Ldz">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="OYf-mT-x66" customClass="LogNavigationViewController" customModule="Dotzu" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="application" image="iOS App Icon Shape-60" selectedImage="iOS App Icon Shape-60" id="bj0-w7-cGx"/>
+                    <tabBarItem key="tabBarItem" title="application" image="tabbar-app" selectedImage="tabbar-app" id="bj0-w7-cGx"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="LTO-vU-VsB">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -230,10 +230,10 @@
                                                         <constraint firstAttribute="width" constant="30" id="FwC-8C-rkR"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="14" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y0Z-UK-UFZ">
-                                                    <rect key="frame" x="314" y="11" width="20" height="22"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="14" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y0Z-UK-UFZ">
+                                                    <rect key="frame" x="223" y="11" width="111" height="22"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="22" id="juJ-kt-xfq"/>
+                                                        <constraint firstAttribute="width" constant="111" id="xV7-7C-4if"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <color key="textColor" red="0.99823766950000004" green="0.38489317890000002" blue="0.2489312887" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -478,45 +478,6 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Network" id="IxW-rP-B70">
-                                <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="IUH-Ot-9D3">
-                                        <rect key="frame" x="0.0" y="535" width="375" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="IUH-Ot-9D3" id="fxs-TA-GtF">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ip address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ECs-xB-qAe">
-                                                    <rect key="frame" x="8" y="12" width="143" height="21"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="143" id="7Vo-Vl-jK3"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KHs-UM-VCX">
-                                                    <rect key="frame" x="159" y="11" width="208" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="bottomMargin" secondItem="KHs-UM-VCX" secondAttribute="bottom" constant="3" id="Dud-Vd-Ofp"/>
-                                                <constraint firstItem="ECs-xB-qAe" firstAttribute="top" secondItem="fxs-TA-GtF" secondAttribute="topMargin" constant="4" id="Guh-Jd-LZE"/>
-                                                <constraint firstItem="KHs-UM-VCX" firstAttribute="leading" secondItem="ECs-xB-qAe" secondAttribute="trailing" constant="8" id="SNR-HZ-Oz4"/>
-                                                <constraint firstItem="KHs-UM-VCX" firstAttribute="top" secondItem="fxs-TA-GtF" secondAttribute="topMargin" constant="3" id="cpt-6i-wR2"/>
-                                                <constraint firstItem="ECs-xB-qAe" firstAttribute="leading" secondItem="fxs-TA-GtF" secondAttribute="leadingMargin" id="fOH-j6-afH"/>
-                                                <constraint firstItem="KHs-UM-VCX" firstAttribute="trailing" secondItem="fxs-TA-GtF" secondAttribute="trailingMargin" id="jNJ-AD-CSb"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="ECs-xB-qAe" secondAttribute="bottom" constant="2" id="vRH-wd-vCR"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.199973762" green="0.2000150383" blue="0.19997116919999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
                         </sections>
                         <connections>
                             <outlet property="dataSource" destination="jF1-Ov-37R" id="JNM-E9-yLb"/>
@@ -529,7 +490,6 @@
                         <outlet property="labelBundleName" destination="Unx-vn-qft" id="dRB-fY-TyH"/>
                         <outlet property="labelCrashCount" destination="Y0Z-UK-UFZ" id="1m4-p9-4gv"/>
                         <outlet property="labelDeviceModel" destination="HVz-ej-w8c" id="eRv-iU-o6o"/>
-                        <outlet property="labelIpAddress" destination="KHs-UM-VCX" id="tcI-oP-cks"/>
                         <outlet property="labelScreenResolution" destination="Kz7-U6-YrS" id="28a-cs-9Hu"/>
                         <outlet property="labelScreenSize" destination="Vor-BL-UhF" id="6IA-gM-a5m"/>
                         <outlet property="labelVersionNumber" destination="7Yi-0U-npR" id="cIg-RG-FLI"/>
@@ -542,6 +502,6 @@
     </scenes>
     <resources>
         <image name="bugs-icon" width="50" height="50"/>
-        <image name="iOS App Icon Shape-60" width="30" height="30"/>
+        <image name="tabbar-app" width="30" height="30"/>
     </resources>
 </document>

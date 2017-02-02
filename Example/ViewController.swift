@@ -7,11 +7,14 @@
 //
 
 import UIKit
+import Dotzu
 
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        Logger.verbose("ok test")
     }
 }
 

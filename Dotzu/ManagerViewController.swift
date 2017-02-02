@@ -33,7 +33,7 @@ class ManagerViewController: UIViewController, LogHeadViewDelegate {
 
     func didTapButton() {
         Dotzu.sharedManager.displayedList = true
-        let storyboard = UIStoryboard(name: "Manager", bundle: nil)
+        let storyboard = UIStoryboard(name: "Manager", bundle: Bundle(identifier: "remi.robert.Dotzu"))
         guard let controller = storyboard.instantiateInitialViewController() else {
             return
         }

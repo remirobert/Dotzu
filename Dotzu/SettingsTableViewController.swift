@@ -15,6 +15,7 @@ class SettingsTableViewController: UITableViewController {
     @IBOutlet weak var switchDisplayInfoFile: UISwitch!
     @IBOutlet weak var switchDisplayDate: UISwitch!
     @IBOutlet weak var switchNetworkEnable: UISwitch!
+    @IBOutlet weak var imageViewLogo: UIImageView!
 
     @IBAction func valueDidChange(_ sender: UISwitch) {
         let tag = sender.tag
@@ -44,6 +45,10 @@ class SettingsTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        let image = UIImage(named: "logo", in: Bundle(for: LogHeadView.self), compatibleWith: nil)
+        imageViewLogo.image = image?.withRenderingMode(.alwaysTemplate)
+        imageViewLogo.tintColor = Color.mainGreen
 
         switchDisplayInfoFile.onTintColor = Color.mainGreen
         switchOverridePrint.onTintColor = Color.mainGreen

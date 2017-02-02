@@ -31,6 +31,7 @@ class LogBadgeView: UILabel {
         backgroundColor = UIColor.red
         layer.cornerRadius = (bounds.size.height + 5) / 2
         layer.masksToBounds = true
+        isHidden = true
         initText()
 
         obsRefreshLogs = NotificationObserver(notification: LogNotificationApp.refreshLogs, block: { [weak self] _ in

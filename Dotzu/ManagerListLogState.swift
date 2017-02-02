@@ -13,7 +13,7 @@ enum ManagerListLogState: Int {
     case network
 
     var controller: FilterViewControllerProtocol? {
-        let storyboard = UIStoryboard(name: "Manager", bundle: nil)
+        let storyboard = UIStoryboard(name: "Logs", bundle: Bundle(identifier: "remi.robert.Dotzu"))
         let controller: UIViewController
         switch self {
         case .logs:

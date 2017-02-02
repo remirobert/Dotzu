@@ -16,7 +16,6 @@ class InformationsTableViewController: UITableViewController {
     @IBOutlet weak var labelScreenResolution: UILabel!
     @IBOutlet weak var labelScreenSize: UILabel!
     @IBOutlet weak var labelDeviceModel: UILabel!
-    @IBOutlet weak var labelIpAddress: UILabel!
     @IBOutlet weak var labelCrashCount: UILabel!
 
     override func viewDidLayoutSubviews() {
@@ -43,7 +42,5 @@ class InformationsTableViewController: UITableViewController {
         labelScreenResolution.text = Device.screenResolution
         labelScreenSize.text = "\(Device.screenSize)"
         labelDeviceModel.text = "\(Device.deviceModel)"
-
-        labelIpAddress.text = Network.ipAddress ?? "N/A"
     }
 }
