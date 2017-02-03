@@ -1,4 +1,8 @@
-![logo](https://cloud.githubusercontent.com/assets/3276768/22606144/035a4a28-ea53-11e6-8359-323c214c2439.png)
+<p align="center">
+  <img src ="https://cloud.githubusercontent.com/assets/3276768/22606144/035a4a28-ea53-11e6-8359-323c214c2439.png"/>
+</p>
+</br>
+<br>
 
 Dotzu app
 
