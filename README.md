@@ -54,7 +54,7 @@ github "remirobert/Dotzu"
 
 ### [CocoaPods](https://cocoapods.org)
 
-Comming soon
+Coming soon
 
 ### Manually
 
