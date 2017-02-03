@@ -41,3 +41,12 @@ Logger.info("infos")
 Logger.warning("warning ! ⚠️")
 Logger.error("error ❌")
 ```
+
+## Contact
+
+* Rémi ROBERT
+* Twitter: [@remi936](http://twitter.com/remi36)
+
+## License
+
+Dotzu is released under the [MIT License](http://www.opensource.org/licenses/MIT).
