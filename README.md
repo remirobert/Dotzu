@@ -42,10 +42,28 @@ Logger.warning("warning ! ⚠️")
 Logger.error("error ❌")
 ```
 
+## Installation
+
+### [Carthage](https://github.com/Carthage/Carthage)
+
+Add this to your Cartfile:
+
+```ruby
+github "remirobert/Dotzu"
+```
+
+### [CocoaPods](https://cocoapods.org)
+
+Comming soon
+
+### Manually
+
+Drag the source files into your project.
+
 ## Contact
 
 * Rémi ROBERT
-* Twitter: [@remi936](http://twitter.com/remi36)
+* Twitter: [@remi936](https://twitter.com/remi936)
 
 ## License
 
