@@ -27,3 +27,14 @@ In the `AppDelegate` instanciate `Dotzu manager`
         return true
    }
 ```
+
+## Logs
+
+Dotzu overide `print`, so you can use it and see your logs. otherwise, you can add level, and get more details (file, and line) about your logs. With the `Logger` class provided by the framework.
+```swift
+print("logs")
+Logger.verbose("some logs")
+Logger.info("infos")
+Logger.warning("warning ! ⚠️")
+Logger.error("error ❌")
+```
