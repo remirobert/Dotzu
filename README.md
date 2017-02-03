@@ -1,4 +1,4 @@
-![logo](https://cloud.githubusercontent.com/assets/3276768/22606073/b9739a36-ea52-11e6-8dc6-b996967158e8.png)
+![logo](https://cloud.githubusercontent.com/assets/3276768/22606144/035a4a28-ea53-11e6-8359-323c214c2439.png)
 
 Dotzu app
 
