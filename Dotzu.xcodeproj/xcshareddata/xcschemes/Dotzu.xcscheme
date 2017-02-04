@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "BB1B40FE1E429BC000DF4E57"
-               BuildableName = "Example.app"
-               BlueprintName = "Example"
+               BlueprintIdentifier = "BB1B40601E428B8300DF4E57"
+               BuildableName = "Dotzu.framework"
+               BlueprintName = "Dotzu"
                ReferencedContainer = "container:Dotzu.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -32,9 +32,9 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "BB1B41111E429BC000DF4E57"
-               BuildableName = "ExampleTests.xctest"
-               BlueprintName = "ExampleTests"
+               BlueprintIdentifier = "BB1B40691E428B8300DF4E57"
+               BuildableName = "DotzuTests.xctest"
+               BlueprintName = "DotzuTests"
                ReferencedContainer = "container:Dotzu.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -42,9 +42,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "BB1B40FE1E429BC000DF4E57"
-            BuildableName = "Example.app"
-            BlueprintName = "Example"
+            BlueprintIdentifier = "BB1B40601E428B8300DF4E57"
+            BuildableName = "Dotzu.framework"
+            BlueprintName = "Dotzu"
             ReferencedContainer = "container:Dotzu.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -52,7 +52,7 @@
       </AdditionalOptions>
    </TestAction>
    <LaunchAction
-      buildConfiguration = "Release"
+      buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       launchStyle = "0"
@@ -61,16 +61,15 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "BB1B40FE1E429BC000DF4E57"
-            BuildableName = "Example.app"
-            BlueprintName = "Example"
+            BlueprintIdentifier = "BB1B40601E428B8300DF4E57"
+            BuildableName = "Dotzu.framework"
+            BlueprintName = "Dotzu"
             ReferencedContainer = "container:Dotzu.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -80,16 +79,15 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "BB1B40FE1E429BC000DF4E57"
-            BuildableName = "Example.app"
-            BlueprintName = "Example"
+            BlueprintIdentifier = "BB1B40601E428B8300DF4E57"
+            BuildableName = "Dotzu.framework"
+            BlueprintName = "Dotzu"
             ReferencedContainer = "container:Dotzu.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
