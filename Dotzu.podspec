@@ -10,5 +10,6 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '9.0'
   s.ios.frameworks = 'UIKit', 'Foundation'
   s.source_files = 'Dotzu/*.swift'
+  s.resources = ["Dotzu/*.storyboard"]
   s.requires_arc = true
 end
