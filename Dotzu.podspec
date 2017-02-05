@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name = 'Dotzu'
-  s.version = '0.3'
+  s.version = '0.4'
   s.license = 'MIT'
   s.summary = 'iOS debugger tool for iOS developer. Display logs, network request, device informations, crash logs while using the app.'
   s.homepage = 'https://github.com/remirobert/Dotzu'
@@ -11,6 +11,6 @@ Pod::Spec.new do |s|
   s.ios.frameworks = 'UIKit', 'Foundation'
   s.source_files = 'Dotzu/*.swift'
   s.resources = ["Dotzu/*.storyboard"]
-  s.ios.resource_bundle = { 'Dotzu' => 'Dotzu/*.xcassets' }
+  s.ios.resource_bundles = { 'Dotzu' => ['Dotzu/*.xcassets', Dotzu/*.storyboard] }
   s.requires_arc = true
 end
