@@ -11,5 +11,6 @@ Pod::Spec.new do |s|
   s.ios.frameworks = 'UIKit', 'Foundation'
   s.source_files = 'Dotzu/*.swift'
   s.resources = ["Dotzu/*.storyboard"]
+  s.ios.resource_bundle = { 'Dotzu' => 'Dotzu/*.xcassets' }
   s.requires_arc = true
 end
