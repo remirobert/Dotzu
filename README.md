@@ -52,12 +52,6 @@ Add this to your Cartfile:
 github "remirobert/Dotzu"
 ```
 
-### [CocoaPods](https://cocoapods.org)
-
-```ruby
-pod 'Dotzu'
-```
-
 ### Manually
 
 Drag the source files into your project.
