@@ -44,8 +44,11 @@ Logger.error("error ❌")
 
 ## Network
 
-Dotzu use `URLProcotol` to logg the request. Can can add the logger on a custom URLSessionConfiguration. Works with **Alamofire**. Get notified by a '🚀', when a request is launched.
+Dotzu use `URLProcotol` to logg the request. Can can add the logger on a custom URLSessionConfiguration. Works with **Alamofire**. Works by default with `URLSession.shared`. You can disabled the networking logging in the settings screen. Get notified by a '🚀', when a request is launched.
 
+<a href="http://promisesaplus.com/">
+    <img src="https://cloud.githubusercontent.com/assets/3276768/22646311/02988ba2-ec6c-11e6-8870-08b88ec1ce1c.gif" align="right" />
+</a>
 ```swift
 //Your custom configuration
 let configuration = URLSessionConfiguration.default
