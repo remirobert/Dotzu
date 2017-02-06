@@ -30,7 +30,7 @@ In the `AppDelegate` instanciate `Dotzu manager`
 
 ## Logs
 
-Dotzu overide `print`, so you can use it and see your logs. otherwise, you can add level, and get more details (file, and line) about your logs. With the `Logger` class provided by the framework. Get new logs count on the badge, or *warning/error* notification on the bubble head.
+Dotzu override `print`, so you can use it and see your logs. otherwise, you can add level, and get more details (file, and line) about your logs. With the `Logger` class provided by the framework. Get new logs count on the badge, or *warning/error* notification on the bubble head.
 <a href="http://promisesaplus.com/">
     <img src="https://cloud.githubusercontent.com/assets/3276768/22610650/ba71cf2a-ea66-11e6-8f94-6d3c9916740e.gif" align="right" />
 </a>
@@ -40,6 +40,25 @@ Logger.verbose("some logs")
 Logger.info("infos")
 Logger.warning("warning ! ⚠️")
 Logger.error("error ❌")
+```
+
+## Network
+
+Dotzu use `URLProcotol` to logg the request. Can can add the logger on a custom URLSessionConfiguration. Works with **Alamofire**. Get notified by a '🚀', when a request is launched.
+
+```swift
+//Your custom configuration
+let configuration = URLSessionConfiguration.default
+
+//Add the network logger on the configuration
+Dotzu.sharedManager.addLogger(session: configuration)
+
+//Use it:
+//For Alamofire
+let sessionManager = Alamofire.SessionManager(configuration: configuration)
+
+//For URLSession
+let session = URLSession(configuration: configuration)
 ```
 
 ## Installation
