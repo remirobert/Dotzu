@@ -198,12 +198,42 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
+                            <tableViewSection id="b3K-NL-Vys">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="JuS-oH-l6G">
+                                        <rect key="frame" x="0.0" y="203" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="JuS-oH-l6G" id="Lih-6u-4ED">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="AUi-Pn-qQX">
+                                                    <rect key="frame" x="8" y="7" width="359" height="29"/>
+                                                    <segments>
+                                                        <segment title="Alamofire"/>
+                                                        <segment title="URLSession shared"/>
+                                                    </segments>
+                                                </segmentedControl>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="AUi-Pn-qQX" firstAttribute="leading" secondItem="Lih-6u-4ED" secondAttribute="leading" constant="8" id="9t0-yS-OYd"/>
+                                                <constraint firstItem="AUi-Pn-qQX" firstAttribute="top" secondItem="Lih-6u-4ED" secondAttribute="top" constant="7" id="gYf-5a-rKQ"/>
+                                                <constraint firstAttribute="trailing" secondItem="AUi-Pn-qQX" secondAttribute="trailing" constant="8" id="rZL-nZ-6Ef"/>
+                                                <constraint firstAttribute="bottom" secondItem="AUi-Pn-qQX" secondAttribute="bottom" constant="8" id="wgu-CP-GeS"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
                         </sections>
                         <connections>
                             <outlet property="dataSource" destination="olj-OZ-qVw" id="G6o-3G-c6M"/>
                             <outlet property="delegate" destination="olj-OZ-qVw" id="WNe-Kb-w1r"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="segmentNetwork" destination="AUi-Pn-qQX" id="YMk-5C-PMI"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8s2-97-WRl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -16,6 +16,8 @@
 		BB76CC401E45CC5F00CA1488 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB76CC3F1E45CC5F00CA1488 /* Main.storyboard */; };
 		BB76CC421E45CC6500CA1488 /* Dotzu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB76CC411E45CC6500CA1488 /* Dotzu.framework */; };
 		BB76CC431E45CC6500CA1488 /* Dotzu.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BB76CC411E45CC6500CA1488 /* Dotzu.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		BBAA51AC1E48867800B91501 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBAA51AB1E48867800B91501 /* Alamofire.framework */; };
+		BBAA51AD1E48867800B91501 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BBAA51AB1E48867800B91501 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -26,6 +28,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				BB76CC431E45CC6500CA1488 /* Dotzu.framework in Embed Frameworks */,
+				BBAA51AD1E48867800B91501 /* Alamofire.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -43,6 +46,7 @@
 		BB76CC3A1E45CC5500CA1488 /* RequestTestTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestTestTableViewController.swift; sourceTree = "<group>"; };
 		BB76CC3F1E45CC5F00CA1488 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		BB76CC411E45CC6500CA1488 /* Dotzu.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Dotzu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BBAA51AB1E48867800B91501 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Alamofire.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +55,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BB76CC421E45CC6500CA1488 /* Dotzu.framework in Frameworks */,
+				BBAA51AC1E48867800B91501 /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,6 +65,7 @@
 		BB76CC191E45CC2400CA1488 = {
 			isa = PBXGroup;
 			children = (
+				BBAA51AB1E48867800B91501 /* Alamofire.framework */,
 				BB76CC411E45CC6500CA1488 /* Dotzu.framework */,
 				BB76CC241E45CC2400CA1488 /* Example */,
 				BB76CC231E45CC2400CA1488 /* Products */,
@@ -282,6 +288,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 44Q2J6374R;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = Example/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = remi.robert.Example;
@@ -297,6 +307,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 44Q2J6374R;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = Example/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = remi.robert.Example;

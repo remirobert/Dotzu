@@ -34,6 +34,10 @@ public class Dotzu {
         LoggerCrash.register()
     }
 
+    public func addLogger(session: URLSessionConfiguration) {
+        session.protocolClasses?.insert(LoggerNetwork.self, at: 0)
+    }
+
     init() {
         self.window = ManagerWindow(frame: UIScreen.main.bounds)
     }
