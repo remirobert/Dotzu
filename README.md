@@ -17,13 +17,15 @@ The debugger tool for iOS developer. Display *logs*, *network request*, *device 
 
 ## Usage
 
-In the `AppDelegate` instanciate `Dotzu manager`
+In the `AppDelegate` instanciate `Dotzu manager`.
+Be careful to use Dotzu for development purpose only.
 
 ```swift
    func application(_ application: UIApplication,
    didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-   
-        Dotzu.sharedManager.displayWindow()
+        #if DEBUG
+            Dotzu.sharedManager.displayWindow()
+        #endif
         return true
    }
 ```
