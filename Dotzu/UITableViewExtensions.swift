@@ -11,7 +11,7 @@ import UIKit
 extension UITableView {
     func registerCellWithNib<T>(cell: T.Type) where T: UITableViewCell {
         let identifier = cell.reuseIdentifier()
-        let nib = UINib(nibName: identifier, bundle: Bundle(identifier: "remi.robert.Dotzu"))
+        let nib = UINib(nibName: identifier, bundle: Bundle(for: Dotzu.self))
         register(nib, forCellReuseIdentifier: identifier)
     }
 
