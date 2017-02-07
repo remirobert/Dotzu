@@ -3,6 +3,8 @@
 </p>
 
 # Dotzu
+In-App iOS Debugging Tool With Enhanced Logging, Networking Info, Crash reporting And More.
+
 <img src="https://img.shields.io/badge/platform-iOS-blue.svg?style=flat" alt="Platform iOS" />
 <img src="https://img.shields.io/badge/Carthage-compatible-brightgreen.svg?style=flat" alt="Carthage compatible" />
 <img src="https://img.shields.io/badge/license-MIT-blue.svg?style=flat" alt="License MIT" />
