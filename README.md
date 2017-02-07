@@ -69,7 +69,7 @@ let session = URLSession(configuration: configuration)
 
 ## Installation
 
-### CocoaPods
+### [CocoaPods](http://cocoapods.org/)
 You can use [CocoaPods](http://cocoapods.org/) to install `Dotzu` by adding it to your `Podfile`:
 
 ```ruby
