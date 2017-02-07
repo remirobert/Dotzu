@@ -73,16 +73,9 @@ let session = URLSession(configuration: configuration)
 You can use [CocoaPods](http://cocoapods.org/) to install `Dotzu` by adding it to your `Podfile`:
 
 ```ruby
-platform :ios, '8.0'
+platform :ios, '9.0'
 use_frameworks!
 pod 'Dotzu'
-```
-
-Import `Dotzu` wherever you import UIKit
-
-``` swift
-import UIKit
-import Dotzu
 ```
 
 ### [Carthage](https://github.com/Carthage/Carthage)
