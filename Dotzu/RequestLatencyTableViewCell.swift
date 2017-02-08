@@ -8,17 +8,17 @@
 
 import UIKit
 
-class RequestLatencyTableViewCell: UITableViewCell {
+class RequestLatencyTableViewCell: UITableViewCell, LogCellProtocol {
+    @IBOutlet weak var labelLatency: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    func configure(log: LogProtocol) {
+        guard let log = log as? LogRequest else {return}
+        let interval = log.duration ?? 0
+        let ms = Int((interval.truncatingRemainder(dividingBy: 1)) * 1000)
+        labelLatency.text = "\(ms)ms"
     }
-    
 }
