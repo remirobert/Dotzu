@@ -14,23 +14,35 @@ import Dotzu
 class RequestTestTableViewController: UITableViewController {
 
     @IBOutlet weak var segmentNetwork: UISegmentedControl!
+    var task: URLSessionDataTask?
+    var session: URLSession!
+    var sessionManager: SessionManager!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        let configuration = URLSessionConfiguration.default
+        Dotzu.sharedManager.addLogger(session: configuration)
+        session = URLSession(configuration: configuration)
     }
 
     private func makeRequest(url: String) {
-        if segmentNetwork.selectedSegmentIndex == 0 {
+        if segmentNetwork.selectedSegmentIndex == 1 {
             guard let url = URL(string: url) else {return}
-            URLSession.shared.dataTask(with: url) { _, response, _ in
+            task?.cancel()
+            let request = NSMutableURLRequest(url: url)
+            request.setValue(UUID().uuidString, forHTTPHeaderField: "UUID")
+            request.setValue("\(Date().timeIntervalSinceNow)", forHTTPHeaderField: "date")
+            task = session.dataTask(with: request as URLRequest, completionHandler: { _, response, error in
                 Logger.info("response for url : [\(url)] : \(response)")
-                }.resume()
+            })
+            task?.resume()
         } else {
             let configuration = URLSessionConfiguration.default
             Dotzu.sharedManager.addLogger(session: configuration)
-            let sessionManager = Alamofire.SessionManager(configuration: configuration)
-
-            sessionManager.request(url).responseJSON { response in
+            sessionManager = Alamofire.SessionManager(configuration: configuration)
+            let hedears = ["UUID": UUID().uuidString] as HTTPHeaders
+            sessionManager.request(url, headers: hedears).responseJSON { response in
                 Logger.info("response for url : [\(url)] : \(response)")
             }
         }
@@ -40,7 +52,7 @@ class RequestTestTableViewController: UITableViewController {
         if indexPath.section == 0 {
             switch indexPath.row {
             case 0:
-                makeRequest(url: "http://httpbin.org/ip")
+                makeRequest(url: "http://httpbin.org/headers")
             case 1:
                 makeRequest(url: "http://httpbin.org/status/404")
             case 2:
