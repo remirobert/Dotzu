@@ -14,10 +14,10 @@ enum DetailRequestSection: String {
     case bodyResponse = "Body Response"
     case error = "error"
 
-    var cell: UITableViewCell.Type {
+    func cell(row: Int) -> UITableViewCell.Type {
         switch self {
         case .detail:
-            return LogNetworkTableViewCell.self
+            return row == 0 ? LogNetworkTableViewCell.self : RequestLatencyTableViewCell.self
         case .headers:
             return RequestHeadersTableViewCell.self
         case .bodyResponse:
@@ -75,6 +75,7 @@ class DetailRequestViewController: UIViewController {
         tableview.registerCellWithNib(cell: ResponseDataTableViewCell.self)
         tableview.registerCellWithNib(cell: RequestHeadersTableViewCell.self)
         tableview.registerCellWithNib(cell: RequestErrorTableViewCell.self)
+        tableview.registerCellWithNib(cell: RequestLatencyTableViewCell.self)
 
         tableview.estimatedRowHeight = 50
         tableview.rowHeight = UITableViewAutomaticDimension
@@ -110,12 +111,12 @@ extension DetailRequestViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return section == 0 ? 2 : 1
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let currentSection = sections[indexPath.section]
-        return initCellContent(cellType: currentSection.cell)
+        return initCellContent(cellType: currentSection.cell(row: indexPath.row))
     }
 }
 

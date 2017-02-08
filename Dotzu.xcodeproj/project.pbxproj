@@ -73,6 +73,8 @@
 		BB1B41251E429E8600DF4E57 /* Logs.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB1B41241E429E8600DF4E57 /* Logs.storyboard */; };
 		BB1B41271E429F2000DF4E57 /* Application.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB1B41261E429F2000DF4E57 /* Application.storyboard */; };
 		BB1B41291E429F4E00DF4E57 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB1B41281E429F4E00DF4E57 /* Settings.storyboard */; };
+		BB67A0AE1E4B2914008EABE9 /* RequestLatencyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB67A0AC1E4B2914008EABE9 /* RequestLatencyTableViewCell.swift */; };
+		BB67A0AF1E4B2914008EABE9 /* RequestLatencyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB67A0AD1E4B2914008EABE9 /* RequestLatencyTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -155,6 +157,8 @@
 		BB1B41241E429E8600DF4E57 /* Logs.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Logs.storyboard; sourceTree = "<group>"; };
 		BB1B41261E429F2000DF4E57 /* Application.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Application.storyboard; sourceTree = "<group>"; };
 		BB1B41281E429F4E00DF4E57 /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
+		BB67A0AC1E4B2914008EABE9 /* RequestLatencyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestLatencyTableViewCell.swift; sourceTree = "<group>"; };
+		BB67A0AD1E4B2914008EABE9 /* RequestLatencyTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RequestLatencyTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -249,6 +253,8 @@
 				BB1B40981E429B6100DF4E57 /* LogHeadView.swift */,
 				BB1B40811E429B6100DF4E57 /* CrashListTableViewCell.swift */,
 				BB1B40821E429B6100DF4E57 /* CrashListTableViewCell.xib */,
+				BB67A0AC1E4B2914008EABE9 /* RequestLatencyTableViewCell.swift */,
+				BB67A0AD1E4B2914008EABE9 /* RequestLatencyTableViewCell.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -463,6 +469,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BB67A0AF1E4B2914008EABE9 /* RequestLatencyTableViewCell.xib in Resources */,
 				BB1B40BB1E429B6200DF4E57 /* Assets.xcassets in Resources */,
 				BB1B40DB1E429B6200DF4E57 /* LogNetworkTableViewCell.xib in Resources */,
 				BB1B41291E429F4E00DF4E57 /* Settings.storyboard in Resources */,
@@ -532,6 +539,7 @@
 				BB1B40C71E429B6200DF4E57 /* FilterViewControllerProtocol.swift in Sources */,
 				BB1B40CD1E429B6200DF4E57 /* LogCellProtocol.swift in Sources */,
 				BB1B40C21E429B6200DF4E57 /* DetailResponseBodyViewController.swift in Sources */,
+				BB67A0AE1E4B2914008EABE9 /* RequestLatencyTableViewCell.swift in Sources */,
 				BB1B40DC1E429B6200DF4E57 /* LogNotification.swift in Sources */,
 				BB1B40D51E429B6200DF4E57 /* LogHeadView.swift in Sources */,
 				BB1B40CF1E429B6200DF4E57 /* LogCodeFilter.swift in Sources */,
