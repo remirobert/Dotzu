@@ -26,6 +26,37 @@ class RequestTestTableViewController: UITableViewController {
         session = URLSession(configuration: configuration)
     }
 
+    private func makePostRequest(url: String) {
+        if segmentNetwork.selectedSegmentIndex == 0 {
+            guard let url = URL(string: url) else {return}
+            task?.cancel()
+            let request = NSMutableURLRequest(url: url)
+            let parameters = ["username":"remi"]
+            var data: Data?
+            do {
+                data = try JSONSerialization.data(withJSONObject: parameters, options: JSONSerialization.WritingOptions.prettyPrinted)
+            } catch {
+                return
+            }
+            request.httpBody = data
+            request.httpMethod = "POST"
+            task = session.dataTask(with: request as URLRequest, completionHandler: { _, response, error in
+                Logger.info("response for url : [\(url)] : \(response)")
+            })
+            task?.resume()
+        }
+        else {
+            let configuration = URLSessionConfiguration.default
+            Dotzu.sharedManager.addLogger(session: configuration)
+            sessionManager = Alamofire.SessionManager(configuration: configuration)
+            let hedears = ["UUID": UUID().uuidString] as HTTPHeaders
+
+            sessionManager.request(url, method: HTTPMethod.post, parameters: ["data":UUID().uuidString], encoding: JSONEncoding.default, headers: hedears).responseJSON(completionHandler: { response in
+                Logger.info("response for url : [\(url)] : \(response)")
+            })
+        }
+    }
+
     private func makeRequest(url: String) {
         if segmentNetwork.selectedSegmentIndex == 1 {
             guard let url = URL(string: url) else {return}
@@ -33,6 +64,7 @@ class RequestTestTableViewController: UITableViewController {
             let request = NSMutableURLRequest(url: url)
             request.setValue(UUID().uuidString, forHTTPHeaderField: "UUID")
             request.setValue("\(Date().timeIntervalSinceNow)", forHTTPHeaderField: "date")
+            request.httpMethod = "GET"
             task = session.dataTask(with: request as URLRequest, completionHandler: { _, response, error in
                 Logger.info("response for url : [\(url)] : \(response)")
             })
@@ -42,6 +74,7 @@ class RequestTestTableViewController: UITableViewController {
             Dotzu.sharedManager.addLogger(session: configuration)
             sessionManager = Alamofire.SessionManager(configuration: configuration)
             let hedears = ["UUID": UUID().uuidString] as HTTPHeaders
+
             sessionManager.request(url, headers: hedears).responseJSON { response in
                 Logger.info("response for url : [\(url)] : \(response)")
             }
@@ -59,6 +92,8 @@ class RequestTestTableViewController: UITableViewController {
                 makeRequest(url: "http://httpbin.org/status/500")
             default: break
             }
+        } else if indexPath.section == 1 {
+            makePostRequest(url: "http://httpbin.org/post")
         }
         tableView.deselectRow(at: indexPath, animated: true)
     }

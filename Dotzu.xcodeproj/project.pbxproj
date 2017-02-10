@@ -73,6 +73,8 @@
 		BB1B41251E429E8600DF4E57 /* Logs.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB1B41241E429E8600DF4E57 /* Logs.storyboard */; };
 		BB1B41271E429F2000DF4E57 /* Application.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB1B41261E429F2000DF4E57 /* Application.storyboard */; };
 		BB1B41291E429F4E00DF4E57 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB1B41281E429F4E00DF4E57 /* Settings.storyboard */; };
+		BB2040711E4E5A9E0022E8D6 /* RequestDataHttpBodyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB20406F1E4E5A9E0022E8D6 /* RequestDataHttpBodyTableViewCell.swift */; };
+		BB2040721E4E5A9E0022E8D6 /* RequestDataHttpBodyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB2040701E4E5A9E0022E8D6 /* RequestDataHttpBodyTableViewCell.xib */; };
 		BB67A0AE1E4B2914008EABE9 /* RequestLatencyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB67A0AC1E4B2914008EABE9 /* RequestLatencyTableViewCell.swift */; };
 		BB67A0AF1E4B2914008EABE9 /* RequestLatencyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB67A0AD1E4B2914008EABE9 /* RequestLatencyTableViewCell.xib */; };
 /* End PBXBuildFile section */
@@ -157,6 +159,8 @@
 		BB1B41241E429E8600DF4E57 /* Logs.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Logs.storyboard; sourceTree = "<group>"; };
 		BB1B41261E429F2000DF4E57 /* Application.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Application.storyboard; sourceTree = "<group>"; };
 		BB1B41281E429F4E00DF4E57 /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
+		BB20406F1E4E5A9E0022E8D6 /* RequestDataHttpBodyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestDataHttpBodyTableViewCell.swift; sourceTree = "<group>"; };
+		BB2040701E4E5A9E0022E8D6 /* RequestDataHttpBodyTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RequestDataHttpBodyTableViewCell.xib; sourceTree = "<group>"; };
 		BB67A0AC1E4B2914008EABE9 /* RequestLatencyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestLatencyTableViewCell.swift; sourceTree = "<group>"; };
 		BB67A0AD1E4B2914008EABE9 /* RequestLatencyTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RequestLatencyTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -255,6 +259,8 @@
 				BB1B40821E429B6100DF4E57 /* CrashListTableViewCell.xib */,
 				BB67A0AC1E4B2914008EABE9 /* RequestLatencyTableViewCell.swift */,
 				BB67A0AD1E4B2914008EABE9 /* RequestLatencyTableViewCell.xib */,
+				BB20406F1E4E5A9E0022E8D6 /* RequestDataHttpBodyTableViewCell.swift */,
+				BB2040701E4E5A9E0022E8D6 /* RequestDataHttpBodyTableViewCell.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -478,6 +484,7 @@
 				BB1B40F01E429B6200DF4E57 /* RequestHeadersTableViewCell.xib in Resources */,
 				BB1B40E31E429B6200DF4E57 /* LogTableViewCell.xib in Resources */,
 				BB1B40BF1E429B6200DF4E57 /* CrashListTableViewCell.xib in Resources */,
+				BB2040721E4E5A9E0022E8D6 /* RequestDataHttpBodyTableViewCell.xib in Resources */,
 				BB1B41271E429F2000DF4E57 /* Application.storyboard in Resources */,
 				BB1B40EE1E429B6200DF4E57 /* RequestErrorTableViewCell.xib in Resources */,
 				BB1B40E51E429B6200DF4E57 /* Manager.storyboard in Resources */,
@@ -531,6 +538,7 @@
 				BB1B40E21E429B6200DF4E57 /* LogTableViewCell.swift in Sources */,
 				BB1B40D61E429B6200DF4E57 /* LogLevel.swift in Sources */,
 				BB1B40D81E429B6200DF4E57 /* StoreManager.swift in Sources */,
+				BB2040711E4E5A9E0022E8D6 /* RequestDataHttpBodyTableViewCell.swift in Sources */,
 				BB1B40C91E429B6200DF4E57 /* ListCrashesViewController.swift in Sources */,
 				BB1B40DF1E429B6200DF4E57 /* LogResponseBodyViewModel.swift in Sources */,
 				BB1B40C51E429B6200DF4E57 /* FilterLogTableViewController.swift in Sources */,

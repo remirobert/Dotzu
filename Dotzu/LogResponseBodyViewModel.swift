@@ -15,8 +15,9 @@ class LogResponseBodyViewModel {
     var format: String? {
         do {
             let json = try JSONSerialization.jsonObject(with: data as Data, options: .mutableContainers)
-            let pretty = try JSONSerialization.data(withJSONObject: json, options: .prettyPrinted)
-            return NSString(data: pretty, encoding: String.Encoding.utf8.rawValue) as? String
+            let pretty = try JSONSerialization.data(withJSONObject: json,   options: .prettyPrinted)
+            let prettyString = NSString(data: pretty, encoding: String.Encoding.utf8.rawValue) as? String
+            return prettyString?.replacingOccurrences(of: "\\/", with: "/")
         } catch {
             return NSString(data: data as Data, encoding: String.Encoding.utf8.rawValue) as? String
         }

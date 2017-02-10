@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="GtZ-c4-zrG">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="GtZ-c4-zrG">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -204,10 +204,31 @@
                                         <rect key="frame" x="0.0" y="203" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="JuS-oH-l6G" id="Lih-6u-4ED">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="AUi-Pn-qQX">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="POST http://httpbin.org/post" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ENQ-bN-G3f">
+                                                    <rect key="frame" x="8" y="11" width="359" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection id="6TT-wi-pxF">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="XmV-Sw-Mfn">
+                                        <rect key="frame" x="0.0" y="283" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XmV-Sw-Mfn" id="i5E-jW-ENQ">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="CcP-FG-8QJ">
                                                     <rect key="frame" x="8" y="7" width="359" height="29"/>
                                                     <segments>
                                                         <segment title="Alamofire"/>
@@ -216,10 +237,10 @@
                                                 </segmentedControl>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="AUi-Pn-qQX" firstAttribute="leading" secondItem="Lih-6u-4ED" secondAttribute="leading" constant="8" id="9t0-yS-OYd"/>
-                                                <constraint firstItem="AUi-Pn-qQX" firstAttribute="top" secondItem="Lih-6u-4ED" secondAttribute="top" constant="7" id="gYf-5a-rKQ"/>
-                                                <constraint firstAttribute="trailing" secondItem="AUi-Pn-qQX" secondAttribute="trailing" constant="8" id="rZL-nZ-6Ef"/>
-                                                <constraint firstAttribute="bottom" secondItem="AUi-Pn-qQX" secondAttribute="bottom" constant="8" id="wgu-CP-GeS"/>
+                                                <constraint firstItem="CcP-FG-8QJ" firstAttribute="top" secondItem="i5E-jW-ENQ" secondAttribute="top" constant="7" id="0HV-DV-0Zc"/>
+                                                <constraint firstAttribute="trailing" secondItem="CcP-FG-8QJ" secondAttribute="trailing" constant="8" id="Y5V-hM-XSJ"/>
+                                                <constraint firstAttribute="bottom" secondItem="CcP-FG-8QJ" secondAttribute="bottom" constant="8" id="mn6-TH-8fj"/>
+                                                <constraint firstItem="CcP-FG-8QJ" firstAttribute="leading" secondItem="i5E-jW-ENQ" secondAttribute="leading" constant="8" id="o1p-4U-QhA"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -231,9 +252,6 @@
                             <outlet property="delegate" destination="olj-OZ-qVw" id="WNe-Kb-w1r"/>
                         </connections>
                     </tableView>
-                    <connections>
-                        <outlet property="segmentNetwork" destination="AUi-Pn-qQX" id="YMk-5C-PMI"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8s2-97-WRl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -11,6 +11,7 @@ import UIKit
 enum DetailRequestSection: String {
     case detail = ""
     case headers = "Headers"
+    case httpBody = "HTTP post data sent"
     case bodyResponse = "Body Response"
     case error = "error"
 
@@ -20,6 +21,8 @@ enum DetailRequestSection: String {
             return row == 0 ? LogNetworkTableViewCell.self : RequestLatencyTableViewCell.self
         case .headers:
             return RequestHeadersTableViewCell.self
+        case .httpBody:
+            return RequestDataHttpBodyTableViewCell.self
         case .bodyResponse:
             return ResponseDataTableViewCell.self
         case .error:
@@ -32,8 +35,10 @@ enum DetailRequestSection: String {
         case 1:
             return .headers
         case 2:
-            return .bodyResponse
+            return .httpBody
         case 3:
+            return .bodyResponse
+        case 4:
             return .error
         default:
             return .detail
@@ -51,6 +56,9 @@ enum DetailRequestSection: String {
         }
         if let headers = log.headers, headers.count > 0 {
             sections.append(.headers)
+        }
+        if log.httpBody != nil {
+            sections.append(.httpBody)
         }
         if log.dataResponse != nil {
             sections.append(.bodyResponse)
@@ -76,6 +84,7 @@ class DetailRequestViewController: UIViewController {
         tableview.registerCellWithNib(cell: RequestHeadersTableViewCell.self)
         tableview.registerCellWithNib(cell: RequestErrorTableViewCell.self)
         tableview.registerCellWithNib(cell: RequestLatencyTableViewCell.self)
+        tableview.registerCellWithNib(cell: RequestDataHttpBodyTableViewCell.self)
 
         tableview.estimatedRowHeight = 50
         tableview.rowHeight = UITableViewAutomaticDimension
@@ -93,7 +102,8 @@ class DetailRequestViewController: UIViewController {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let controller = segue.destination as? DetailResponseBodyViewController {
-            guard let data = log.dataResponse else {return}
+            guard let section = sender as? DetailRequestSection else {return}
+            guard let data = section == .bodyResponse ? log.dataResponse : log.httpBody as? NSData else {return}
             let viewmodel = LogResponseBodyViewModel(data: data as Data)
             controller.viewmodel = viewmodel
         }
@@ -123,8 +133,8 @@ extension DetailRequestViewController: UITableViewDataSource {
 extension DetailRequestViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let currentSection = sections[indexPath.section]
-        if currentSection == .bodyResponse {
-            performSegue(withIdentifier: "detailBodySegue", sender: nil)
+        if currentSection == .bodyResponse || currentSection == .httpBody {
+            performSegue(withIdentifier: "detailBodySegue", sender: currentSection)
         }
     }
 }

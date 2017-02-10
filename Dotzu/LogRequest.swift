@@ -19,6 +19,7 @@ class LogRequest: NSObject, NSCoding {
     let date: Date
     let method: String
     let headers: [String: String]?
+    var httpBody: Data?
     var code: Int
     var dataResponse: NSData?
     var errorClientDescription: String?
@@ -35,6 +36,7 @@ class LogRequest: NSObject, NSCoding {
         method = request.httpMethod ?? "N/A"
         url = request.url?.absoluteString ?? ""
         headers = request.allHTTPHeaderFields
+        httpBody = request.httpBody
     }
 
     func initResponse(response: URLResponse) {
@@ -52,6 +54,7 @@ class LogRequest: NSObject, NSCoding {
         aCoder.encode(dataResponse, forKey: "dataResponse")
         aCoder.encode(errorClientDescription, forKey: "errorClientDescription")
         aCoder.encode(duration, forKey: "duration")
+        aCoder.encode(httpBody, forKey: "httpBody")
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -64,6 +67,7 @@ class LogRequest: NSObject, NSCoding {
         dataResponse = aDecoder.decodeObject(forKey: "dataResponse") as? NSData
         errorClientDescription = aDecoder.decodeObject(forKey: "errorClientDescription") as? String
         duration = aDecoder.decodeObject(forKey: "duration") as? Double
+        httpBody = aDecoder.decodeObject(forKey: "httpBody") as? Data
     }
 }
 

@@ -8,6 +8,24 @@
 
 import Foundation
 
+fileprivate var bodyValues = [String:Data]()
+
+extension NSMutableURLRequest {
+
+    @objc class func httpBodyHackSwizzle() {
+        let setHttpBody = class_getInstanceMethod(self, Selector("setHTTPBody:"))
+        let httpBodyHackSetHttpBody = class_getInstanceMethod(self, #selector(self.httpBodyHackSetHttpBody(body:)))
+        method_exchangeImplementations(setHttpBody, httpBodyHackSetHttpBody)
+    }
+
+    @objc func httpBodyHackSetHttpBody(body: NSData?) {
+        let keyRequest = "\(hashValue)"
+        guard let body = body, bodyValues[keyRequest] == nil else { return }
+        bodyValues[keyRequest] = body as Data
+        httpBodyHackSetHttpBody(body: body)
+    }
+}
+
 class LoggerNetwork: URLProtocol {
 
     var connection: NSURLConnection?
@@ -30,6 +48,7 @@ class LoggerNetwork: URLProtocol {
     var session: URLSession?
 
     open class func register() {
+        NSMutableURLRequest.httpBodyHackSwizzle()
         URLProtocol.registerClass(self)
     }
 
@@ -71,6 +90,10 @@ class LoggerNetwork: URLProtocol {
     open override func stopLoading() {
         sessionTask?.cancel()
         guard let log = currentLog else {return}
+
+        let keyRequest = "\(newRequest?.hashValue ?? 0)"
+        log.httpBody = bodyValues["\(keyRequest)"]
+        bodyValues.removeValue(forKey: keyRequest)
 
         if let startDate = LoggerNetwork.property(forKey: "MyURLProtocolDateKey",
                                                   in: newRequest! as URLRequest) as? Date {
