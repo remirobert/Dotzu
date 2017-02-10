@@ -252,6 +252,9 @@
                             <outlet property="delegate" destination="olj-OZ-qVw" id="WNe-Kb-w1r"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="segmentNetwork" destination="CcP-FG-8QJ" id="IKW-oz-1Yd"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8s2-97-WRl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
