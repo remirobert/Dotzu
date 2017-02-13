@@ -21,7 +21,7 @@ class RequestDataHttpBodyTableViewCell: UITableViewCell, LogCellProtocol {
 
     func configure(log: LogProtocol) {
         guard let request = log as? LogRequest else {return}
-        guard let data = request.httpBody as? NSData else {return}
-        textview.text = "\(data.length) bytes"
+        guard let data = request.httpBody else {return}
+        textview.text = "\(NSData(data:data).length) bytes"
     }
 }

@@ -103,8 +103,14 @@ class DetailRequestViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let controller = segue.destination as? DetailResponseBodyViewController {
             guard let section = sender as? DetailRequestSection else {return}
-            guard let data = section == .bodyResponse ? log.dataResponse : log.httpBody as? NSData else {return}
-            let viewmodel = LogResponseBodyViewModel(data: data as Data)
+            let viewmodel: LogResponseBodyViewModel!
+            if section == .bodyResponse {
+                guard let data = log.dataResponse else {return}
+                viewmodel = LogResponseBodyViewModel(data: data as Data)
+            } else {
+                guard let data = log.httpBody else {return}
+                viewmodel = LogResponseBodyViewModel(data: data as Data)
+            }
             controller.viewmodel = viewmodel
         }
     }
