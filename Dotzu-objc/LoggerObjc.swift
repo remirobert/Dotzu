@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Dotzu
 
 public class LoggerObjc: NSObject {
     public static func verbose(_ items: String, file: String = #file, function: String = #function, line: Int = #line) {

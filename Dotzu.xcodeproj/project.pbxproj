@@ -77,8 +77,6 @@
 		BB2040721E4E5A9E0022E8D6 /* RequestDataHttpBodyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB2040701E4E5A9E0022E8D6 /* RequestDataHttpBodyTableViewCell.xib */; };
 		BB67A0AE1E4B2914008EABE9 /* RequestLatencyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB67A0AC1E4B2914008EABE9 /* RequestLatencyTableViewCell.swift */; };
 		BB67A0AF1E4B2914008EABE9 /* RequestLatencyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB67A0AD1E4B2914008EABE9 /* RequestLatencyTableViewCell.xib */; };
-		BBB10E531E58487F0046D2BE /* LoggerObjc.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB10E521E58487F0046D2BE /* LoggerObjc.swift */; };
-		BBB10E561E584A6A0046D2BE /* LoggerObjc.h in Headers */ = {isa = PBXBuildFile; fileRef = BBB10E511E58483E0046D2BE /* LoggerObjc.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -165,8 +163,6 @@
 		BB2040701E4E5A9E0022E8D6 /* RequestDataHttpBodyTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RequestDataHttpBodyTableViewCell.xib; sourceTree = "<group>"; };
 		BB67A0AC1E4B2914008EABE9 /* RequestLatencyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestLatencyTableViewCell.swift; sourceTree = "<group>"; };
 		BB67A0AD1E4B2914008EABE9 /* RequestLatencyTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RequestLatencyTableViewCell.xib; sourceTree = "<group>"; };
-		BBB10E511E58483E0046D2BE /* LoggerObjc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoggerObjc.h; sourceTree = "<group>"; };
-		BBB10E521E58487F0046D2BE /* LoggerObjc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoggerObjc.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -338,8 +334,6 @@
 				BB1B40951E429B6100DF4E57 /* LoggerCrash.swift */,
 				BB1B40961E429B6100DF4E57 /* LoggerFormat.swift */,
 				BB1B40971E429B6100DF4E57 /* LoggerNetwork.swift */,
-				BBB10E521E58487F0046D2BE /* LoggerObjc.swift */,
-				BBB10E511E58483E0046D2BE /* LoggerObjc.h */,
 			);
 			name = Logger;
 			sourceTree = "<group>";
@@ -389,7 +383,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				BB1B40721E428B8300DF4E57 /* Dotzu.h in Headers */,
-				BBB10E561E584A6A0046D2BE /* LoggerObjc.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -548,7 +541,6 @@
 				BB2040711E4E5A9E0022E8D6 /* RequestDataHttpBodyTableViewCell.swift in Sources */,
 				BB1B40C91E429B6200DF4E57 /* ListCrashesViewController.swift in Sources */,
 				BB1B40DF1E429B6200DF4E57 /* LogResponseBodyViewModel.swift in Sources */,
-				BBB10E531E58487F0046D2BE /* LoggerObjc.swift in Sources */,
 				BB1B40C51E429B6200DF4E57 /* FilterLogTableViewController.swift in Sources */,
 				BB1B40D71E429B6200DF4E57 /* LogLevelFilter.swift in Sources */,
 				BB1B40F31E429B6200DF4E57 /* SettingsTableViewController.swift in Sources */,
