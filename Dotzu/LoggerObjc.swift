@@ -17,11 +17,11 @@ public class LoggerObjc: NSObject {
         Logger.info(items, file: file, function: function, line: line)
     }
 
-    public static func warning(_ items: Any..., file: String = #file, function: String = #function, line: Int = #line) {
+    public static func warning(_ items: String, file: String = #file, function: String = #function, line: Int = #line) {
         Logger.warning(items, file: file, function: function, line: line)
     }
 
-    public static func error(_ items: Any..., file: String = #file, function: String = #function, line: Int = #line) {
+    public static func error(_ items: String, file: String = #file, function: String = #function, line: Int = #line) {
         Logger.error(items, file: file, function: function, line: line)
     }
 }
