@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class Dotzu {
+public class Dotzu: NSObject {
     public static let sharedManager = Dotzu()
     private var window: ManagerWindow
     fileprivate let controller = ManagerViewController()
@@ -38,8 +38,9 @@ public class Dotzu {
         session.protocolClasses?.insert(LoggerNetwork.self, at: 0)
     }
 
-    init() {
+    override init() {
         self.window = ManagerWindow(frame: UIScreen.main.bounds)
+        super.init()
     }
 }
 
