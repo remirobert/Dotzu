@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name = 'Dotzu'
-  s.version = '1.0'
+  s.version = '1.1'
   s.license = 'MIT'
   s.summary = 'iOS debugger tool for iOS developer. Display logs, network request, device informations, crash logs while using the app.'
   s.homepage = 'https://github.com/remirobert/Dotzu'
