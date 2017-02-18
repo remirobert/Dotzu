@@ -78,6 +78,12 @@ use_frameworks!
 pod 'Dotzu'
 ```
 
+**For Objective-c use :**
+
+```ruby
+pod 'DotzuObjc'
+```
+
 ### [Carthage](https://github.com/Carthage/Carthage)
 
 Add this to your Cartfile:
@@ -89,6 +95,19 @@ github "remirobert/Dotzu"
 ### Manually
 
 Drag the source files into your project.
+
+## Installation - Objective-c
+
+### [CocoaPods](http://cocoapods.org/)
+You can use [CocoaPods](http://cocoapods.org/) to install `DotzuObjc` by adding it to your `Podfile`:
+
+```ruby
+platform :ios, '9.0'
+use_frameworks!
+pod 'DotzuObjc'
+```
+
+
 
 ## Contact
 
