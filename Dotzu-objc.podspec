@@ -11,5 +11,5 @@ Pod::Spec.new do |s|
   s.ios.frameworks = 'UIKit', 'Foundation'
   s.source_files = 'Dotzu-objc/*.{h,swift}'
   s.requires_arc = true
-  s.dependency 'Dotzu', '~> 1.2'
+  s.dependency 'Dotzu', '~> 1.3'
 end
