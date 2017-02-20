@@ -19,10 +19,12 @@ extension NSMutableURLRequest {
     }
 
     @objc func httpBodyHackSetHttpBody(body: NSData?) {
+        defer {
+            httpBodyHackSetHttpBody(body: body)
+        }
         let keyRequest = "\(hashValue)"
         guard let body = body, bodyValues[keyRequest] == nil else { return }
         bodyValues[keyRequest] = body as Data
-        httpBodyHackSetHttpBody(body: body)
     }
 }
 
