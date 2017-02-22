@@ -1,5 +1,5 @@
 <p align="center">
-  <img src ="https://cloud.githubusercontent.com/assets/3276768/23212567/9d036e12-f907-11e6-9c61-d6007d9a117e.png"/>
+  <img src ="https://cloud.githubusercontent.com/assets/3276768/22606144/035a4a28-ea53-11e6-8359-323c214c2439.png"/>
 </p>
 
 # Dotzu
