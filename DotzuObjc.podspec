@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name = 'DotzuObjc'
-  s.version = '1.5'
+  s.version = '1.6'
   s.license = 'MIT'
   s.summary = 'iOS debugger tool for iOS developer. Display logs, network request, device informations, crash logs while using the app.'
   s.homepage = 'https://github.com/remirobert/Dotzu'
@@ -11,5 +11,5 @@ Pod::Spec.new do |s|
   s.ios.frameworks = 'UIKit', 'Foundation'
   s.source_files = 'DotzuObjc/*.{h,swift}'
   s.requires_arc = true
-  s.dependency 'Dotzu', '~> 1.5'
+  s.dependency 'Dotzu', '~> 1.6'
 end
