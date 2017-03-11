@@ -37,6 +37,8 @@ func handleSignal(signal: Int32) {
         LoggerCrash.addCrash(name: "SIGSYS", reason: nil)
     case SIGPIPE:
         LoggerCrash.addCrash(name: "SIGPIPE", reason: nil)
+    case SIGTRAP:
+        LoggerCrash.addCrash(name: "SIGTRAP", reason: nil)
     default: break
     }
 }
@@ -55,6 +57,7 @@ class LoggerCrash {
         signal(SIGSEGV, handleSignal)
         signal(SIGSYS, handleSignal)
         signal(SIGPIPE, handleSignal)
+        signal(SIGTRAP, handleSignal)
     }
 
     static func unregister() {
@@ -66,6 +69,7 @@ class LoggerCrash {
         signal(SIGSEGV, SIG_DFL)
         signal(SIGSYS, SIG_DFL)
         signal(SIGPIPE, SIG_DFL)
+        signal(SIGTRAP, SIG_DFL)
     }
 
     static func addCrash(name: String, reason: String?) {
