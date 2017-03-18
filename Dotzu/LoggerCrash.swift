@@ -41,10 +41,20 @@ func handleSignal(signal: Int32) {
     }
 }
 
-class LoggerCrash {
+class LoggerCrash: LogGenerator {
 
     static let shared = LoggerCrash()
     var crashed = false
+    var enable: Bool = true {
+        didSet {
+            if enable {
+                LoggerCrash.register()
+            }
+            else {
+                LoggerCrash.unregister()
+            }
+        }
+    }
 
     static func register() {
         NSSetUncaughtExceptionHandler(exceptionHandler)
