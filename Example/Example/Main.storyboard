@@ -4,16 +4,15 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Table View Controller-->
+        <!--Root Table View Controller-->
         <scene sceneID="e1p-35-3YX">
             <objects>
-                <tableViewController id="4qF-lr-DdW" sceneMemberID="viewController">
+                <tableViewController id="4qF-lr-DdW" customClass="RootTableViewController" customModule="Example" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="jPN-Jb-lPY">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -113,7 +112,17 @@
                             <outlet property="delegate" destination="4qF-lr-DdW" id="15s-Ox-Z5T"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="Q19-wc-Kuk"/>
+                    <navigationItem key="navigationItem" id="Q19-wc-Kuk">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="Eix-9O-YDe">
+                            <switch key="customView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" id="zhN-zg-506">
+                                <rect key="frame" x="310" y="6" width="51" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="switchChanged:" destination="4qF-lr-DdW" eventType="valueChanged" id="bPV-1O-aw5"/>
+                                </connections>
+                            </switch>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="igF-fb-BaX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

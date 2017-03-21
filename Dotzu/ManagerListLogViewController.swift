@@ -13,10 +13,17 @@ class ManagerListLogViewController: UIViewController {
     @IBOutlet weak var tableview: UITableView!
     @IBOutlet weak var labelEmptyState: UILabel!
     @IBOutlet weak var segment: UISegmentedControl!
+    @IBOutlet weak var buttonScrollDown: UIButton! {
+        didSet {
+            buttonScrollDown.isHidden = true
+            buttonScrollDown.layer.cornerRadius = 25
+        }
+    }
 
     private let dataSourceLogs = ListLogDataSource<Log>()
     fileprivate let dataSourceNetwork = ListLogDataSource<LogRequest>()
 
+    private var firstLaunch = true
     private var obsLogs: NotificationObserver<Void>!
     private var obsSettings: NotificationObserver<Void>!
     private var obsNetwork: NotificationObserver<Void>!
@@ -40,16 +47,26 @@ class ManagerListLogViewController: UIViewController {
         }
     }
 
+    @IBAction func scrollDown(_ sender: Any) {
+        let lastPath = state == .logs ? dataSourceLogs.lastPath : dataSourceNetwork.lastPath
+        tableview.scrollToRow(at: lastPath, at: .top, animated: true)
+    }
+
     @IBAction func didChangeState(_ sender: Any) {
         state = ManagerListLogState(rawValue: segment.selectedSegmentIndex) ?? .logs
     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        let lastPath = state == .logs ? dataSourceLogs.lastPath : dataSourceNetwork.lastPath
         let count = state == .logs ? dataSourceLogs.count : dataSourceNetwork.count
         if count > 0 {
-            tableview.scrollToRow(at: lastPath, at: .top, animated: false)
+            if firstLaunch {
+                firstLaunch = false
+                let lastPath = state == .logs ? dataSourceLogs.lastPath : dataSourceNetwork.lastPath
+                tableview.scrollToRow(at: lastPath, at: .top, animated: false)
+            } else {
+                changeStateButtonScrollDown(show: isScrollable(scrollView: tableview))
+            }
         }
         labelEmptyState.isHidden = count > 0
     }
@@ -138,6 +155,31 @@ class ManagerListLogViewController: UIViewController {
         } else if let controller = segue.destination as? ContainerFilterViewController {
             controller.state = state
         }
+    }
+}
+
+extension ManagerListLogViewController: UIScrollViewDelegate {
+    fileprivate func changeStateButtonScrollDown(show: Bool) {
+        if show {
+            buttonScrollDown.isHidden = false
+        }
+        let widthScreen = UIScreen.main.bounds.size.width
+        UIView.animate(withDuration: 1, delay: show ? 0.5 : 0, usingSpringWithDamping: show ? 0.5 : 0, initialSpringVelocity: show ? 6 : 0, options: .curveEaseOut, animations: {
+            self.buttonScrollDown.frame.origin.x = show ? widthScreen - 60 : widthScreen
+        }, completion: nil)
+    }
+
+    fileprivate func isScrollable(scrollView: UIScrollView) -> Bool {
+        let ratio = scrollView.contentSize.height - scrollView.contentOffset.y
+        return !(ratio <= scrollView.frame.size.height)
+    }
+
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        changeStateButtonScrollDown(show: isScrollable(scrollView: scrollView))
+    }
+
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        changeStateButtonScrollDown(show: isScrollable(scrollView: scrollView))
     }
 }
 

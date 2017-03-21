@@ -18,6 +18,7 @@
 		BB76CC431E45CC6500CA1488 /* Dotzu.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BB76CC411E45CC6500CA1488 /* Dotzu.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BBAA51AC1E48867800B91501 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBAA51AB1E48867800B91501 /* Alamofire.framework */; };
 		BBAA51AD1E48867800B91501 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BBAA51AB1E48867800B91501 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		BBD93F1E1E7D46CF00EF9026 /* RootTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD93F1D1E7D46CF00EF9026 /* RootTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -47,6 +48,7 @@
 		BB76CC3F1E45CC5F00CA1488 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		BB76CC411E45CC6500CA1488 /* Dotzu.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Dotzu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBAA51AB1E48867800B91501 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Alamofire.framework; sourceTree = "<group>"; };
+		BBD93F1D1E7D46CF00EF9026 /* RootTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +93,7 @@
 				BB76CC2C1E45CC2400CA1488 /* Assets.xcassets */,
 				BB76CC2E1E45CC2400CA1488 /* LaunchScreen.storyboard */,
 				BB76CC311E45CC2400CA1488 /* Info.plist */,
+				BBD93F1D1E7D46CF00EF9026 /* RootTableViewController.swift */,
 			);
 			path = Example;
 			sourceTree = "<group>";
@@ -172,6 +175,7 @@
 			files = (
 				BB76CC3B1E45CC5500CA1488 /* AppDelegate.swift in Sources */,
 				BB76CC3C1E45CC5500CA1488 /* CrashTestTableViewController.swift in Sources */,
+				BBD93F1E1E7D46CF00EF9026 /* RootTableViewController.swift in Sources */,
 				BB76CC3D1E45CC5500CA1488 /* LogTestTableViewController.swift in Sources */,
 				BB76CC3E1E45CC5500CA1488 /* RequestTestTableViewController.swift in Sources */,
 			);

@@ -77,6 +77,7 @@
 		BB2040721E4E5A9E0022E8D6 /* RequestDataHttpBodyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB2040701E4E5A9E0022E8D6 /* RequestDataHttpBodyTableViewCell.xib */; };
 		BB67A0AE1E4B2914008EABE9 /* RequestLatencyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB67A0AC1E4B2914008EABE9 /* RequestLatencyTableViewCell.swift */; };
 		BB67A0AF1E4B2914008EABE9 /* RequestLatencyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB67A0AD1E4B2914008EABE9 /* RequestLatencyTableViewCell.xib */; };
+		BBD93F201E7D4B1C00EF9026 /* LogGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD93F1F1E7D4B1C00EF9026 /* LogGenerator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -163,6 +164,7 @@
 		BB2040701E4E5A9E0022E8D6 /* RequestDataHttpBodyTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RequestDataHttpBodyTableViewCell.xib; sourceTree = "<group>"; };
 		BB67A0AC1E4B2914008EABE9 /* RequestLatencyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestLatencyTableViewCell.swift; sourceTree = "<group>"; };
 		BB67A0AD1E4B2914008EABE9 /* RequestLatencyTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RequestLatencyTableViewCell.xib; sourceTree = "<group>"; };
+		BBD93F1F1E7D4B1C00EF9026 /* LogGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogGenerator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -291,6 +293,7 @@
 			children = (
 				BB1B40A01E429B6100DF4E57 /* LogProtocol.swift */,
 				BB1B40901E429B6100DF4E57 /* LogCellProtocol.swift */,
+				BBD93F1F1E7D4B1C00EF9026 /* LogGenerator.swift */,
 			);
 			name = Protocols;
 			sourceTree = "<group>";
@@ -525,6 +528,7 @@
 				BB1B40BE1E429B6200DF4E57 /* CrashListTableViewCell.swift in Sources */,
 				BB1B40C41E429B6200DF4E57 /* DeviceModel.swift in Sources */,
 				BB1B40E81E429B6200DF4E57 /* ManagerListLogViewController.swift in Sources */,
+				BBD93F201E7D4B1C00EF9026 /* LogGenerator.swift in Sources */,
 				BB1B40CB1E429B6200DF4E57 /* Log.swift in Sources */,
 				BB1B40F11E429B6200DF4E57 /* ResponseDataTableViewCell.swift in Sources */,
 				BB1B40CA1E429B6200DF4E57 /* ListLogViewModel.swift in Sources */,

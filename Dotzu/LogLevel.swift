@@ -34,6 +34,15 @@ extension LogLevel {
         }
     }
 
+    var logColorConsole: String {
+        switch self {
+        case .verbose: return "◽️"
+        case .info: return "🔷"
+        case .warning: return "⚠️"
+        case .error: return "❌"
+        }
+    }
+
     var color: UIColor {
         return LogLevel.colorFor(type: self)
     }

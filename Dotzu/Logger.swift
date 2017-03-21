@@ -9,18 +9,20 @@
 import Foundation
 
 public func print(_ items: Any...) {
-    if LogsSettings.shared.overridePrint {
+    if LogsSettings.shared.overridePrint && Logger.shared.enable {
         Logger.handleLog(items, level: .verbose, file: nil, function: nil, line: nil)
     } else {
         Swift.print(items.first ?? "")
     }
 }
 
-public class Logger {
+public class Logger: LogGenerator {
 
     static let shared = Logger()
     private let store = StoreManager<Log>(store: .log)
     private let queue = DispatchQueue(label: "logprint.log.queue")
+
+    var enable: Bool = true
 
     public static func verbose(_ items: Any..., file: String = #file, function: String = #function, line: Int = #line) {
         handleLog(items, level: .verbose, file: file, function: function, line: line)
@@ -45,6 +47,9 @@ public class Logger {
     }
 
     fileprivate static func handleLog(_ items: Any..., level: LogLevel, file: String?, function: String?, line: Int?) {
+        if !Logger.shared.enable {
+            return
+        }
         let fileInfo = parseFileInfo(file: file, function: function, line: line)
         let stringContent = (items.first as? [Any] ?? []).reduce("") { result, next -> String in
             return "\(result)\(result.characters.count > 0 ? " " : "")\(next)"

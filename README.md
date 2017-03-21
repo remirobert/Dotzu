@@ -11,6 +11,8 @@ In-App iOS Debugging Tool With Enhanced Logging, Networking Info, Crash reportin
 
 The debugger tool for iOS developer. Display *logs*, *network request*, *device informations*, *crash logs* while using the app. Easy accessible with **its bubble head button** 🔘. Easy to integrate in any apps, to handle development or testing apps **easier**. First version, there is plenty of room for improvement.
 
+👉 [Objective-c example](https://github.com/remirobert/Dotzu-Objective-c) 🐢
+
 </br>
 <p align="center">
   <img src ="https://cloud.githubusercontent.com/assets/3276768/22604003/dd161210-ea49-11e6-923d-b4b32acfd642.gif"/>
@@ -20,6 +22,8 @@ The debugger tool for iOS developer. Display *logs*, *network request*, *device 
 
 In the `AppDelegate` instanciate `Dotzu manager`.
 Be careful to use Dotzu for development purpose only.
+
+
 
 ```swift
    func application(_ application: UIApplication,
@@ -78,6 +82,12 @@ use_frameworks!
 pod 'Dotzu'
 ```
 
+**For Objective-c use :**
+
+```ruby
+pod 'DotzuObjc'
+```
+
 ### [Carthage](https://github.com/Carthage/Carthage)
 
 Add this to your Cartfile:
@@ -89,6 +99,19 @@ github "remirobert/Dotzu"
 ### Manually
 
 Drag the source files into your project.
+
+## Installation - Objective-c
+
+### [CocoaPods](http://cocoapods.org/)
+You can use [CocoaPods](http://cocoapods.org/) to install `DotzuObjc` by adding it to your `Podfile`:
+
+```ruby
+platform :ios, '9.0'
+use_frameworks!
+pod 'DotzuObjc'
+```
+
+
 
 ## Contact
 

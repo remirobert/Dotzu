@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class Dotzu {
+public class Dotzu: NSObject {
     public static let sharedManager = Dotzu()
     private var window: ManagerWindow
     fileprivate let controller = ManagerViewController()
@@ -23,23 +23,32 @@ public class Dotzu {
         }
     }
 
-    public func displayWindow() {
+    public func enable() {
         initLogsManager()
         self.window.rootViewController = self.controller
         self.window.makeKeyAndVisible()
         self.window.delegate = self
-        if LogsSettings.shared.network {
-            LoggerNetwork.register()
-        }
-        LoggerCrash.register()
+        LoggerNetwork.shared.enable = LogsSettings.shared.network
+        Logger.shared.enable = true
+        LoggerCrash.shared.enable = true
+    }
+
+    public func disable() {
+        self.window.rootViewController = nil
+        self.window.resignKey()
+        self.window.removeFromSuperview()
+        Logger.shared.enable = false
+        LoggerCrash.shared.enable = false
+        LoggerNetwork.shared.enable = false
     }
 
     public func addLogger(session: URLSessionConfiguration) {
         session.protocolClasses?.insert(LoggerNetwork.self, at: 0)
     }
 
-    init() {
+    override init() {
         self.window = ManagerWindow(frame: UIScreen.main.bounds)
+        super.init()
     }
 }
 

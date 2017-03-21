@@ -27,7 +27,7 @@ class RequestTestTableViewController: UITableViewController {
     }
 
     private func makePostRequest(url: String) {
-        if segmentNetwork.selectedSegmentIndex == 0 {
+        if segmentNetwork.selectedSegmentIndex == 1 {
             guard let url = URL(string: url) else {return}
             task?.cancel()
             let request = NSMutableURLRequest(url: url)

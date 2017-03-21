@@ -19,14 +19,16 @@ extension NSMutableURLRequest {
     }
 
     @objc func httpBodyHackSetHttpBody(body: NSData?) {
+        defer {
+            httpBodyHackSetHttpBody(body: body)
+        }
         let keyRequest = "\(hashValue)"
         guard let body = body, bodyValues[keyRequest] == nil else { return }
         bodyValues[keyRequest] = body as Data
-        httpBodyHackSetHttpBody(body: body)
     }
 }
 
-class LoggerNetwork: URLProtocol {
+class LoggerNetwork: URLProtocol, LogGenerator {
 
     var connection: NSURLConnection?
     var sessionTask: URLSessionTask?
@@ -35,6 +37,16 @@ class LoggerNetwork: URLProtocol {
     var newRequest: NSMutableURLRequest?
     var currentLog: LogRequest?
     let store = StoreManager<LogRequest>(store: .network)
+
+    var enable: Bool = true {
+        didSet {
+            if enable {
+                LoggerNetwork.register()
+            } else {
+                LoggerNetwork.unregister()
+            }
+        }
+    }
 
     static let shared = LoggerNetwork()
 
@@ -49,15 +61,17 @@ class LoggerNetwork: URLProtocol {
 
     open class func register() {
         NSMutableURLRequest.httpBodyHackSwizzle()
-        URLProtocol.registerClass(self)
+        URLProtocol.registerClass(LoggerNetwork.classForCoder())
     }
 
     open class func unregister() {
-        URLProtocol.unregisterClass(self)
+        URLProtocol.unregisterClass(LoggerNetwork.classForCoder())
     }
 
     open override class func canInit(with request: URLRequest) -> Bool {
-        if !LogsSettings.shared.network && self.property(forKey: "MyURLProtocolHandledKey", in: request) != nil {
+        if !LogsSettings.shared.network ||
+            !LoggerNetwork.shared.enable ||
+            self.property(forKey: "MyURLProtocolHandledKey", in: request) != nil {
             return false
         }
         return true
