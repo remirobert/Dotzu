@@ -23,6 +23,7 @@ class ManagerListLogViewController: UIViewController {
     private let dataSourceLogs = ListLogDataSource<Log>()
     fileprivate let dataSourceNetwork = ListLogDataSource<LogRequest>()
 
+    private var firstLaunch = true
     private var obsLogs: NotificationObserver<Void>!
     private var obsSettings: NotificationObserver<Void>!
     private var obsNetwork: NotificationObserver<Void>!
@@ -57,10 +58,15 @@ class ManagerListLogViewController: UIViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        let lastPath = state == .logs ? dataSourceLogs.lastPath : dataSourceNetwork.lastPath
         let count = state == .logs ? dataSourceLogs.count : dataSourceNetwork.count
         if count > 0 {
-            tableview.scrollToRow(at: lastPath, at: .top, animated: false)
+            if firstLaunch {
+                firstLaunch = false
+                let lastPath = state == .logs ? dataSourceLogs.lastPath : dataSourceNetwork.lastPath
+                tableview.scrollToRow(at: lastPath, at: .top, animated: false)
+            } else {
+                changeStateButtonScrollDown(show: isScrollable(scrollView: tableview))
+            }
         }
         labelEmptyState.isHidden = count > 0
     }
@@ -153,7 +159,7 @@ class ManagerListLogViewController: UIViewController {
 }
 
 extension ManagerListLogViewController: UIScrollViewDelegate {
-    private func changeStateButtonScrollDown(show: Bool) {
+    fileprivate func changeStateButtonScrollDown(show: Bool) {
         if show {
             buttonScrollDown.isHidden = false
         }
@@ -163,7 +169,7 @@ extension ManagerListLogViewController: UIScrollViewDelegate {
         }, completion: nil)
     }
 
-    private func isScrollable(scrollView: UIScrollView) -> Bool {
+    fileprivate func isScrollable(scrollView: UIScrollView) -> Bool {
         let ratio = scrollView.contentSize.height - scrollView.contentOffset.y
         return !(ratio <= scrollView.frame.size.height)
     }
