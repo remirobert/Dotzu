@@ -19,13 +19,13 @@ class LoggerFormat {
 
     static func format(log: Log) -> (str: String, attr: NSMutableAttributedString) {
         var startIndex = 0
-        var lenghtDate: Int?
+        var lengthDate: Int?
         let stringContent = NSMutableString()
 
         stringContent.append("\(log.level.logColorConsole) ")
         if let date = log.date, LogsSettings.shared.date {
             stringContent.append("[\(formatDate(date: date))] ")
-            lenghtDate = stringContent.length
+            lengthDate = stringContent.length
             startIndex = stringContent.length
         }
         if let fileInfoString = log.fileInfo, LogsSettings.shared.fileInfo {
@@ -38,8 +38,8 @@ class LoggerFormat {
         attstr.addAttribute(NSForegroundColorAttributeName,
                             value: UIColor.white,
                             range: NSMakeRange(0, stringContent.length))
-        if let dateLenght = lenghtDate {
-            let range = NSMakeRange(0, dateLenght)
+        if let dateLength = lengthDate {
+            let range = NSMakeRange(0, dateLength)
             attstr.addAttribute(NSForegroundColorAttributeName, value: Color.mainGreen, range: range)
             attstr.addAttribute(NSFontAttributeName, value: UIFont.boldSystemFont(ofSize: 12), range: range)
         }
