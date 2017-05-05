@@ -24,7 +24,7 @@ class LogsSettings {
     }
     var fileInfo: Bool {
         didSet {
-            UserDefaults.standard.set(fileInfo, forKey: "fileInfoDsisplayed")
+            UserDefaults.standard.set(fileInfo, forKey: "fileInfoDisplayed")
         }
     }
     var date: Bool {
