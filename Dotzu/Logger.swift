@@ -18,11 +18,11 @@ public func print(_ items: Any...) {
 
 public class Logger: LogGenerator {
 
-    static let shared = Logger()
+    public static let shared = Logger()
+    public var enable: Bool = false
     private let store = StoreManager<Log>(store: .log)
     private let queue = DispatchQueue(label: "logprint.log.queue")
 
-    var enable: Bool = true
 
     public static func verbose(_ items: Any..., file: String = #file, function: String = #function, line: Int = #line) {
         handleLog(items, level: .verbose, file: file, function: function, line: line)

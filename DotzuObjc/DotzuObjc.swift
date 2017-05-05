@@ -10,6 +10,13 @@ import UIKit
 import Dotzu
 
 public class LoggerObjc: NSObject {
+    
+    public static func disable(){
+        Logger.shared.enable = false
+    }
+    public static func enable(){
+        Logger.shared.enable = true
+    }
     public static func verbose(_ items: String, file: String = #file, function: String = #function, line: Int = #line) {
         Logger.verbose(items, file: file, function: function, line: line)
     }
