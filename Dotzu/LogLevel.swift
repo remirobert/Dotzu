@@ -37,7 +37,7 @@ extension LogLevel {
     var logColorConsole: String {
         switch self {
         case .verbose: return "◽️"
-        case .info: return "🔷"
+        case .info: return "✅"
         case .warning: return "⚠️"
         case .error: return "❌"
         }
