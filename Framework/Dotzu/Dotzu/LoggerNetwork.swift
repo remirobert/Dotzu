@@ -19,7 +19,6 @@ extension NSMutableURLRequest {
     }
 
     @objc func httpBodyHackSetHttpBody(body: NSData?) {
-        NSLog("set http to request: \(hashValue)")
         defer {
             httpBodyHackSetHttpBody(body: body)
         }
@@ -61,7 +60,6 @@ class LoggerNetwork: URLProtocol, LogGenerator {
     var session: URLSession?
 
     open class func register() {
-        NSLog("register url protocol")
         NSMutableURLRequest.httpBodyHackSwizzle()
         URLProtocol.registerClass(LoggerNetwork.classForCoder())
     }
@@ -88,7 +86,6 @@ class LoggerNetwork: URLProtocol, LogGenerator {
     }
 
     open override func startLoading() {
-        NSLog("start loading")
         guard let req = (request as NSURLRequest).mutableCopy() as? NSMutableURLRequest,
             newRequest == nil else { return }
 
@@ -119,16 +116,11 @@ class LoggerNetwork: URLProtocol, LogGenerator {
     }
 
     open override func stopLoading() {
-        NSLog("stop loading")
         sessionTask?.cancel()
         guard let log = currentLog else {return}
 
-//        let keyRequest = "\(newRequest?.hashValue ?? 0)"
-//        log.httpBody = bodyValues["\(keyRequest)"]
-//        bodyValues.removeValue(forKey: keyRequest)
         if let data = body(from: newRequest! as URLRequest) {
-            let json = try? JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.allowFragments) as? [String:AnyObject]
-            NSLog("json body data : \(json)")
+            log.httpBody = data
         }
 
         if let startDate = LoggerNetwork.property(forKey: "MyURLProtocolDateKey",
@@ -163,7 +155,6 @@ extension LoggerNetwork: URLSessionDataDelegate, URLSessionTaskDelegate {
     public func urlSession(_ session: URLSession, dataTask: URLSessionDataTask,
                            didReceive response: URLResponse,
                            completionHandler: @escaping (URLSession.ResponseDisposition) -> Void) {
-        NSLog("get response")
         client?.urlProtocol(self, didReceive: response, cacheStoragePolicy: .notAllowed)
         completionHandler(.allow)
 

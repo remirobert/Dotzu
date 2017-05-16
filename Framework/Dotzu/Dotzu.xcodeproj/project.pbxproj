@@ -207,8 +207,9 @@
 		BBF9F9361ECB8A38003227BE /* Dotzu */ = {
 			isa = PBXGroup;
 			children = (
+				BBF9F9371ECB8A38003227BE /* Dotzu.h */,
 				BBF9F9A91ECB8CAB003227BE /* ApplicationInformation.swift */,
-				BBF9F9AA1ECB8CAB003227BE /* Assets.xcassets */,
+				BBF9FA761ECB9330003227BE /* Products */,
 				BBF9F9AB1ECB8CAB003227BE /* Color.swift */,
 				BBF9FA741ECB9221003227BE /* ViewControllers */,
 				BBF9FA751ECB9293003227BE /* Views */,
@@ -239,8 +240,6 @@
 				BBF9F9E91ECB8CAB003227BE /* UITableViewCell+.swift */,
 				BBF9F9EA1ECB8CAB003227BE /* UITableView+.swift */,
 				BBF9F9EB1ECB8CAB003227BE /* UserDefaults+.swift */,
-				BBF9F9371ECB8A38003227BE /* Dotzu.h */,
-				BBF9F9381ECB8A38003227BE /* Info.plist */,
 			);
 			path = Dotzu;
 			sourceTree = "<group>";
@@ -338,6 +337,15 @@
 			name = Views;
 			sourceTree = "<group>";
 		};
+		BBF9FA761ECB9330003227BE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BBF9F9381ECB8A38003227BE /* Info.plist */,
+				BBF9F9AA1ECB8CAB003227BE /* Assets.xcassets */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -394,6 +402,9 @@
 		BBF9F92B1ECB8A38003227BE /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				KnownAssetTags = (
+					New,
+				);
 				LastSwiftUpdateCheck = 0830;
 				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = "Remi Robert";
