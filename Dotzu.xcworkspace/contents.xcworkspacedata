@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <Group
+      location = "container:Framework"
+      name = "Framework">
+      <FileRef
+         location = "group:Dotzu/Dotzu.xcodeproj">
+      </FileRef>
+   </Group>
+   <Group
+      location = "container:Example"
+      name = "Example">
+      <FileRef
+         location = "group:ExampleDotzu/ExampleDotzu.xcodeproj">
+      </FileRef>
+   </Group>
+</Workspace>
