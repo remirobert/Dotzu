@@ -29,7 +29,7 @@ Be careful to use Dotzu for development purpose only.
    func application(_ application: UIApplication,
    didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         #if DEBUG
-            Dotzu.sharedManager.displayWindow()
+            Dotzu.sharedManager.enable()
         #endif
         return true
    }
@@ -56,11 +56,12 @@ Dotzu use `URLProcotol` to logg the request. Can can add the logger on a custom 
 <a href="http://promisesaplus.com/">
     <img src="https://cloud.githubusercontent.com/assets/3276768/22646311/02988ba2-ec6c-11e6-8870-08b88ec1ce1c.gif" align="right" />
 </a>
+
 ```swift
 //Your custom configuration
 let configuration = URLSessionConfiguration.default
 
-//Add the network logger on the configuration
+///Add the network logger on the configuration
 Dotzu.sharedManager.addLogger(session: configuration)
 
 //Use it:
