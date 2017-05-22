@@ -4,13 +4,13 @@
 
 # Dotzu
 
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/972a1a6db90348bfb7e072cd3e0705ac)](https://www.codacy.com/app/remi.robert/Dotzu?utm_source=github.com&utm_medium=referral&utm_content=remirobert/Dotzu&utm_campaign=badger)
-
 In-App iOS Debugging Tool With Enhanced Logging, Networking Info, Crash reporting And More.
 
 <img src="https://img.shields.io/badge/platform-iOS-blue.svg?style=flat" alt="Platform iOS" />
 <img src="https://img.shields.io/badge/Carthage-compatible-brightgreen.svg?style=flat" alt="Carthage compatible" />
 <img src="https://img.shields.io/badge/license-MIT-blue.svg?style=flat" alt="License MIT" />
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/972a1a6db90348bfb7e072cd3e0705ac)](https://www.codacy.com/app/remi.robert/Dotzu?utm_source=github.com&utm_medium=referral&utm_content=remirobert/Dotzu&utm_campaign=badger)
+
 
 The debugger tool for iOS developer. Display *logs*, *network request*, *device informations*, *crash logs* while using the app. Easy accessible with **its bubble head button** 🔘. Easy to integrate in any apps, to handle development or testing apps **easier**. First version, there is plenty of room for improvement.
 
