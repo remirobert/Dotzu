@@ -3,6 +3,9 @@
 </p>
 
 # Dotzu
+
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/972a1a6db90348bfb7e072cd3e0705ac)](https://www.codacy.com/app/remi.robert/Dotzu?utm_source=github.com&utm_medium=referral&utm_content=remirobert/Dotzu&utm_campaign=badger)
+
 In-App iOS Debugging Tool With Enhanced Logging, Networking Info, Crash reporting And More.
 
 <img src="https://img.shields.io/badge/platform-iOS-blue.svg?style=flat" alt="Platform iOS" />
