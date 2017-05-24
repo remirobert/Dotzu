@@ -42,6 +42,18 @@ public class Dotzu: NSObject {
         LoggerNetwork.shared.enable = false
     }
 
+    public func enableLogger() {
+        LoggerNetwork.shared.enable = LogsSettings.shared.network
+        Logger.shared.enable = true
+        LoggerCrash.shared.enable = true
+    }
+
+    public func disableLogger() {
+        Logger.shared.enable = false
+        LoggerCrash.shared.enable = false
+        LoggerNetwork.shared.enable = false
+    }
+
     public func addLogger(session: URLSessionConfiguration) {
         session.protocolClasses?.insert(LoggerNetwork.self, at: 0)
     }
