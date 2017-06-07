@@ -14,7 +14,7 @@ struct Device {
     var osVersion: String?
     var screenResolution: String!
     var aspectRatio: String?
-    var screenSize: Float!
+    var screenSize: Float = 0.0
     
     init() {
         self.screenResolution = self.deviceScreenResolution()
