@@ -9,13 +9,11 @@
 import UIKit
 
 struct Device {
-    var osVersion: String?
-    var screenResolution: String!
     let deviceModel: DeviceModel = DeviceModel.current
     
-    var getScreenSize: String?
+    var osVersion: String?
+    var screenResolution: String!
     var aspectRatio: String?
-    
     var screenSize: Float!
     
     init() {
