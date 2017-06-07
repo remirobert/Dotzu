@@ -17,7 +17,9 @@ class InformationsTableViewController: UITableViewController {
     @IBOutlet weak var labelScreenSize: UILabel!
     @IBOutlet weak var labelDeviceModel: UILabel!
     @IBOutlet weak var labelCrashCount: UILabel!
-
+    
+    var device: Device = Device()
+    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
     }
@@ -39,8 +41,8 @@ class InformationsTableViewController: UITableViewController {
         labelBuildNumber.text = ApplicationInformation.buildNumber
         labelBundleName.text = ApplicationInformation.bundleName
 
-        labelScreenResolution.text = Device.screenResolution
-        labelScreenSize.text = "\(Device.screenSize)"
-        labelDeviceModel.text = "\(Device.deviceModel)"
+        labelScreenResolution.text = self.device.screenResolution
+        labelScreenSize.text = "\(self.device.screenSize)"
+        labelDeviceModel.text = "\(self.device.deviceModel)"
     }
 }
