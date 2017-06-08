@@ -9,19 +9,25 @@
 import UIKit
 
 struct Device {
-
+    let deviceModel: DeviceModel = DeviceModel.current
+    
     var osVersion: String?
-    static var screenResolution: String? {
+    var screenResolution: String!
+    var aspectRatio: String?
+    var screenSize: Float = 0.0
+    
+    init() {
+        self.screenResolution = self.deviceScreenResolution()
+        self.screenSize = self.deviceScreenSize()
+    }
+    
+    private func deviceScreenResolution() -> String {
         let scale = UIScreen.main.scale
         let dimension = UIScreen.main.bounds
         return "\(dimension.size.width*scale)*\(dimension.size.height*scale)"
     }
-    static var deviceModel: DeviceModel = DeviceModel.current
-
-    var getScreenSize: String?
-    var aspectRatio: String?
-
-    static var screenSize: Float {
+    
+    private func deviceScreenSize() -> Float {
         switch self.deviceModel {
         case .iPhone4, .iPhone4S:                                               return 3.5
         case .iPodTouch1Gen, .iPodTouch2Gen, .iPodTouch3Gen, .iPodTouch4Gen:    return 3.5
@@ -35,5 +41,5 @@ struct Device {
         case .unknown, .simulator:                                              return 0
         }
     }
-
 }
+
