@@ -16,7 +16,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+
+        let config = DotzuConfig()
+        // To show manager view comment (or change showManagerView = true) and restart
+        config.showManagerView = false
+        Dotzu.setUp(config: config)
         Dotzu.sharedManager.enable()
+
         return true
     }
 }
