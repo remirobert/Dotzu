@@ -26,3 +26,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 }
+
+// One of the way to show Dotzu logs view
+#if DEBUG
+extension UIWindow {
+
+    override open var canBecomeFirstResponder: Bool {
+        return true
+    }
+
+    override open func motionBegan(_ motion: UIEventSubtype, with event: UIEvent?) {
+        if motion == .motionShake {
+            if let controller = Dotzu.sharedManager.managerViewController() {
+                self.rootViewController?.present(controller, animated: true, completion: nil)
+            }
+        }
+    }
+}
+#endif
