@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MessageUI
 
 class ManagerListLogViewController: UIViewController {
 
@@ -81,7 +82,54 @@ class ManagerListLogViewController: UIViewController {
         LogNotificationApp.resetCountBadge.post(Void())
     }
 
-    @IBAction func resetLogs(_ sender: Any) {
+    @IBAction func showActions() {
+
+        let alertController = UIAlertController(title: "More actions",
+                                                message: nil,
+                                                preferredStyle: .actionSheet)
+
+        let sendLogsButton = UIAlertAction(title: "Email logs",
+                                           style: .default,
+                                           handler: { [weak self] (action) in self?.emailLogs() })
+        alertController.addAction(sendLogsButton)
+
+        let resetLogsButton = UIAlertAction(title: "Reset logs & network",
+                                            style: .destructive,
+                                            handler: { [weak self] (action) in self?.resetLogs() })
+        alertController.addAction(resetLogsButton)
+
+        let cancelButton = UIAlertAction(title: "Cancel", style: .cancel, handler:nil)
+        alertController.addAction(cancelButton)
+
+        self.navigationController?.present(alertController, animated: true, completion: nil)
+
+    }
+
+    private func emailLogs() {
+
+        if MFMailComposeViewController.canSendMail() {
+
+            let mail = MFMailComposeViewController()
+            mail.mailComposeDelegate = self;
+            let appName = Bundle.main.infoDictionary?[kCFBundleNameKey as String] as? String
+            mail.setSubject("\(appName ?? "App") Log")
+
+            var formattedData = Data()
+            for itemIndex in 0...self.dataSourceLogs.count {
+                if let log = self.dataSourceLogs[itemIndex] {
+                    let format = LoggerFormat.format(log: log)
+                    let data = Data(("Log Index:\(itemIndex)\n \(format.str) \n\n").utf8)
+                    formattedData.append(data)
+                }
+            }
+
+            mail.addAttachmentData(formattedData, mimeType: "text/plain", fileName: "log-\(Date())")
+
+            self.present(mail, animated: true, completion: nil)
+        }
+    }
+
+    private func resetLogs() {
         dataSourceLogs.reset()
         dataSourceNetwork.reset()
         let storeLogs = StoreManager<Log>(store: .log)
@@ -190,5 +238,15 @@ extension ManagerListLogViewController: UITableViewDelegate {
         }
         guard let LogRequest = dataSourceNetwork[indexPath.row] else {return}
         performSegue(withIdentifier: "detailRequestSegue", sender: LogRequest)
+    }
+}
+
+extension ManagerListLogViewController: MFMailComposeViewControllerDelegate {
+
+    public func mailComposeController(_ controller: MFMailComposeViewController,
+                                      didFinishWith result: MFMailComposeResult,
+                                      error: Error?) {
+
+        controller.dismiss(animated: true, completion: nil)
     }
 }

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="3CJ-ep-uee">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13178.6" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="3CJ-ep-uee">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13156.2"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -20,7 +20,7 @@
                         <viewControllerLayoutGuide type="bottom" id="E80-LL-KES"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="vD5-tz-SMX">
-                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="agn-ad-IWN">
@@ -117,7 +117,7 @@
                         <viewControllerLayoutGuide type="bottom" id="R96-YX-hcO"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="XEb-Ml-Yki">
-                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ecr-Nv-94t">
@@ -162,7 +162,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="zdN-FM-yI9">
                         <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="m5B-Ti-NBe">
-                            <rect key="frame" x="113" y="7" width="150" height="30"/>
+                            <rect key="frame" x="112.5" y="7" width="150" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <segments>
                                 <segment title="Logs"/>
@@ -173,14 +173,14 @@
                             </connections>
                         </segmentedControl>
                         <rightBarButtonItems>
+                            <barButtonItem systemItem="action" id="3pC-LT-CmH">
+                                <connections>
+                                    <action selector="showActions" destination="fto-va-uFc" id="IIZ-He-bPh"/>
+                                </connections>
+                            </barButtonItem>
                             <barButtonItem image="filter" id="H8s-CQ-trf">
                                 <connections>
                                     <segue destination="4xb-fk-IJe" kind="presentation" identifier="filterSegue" modalPresentationStyle="overFullScreen" id="ZEU-l6-M97"/>
-                                </connections>
-                            </barButtonItem>
-                            <barButtonItem systemItem="trash" id="3pC-LT-CmH">
-                                <connections>
-                                    <action selector="resetLogs:" destination="fto-va-uFc" id="ASp-gP-cIH"/>
                                 </connections>
                             </barButtonItem>
                         </rightBarButtonItems>
@@ -519,7 +519,7 @@
                     <tabBarItem key="tabBarItem" title="logs" image="tabbar-logs" selectedImage="tabbar-logs" id="Uuf-aW-P9g"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="EEW-tV-ACR">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.1215686277" green="0.1294117719" blue="0.1411764771" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
