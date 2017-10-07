@@ -39,9 +39,8 @@ Be careful to use Dotzu for development purpose only.
    }
 ```
 
-### Optional customization
-Using Dotzu without Manager Window (bubble head)
-You will need to use Dotzu.sharedManager.managerViewController() To launch Dotzu View.
+### Optional Customization
+Using Dotzu without Manager Bbubble Head. Use `Dotzu.sharedManager.managerViewController()` to launch Dotzu Manager.
 
 ```swift
     #if DEBUG
