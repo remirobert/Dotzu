@@ -31,10 +31,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 #if DEBUG
 extension UIWindow {
 
-    override open var canBecomeFirstResponder: Bool {
-        return true
-    }
-
     override open func motionBegan(_ motion: UIEventSubtype, with event: UIEvent?) {
         if motion == .motionShake {
             if let controller = Dotzu.sharedManager.managerViewController() {
