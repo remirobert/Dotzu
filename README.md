@@ -39,6 +39,20 @@ Be careful to use Dotzu for development purpose only.
    }
 ```
 
+### Optional customization
+Using Dotzu without Manager Window (bubble head)
+You will need to use Dotzu.sharedManager.managerViewController() To launch Dotzu View.
+
+```swift
+    #if DEBUG
+    let config = DotzuConfig()
+    config.showManagerView = false
+    Dotzu.setUp(config: config)
+
+    Dotzu.sharedManager.enable()
+    #endif
+```
+
 ## Logs
 
 Dotzu override `print`, so you can use it and see your logs. otherwise, you can add level, and get more details (file, and line) about your logs. With the `Logger` class provided by the framework. Get new logs count on the badge, or *warning/error* notification on the bubble head.
