@@ -37,6 +37,11 @@ public class LogsSettings {
             UserDefaults.standard.set(fileInfo, forKey: "networkLoggerEnabled")
         }
     }
+    public var showBubbleHead: Bool {
+        didSet {
+            UserDefaults.standard.set(showBubbleHead, forKey: "showBubbleHead")
+        }
+    }
 
     init() {
         overridePrint = UserDefaults.standard.bool2(forKey: "enableOverridePrint")
@@ -44,5 +49,6 @@ public class LogsSettings {
         fileInfo = UserDefaults.standard.bool2(forKey: "fileInfoDisplayed")
         date = UserDefaults.standard.bool2(forKey: "dateDisplayed")
         network = UserDefaults.standard.bool2(forKey: "networkLoggerEnabled")
+        showBubbleHead = UserDefaults.standard.bool2(forKey: "showBubbleHead")
     }
 }
