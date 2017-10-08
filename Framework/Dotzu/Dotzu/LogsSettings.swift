@@ -42,6 +42,11 @@ public class LogsSettings {
             UserDefaults.standard.set(showBubbleHead, forKey: "showBubbleHead")
         }
     }
+    public var consoleLevel: LogLevel {
+        didSet {
+            UserDefaults.standard.set(consoleLevel.rawValue, forKey: "consoleLevel")
+        }
+    }
 
     init() {
         overridePrint = UserDefaults.standard.bool2(forKey: "enableOverridePrint")
@@ -50,5 +55,6 @@ public class LogsSettings {
         date = UserDefaults.standard.bool2(forKey: "dateDisplayed")
         network = UserDefaults.standard.bool2(forKey: "networkLoggerEnabled")
         showBubbleHead = UserDefaults.standard.bool2(forKey: "showBubbleHead")
+        consoleLevel = LogLevel(rawValue: UserDefaults.standard.integer(forKey: "consoleLevel")) ?? .verbose
     }
 }
