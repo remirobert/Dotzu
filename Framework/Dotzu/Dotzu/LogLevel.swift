@@ -8,7 +8,7 @@
 
 import UIKit
 
-enum LogLevel: Int {
+public enum LogLevel: Int {
     case verbose
     case info
     case warning
