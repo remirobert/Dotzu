@@ -13,6 +13,7 @@ public enum LogLevel: Int {
     case info
     case warning
     case error
+    case none
 }
 
 extension LogLevel {
@@ -23,6 +24,7 @@ extension LogLevel {
         case .info: return UIColor.cyan
         case .warning: return UIColor.yellow
         case .error: return UIColor.red
+        case .none: return UIColor.clear
         }
     }
 
@@ -40,6 +42,7 @@ extension LogLevel {
         case .info: return "🔷"
         case .warning: return "⚠️"
         case .error: return "❌"
+        case .none: return ""
         }
     }
 
