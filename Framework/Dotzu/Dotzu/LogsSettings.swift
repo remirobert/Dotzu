@@ -8,31 +8,31 @@
 
 import Foundation
 
-class LogsSettings {
+public class LogsSettings {
 
-    static let shared = LogsSettings()
+    public static let shared = LogsSettings()
 
-    var overridePrint: Bool {
+    public var overridePrint: Bool {
         didSet {
             UserDefaults.standard.set(overridePrint, forKey: "enableOverridePrint")
         }
     }
-    var resetLogsStart: Bool {
+    public var resetLogsStart: Bool {
         didSet {
             UserDefaults.standard.set(resetLogsStart, forKey: "resetLogsStart")
         }
     }
-    var fileInfo: Bool {
+    public var fileInfo: Bool {
         didSet {
             UserDefaults.standard.set(fileInfo, forKey: "fileInfoDsisplayed")
         }
     }
-    var date: Bool {
+    public var date: Bool {
         didSet {
             UserDefaults.standard.set(fileInfo, forKey: "dateDisplayed")
         }
     }
-    var network: Bool {
+    public var network: Bool {
         didSet {
             UserDefaults.standard.set(fileInfo, forKey: "networkLoggerEnabled")
         }
