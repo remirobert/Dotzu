@@ -58,7 +58,9 @@ public class Logger: LogGenerator {
         Logger.shared.queue.async {
             let newLog = Log(content: stringContent, fileInfo: fileInfo, level: level)
             let format = LoggerFormat.format(log: newLog)
-            Swift.print(format.str)
+            if (level.rawValue >= LogsSettings.shared.consoleLevel.rawValue) {
+                Swift.print(format.str)
+            }
             Logger.shared.store.add(log: newLog)
         }
         LogNotificationApp.newLog.post(level)
