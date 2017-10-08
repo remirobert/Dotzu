@@ -8,33 +8,38 @@
 
 import Foundation
 
-class LogsSettings {
+public class LogsSettings {
 
-    static let shared = LogsSettings()
+    public static let shared = LogsSettings()
 
-    var overridePrint: Bool {
+    public var overridePrint: Bool {
         didSet {
             UserDefaults.standard.set(overridePrint, forKey: "enableOverridePrint")
         }
     }
-    var resetLogsStart: Bool {
+    public var resetLogsStart: Bool {
         didSet {
             UserDefaults.standard.set(resetLogsStart, forKey: "resetLogsStart")
         }
     }
-    var fileInfo: Bool {
+    public var fileInfo: Bool {
         didSet {
             UserDefaults.standard.set(fileInfo, forKey: "fileInfoDsisplayed")
         }
     }
-    var date: Bool {
+    public var date: Bool {
         didSet {
             UserDefaults.standard.set(fileInfo, forKey: "dateDisplayed")
         }
     }
-    var network: Bool {
+    public var network: Bool {
         didSet {
             UserDefaults.standard.set(fileInfo, forKey: "networkLoggerEnabled")
+        }
+    }
+    public var showBubbleHead: Bool {
+        didSet {
+            UserDefaults.standard.set(showBubbleHead, forKey: "showBubbleHead")
         }
     }
 
@@ -44,5 +49,6 @@ class LogsSettings {
         fileInfo = UserDefaults.standard.bool2(forKey: "fileInfoDisplayed")
         date = UserDefaults.standard.bool2(forKey: "dateDisplayed")
         network = UserDefaults.standard.bool2(forKey: "networkLoggerEnabled")
+        showBubbleHead = UserDefaults.standard.bool2(forKey: "showBubbleHead")
     }
 }

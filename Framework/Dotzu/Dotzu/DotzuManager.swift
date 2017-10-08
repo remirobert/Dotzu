@@ -10,8 +10,8 @@ import UIKit
 
 public class Dotzu: NSObject {
     public static let sharedManager = Dotzu()
-    private var window: ManagerWindow
-    fileprivate let controller = ManagerViewController()
+    private var window: ManagerWindow?
+    fileprivate var controller: ManagerViewController?
     private let cache = NSCache<AnyObject, AnyObject>()
     private let userDefault = UserDefaults.standard
     var displayedList = false
@@ -24,19 +24,26 @@ public class Dotzu: NSObject {
     }
 
     public func enable() {
+
         initLogsManager()
-        self.window.rootViewController = self.controller
-        self.window.makeKeyAndVisible()
-        self.window.delegate = self
+
+        if LogsSettings.shared.showBubbleHead {
+            self.window = ManagerWindow(frame: UIScreen.main.bounds)
+            self.controller = ManagerViewController()
+        }
+        self.window?.rootViewController = self.controller
+        self.window?.makeKeyAndVisible()
+        self.window?.delegate = self
+
         LoggerNetwork.shared.enable = LogsSettings.shared.network
         Logger.shared.enable = true
         LoggerCrash.shared.enable = true
     }
 
     public func disable() {
-        self.window.rootViewController = nil
-        self.window.resignKey()
-        self.window.removeFromSuperview()
+        self.window?.rootViewController = nil
+        self.window?.resignKey()
+        self.window?.removeFromSuperview()
         Logger.shared.enable = false
         LoggerCrash.shared.enable = false
         LoggerNetwork.shared.enable = false
@@ -46,14 +53,18 @@ public class Dotzu: NSObject {
         session.protocolClasses?.insert(LoggerNetwork.self, at: 0)
     }
 
+    public func viewController () -> UIViewController? {
+        let storyboard = UIStoryboard(name: "Manager", bundle: Bundle(for: ManagerViewController.self))
+        return storyboard.instantiateInitialViewController()
+    }
+
     override init() {
-        self.window = ManagerWindow(frame: UIScreen.main.bounds)
         super.init()
     }
 }
 
 extension Dotzu: ManagerWindowDelegate {
     func isPointEvent(point: CGPoint) -> Bool {
-        return self.controller.shouldReceive(point: point)
+        return self.controller?.shouldReceive(point: point) ?? false
     }
 }
