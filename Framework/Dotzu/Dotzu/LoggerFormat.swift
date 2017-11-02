@@ -35,18 +35,18 @@ class LoggerFormat {
         }
 
         let attstr = NSMutableAttributedString(string: stringContent as String)
-        attstr.addAttribute(NSForegroundColorAttributeName,
+        attstr.addAttribute(NSAttributedStringKey.foregroundColor,
                             value: UIColor.white,
                             range: NSMakeRange(0, stringContent.length))
         if let dateLenght = lenghtDate {
             let range = NSMakeRange(0, dateLenght)
-            attstr.addAttribute(NSForegroundColorAttributeName, value: Color.mainGreen, range: range)
-            attstr.addAttribute(NSFontAttributeName, value: UIFont.boldSystemFont(ofSize: 12), range: range)
+            attstr.addAttribute(NSAttributedStringKey.foregroundColor, value: Color.mainGreen, range: range)
+            attstr.addAttribute(NSAttributedStringKey.font, value: UIFont.boldSystemFont(ofSize: 12), range: range)
         }
         if let fileInfoString = log.fileInfo, LogsSettings.shared.fileInfo {
             let range = NSMakeRange(startIndex, fileInfoString.characters.count)
-            attstr.addAttribute(NSForegroundColorAttributeName, value: UIColor.gray, range: range)
-            attstr.addAttribute(NSFontAttributeName, value: UIFont.boldSystemFont(ofSize: 12), range: range)
+            attstr.addAttribute(NSAttributedStringKey.foregroundColor, value: UIColor.gray, range: range)
+            attstr.addAttribute(NSAttributedStringKey.font, value: UIFont.boldSystemFont(ofSize: 12), range: range)
         }
         return (stringContent as String, attstr)
     }
