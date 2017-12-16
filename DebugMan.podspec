@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "DebugMan"
-  s.version      = "4.0.1"
+  s.version      = "4.0.2"
   s.summary      = "Debugging tool for iOS in Swift (Logs, Network, Crash, Memory, App-Info, HTTP-mock)"
 
   # This description is used to generate tags and improve search results.
