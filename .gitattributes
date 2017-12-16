@@ -1,1 +1,2 @@
-*.{h,m} linguist-language=Swift
+*.h linguist-language=Swift
+*.m linguist-language=Swift
