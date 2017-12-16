@@ -25,7 +25,7 @@ class AboutViewController: UITableViewController {
     
     //MARK: - target action
     @IBAction func tapURL(_ sender: UITapGestureRecognizer) {
-        guard let url = URL.init(string: "https://github.com/liman123/Dotzu") else {return}
+        guard let url = URL.init(string: "https://github.com/liman123/DebugMan") else {return}
         UIApplication.shared.openURL(url)
     }
 }
