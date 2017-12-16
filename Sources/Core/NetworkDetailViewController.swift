@@ -269,7 +269,7 @@ class NetworkDetailViewController: UITableViewController {
                     var height: CGFloat = 0.0
                     //计算NSString高度
                     if #available(iOS 8.2, *) {
-                        height = content_.height(with: UIFont.systemFont(ofSize: 12, weight: UIFontWeightMedium), constraintToWidth: (UIScreen.main.bounds.size.width - 129))
+                        height = content_.height(with: UIFont.systemFont(ofSize: 12, weight: .medium), constraintToWidth: (UIScreen.main.bounds.size.width - 129))
                     } else {
                         height = content_.height(with: UIFont.systemFont(ofSize: 12), constraintToWidth: (UIScreen.main.bounds.size.width - 129))
                     }

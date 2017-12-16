@@ -91,14 +91,14 @@ class LogHeadView: UIView {
     }
     
     //网络通知
-    func reloadHttp_notification() {
+    @objc func reloadHttp_notification() {
         DispatchQueue.main.async { [weak self] in
             self?.initLabelEvent(content: "🚀") //liman mark
         }
     }
     
     //内存监控
-    func timerMonitor() {
+    @objc func timerMonitor() {
         label.text = JxbDebugTool.shareInstance().bytesOfUsedMemory()
     }
     

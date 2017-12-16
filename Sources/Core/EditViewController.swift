@@ -66,7 +66,7 @@ class EditViewController: UITableViewController, UITextViewDelegate {
         
         tableView.tableFooterView = UIView()
         tableView.tableHeaderView = tableHeaderView
-        saveItem.setTitleTextAttributes([NSForegroundColorAttributeName: Color.mainGreen], for: .normal)
+        saveItem.setTitleTextAttributes([NSAttributedStringKey.foregroundColor: Color.mainGreen], for: .normal)
         textView.delegate = self
         textView.textContainer.lineFragmentPadding = 0
         textView.textContainerInset = .zero

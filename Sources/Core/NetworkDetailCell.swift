@@ -86,14 +86,14 @@ class NetworkDetailCell: UITableViewCell {
     
     //MARK: - target action
     //自动隐藏内容
-    func tapTitleView() {
+    @objc func tapTitleView() {
         if let tapTitleViewCallback = tapTitleViewCallback {
             tapTitleViewCallback(detailModel)
         }
     }
     
     //编辑
-    func tapEditView() {
+    @objc func tapEditView() {
         if let tapEditViewCallback = tapEditViewCallback {
             tapEditViewCallback(detailModel)
         }

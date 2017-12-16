@@ -27,7 +27,7 @@ class StoreManager {
     }
     
     private func getCrashs() -> [LogCrash] {
-        guard let data = UserDefaults.standard.object(forKey: "crashArchive") as? NSData else {return []}
+        guard let data = UserDefaults.standard.object(forKey: "crashArchive") as? Data else {return []}
         do {
             if #available(iOS 9.0, *) {
                 let dataArchive = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data)
