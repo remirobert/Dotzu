@@ -138,6 +138,11 @@ class EditViewController: UITableViewController, UITextViewDelegate {
         }
     }
     
+    //MARK: - UITableViewDelegate
+    override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 1000
+    }
+    
     //MARK: - target action
     @IBAction func save(_ sender: UIBarButtonItem) {
         

@@ -15,15 +15,10 @@ final public class KeyboardMan {
     
     //show button
     private func initButton(_ info: KeyboardInfo) {
-        //233
-        var buttonColor = "#cbced4"
-        if info.height > 233 {
-            buttonColor = "#b1b7c1"
-        }
         
         if button == nil {
             button = UIButton.init(frame: CGRect(x:UIScreen.main.bounds.width-74,y:UIScreen.main.bounds.height,width:74,height:38))
-            button?.backgroundColor = UIColor.init(hexString: buttonColor)
+            button?.backgroundColor = UIColor.init(hexString: "#444444")
             button?.setTitle("Hide", for: .normal)
             button?.setTitleColor(UIColor.black, for: .normal)
             button?.addCorner(roundingCorners: UIRectCorner(rawValue: UIRectCorner.RawValue(UInt8(UIRectCorner.topLeft.rawValue) | UInt8(UIRectCorner.topRight.rawValue))), cornerSize: CGSize(width:4,height:4))
@@ -34,7 +29,7 @@ final public class KeyboardMan {
         }
         
         UIView.animate(withDuration: 0.35) { [weak self] in
-            self?.button?.frame.origin.y = UIScreen.main.bounds.height-info.height-38 + 0.5
+            self?.button?.frame.origin.y = UIScreen.main.bounds.height-info.height-38
         }
     }
     

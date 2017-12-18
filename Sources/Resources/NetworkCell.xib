@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="NetworkCell" rowHeight="140" id="6X1-H3-Gwc" customClass="NetworkCell" customModule="PhiHome" customModuleProvider="target">
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="NetworkCell" rowHeight="140" id="6X1-H3-Gwc" customClass="NetworkCell" customModule="DebugMan" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="375" height="140"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6X1-H3-Gwc" id="DUy-aX-oe5">
@@ -33,19 +37,8 @@
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BK1-W0-222">
-                        <rect key="frame" x="337.5" y="0.0" width="37.5" height="37.5"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="37.5" id="O4Q-ai-FPs"/>
-                            <constraint firstAttribute="width" constant="37.5" id="z5h-p2-xU9"/>
-                        </constraints>
+                        <rect key="frame" x="301" y="0.0" width="74" height="140.5"/>
                     </view>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="debugman_edit.png" translatesAutoresizingMaskIntoConstraints="NO" id="r8Z-Ra-XJu">
-                        <rect key="frame" x="351" y="8" width="20" height="20"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="20" id="Eih-gZ-k4m"/>
-                            <constraint firstAttribute="width" constant="20" id="qGs-nr-wIQ"/>
-                        </constraints>
-                    </imageView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ceJ-ix-GW1">
                         <rect key="frame" x="15" y="8" width="10" height="123.5"/>
                         <color key="backgroundColor" red="0.2557018995" green="0.82255214450000003" blue="0.34441712499999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -116,18 +109,18 @@
                     <constraint firstItem="vFk-QF-l9f" firstAttribute="leading" secondItem="94p-Rp-VjF" secondAttribute="leading" id="4nD-uH-IIc"/>
                     <constraint firstItem="juf-6b-xyu" firstAttribute="leading" secondItem="94p-Rp-VjF" secondAttribute="trailing" constant="4" id="8wM-b9-KZH"/>
                     <constraint firstItem="vFk-QF-l9f" firstAttribute="leading" secondItem="ceJ-ix-GW1" secondAttribute="trailing" constant="15" id="9Jb-6h-hkl"/>
-                    <constraint firstAttribute="trailing" secondItem="r8Z-Ra-XJu" secondAttribute="trailing" constant="4" id="Bxg-nS-AIt"/>
+                    <constraint firstItem="BK1-W0-222" firstAttribute="height" secondItem="wIo-5H-GLh" secondAttribute="height" id="JMi-He-Unm"/>
                     <constraint firstAttribute="trailing" secondItem="BK1-W0-222" secondAttribute="trailing" id="QfL-Uf-XgG"/>
                     <constraint firstItem="juf-6b-xyu" firstAttribute="centerY" secondItem="94p-Rp-VjF" secondAttribute="centerY" id="R9U-81-RAf"/>
                     <constraint firstAttribute="trailing" secondItem="wIo-5H-GLh" secondAttribute="trailing" id="SgW-2Y-iu2"/>
                     <constraint firstItem="wIo-5H-GLh" firstAttribute="top" secondItem="DUy-aX-oe5" secondAttribute="top" constant="-0.20000000000000001" id="Syu-dF-VbP"/>
                     <constraint firstItem="BK1-W0-222" firstAttribute="top" secondItem="DUy-aX-oe5" secondAttribute="top" id="Tm1-m9-7Te"/>
                     <constraint firstItem="wIo-5H-GLh" firstAttribute="leading" secondItem="vFk-QF-l9f" secondAttribute="trailing" constant="15" id="dZE-c2-yWQ"/>
-                    <constraint firstItem="r8Z-Ra-XJu" firstAttribute="top" secondItem="ceJ-ix-GW1" secondAttribute="top" id="djc-cf-e4N"/>
                     <constraint firstItem="d1P-NL-6Lf" firstAttribute="leading" secondItem="94p-Rp-VjF" secondAttribute="leading" id="eic-SD-KbO"/>
                     <constraint firstItem="ceJ-ix-GW1" firstAttribute="top" secondItem="DUy-aX-oe5" secondAttribute="top" constant="8" id="fbm-nx-vuO"/>
                     <constraint firstItem="Bln-jq-bhL" firstAttribute="leading" secondItem="ceJ-ix-GW1" secondAttribute="trailing" constant="4" id="hju-8M-Skm"/>
                     <constraint firstAttribute="bottom" secondItem="ceJ-ix-GW1" secondAttribute="bottom" constant="8" id="mVV-sb-r1O"/>
+                    <constraint firstItem="BK1-W0-222" firstAttribute="width" secondItem="wIo-5H-GLh" secondAttribute="width" id="o1d-Go-wcj"/>
                     <constraint firstItem="94p-Rp-VjF" firstAttribute="leading" secondItem="ceJ-ix-GW1" secondAttribute="trailing" constant="15" id="o4O-bJ-rWk"/>
                     <constraint firstItem="vFk-QF-l9f" firstAttribute="top" secondItem="94p-Rp-VjF" secondAttribute="bottom" constant="4" id="pe5-2Y-S4y"/>
                     <constraint firstAttribute="bottom" secondItem="wIo-5H-GLh" secondAttribute="bottom" constant="-0.20000000000000001" id="rKT-ji-rdY"/>
@@ -151,7 +144,4 @@
             </connections>
         </tableViewCell>
     </objects>
-    <resources>
-        <image name="debugman_edit.png" width="16" height="16"/>
-    </resources>
 </document>
