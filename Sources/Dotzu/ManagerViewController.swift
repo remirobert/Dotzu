@@ -86,8 +86,8 @@ class ManagerViewController: UIViewController, LogHeadViewDelegate {
 
             if finalY > Double(UIScreen.main.bounds.size.height) - Double(self.logHeadView.height/8*5) {
                 finalY = Double(UIScreen.main.bounds.size.height) - Double(self.logHeadView.height/8*5)
-            } else if finalY < Double(self.logHeadView.height/8*5) {
-                finalY = Double(self.logHeadView.height/8*5)
+            } else if finalY < Double(self.logHeadView.height/8*5 + 20) {
+                finalY = Double(self.logHeadView.height/8*5) + 20 //status bar height
             }
 
             UIView.animate(withDuration: durationAnimation * 5, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 6, options: UIViewAnimationOptions.allowUserInteraction, animations: { [weak self] in
