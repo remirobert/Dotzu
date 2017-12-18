@@ -77,6 +77,18 @@ class LogsSettings {
             JxbDebugTool.shareInstance().maxLogsCount = maxLogsCount
         }
     }
+    var logHeadFrameX: Float {
+        didSet {
+            UserDefaults.standard.set(logHeadFrameX, forKey: "logHeadFrameX")
+            UserDefaults.standard.synchronize()
+        }
+    }
+    var logHeadFrameY: Float {
+        didSet {
+            UserDefaults.standard.set(logHeadFrameY, forKey: "logHeadFrameY")
+            UserDefaults.standard.synchronize()
+        }
+    }
     var extraControllers: [UIViewController]? = nil
     
     
@@ -90,5 +102,7 @@ class LogsSettings {
         isBallShowScreen = UserDefaults.standard.bool(forKey: "isBallShowScreen")
         isControllerPresent = UserDefaults.standard.bool(forKey: "isControllerPresent")
         tabBarSelectItem = UserDefaults.standard.integer(forKey: "tabBarSelectItem")
+        logHeadFrameX = UserDefaults.standard.float(forKey: "logHeadFrameX")
+        logHeadFrameY = UserDefaults.standard.float(forKey: "logHeadFrameY")
     }
 }

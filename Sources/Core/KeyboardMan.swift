@@ -43,11 +43,9 @@ final public class KeyboardMan {
         
         UIView.animate(withDuration: 0.35, animations: { [weak self] in
             self?.button?.frame.origin.y = UIScreen.main.bounds.height
-        }) { [weak self] (finish) in
-            if finish == true {
-                self?.button?.removeFromSuperview()
-                self?.button = nil
-            }
+        }) { [weak self] _ in
+            self?.button?.removeFromSuperview()
+            self?.button = nil
         }
     }
     

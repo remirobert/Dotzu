@@ -16,8 +16,8 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "DebugMan"
-  s.version      = "4.0.2"
-  s.summary      = "Debugging tool for iOS in Swift (Logs, Network, Crash, Memory, App-Info, HTTP-mock)"
+  s.version      = "4.0.3"
+  s.summary      = "iOS debugging tool for Swift Programming Language"
 
   # This description is used to generate tags and improve search results.
   #   * Think: What does it do? Why did you write it? What is the focus?
@@ -25,10 +25,10 @@ Pod::Spec.new do |s|
   #   * Write the description between the DESC delimiters below.
   #   * Finally, don't worry about the indent, CocoaPods strips it!
   s.description  = <<-DESC
-                    Debugging tool for iOS in Swift (Logs, Network, Crash, Memory, App-Info, HTTP-mock)
+                    iOS debugging tool for Swift Programming Language
                    DESC
 
-  s.homepage     = "https://github.com/liman123/Dotzu"
+  s.homepage     = "https://github.com/liman123/DebugMan"
   # s.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
 
 
@@ -80,7 +80,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "https://github.com/liman123/Dotzu.git", :tag => "#{s.version}" }
+  s.source       = { :git => "https://github.com/liman123/DebugMan.git", :tag => "#{s.version}" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #

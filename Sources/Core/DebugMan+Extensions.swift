@@ -165,11 +165,11 @@ extension UIAlertController {
 ///添加圆角
 extension UIView {
     func addCorner(roundingCorners: UIRectCorner, cornerSize: CGSize) {
-        let path = UIBezierPath(roundedRect: bounds, byRoundingCorners: roundingCorners, cornerRadii: cornerSize)
+        let path = UIBezierPath(roundedRect: self.bounds, byRoundingCorners: roundingCorners, cornerRadii: cornerSize)
         let cornerLayer = CAShapeLayer()
         cornerLayer.frame = bounds
         cornerLayer.path = path.cgPath
-        layer.mask = cornerLayer
+        self.layer.mask = cornerLayer
     }
 }
 
