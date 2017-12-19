@@ -7,6 +7,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -49,7 +50,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L1a-aJ-1Wg">
-                                                    <rect key="frame" x="526" y="0.0" width="74" height="140.5"/>
+                                                    <rect key="frame" x="301" y="0.0" width="74" height="140.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="200" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v2D-n7-vuk">
                                                             <rect key="frame" x="20.5" y="60" width="33.5" height="21"/>
@@ -67,14 +68,14 @@
                                                     </constraints>
                                                 </view>
                                                 <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZYn-AW-lYa">
-                                                    <rect key="frame" x="562.5" y="0.0" width="37.5" height="37.5"/>
+                                                    <rect key="frame" x="337.5" y="0.0" width="37.5" height="37.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="37.5" id="1fm-is-G9x"/>
                                                         <constraint firstAttribute="width" constant="37.5" id="UGr-NW-zlm"/>
                                                     </constraints>
                                                 </view>
                                                 <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="debugman_edit.png" translatesAutoresizingMaskIntoConstraints="NO" id="tBe-8M-rlx">
-                                                    <rect key="frame" x="576" y="8" width="20" height="20"/>
+                                                    <rect key="frame" x="351" y="8" width="20" height="20"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="20" id="4af-3x-T3H"/>
                                                         <constraint firstAttribute="width" constant="20" id="In3-GV-7aa"/>
@@ -94,7 +95,7 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="[POST]" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="1" translatesAutoresizingMaskIntoConstraints="NO" id="mpy-d9-z4s">
-                                                    <rect key="frame" x="40" y="16" width="337" height="21"/>
+                                                    <rect key="frame" x="40" y="16" width="112" height="21"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <color key="textColor" red="0.50190365309999996" green="0.50199371579999996" blue="0.50189799069999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -114,13 +115,13 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </label>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do " textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="oVC-1n-Afy">
-                                                    <rect key="frame" x="40" y="41" width="471" height="83"/>
+                                                    <rect key="frame" x="40" y="41" width="246" height="83"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="2017-23-21 23:23:23" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="kbT-8h-y06">
-                                                    <rect key="frame" x="381" y="20.5" width="130" height="12"/>
+                                                    <rect key="frame" x="156" y="20.5" width="130" height="12"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="12" id="Djn-QT-sg4"/>
                                                         <constraint firstAttribute="width" constant="130" id="hoP-5Q-AO7"/>
@@ -212,10 +213,10 @@
             </objects>
             <point key="canvasLocation" x="630" y="2465"/>
         </scene>
-        <!--Network details-->
+        <!--Details-->
         <scene sceneID="KLL-VA-asP">
             <objects>
-                <tableViewController storyboardIdentifier="NetworkDetailViewController" title="Network details" hidesBottomBarWhenPushed="YES" id="q3G-BB-F3V" customClass="NetworkDetailViewController" customModule="DebugMan" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="NetworkDetailViewController" title="Details" hidesBottomBarWhenPushed="YES" id="q3G-BB-F3V" customClass="NetworkDetailViewController" customModule="DebugMan" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" contentInsetAdjustmentBehavior="never" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="fPI-1I-xFz">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -342,12 +343,19 @@
                             <outlet property="delegate" destination="q3G-BB-F3V" id="q5d-bl-Un1"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Network details" id="EGv-T3-ncf">
-                        <barButtonItem key="rightBarButtonItem" image="debugman_refresh" style="plain" id="Uiv-Vd-Qpf">
-                            <connections>
-                                <action selector="mockRequest:" destination="q3G-BB-F3V" id="daI-rh-fhm"/>
-                            </connections>
-                        </barButtonItem>
+                    <navigationItem key="navigationItem" title="Details" id="EGv-T3-ncf">
+                        <rightBarButtonItems>
+                            <barButtonItem image="debugman_close" style="plain" id="2K5-CR-fd3">
+                                <connections>
+                                    <action selector="close:" destination="q3G-BB-F3V" id="Kqx-p8-JEG"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem image="debugman_refresh" style="plain" id="Uiv-Vd-Qpf">
+                                <connections>
+                                    <action selector="mockRequest:" destination="q3G-BB-F3V" id="daI-rh-fhm"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                 </tableViewController>
@@ -470,6 +478,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="debugman_close" width="16" height="16"/>
         <image name="debugman_edit.png" width="20" height="20"/>
         <image name="debugman_network" width="16" height="16"/>
         <image name="debugman_refresh" width="16" height="16"/>

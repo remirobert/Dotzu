@@ -10,41 +10,6 @@ import UIKit
 
 final public class KeyboardMan {
 
-    //liman
-    private var button: UIButton?
-    
-    //show button
-    private func initButton(_ info: KeyboardInfo) {
-        
-        if button == nil {
-            button = UIButton.init(frame: CGRect(x:UIScreen.main.bounds.width-74,y:UIScreen.main.bounds.height,width:74,height:38))
-            button?.backgroundColor = UIColor.init(hexString: "#444444")
-            button?.setTitle("Hide", for: .normal)
-            button?.setTitleColor(UIColor.black, for: .normal)
-            button?.addCorner(roundingCorners: UIRectCorner(rawValue: UIRectCorner.RawValue(UInt8(UIRectCorner.topLeft.rawValue) | UInt8(UIRectCorner.topRight.rawValue))), cornerSize: CGSize(width:4,height:4))
-            button?.addTarget(self, action: #selector(tapButton(_:)), for: .touchUpInside)
-            
-            guard let button = button else {return}
-            Dotzu.sharedManager.window.addSubview(button)
-        }
-        
-        UIView.animate(withDuration: 0.35) { [weak self] in
-            self?.button?.frame.origin.y = UIScreen.main.bounds.height-info.height-38
-        }
-    }
-    
-    //hide button
-    private func deInitButton(_ info: KeyboardInfo) {
-        
-        UIView.animate(withDuration: 0.35, animations: { [weak self] in
-            self?.button?.frame.origin.y = UIScreen.main.bounds.height
-        }) { [weak self] _ in
-            self?.button?.removeFromSuperview()
-            self?.button = nil
-        }
-    }
-    
-    
     var keyboardObserver: NotificationCenter? {
         didSet {
             oldValue?.removeObserver(self)
@@ -106,11 +71,9 @@ final public class KeyboardMan {
                     case .show:
                         strongSelf.animateWhenKeyboardAppear?(strongSelf.appearPostIndex, info.height, info.heightIncrement)
                         strongSelf.appearPostIndex += 1
-                        strongSelf.initButton(info)
                     case .hide:
                         strongSelf.animateWhenKeyboardDisappear?(info.height)
                         strongSelf.appearPostIndex = 0
-                        strongSelf.deInitButton(info)
                     }
                 }, completion: nil)
                 // post full info
@@ -185,10 +148,6 @@ final public class KeyboardMan {
     @objc private func keyboardDidHide(_ notification: Notification) {
         guard UIApplication.isNotInBackground else { return }
         keyboardInfo = nil
-    }
-    
-    @objc private func tapButton(_ sender: UIButton?) {
-        sender?.superview?.endEditing(true)
     }
 }
 

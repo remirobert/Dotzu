@@ -19,6 +19,8 @@ public class DebugMan : NSObject {
     NotificationCenter.default.addObserver(self, selector: #selector(methodThatIsCalledAfterShake), name: NSNotification.Name(DHCSHakeNotificationName), object: nil)
     
     LogsSettings.shared.isControllerPresent = false
+    LogsSettings.shared.logSearchWord = nil
+    LogsSettings.shared.networkSearchWord = nil
     
     let _ = StoreManager.shared
 //#endif

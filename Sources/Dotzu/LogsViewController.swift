@@ -14,10 +14,7 @@ class LogsViewController: UITableViewController, UISearchBarDelegate {
     var cacheModels: Array<Log>?
     var searchModels: Array<Log>?
     
-    var _searchText: String = ""
     var flag: Bool = false
-    
-    let keyboardMan = KeyboardMan()
     
     @IBOutlet weak var searchBar: UISearchBar!
     
@@ -59,7 +56,7 @@ class LogsViewController: UITableViewController, UISearchBarDelegate {
         models = StoreManager.shared.logArray
         self.cacheModels = self.models
         
-        self.searchLogic(self._searchText)
+        self.searchLogic(LogsSettings.shared.logSearchWord ?? "")
         
         dispatch_main_async_safe { [weak self] in
             self?.tableView.reloadData()
@@ -110,20 +107,11 @@ class LogsViewController: UITableViewController, UISearchBarDelegate {
         
         tableView.tableFooterView = UIView()
         searchBar.delegate = self
-        
+        searchBar.text = LogsSettings.shared.logSearchWord
+
         //hide searchBar icon
         let textFieldInsideSearchBar = searchBar.value(forKey: "searchField") as! UITextField
         textFieldInsideSearchBar.leftViewMode = UITextFieldViewMode.never
-        
-        //键盘
-        keyboardMan.postKeyboardInfo = { keyboardMan, keyboardInfo in
-            switch keyboardInfo.action {
-            case .show: break
-                
-            case .hide: break
-                
-            }
-        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -231,9 +219,8 @@ class LogsViewController: UITableViewController, UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String)
     {
-        _searchText = searchText
-        
-        searchLogic(_searchText)
+        LogsSettings.shared.logSearchWord = searchText
+        searchLogic(searchText)
         
         dispatch_main_async_safe { [weak self] in
             self?.tableView.reloadData()

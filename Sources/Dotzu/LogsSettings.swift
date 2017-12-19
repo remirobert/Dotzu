@@ -89,6 +89,18 @@ class LogsSettings {
             UserDefaults.standard.synchronize()
         }
     }
+    var logSearchWord: String? = nil {
+        didSet {
+            UserDefaults.standard.set(logSearchWord, forKey: "logSearchWord")
+            UserDefaults.standard.synchronize()
+        }
+    }
+    var networkSearchWord: String? = nil {
+        didSet {
+            UserDefaults.standard.set(networkSearchWord, forKey: "networkSearchWord")
+            UserDefaults.standard.synchronize()
+        }
+    }
     var extraControllers: [UIViewController]? = nil
     
     
@@ -104,5 +116,7 @@ class LogsSettings {
         tabBarSelectItem = UserDefaults.standard.integer(forKey: "tabBarSelectItem")
         logHeadFrameX = UserDefaults.standard.float(forKey: "logHeadFrameX")
         logHeadFrameY = UserDefaults.standard.float(forKey: "logHeadFrameY")
+        logSearchWord = UserDefaults.standard.string(forKey: "logSearchWord") ?? ""
+        networkSearchWord = UserDefaults.standard.string(forKey: "networkSearchWord") ?? ""
     }
 }

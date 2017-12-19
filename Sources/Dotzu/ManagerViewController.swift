@@ -86,7 +86,7 @@ class ManagerViewController: UIViewController, LogHeadViewDelegate {
 
             if finalY > Double(UIScreen.main.bounds.size.height) - Double(self.logHeadView.height/8*5) {
                 finalY = Double(UIScreen.main.bounds.size.height) - Double(self.logHeadView.height/8*5)
-            } else if finalY < Double(self.logHeadView.height/8*5 + 20) {
+            } else if finalY < Double(self.logHeadView.height/8*5) + 20 {
                 finalY = Double(self.logHeadView.height/8*5) + 20 //status bar height
             }
 

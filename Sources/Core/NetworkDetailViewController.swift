@@ -353,4 +353,8 @@ class NetworkDetailViewController: UITableViewController {
             alert.dismiss(animated: true, completion: nil)
         }
     }
+    
+    @IBAction func close(_ sender: UIBarButtonItem) {
+        (self.navigationController as! LogNavigationViewController).exit()
+    }
 }

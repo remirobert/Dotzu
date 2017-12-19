@@ -333,6 +333,7 @@
 		EA44B9191FE140D600DF7FF6 /* Dotzu */ = {
 			isa = PBXGroup;
 			children = (
+				EA44B9231FE140D600DF7FF6 /* LogsViewController.swift */,
 				EA44B91A1FE140D600DF7FF6 /* LogTabBarViewController.swift */,
 				EA44B91B1FE140D600DF7FF6 /* LogCrash.swift */,
 				EA44B91C1FE140D600DF7FF6 /* LogGenerator.swift */,
@@ -342,7 +343,6 @@
 				EA44B9201FE140D600DF7FF6 /* LogTableViewCell.swift */,
 				EA44B9211FE140D600DF7FF6 /* NotificationCenter.swift */,
 				EA44B9221FE140D600DF7FF6 /* DeviceModel.swift */,
-				EA44B9231FE140D600DF7FF6 /* LogsViewController.swift */,
 				EA44B9241FE140D600DF7FF6 /* LogLevel.swift */,
 				EA44B9261FE140D600DF7FF6 /* DetailCrashTableViewController.swift */,
 				EA44B9271FE140D600DF7FF6 /* ManagerWindow.swift */,
@@ -765,6 +765,7 @@
 			baseConfigurationReference = 34DB8974225EF4F14FB0C082 /* Pods-DebugMan.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Demo/Info.plist;
@@ -785,6 +786,7 @@
 			baseConfigurationReference = 89C20EEF19A8E549894C61C4 /* Pods-DebugMan.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Demo/Info.plist;

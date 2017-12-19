@@ -117,9 +117,8 @@
     [[JxbHttpDatasource shareInstance] addHttpRequset:model];
     
     GCD_DELAY_AFTER(0.1, ^{
-        [[NSNotificationCenter defaultCenter] postNotificationName:kNotifyKeyReloadHttp object:nil];
+        [[NSNotificationCenter defaultCenter] postNotificationName:kNotifyKeyReloadHttp object:nil userInfo:@{@"statusCode":model.statusCode}];
     });
-    
 }
 
 #pragma mark - NSURLConnectionDelegate
