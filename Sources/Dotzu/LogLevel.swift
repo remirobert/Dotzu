@@ -19,7 +19,7 @@ extension LogLevel {
 
     static func colorFor(type: LogLevel) -> UIColor {
         switch type {
-        case .verbose: return UIColor.init(hexString: "#333333")
+        case .verbose: return UIColor.white
         case .info: return UIColor.cyan
         case .warning: return UIColor.yellow
         case .error: return UIColor.red

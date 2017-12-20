@@ -143,7 +143,20 @@ class LogHeadView: UIView {
                 self?.initLabelEvent(content: "🚀")
                 self?.initLabelEvent2(content: "🚀")
             }
-        }else{
+        }
+        else if statusCode == "500" {
+            DispatchQueue.main.async { [weak self] in
+                self?.initLabelEvent(content: "⚠️")
+                self?.initLabelEvent2(content: "⚠️")
+            }
+        }
+        else if statusCode == "404" {
+            DispatchQueue.main.async { [weak self] in
+                self?.initLabelEvent(content: "🚫")
+                self?.initLabelEvent2(content: "🚫")
+            }
+        }
+        else{//"0"
             DispatchQueue.main.async { [weak self] in
                 self?.initLabelEvent(content: "❌")
                 self?.initLabelEvent2(content: "❌")
