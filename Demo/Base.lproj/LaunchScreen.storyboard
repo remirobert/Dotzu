@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -21,9 +22,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DebugMan Demo" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BJf-6g-yiv">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Demo" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BJf-6g-yiv">
                                 <rect key="frame" x="0.0" y="20" width="320" height="508"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -36,15 +37,24 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="debugman_logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="NvQ-6W-vmF">
+                                <rect key="frame" x="10" y="120" width="300" height="54"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="NvQ-6W-vmF" secondAttribute="height" multiplier="1114:201" id="YD4-zQ-oNo"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="BJf-6g-yiv" secondAttribute="trailing" id="9xo-e4-Aaq"/>
-                            <constraint firstItem="BJf-6g-yiv" firstAttribute="top" secondItem="eQz-cO-7uM" secondAttribute="bottom" id="ZKp-ci-hbA"/>
                             <constraint firstItem="kNQ-8Z-cYf" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="Zfm-bT-AxP"/>
+                            <constraint firstItem="NvQ-6W-vmF" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="cf5-UH-Ngc"/>
+                            <constraint firstItem="BJf-6g-yiv" firstAttribute="top" secondItem="eQz-cO-7uM" secondAttribute="bottom" id="eav-pf-BqI"/>
                             <constraint firstItem="BJf-6g-yiv" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="qhG-ZT-TWo"/>
                             <constraint firstItem="kNQ-8Z-cYf" firstAttribute="top" secondItem="BJf-6g-yiv" secondAttribute="bottom" id="raq-7z-bD6"/>
                             <constraint firstItem="Veu-Vn-5fr" firstAttribute="top" secondItem="kNQ-8Z-cYf" secondAttribute="bottom" constant="20" id="vQc-uM-mWI"/>
+                            <constraint firstItem="NvQ-6W-vmF" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" constant="10" id="vwc-Pg-Euq"/>
+                            <constraint firstItem="NvQ-6W-vmF" firstAttribute="top" secondItem="eQz-cO-7uM" secondAttribute="bottom" constant="100" id="whI-1k-SSB"/>
                             <constraint firstAttribute="trailing" secondItem="kNQ-8Z-cYf" secondAttribute="trailing" id="xc9-zh-goa"/>
                         </constraints>
                     </view>
@@ -54,4 +64,7 @@
             <point key="canvasLocation" x="52.5" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="debugman_logo.png" width="1114" height="201"/>
+    </resources>
 </document>

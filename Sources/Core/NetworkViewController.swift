@@ -152,28 +152,28 @@ class NetworkViewController: UIViewController, UITableViewDataSource, UITableVie
     //MARK: - UITableViewDelegate
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        guard let serverHost = LogsSettings.shared.serverHost else {return 0}//code never go here
+        guard let mainHost = LogsSettings.shared.mainHost else {return 0}//code never go here
         let model = models?[indexPath.row]
         var height: CGFloat = 0.0
         
         if let cString = model?.url.absoluteString.cString(using: String.Encoding.utf8) {
             if let content_ = NSString(cString: cString, encoding: String.Encoding.utf8.rawValue) {
                 
-                if model?.url.absoluteString.contains(serverHost) == true {
+                if model?.url.absoluteString.contains(mainHost) == true {
                     //计算NSString高度
                     if #available(iOS 8.2, *) {
-                        height = content_.height(with: UIFont.systemFont(ofSize: 17, weight: .bold), constraintToWidth: (UIScreen.main.bounds.size.width - 92))
+                        height = content_.height(with: UIFont.systemFont(ofSize: 14, weight: .heavy), constraintToWidth: (UIScreen.main.bounds.size.width - 92))
                     } else {
                         // Fallback on earlier versions
-                        height = content_.height(with: UIFont.boldSystemFont(ofSize: 17), constraintToWidth: (UIScreen.main.bounds.size.width - 92))
+                        height = content_.height(with: UIFont.boldSystemFont(ofSize: 14), constraintToWidth: (UIScreen.main.bounds.size.width - 92))
                     }
                 }else{
                     //计算NSString高度
                     if #available(iOS 8.2, *) {
-                        height = content_.height(with: UIFont.systemFont(ofSize: 12, weight: .medium), constraintToWidth: (UIScreen.main.bounds.size.width - 92))
+                        height = content_.height(with: UIFont.systemFont(ofSize: 14, weight: .regular), constraintToWidth: (UIScreen.main.bounds.size.width - 92))
                     } else {
                         // Fallback on earlier versions
-                        height = content_.height(with: UIFont.systemFont(ofSize: 12), constraintToWidth: (UIScreen.main.bounds.size.width - 92))
+                        height = content_.height(with: UIFont.systemFont(ofSize: 14), constraintToWidth: (UIScreen.main.bounds.size.width - 92))
                     }
                 }
                 

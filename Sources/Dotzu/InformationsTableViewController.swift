@@ -18,8 +18,8 @@ class InformationsTableViewController: UITableViewController {
     @IBOutlet weak var labelDeviceModel: UILabel!
     @IBOutlet weak var labelCrashCount: UILabel!
     @IBOutlet weak var labelBundleID: UILabel!
-    @IBOutlet weak var labelignoredHosts: UILabel!
-    @IBOutlet weak var labelServerHost: UILabel!
+    @IBOutlet weak var labelIgnoredHosts: UILabel!
+    @IBOutlet weak var labelMainHost: UILabel!
     @IBOutlet weak var labelIOSVersion: UILabel!
     
     //MARK: - tool
@@ -52,9 +52,9 @@ class InformationsTableViewController: UITableViewController {
         labelDeviceModel.text = "\(Device.deviceModel)"
         
         labelBundleID.text = Bundle.main.bundleIdentifier
-        labelignoredHosts.text = String(LogsSettings.shared.ignoredHosts?.count ?? 0)
+        labelIgnoredHosts.text = String(LogsSettings.shared.ignoredHosts?.count ?? 0)
         
-        labelServerHost.text = LogsSettings.shared.serverHost
+        labelMainHost.text = LogsSettings.shared.mainHost
         labelIOSVersion.text = UIDevice.current.systemVersion
     }
     
@@ -73,7 +73,7 @@ class InformationsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
     {
         if indexPath.section == 1 && indexPath.row == 4 {
-            if labelServerHost.text == nil || labelServerHost.text == "" {
+            if labelMainHost.text == nil || labelMainHost.text == "" {
                 return 0
             }
         }
@@ -94,13 +94,13 @@ class InformationsTableViewController: UITableViewController {
         }
         
         if indexPath.section == 1 && indexPath.row == 4 {
-            if labelServerHost.text == nil || labelServerHost.text == "" {
+            if labelMainHost.text == nil || labelMainHost.text == "" {
                 return
             }
             
-            UIPasteboard.general.string = LogsSettings.shared.serverHost
+            UIPasteboard.general.string = LogsSettings.shared.mainHost
             
-            let alert = UIAlertController.init(title: "copy server host to clipboard success", message: nil, preferredStyle: .alert)
+            let alert = UIAlertController.init(title: "copy main host to clipboard success", message: nil, preferredStyle: .alert)
             let action = UIAlertAction.init(title: "OK", style: .default, handler: nil)
             alert.addAction(action)
             self.present(alert, animated: true, completion: nil)

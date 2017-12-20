@@ -13,19 +13,11 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //mock GET
-        mockGET()
-        
-        //mock DELETE
-        mockDELETE()
-        
-        //mock POST
-        mockPOST()
-        
-        //mock PUT
-        mockPUT()
+        mockGET()//mock GET
+        mockDELETE()//mock DELETE
+        mockPOST()//mock POST
+        mockPUT()//mock PUT
     }
-    
     
     
     //MARK: - mock GET

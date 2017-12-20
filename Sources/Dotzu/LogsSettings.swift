@@ -48,9 +48,9 @@ class LogsSettings {
             UserDefaults.standard.synchronize()
         }
     }
-    var serverHost: String? = nil {
+    var mainHost: String? = nil {
         didSet {
-            UserDefaults.standard.set(serverHost, forKey: "serverHost")
+            UserDefaults.standard.set(mainHost, forKey: "mainHost")
             UserDefaults.standard.synchronize()
         }
     }
@@ -108,7 +108,7 @@ class LogsSettings {
     private init()
     {
         //liman mark
-        serverHost = UserDefaults.standard.string(forKey: "serverHost") ?? ""
+        mainHost = UserDefaults.standard.string(forKey: "mainHost") ?? ""
         maxLogsCount = UserDefaults.standard.integer(forKey: "maxLogsCount")
         mockTimeoutInterval = UserDefaults.standard.double(forKey: "mockTimeoutInterval")
         isBallShowScreen = UserDefaults.standard.bool(forKey: "isBallShowScreen")

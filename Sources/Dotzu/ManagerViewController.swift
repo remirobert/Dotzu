@@ -34,9 +34,7 @@ class ManagerViewController: UIViewController, LogHeadViewDelegate {
     func didTapLogHeadView() {
         Dotzu.sharedManager.displayedList = true
         let storyboard = UIStoryboard(name: "Manager", bundle: Bundle(for: ManagerViewController.self))
-        guard let controller = storyboard.instantiateInitialViewController() else {
-            return
-        }
+        guard let controller = storyboard.instantiateInitialViewController() else {return}
         self.present(controller, animated: true, completion: nil)
     }
 

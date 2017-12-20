@@ -34,12 +34,12 @@
     return self;
 }
 
-- (void)addHttpRequset:(JxbHttpModel*)model
+- (BOOL)addHttpRequset:(JxbHttpModel*)model
 {
     //host过滤, 忽略大小写
     for (NSString *host in [JxbDebugTool shareInstance].ignoredHosts) {
         if ([[model.url.absoluteString lowercaseString] containsString:[host lowercaseString]]) {
-            return;
+            return NO;
         }
     }
     
@@ -58,6 +58,8 @@
     if (model.requestId && [model.requestId length] > 0) {
         [self.httpModelRequestIds addObject:model.requestId];
     }
+    
+    return YES;
 }
 
 - (void)reset

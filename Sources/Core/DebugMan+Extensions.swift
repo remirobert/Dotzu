@@ -150,6 +150,8 @@ extension Data {
     }
 }
 
+//MARK: - *********************************************************************
+
 ///弹出alert
 extension UIAlertController {
     static func showError(title: String?, controller: UIViewController?) {
@@ -172,5 +174,4 @@ extension UIView {
         self.layer.mask = cornerLayer
     }
 }
-
 

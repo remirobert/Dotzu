@@ -45,23 +45,23 @@ class NetworkCell: UITableViewCell {
     var httpModel: JxbHttpModel? {
         didSet {
             
-            guard let serverHost = LogsSettings.shared.serverHost else {return}//code never go here
+            guard let mainHost = LogsSettings.shared.mainHost else {return}//code never go here
             
             //域名
             requestUrlTextView.text = httpModel?.url.absoluteString
-            if requestUrlTextView.text?.contains(serverHost) == true {
+            if requestUrlTextView.text?.contains(mainHost) == true {
                 if #available(iOS 8.2, *) {
-                    requestUrlTextView.font = UIFont.systemFont(ofSize: 17, weight: .bold)
+                    requestUrlTextView.font = UIFont.systemFont(ofSize: 14, weight: .heavy)
                 } else {
                     // Fallback on earlier versions
-                    requestUrlTextView.font = UIFont.boldSystemFont(ofSize: 17)
+                    requestUrlTextView.font = UIFont.boldSystemFont(ofSize: 14)
                 }
             }else{
                 if #available(iOS 8.2, *) {
-                    requestUrlTextView.font = UIFont.systemFont(ofSize: 12, weight: .medium)
+                    requestUrlTextView.font = UIFont.systemFont(ofSize: 14, weight: .regular)
                 } else {
                     // Fallback on earlier versions
-                    requestUrlTextView.font = UIFont.systemFont(ofSize: 12)
+                    requestUrlTextView.font = UIFont.systemFont(ofSize: 14)
                 }
             }
             

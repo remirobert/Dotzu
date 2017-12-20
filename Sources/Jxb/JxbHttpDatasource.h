@@ -17,7 +17,7 @@
 + (instancetype)shareInstance;
 
 ///记录
-- (void)addHttpRequset:(JxbHttpModel*)model;
+- (BOOL)addHttpRequset:(JxbHttpModel*)model;
 
 ///清空
 - (void)reset;
