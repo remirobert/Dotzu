@@ -113,7 +113,7 @@ class EditViewController: UITableViewController, UITextViewDelegate {
         //设置UI
         if editType == .request
         {
-            self.title = "Edit REQUEST"
+            self.title = detailModel?.title
             tableView.tableHeaderView?.frame.size.height = 28
             tableView.tableHeaderView?.isHidden = false
             textView.text = detailModel?.content
@@ -121,14 +121,14 @@ class EditViewController: UITableViewController, UITextViewDelegate {
         }
         if editType == .header
         {
-            self.title = "Edit HEADER"
+            self.title = detailModel?.title
             tableView.tableHeaderView?.frame.size.height = 0
             tableView.tableHeaderView?.isHidden = true
             textView.text = detailModel?.headerFields?.dictionaryToString()
         }
         if editType == .url
         {
-            self.title = "Edit URL"
+            self.title = "URL"
             tableView.tableHeaderView?.frame.size.height = 0
             tableView.tableHeaderView?.isHidden = true
             textView.text = httpModel?.url.absoluteString
