@@ -34,7 +34,7 @@ public class DebugMan : NSObject {
     //MARK: - Usage of DebugMan:
     
     /// launchShow: Whether to display the debug panel when the APP starts, the default display (是否APP启动时就显示调试面板, 默认显示)
-    /// serverHost: Highlight URL address, the default is none (高亮URL地址, 默认没有)
+    /// serverHost: if the URL contains serverHost, then overstriking this URL to be marked, the default is none (加粗标记URL地址, 默认没有)
     /// extraControllers: Extra controllers to be added as child controllers of UITabBarController, the default is none (额外给UITabBarController增加的子控制器, 默认没有)
     /// ignoredHosts: Set the domain hosts which are not crawled, ignore the case, crawl all domain hosts when the default is nil (设置不抓取的域名, 忽略大小写, 为nil时默认抓取所有)
     /// onlyHosts: Set the domain hosts which are only crawled, ignore the case, crawl all domain hosts when the default is nil (设置只抓取的域名, 忽略大小写, 为nil时默认抓取所有)

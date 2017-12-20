@@ -51,7 +51,7 @@ public class Logger: LogGenerator {
         guard let fileName = file.components(separatedBy: "/").last else { return nil }
         
         //liman mark
-        return "\(fileName)[\(line)]\(function): "
+        return "\(fileName)[\(line)]\(function):\n"
     }
 
     fileprivate static func handleLog(_ message: Any..., level: LogLevel, file: String?, function: String?, line: Int?) {

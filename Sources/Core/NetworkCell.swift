@@ -45,16 +45,24 @@ class NetworkCell: UITableViewCell {
     var httpModel: JxbHttpModel? {
         didSet {
             
-            guard let serverHost = LogsSettings.shared.serverHost else {
-                return //code never go here
-            }
+            guard let serverHost = LogsSettings.shared.serverHost else {return}//code never go here
             
             //域名
             requestUrlTextView.text = httpModel?.url.absoluteString
             if requestUrlTextView.text?.contains(serverHost) == true {
-                requestUrlTextView.textColor = UIColor.white
+                if #available(iOS 8.2, *) {
+                    requestUrlTextView.font = UIFont.systemFont(ofSize: 17, weight: .bold)
+                } else {
+                    // Fallback on earlier versions
+                    requestUrlTextView.font = UIFont.boldSystemFont(ofSize: 17)
+                }
             }else{
-                requestUrlTextView.textColor = UIColor.init(hexString: "#808080")
+                if #available(iOS 8.2, *) {
+                    requestUrlTextView.font = UIFont.systemFont(ofSize: 12, weight: .medium)
+                } else {
+                    // Fallback on earlier versions
+                    requestUrlTextView.font = UIFont.systemFont(ofSize: 12)
+                }
             }
             
             //请求方式

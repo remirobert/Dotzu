@@ -26,6 +26,8 @@ class ViewController: UIViewController {
         mockPUT()
     }
     
+    
+    
     //MARK: - mock GET
     func mockGET() {
         NetworkManager.sharedInstance().requestData(withURL: "https://httpbin.org/get", method: "GET", parameter: nil, header: nil, cookies: nil, timeoutInterval: 10, requestSerializer: RequestSerializer(rawValue: 0), responseSerializer: ResponseSerializer(rawValue: 0), result: { (responseObject) in

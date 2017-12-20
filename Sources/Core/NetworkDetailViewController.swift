@@ -253,6 +253,7 @@ class NetworkDetailViewController: UITableViewController {
     //MARK: - UITableViewDelegate
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
+        guard let serverHost = LogsSettings.shared.serverHost else {return 0}//code never go here
         let detailModel = detailModels[indexPath.row]
         
         if detailModel.blankContent == "..." {
@@ -263,15 +264,26 @@ class NetworkDetailViewController: UITableViewController {
         }
         
         if indexPath.row == 0 {
+            var height: CGFloat = 0.0
             if let cString = self.httpModel?.url.absoluteString.cString(using: String.Encoding.utf8) {
                 if let content_ = NSString(cString: cString, encoding: String.Encoding.utf8.rawValue) {
                     
-                    var height: CGFloat = 0.0
-                    //计算NSString高度
-                    if #available(iOS 8.2, *) {
-                        height = content_.height(with: UIFont.systemFont(ofSize: 12, weight: .medium), constraintToWidth: (UIScreen.main.bounds.size.width - 92))
-                    } else {
-                        height = content_.height(with: UIFont.systemFont(ofSize: 12), constraintToWidth: (UIScreen.main.bounds.size.width - 92))
+                    if self.httpModel?.url.absoluteString.contains(serverHost) == true {
+                        //计算NSString高度
+                        if #available(iOS 8.2, *) {
+                            height = content_.height(with: UIFont.systemFont(ofSize: 17, weight: .bold), constraintToWidth: (UIScreen.main.bounds.size.width - 92))
+                        } else {
+                            // Fallback on earlier versions
+                            height = content_.height(with: UIFont.boldSystemFont(ofSize: 17), constraintToWidth: (UIScreen.main.bounds.size.width - 92))
+                        }
+                    }else{
+                        //计算NSString高度
+                        if #available(iOS 8.2, *) {
+                            height = content_.height(with: UIFont.systemFont(ofSize: 12, weight: .medium), constraintToWidth: (UIScreen.main.bounds.size.width - 92))
+                        } else {
+                            // Fallback on earlier versions
+                            height = content_.height(with: UIFont.systemFont(ofSize: 12), constraintToWidth: (UIScreen.main.bounds.size.width - 92))
+                        }
                     }
                     
                     return height + 57
