@@ -21,40 +21,40 @@ public class DebugMan : NSObject {
     /// mockTimeoutInterval: When mock network request, set the timeout interval, the default is 10 seconds (mock网络请求时, 设置的超时时间, 默认10秒)
     /// extraControllers: Extra controllers to be added as child controllers of UITabBarController. the default is none (额外给UITabBarController增加的子控制器, 默认没有)
     public func enable(_ launchShow: Bool = true, mainHost: String? = nil, ignoredHosts: [String]? = nil, onlyHosts: [String]? = nil, maxLogsCount: Int = 100, mockTimeoutInterval: TimeInterval = 10, extraControllers: [UIViewController]? = nil) {
-        //#if DEBUG
-        if mainHost == nil {
-            LogsSettings.shared.mainHost = ""
-        }else{
-            LogsSettings.shared.mainHost = mainHost
-        }
-        if extraControllers == nil {
-            LogsSettings.shared.extraControllers = []
-        }else{
-            LogsSettings.shared.extraControllers = extraControllers
-        }
-        if onlyHosts == nil {
-            LogsSettings.shared.onlyHosts = []
-        }else{
-            LogsSettings.shared.onlyHosts = onlyHosts
-        }
-        if ignoredHosts == nil {
-            LogsSettings.shared.ignoredHosts = []
-        }else{
-            LogsSettings.shared.ignoredHosts = ignoredHosts
-        }
-        if launchShow == true {
-            LogsSettings.shared.isBallShowScreen = true
-        }else {
-            LogsSettings.shared.isBallShowScreen = false
-            return
-        }
-        
-        Dotzu.sharedManager.enable()
-        JxbDebugTool.shareInstance().enable()
+//#if DEBUG
+    if mainHost == nil {
+        LogsSettings.shared.mainHost = ""
+    }else{
+        LogsSettings.shared.mainHost = mainHost
+    }
+    if extraControllers == nil {
+        LogsSettings.shared.extraControllers = []
+    }else{
+        LogsSettings.shared.extraControllers = extraControllers
+    }
+    if onlyHosts == nil {
+        LogsSettings.shared.onlyHosts = []
+    }else{
+        LogsSettings.shared.onlyHosts = onlyHosts
+    }
+    if ignoredHosts == nil {
+        LogsSettings.shared.ignoredHosts = []
+    }else{
+        LogsSettings.shared.ignoredHosts = ignoredHosts
+    }
+    if launchShow == true {
         LogsSettings.shared.isBallShowScreen = true
-        LogsSettings.shared.maxLogsCount = maxLogsCount
-        LogsSettings.shared.mockTimeoutInterval = mockTimeoutInterval
-        //#endif
+    }else {
+        LogsSettings.shared.isBallShowScreen = false
+        return
+    }
+    
+    Dotzu.sharedManager.enable()
+    JxbDebugTool.shareInstance().enable()
+    LogsSettings.shared.isBallShowScreen = true
+    LogsSettings.shared.maxLogsCount = maxLogsCount
+    LogsSettings.shared.mockTimeoutInterval = mockTimeoutInterval
+//#endif
     }
     
     
@@ -102,4 +102,3 @@ public class DebugMan : NSObject {
         }
     }
 }
-

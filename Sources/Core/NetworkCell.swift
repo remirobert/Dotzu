@@ -51,17 +51,17 @@ class NetworkCell: UITableViewCell {
             requestUrlTextView.text = httpModel?.url.absoluteString
             if requestUrlTextView.text?.contains(mainHost) == true {
                 if #available(iOS 8.2, *) {
-                    requestUrlTextView.font = UIFont.systemFont(ofSize: 14, weight: .heavy)
+                    requestUrlTextView.font = UIFont.systemFont(ofSize: 13, weight: .heavy)
                 } else {
                     // Fallback on earlier versions
-                    requestUrlTextView.font = UIFont.boldSystemFont(ofSize: 14)
+                    requestUrlTextView.font = UIFont.boldSystemFont(ofSize: 13)
                 }
             }else{
                 if #available(iOS 8.2, *) {
-                    requestUrlTextView.font = UIFont.systemFont(ofSize: 14, weight: .regular)
+                    requestUrlTextView.font = UIFont.systemFont(ofSize: 13, weight: .regular)
                 } else {
                     // Fallback on earlier versions
-                    requestUrlTextView.font = UIFont.systemFont(ofSize: 14)
+                    requestUrlTextView.font = UIFont.systemFont(ofSize: 13)
                 }
             }
             
@@ -83,15 +83,11 @@ class NetworkCell: UITableViewCell {
             statusCodeLabel.text = httpModel?.statusCode
             if statusCodeLabel.text == "200" {
                 statusCodeLabel.textColor = Color.mainGreen
-            }
-            else if statusCodeLabel.text == "500" {
-                statusCodeLabel.textColor = UIColor.init(hexString: "#ffbd2e")
-            }
-            else if statusCodeLabel.text == "404" {
-                statusCodeLabel.textColor = UIColor.init(hexString: "#808080")
-            }
-            else{//"0"
+            }else{
                 statusCodeLabel.textColor = UIColor.init(hexString: "#ff0000")
+            }
+            if statusCodeLabel.text == "0" {
+                statusCodeLabel.text = "❌"
             }
             
             //是否显示图片label

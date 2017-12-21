@@ -24,10 +24,10 @@ class LogHeadView: UIView {
     private var timer: Timer? //liman mark
     
     //liman mark
-    private lazy var label: UILabel! = {
-        let label = UILabel(frame: CGRect(x:_width/8, y:_height/2 - 14.5/2, width:_width/8*6, height:14.5))
+    private lazy var _label: UILabel! = {
+        let label = UILabel(frame: CGRect(x:_width/8, y:_height/2 - 16/2, width:_width/8*6, height:16))
         label.textColor = Color.mainGreen
-        label.font = UIFont.systemFont(ofSize: 12)
+        label.font = UIFont.systemFont(ofSize: 13)
         label.textAlignment = .center
         label.adjustsFontSizeToFitWidth = true
         label.text = JxbDebugTool.shareInstance().bytesOfUsedMemory()
@@ -45,32 +45,68 @@ class LogHeadView: UIView {
     
     static var size: CGSize {return CGSize(width: _width, height: _height)}
     
+    
     //MARK: - tool
-    fileprivate func initLabelEvent(content: String) {
-        let label = UILabel()
-        label.frame = CGRect(x: self.frame.size.width/2 - 25/2, y: self.frame.size.height/2 - 25/2, width: 25, height: 25)
-        label.text = content
-        self.addSubview(label)
-        UIView.animate(withDuration: 0.8, animations: {
-            label.frame.origin.y = -100
-            label.alpha = 0
-        }, completion: { _ in
-            label.removeFromSuperview()
-        })
+    fileprivate func initLabelEvent(_ content: String, _ foo: Bool) {
+        
+        if content == "🚀" || content == "❌"
+        {
+            //step 0
+            let WH: CGFloat = 25
+            //step 1
+            let label = UILabel()
+            label.text = content
+            //step 2
+            if foo == true {
+                label.frame = CGRect(x: self.frame.size.width/2 - WH/2, y: self.frame.size.height/2 - WH/2, width: WH, height: WH)
+                self.addSubview(label)
+            }else{
+                label.frame = CGRect(x: self.center.x - WH/2, y: self.center.y - WH/2, width: WH, height: WH)
+                self.superview?.addSubview(label)
+            }
+            //step 3
+            UIView.animate(withDuration: 0.8, animations: {
+                label.frame.origin.y = foo ? -100 : (self.center.y - 100)
+                label.alpha = 0
+            }, completion: { _ in
+                label.removeFromSuperview()
+            })
+        }
+        else
+        {
+            //step 0
+            let WH: CGFloat = 35
+            //step 1
+            let label = UILabel()
+            label.text = content
+            label.textAlignment = .center
+            label.textColor = UIColor.red
+            label.adjustsFontSizeToFitWidth = true
+            //step 2
+            if #available(iOS 8.2, *) {
+                label.font = UIFont.systemFont(ofSize: 17, weight: .bold)
+            } else {
+                // Fallback on earlier versions
+                label.font = UIFont.boldSystemFont(ofSize: 17)
+            }
+            //step 3
+            if foo == true {
+                label.frame = CGRect(x: self.frame.size.width/2 - WH/2, y: self.frame.size.height/2 - WH/2, width: WH, height: WH)
+                self.addSubview(label)
+            }else{
+                label.frame = CGRect(x: self.center.x - WH/2, y: self.center.y - WH/2, width: WH, height: WH)
+                self.superview?.addSubview(label)
+            }
+            //step 4
+            UIView.animate(withDuration: 0.8, animations: {
+                label.frame.origin.y = foo ? -100 : (self.center.y - 100)
+                label.alpha = 0
+            }, completion: { _ in
+                label.removeFromSuperview()
+            })
+        }
     }
     
-    fileprivate func initLabelEvent2(content: String) {
-        let label2 = UILabel()
-        label2.frame = CGRect(x: self.center.x - 25/2, y: self.center.y - 25/2, width: 25, height: 25)
-        label2.text = content
-        self.superview?.addSubview(label2)
-        UIView.animate(withDuration: 0.8, animations: {
-            label2.frame.origin.y = self.center.y - 100
-            label2.alpha = 0
-        }, completion: { _ in
-            label2.removeFromSuperview()
-        })
-    }
     
     fileprivate func initLayer() {
         self.backgroundColor = UIColor.black
@@ -88,7 +124,7 @@ class LogHeadView: UIView {
         gradientLayer.colors = Color.colorGradientHead
         self.layer.addSublayer(gradientLayer)
                 
-        self.addSubview(label)
+        self.addSubview(_label)
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(LogHeadView.tap))
         self.addGestureRecognizer(tapGesture)
@@ -140,26 +176,21 @@ class LogHeadView: UIView {
         
         if statusCode == "200" {
             DispatchQueue.main.async { [weak self] in
-                self?.initLabelEvent(content: "🚀")
-                self?.initLabelEvent2(content: "🚀")
+                self?.initLabelEvent("🚀", true)
+                self?.initLabelEvent("🚀", false)
             }
         }
-        else if statusCode == "500" {
+        else if statusCode == "0" {
             DispatchQueue.main.async { [weak self] in
-                self?.initLabelEvent(content: "⚠️")
-                self?.initLabelEvent2(content: "⚠️")
+                self?.initLabelEvent("❌", true)
+                self?.initLabelEvent("❌", false)
             }
         }
-        else if statusCode == "404" {
+        else{
             DispatchQueue.main.async { [weak self] in
-                self?.initLabelEvent(content: "🚫")
-                self?.initLabelEvent2(content: "🚫")
-            }
-        }
-        else{//"0"
-            DispatchQueue.main.async { [weak self] in
-                self?.initLabelEvent(content: "❌")
-                self?.initLabelEvent2(content: "❌")
+                guard let statusCode = statusCode else {return}
+                self?.initLabelEvent(statusCode, true)
+                self?.initLabelEvent(statusCode, false)
             }
         }
     }
@@ -167,7 +198,7 @@ class LogHeadView: UIView {
     //MARK: - target action
     //内存监控
     @objc func timerMonitor() {
-        label.text = JxbDebugTool.shareInstance().bytesOfUsedMemory()
+        _label.text = JxbDebugTool.shareInstance().bytesOfUsedMemory()
     }
     
     @objc func tap() {
