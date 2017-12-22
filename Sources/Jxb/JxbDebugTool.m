@@ -75,10 +75,10 @@
     __weak typeof (self) wSelf = self;
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         wSelf.debugWin = [[UIWindow alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 20)];
-        wSelf.debugWin.windowLevel = UIWindowLevelStatusBar+1;
+        wSelf.debugWin.windowLevel = kDotzuWindowLevel + 1;
         wSelf.debugWin.hidden = NO;
         wSelf.debugWin.backgroundColor = [UIColor clearColor];
-        [wSelf.debugWin addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapDebugWin)]];
+        [wSelf.debugWin addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapStatusBar)]];
     });
 }
 
@@ -91,9 +91,9 @@
 }
 
 //MARK: - target action
-- (void)tapDebugWin
+- (void)tapStatusBar
 {
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"tapDebugWin" object:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"tapStatusBar" object:nil];
 }
 
 @end

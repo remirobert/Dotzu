@@ -12,17 +12,6 @@ class ListCrashesViewController: UIViewController, UITableViewDataSource, UITabl
 
     var models: [LogCrash] = [LogCrash]()
     @IBOutlet weak var tableView: UITableView!
-
-    //MARK: - tool
-    func dispatch_main_async_safe(callback: @escaping ()->Void ) {
-        if Thread.isMainThread {
-            callback()
-        }else{
-            DispatchQueue.main.async( execute: {
-                callback()
-            })
-        }
-    }
     
     //MARK: - init
     override func viewDidLoad() {

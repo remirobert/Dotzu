@@ -224,7 +224,7 @@
     if ([[JxbHttpDatasource shareInstance] addHttpRequset:model])
     {
         GCD_DELAY_AFTER(0.1, ^{
-            [[NSNotificationCenter defaultCenter] postNotificationName:kNotifyKeyReloadHttp object:nil userInfo:@{@"statusCode":model.statusCode}];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"reloadHttp" object:nil userInfo:@{@"statusCode":model.statusCode}];
         });
     }
 }

@@ -216,7 +216,7 @@
         <scene sceneID="KLL-VA-asP">
             <objects>
                 <tableViewController storyboardIdentifier="NetworkDetailViewController" title="Details" hidesBottomBarWhenPushed="YES" id="q3G-BB-F3V" customClass="NetworkDetailViewController" customModule="DebugMan" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" contentInsetAdjustmentBehavior="never" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="fPI-1I-xFz">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" contentInsetAdjustmentBehavior="never" indicatorStyle="white" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="fPI-1I-xFz">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -280,7 +280,7 @@
                                             </constraints>
                                         </view>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="debugman_edit.png" translatesAutoresizingMaskIntoConstraints="NO" id="fLf-Kq-ENh">
-                                            <rect key="frame" x="351" y="26" width="20" height="20"/>
+                                            <rect key="frame" x="350" y="26" width="20" height="20"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="20" id="59Q-Ki-VmO"/>
                                                 <constraint firstAttribute="width" constant="20" id="n7n-Ie-OJZ"/>
@@ -296,7 +296,7 @@
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="0OK-GH-Jip" firstAttribute="leading" secondItem="JkA-KQ-aXq" secondAttribute="leading" id="2lu-l3-iFm"/>
-                                        <constraint firstAttribute="trailing" secondItem="fLf-Kq-ENh" secondAttribute="trailing" constant="4" id="8ue-KF-1j6"/>
+                                        <constraint firstAttribute="trailing" secondItem="fLf-Kq-ENh" secondAttribute="trailing" constant="5" id="8ue-KF-1j6"/>
                                         <constraint firstAttribute="trailing" secondItem="0OK-GH-Jip" secondAttribute="trailing" id="Bdp-yZ-4mu"/>
                                         <constraint firstItem="LgN-MH-NgE" firstAttribute="top" secondItem="JkA-KQ-aXq" secondAttribute="top" constant="30" id="Cb9-Mt-qbb"/>
                                         <constraint firstAttribute="trailing" secondItem="huU-o6-oW4" secondAttribute="trailing" id="GEz-5f-lIe"/>

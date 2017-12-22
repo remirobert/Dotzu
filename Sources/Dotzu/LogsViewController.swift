@@ -19,16 +19,6 @@ class LogsViewController: UITableViewController, UISearchBarDelegate {
     @IBOutlet weak var searchBar: UISearchBar!
     
     //MARK: - tool
-    func dispatch_main_async_safe(callback: @escaping ()->Void ) {
-        if Thread.isMainThread {
-            callback()
-        }else{
-            DispatchQueue.main.async( execute: {
-                callback()
-            })
-        }
-    }
-    
     //搜索逻辑
     func searchLogic(_ searchText: String = "") {
         guard let cacheModels = cacheModels else {return}
@@ -100,7 +90,7 @@ class LogsViewController: UITableViewController, UISearchBarDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        NotificationCenter.default.addObserver(self, selector: #selector(tapDebugWin), name: NSNotification.Name("tapDebugWin"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(tapStatusBar), name: NSNotification.Name("tapStatusBar"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(refreshLogs_notification), name: NSNotification.Name("refreshLogs"), object: nil)
         
         reloadLogs(true)
@@ -240,7 +230,7 @@ class LogsViewController: UITableViewController, UISearchBarDelegate {
     }
     
     //MARK: - notification
-    @objc func tapDebugWin() {
+    @objc func tapStatusBar() {
         if models.count > 0 {
             
             dispatch_main_async_safe { [weak self] in

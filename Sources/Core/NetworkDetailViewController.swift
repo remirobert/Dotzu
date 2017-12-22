@@ -130,6 +130,8 @@ class NetworkDetailViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        NotificationCenter.default.addObserver(self, selector: #selector(tapStatusBar), name: NSNotification.Name("tapStatusBar"), object: nil)
+        
         //确定request格式(JSON/Form)
         detectRequestSerializer()
             
@@ -159,6 +161,10 @@ class NetworkDetailViewController: UITableViewController {
                 justCancelCallback()
             }
         }
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
     
     //MARK: - UITableViewDataSource
@@ -368,5 +374,12 @@ class NetworkDetailViewController: UITableViewController {
     
     @IBAction func close(_ sender: UIBarButtonItem) {
         (self.navigationController as! LogNavigationViewController).exit()
+    }
+    
+    //MARK: - notification
+    @objc func tapStatusBar() {
+        dispatch_main_async_safe { [weak self] in
+            self?.tableView.setContentOffset( CGPoint(x: 0, y: 0) , animated: true)
+        }
     }
 }

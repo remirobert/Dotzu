@@ -5,12 +5,10 @@
 //  Created by Peter Jin  on 15/11/12.
 //  Copyright (c) 2015年 Mail:i@Jxb.name. All rights reserved.
 //
+#define kDotzuWindowLevel        3000
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-
-#define kNotifyKeyReloadHttp    @"kNotifyKeyReloadHttp"
-
 
 @protocol JxbDebugDelegate <NSObject>
 - (NSData*)decryptJson:(NSData*)data;

@@ -20,7 +20,7 @@ class ManagerWindow: UIWindow {
         super.init(frame: frame)
 
         self.backgroundColor = UIColor.clear
-        self.windowLevel = UIWindowLevelStatusBar - 1
+        self.windowLevel = UIWindowLevel(kDotzuWindowLevel)
     }
 
     required init?(coder aDecoder: NSCoder) {

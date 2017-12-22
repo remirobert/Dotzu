@@ -22,23 +22,12 @@ class InformationsTableViewController: UITableViewController {
     @IBOutlet weak var labelMainHost: UILabel!
     @IBOutlet weak var labelIOSVersion: UILabel!
     
-    //MARK: - tool
-    func dispatch_main_async_safe(callback: @escaping ()->Void ) {
-        if Thread.isMainThread {
-            callback()
-        }else{
-            DispatchQueue.main.async( execute: {
-                callback()
-            })
-        }
-    }
-    
     //MARK: - init
     override func viewDidLoad() {
         super.viewDidLoad()
 
         //liman mark
-        NotificationCenter.default.addObserver(self, selector: #selector(tapDebugWin), name: NSNotification.Name("tapDebugWin"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(tapStatusBar), name: NSNotification.Name("tapStatusBar"), object: nil)
 
         
         labelCrashCount.frame.size = CGSize(width: 30, height: 20)
@@ -113,7 +102,7 @@ class InformationsTableViewController: UITableViewController {
     }
     
     //MARK: - notification
-    @objc func tapDebugWin() {
+    @objc func tapStatusBar() {
         dispatch_main_async_safe { [weak self] in
             self?.tableView.setContentOffset( CGPoint(x: 0, y: 0) , animated: true)
         }
