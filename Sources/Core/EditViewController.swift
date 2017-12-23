@@ -71,8 +71,8 @@ class EditViewController: UITableViewController, UITextViewDelegate {
             button?.addCorner(roundingCorners: UIRectCorner(rawValue: UIRectCorner.RawValue(UInt8(UIRectCorner.topLeft.rawValue) | UInt8(UIRectCorner.topRight.rawValue))), cornerSize: CGSize(width:4,height:4))
             button?.addTarget(self, action: #selector(tapButton(_:)), for: .touchUpInside)
             
-            guard let button = button else {return}
-            Dotzu.sharedManager.window.addSubview(button)
+            guard let button = button, let window = UIApplication.shared.delegate?.window else {return}
+            window?.addSubview(button)
         }
         
         UIView.animate(withDuration: 0.35) { [weak self] in
@@ -202,7 +202,7 @@ class EditViewController: UITableViewController, UITextViewDelegate {
                 UIAlertController.showError(title: "Not edited yet", controller: self)
                 return
             }
-            guard let requestSerializer = detailModel?.requestSerializer else {return}//code never go here
+            guard let requestSerializer = detailModel?.requestSerializer else {return}
             
             if editType == .header
             {
@@ -246,7 +246,7 @@ class EditViewController: UITableViewController, UITextViewDelegate {
     
     //能点击segmentedControl, 说明一定是在编辑request
     @IBAction func segmentedControlAction(_ sender: UISegmentedControl) {
-        guard let requestSerializer = detailModel?.requestSerializer, let textView = textView else {return}//code never go here
+        guard let requestSerializer = detailModel?.requestSerializer, let textView = textView else {return}
         
         
         if Int(requestSerializer.rawValue) == 0 {//原格式为JSON

@@ -15,7 +15,7 @@
 #define GB    (MB * 1024)
 
 @interface JxbDebugTool()
-@property (nonatomic, strong) UIWindow    *debugWin;
+
 @end
 
 @implementation JxbDebugTool
@@ -64,36 +64,6 @@
     {
         return [NSString stringWithFormat:@"%.1fG", (float)n / (float)GB];
     }
-}
-
-- (void)showDebugWin
-{
-    if (self.debugWin) {
-        return;
-    }
-    
-    __weak typeof (self) wSelf = self;
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        wSelf.debugWin = [[UIWindow alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 20)];
-        wSelf.debugWin.windowLevel = kDotzuWindowLevel + 1;
-        wSelf.debugWin.hidden = NO;
-        wSelf.debugWin.backgroundColor = [UIColor clearColor];
-        [wSelf.debugWin addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapStatusBar)]];
-    });
-}
-
-- (void)hideDebugWin
-{
-    if (self.debugWin) {
-        [self.debugWin removeFromSuperview];
-        self.debugWin = nil;
-    }
-}
-
-//MARK: - target action
-- (void)tapStatusBar
-{
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"tapStatusBar" object:nil];
 }
 
 @end

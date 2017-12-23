@@ -134,6 +134,21 @@
             </objects>
             <point key="canvasLocation" x="-739" y="1481"/>
         </scene>
+        <!--Log Tab Bar View Controller-->
+        <scene sceneID="Z8V-kA-Bgb">
+            <objects>
+                <tabBarController storyboardIdentifier="LogTabBarViewController" id="8sf-A9-y96" customClass="LogTabBarViewController" customModule="DebugMan" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" translucent="NO" id="vaV-sF-b6b">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZGg-PT-AVp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-18" y="947"/>
+        </scene>
     </scenes>
     <resources>
         <image name="debugman_logs" width="16" height="16"/>

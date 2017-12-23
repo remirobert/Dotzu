@@ -25,10 +25,6 @@ class InformationsTableViewController: UITableViewController {
     //MARK: - init
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        //liman mark
-        NotificationCenter.default.addObserver(self, selector: #selector(tapStatusBar), name: NSNotification.Name("tapStatusBar"), object: nil)
-
         
         labelCrashCount.frame.size = CGSize(width: 30, height: 20)
 
@@ -52,10 +48,6 @@ class InformationsTableViewController: UITableViewController {
         let count = UserDefaults.standard.integer(forKey: "crashCount")
         labelCrashCount.text = "\(count)"
         labelCrashCount.textColor = count > 0 ? UIColor.red : UIColor.white
-    }
-    
-    deinit {
-        NotificationCenter.default.removeObserver(self)
     }
     
     //MARK: - UITableViewDelegate
@@ -98,13 +90,6 @@ class InformationsTableViewController: UITableViewController {
         if indexPath.section == 3 && indexPath.row == 0 {
             let vc = IgnoredHostsViewController.instanceFromStoryBoard()
             self.navigationController?.pushViewController(vc, animated: true)
-        }
-    }
-    
-    //MARK: - notification
-    @objc func tapStatusBar() {
-        dispatch_main_async_safe { [weak self] in
-            self?.tableView.setContentOffset( CGPoint(x: 0, y: 0) , animated: true)
         }
     }
 }

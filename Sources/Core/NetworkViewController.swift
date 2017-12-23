@@ -102,7 +102,6 @@ class NetworkViewController: UIViewController, UITableViewDataSource, UITableVie
         
         //liman mark
         NotificationCenter.default.addObserver(self, selector: #selector(reloadHttp_notification(_ :)), name: NSNotification.Name("reloadHttp"), object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(tapStatusBar), name: NSNotification.Name("tapStatusBar"), object: nil)
         
         tableView.dataSource = self
         tableView.delegate = self
@@ -142,7 +141,7 @@ class NetworkViewController: UIViewController, UITableViewDataSource, UITableVie
     //MARK: - UITableViewDelegate
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        guard let mainHost = LogsSettings.shared.mainHost else {return 0}//code never go here
+        guard let mainHost = LogsSettings.shared.mainHost else {return 0}
         let model = models?[indexPath.row]
         var height: CGFloat = 0.0
         
@@ -171,7 +170,7 @@ class NetworkViewController: UIViewController, UITableViewDataSource, UITableVie
             }
         }
         
-        return 0 //code never go here --by liman
+        return 0
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
@@ -296,17 +295,6 @@ class NetworkViewController: UIViewController, UITableViewDataSource, UITableVie
     //MARK: - notification
     @objc func reloadHttp_notification(_ notification: Notification) {
         reloadHttp()
-    }
-    
-    @objc func tapStatusBar() {
-        guard let count = models?.count else {return}
-        if count > 0 {
-            dispatch_main_async_safe { [weak self] in
-                self?.tableView.setContentOffset( CGPoint(x: 0, y: 0) , animated: true)
-            }
-        }
-        
-        searchBar.resignFirstResponder()
     }
 }
 

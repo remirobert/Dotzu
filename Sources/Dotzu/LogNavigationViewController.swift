@@ -29,6 +29,5 @@ class LogNavigationViewController: UINavigationController {
     
     @objc func exit() {
         dismiss(animated: true, completion: nil)
-        LogsSettings.shared.isControllerPresent = false //liman mark
     }
 }

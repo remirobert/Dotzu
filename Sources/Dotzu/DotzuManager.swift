@@ -8,36 +8,39 @@
 
 import UIKit
 
-public class Dotzu: NSObject {
+public class Dotzu: NSObject, LogHeadViewDelegate {
+    
+    var logHeadView: LogHeadView?
     public static let sharedManager = Dotzu()
-    var window: ManagerWindow
-    fileprivate let controller = ManagerViewController()
-    var displayedList = false
-
+    
     override init() {
-        self.window = ManagerWindow(frame: UIScreen.main.bounds)
         super.init()
+        logHeadView = LogHeadView(frame: CGRect(origin: LogHeadView.originalPosition, size: LogHeadView.size))
+        logHeadView?.delegate = self
     }
 
+    //MARK: - public
     public func enable() {
-        self.window.rootViewController = self.controller
-        self.window.isHidden = false
-        self.window.delegate = self
-        Logger.shared.enable = true
-        LoggerCrash.shared.enable = true
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.1) { [weak self] in
+            DispatchQueue.main.async { [weak self] in
+                self?.logHeadView?.isHidden = false
+            }
+        }
     }
 
     public func disable() {
-        self.window.rootViewController = nil
-        self.window.removeFromSuperview()
-        self.window.delegate = nil//liman mark
-        Logger.shared.enable = false
-        LoggerCrash.shared.enable = false
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.1) { [weak self] in
+            DispatchQueue.main.async { [weak self] in
+                self?.logHeadView?.isHidden = true
+            }
+        }
     }
-}
-
-extension Dotzu: ManagerWindowDelegate {
-    func isPointEvent(point: CGPoint) -> Bool {
-        return self.controller.shouldReceive(point: point)
+    
+    //MARK: - LogHeadViewDelegate
+    func didTapLogHeadView() {
+        guard let window = UIApplication.shared.delegate?.window else {return}
+        
+        let tabbarController = LogTabBarViewController.instanceFromStoryBoard()
+        window?.rootViewController?.present(tabbarController, animated: true, completion: nil)
     }
 }

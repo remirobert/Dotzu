@@ -69,8 +69,6 @@
     [self swizzling_TaskDidReceiveChallengeIntoDelegateClass:cls];
     [self swizzling_TaskNeedNewBodyStreamIntoDelegateClass:cls];
     [self swizzling_TaskDidCompleteWithErrorIntoDelegateClass:cls];
-    
-    
 }
 
 + (void)swizzling_TaskWillPerformHTTPRedirectionIntoDelegateClass:(Class)cls {
@@ -80,8 +78,6 @@
     
     struct objc_method_description methodDescription = protocol_getMethodDescription(protocol, selector, NO, YES);
     [self replaceImplementationOfSelector:selector withSelector:swizzledSelector forClass:cls withMethodDescription:methodDescription];
-    
-    
 }
 
 + (void)swizzling_TaskDidSendBodyDataIntoDelegateClass:(Class)cls {
@@ -91,8 +87,6 @@
     
     struct objc_method_description methodDescription = protocol_getMethodDescription(protocol, selector, NO, YES);
     [self replaceImplementationOfSelector:selector withSelector:swizzledSelector forClass:cls withMethodDescription:methodDescription];
-    
-    
 }
 
 + (void)swizzling_TaskDidReceiveChallengeIntoDelegateClass:(Class)cls {
@@ -102,8 +96,6 @@
     
     struct objc_method_description methodDescription = protocol_getMethodDescription(protocol, selector, NO, YES);
     [self replaceImplementationOfSelector:selector withSelector:swizzledSelector forClass:cls withMethodDescription:methodDescription];
-    
-    
 }
 
 + (void)swizzling_TaskNeedNewBodyStreamIntoDelegateClass:(Class)cls {
@@ -113,8 +105,6 @@
     
     struct objc_method_description methodDescription = protocol_getMethodDescription(protocol, selector, NO, YES);
     [self replaceImplementationOfSelector:selector withSelector:swizzledSelector forClass:cls withMethodDescription:methodDescription];
-    
-    
 }
 
 + (void)swizzling_TaskDidCompleteWithErrorIntoDelegateClass:(Class)cls {
@@ -124,33 +114,23 @@
     
     struct objc_method_description methodDescription = protocol_getMethodDescription(protocol, selector, NO, YES);
     [self replaceImplementationOfSelector:selector withSelector:swizzledSelector forClass:cls withMethodDescription:methodDescription];
-    
-    
 }
 
 #pragma mark - NSURLSession task delegate
 - (void)URLSession_swizzling:(NSURLSession *)session task:(NSURLSessionTask *)task willPerformHTTPRedirection:(NSHTTPURLResponse *)response newRequest:(NSURLRequest *)request completionHandler:(void (^)(NSURLRequest * __nullable))completionHandler {
     [self URLSession_swizzling:session task:task willPerformHTTPRedirection:response newRequest:request completionHandler:completionHandler];
-    
-    
 }
 
 - (void)URLSession_swizzling:(NSURLSession *)session task:(NSURLSessionTask *)task didSendBodyData:(int64_t)bytesSent totalBytesSent:(int64_t)totalBytesSent totalBytesExpectedToSend:(int64_t)totalBytesExpectedToSend {
     [self URLSession_swizzling:session task:task didSendBodyData:bytesSent totalBytesSent:totalBytesSent totalBytesExpectedToSend:totalBytesExpectedToSend];
-    
-    
 }
 
 - (void)URLSession_swizzling:(NSURLSession *)session task:(NSURLSessionTask *)task didReceiveChallenge:(NSURLAuthenticationChallenge *)challenge completionHandler:(void (^)(NSURLSessionAuthChallengeDisposition disposition, NSURLCredential * __nullable credential))completionHandler {
     [self URLSession_swizzling:session task:task didReceiveChallenge:challenge completionHandler:completionHandler];
-    
-    
 }
 
 - (void)URLSession_swizzling:(NSURLSession *)session task:(NSURLSessionTask *)task needNewBodyStream:(void (^)(NSInputStream * __nullable bodyStream))completionHandler {
     [self URLSession_swizzling:session task:task needNewBodyStream:completionHandler];
-    
-    
 }
 
 - (void)URLSession_swizzling:(NSURLSession *)session task:(NSURLSessionTask *)task didCompleteWithError:(nullable NSError *)error {
@@ -237,8 +217,6 @@
     [self swizzling_TaskDidBecomeDownloadTaskIntoDelegateClass:cls];
     [self swizzling_TaskDidBecomeStreamTaskIntoDelegateClass:cls];
 //    [self swizzling_TaskWillCacheResponseIntoDelegateClass:cls];
-    
-    
 }
 
 + (void)swizzling_TaskDidReceiveResponseIntoDelegateClass:(Class)cls {
@@ -248,8 +226,6 @@
     
     struct objc_method_description methodDescription = protocol_getMethodDescription(protocol, selector, NO, YES);
     [self replaceImplementationOfSelector:selector withSelector:swizzledSelector forClass:cls withMethodDescription:methodDescription];
-    
-    
 }
 
 + (void)swizzling_TaskDidReceiveDataIntoDelegateClass:(Class)cls {
@@ -259,8 +235,6 @@
 
     struct objc_method_description methodDescription = protocol_getMethodDescription(protocol, selector, NO, YES);
     [self replaceImplementationOfSelector:selector withSelector:swizzledSelector forClass:cls withMethodDescription:methodDescription];
-    
-    
 }
 
 + (void)swizzling_TaskDidBecomeDownloadTaskIntoDelegateClass:(Class)cls {
@@ -270,8 +244,6 @@
     
     struct objc_method_description methodDescription = protocol_getMethodDescription(protocol, selector, NO, YES);
     [self replaceImplementationOfSelector:selector withSelector:swizzledSelector forClass:cls withMethodDescription:methodDescription];
-    
-    
 }
 + (void)swizzling_TaskDidBecomeStreamTaskIntoDelegateClass:(Class)cls {
     SEL selector = @selector(URLSession:dataTask:didBecomeStreamTask:);
@@ -280,8 +252,6 @@
     
     struct objc_method_description methodDescription = protocol_getMethodDescription(protocol, selector, NO, YES);
     [self replaceImplementationOfSelector:selector withSelector:swizzledSelector forClass:cls withMethodDescription:methodDescription];
-    
-    
 }
 
 + (void)swizzling_TaskWillCacheResponseIntoDelegateClass:(Class)cls {
@@ -291,8 +261,6 @@
     
     struct objc_method_description methodDescription = protocol_getMethodDescription(protocol, selector, NO, YES);
     [self replaceImplementationOfSelector:selector withSelector:swizzledSelector forClass:cls withMethodDescription:methodDescription];
-    
-    
 }
 
 + (void)replaceImplementationOfSelector:(SEL)selector withSelector:(SEL)swizzledSelector forClass:(Class)cls withMethodDescription:(struct objc_method_description)methodDescription
@@ -306,20 +274,15 @@
     } else {
         class_addMethod(cls, selector, implementation, methodDescription.types);
     }
-    
-    
 }
 
 #pragma mark - NSUrlSession delegate
 - (NSURLSessionDataTask *)dataTaskWithRequest_swizzling:(NSURLRequest *)request {
-    
     return [self dataTaskWithRequest_swizzling:request];
 }
 
 - (void)URLSession_swizzling:(NSURLSession *)session dataTask:(NSURLSessionDataTask *)dataTask didReceiveResponse:(NSURLResponse *)response completionHandler:(void (^)(NSURLSessionResponseDisposition disposition))completionHandler {
     [self URLSession_swizzling:session dataTask:dataTask didReceiveResponse:response completionHandler:completionHandler];
-    
-    
 }
 
 - (void)URLSession_swizzling:(NSURLSession *)session dataTask:(NSURLSessionDataTask *)dataTask didReceiveData:(NSData *)data {
@@ -330,26 +293,18 @@
     if ([dataTask.taskDataIdentify isEqualToString:NSStringFromClass([self class])])
         [dataTask.responseDatas appendData:data];
     [self URLSession_swizzling:session dataTask:dataTask didReceiveData:data];
-    
-     
 }
 
 - (void)URLSession_swizzling:(NSURLSession *)session dataTask:(NSURLSessionDataTask *)dataTask didBecomeDownloadTask:(NSURLSessionDownloadTask *)downloadTask {
     [self URLSession_swizzling:session dataTask:dataTask didBecomeDownloadTask:downloadTask];
-    
-    
 }
 
-- (void)URLSession_swizzling:(NSURLSession *)session dataTask:(NSURLSessionDataTask *)dataTask didBecomeStreamTask:(NSURLSessionStreamTask *)streamTask {
+- (void)URLSession_swizzling:(NSURLSession *)session dataTask:(NSURLSessionDataTask *)dataTask didBecomeStreamTask:(NSURLSessionStreamTask *)streamTask NS_AVAILABLE_IOS(9.0) {
     [self URLSession_swizzling:session dataTask:dataTask didBecomeStreamTask:streamTask];
-    
-    
 }
 
 - (void)URLSession_swizzling:(NSURLSession *)session dataTask:(NSURLSessionDataTask *)dataTask willCacheResponse:(NSCachedURLResponse *)proposedResponse completionHandler:(void (^)(NSCachedURLResponse * __nullable cachedResponse))completionHandler {
     [self URLSession_swizzling:session dataTask:dataTask willCacheResponse:proposedResponse completionHandler:completionHandler];
-    
-    
 }
 
 

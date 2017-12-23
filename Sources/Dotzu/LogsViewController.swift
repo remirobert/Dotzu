@@ -90,7 +90,6 @@ class LogsViewController: UITableViewController, UISearchBarDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        NotificationCenter.default.addObserver(self, selector: #selector(tapStatusBar), name: NSNotification.Name("tapStatusBar"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(refreshLogs_notification), name: NSNotification.Name("refreshLogs"), object: nil)
         
         reloadLogs(true)
@@ -230,19 +229,6 @@ class LogsViewController: UITableViewController, UISearchBarDelegate {
     }
     
     //MARK: - notification
-    @objc func tapStatusBar() {
-        if models.count > 0 {
-            
-            dispatch_main_async_safe { [weak self] in
-                self?.tableView.scrollToRow(at: IndexPath.init(row: 0, section: 0), at: .bottom, animated: true)
-                //滑动不到最顶部, 弃用
-//                tableView.setContentOffset( CGPoint(x: 0, y: 0) , animated: false)
-            }
-        }
-        
-        searchBar.resignFirstResponder()
-    }
-    
     @objc func refreshLogs_notification() {
         reloadLogs()
     }

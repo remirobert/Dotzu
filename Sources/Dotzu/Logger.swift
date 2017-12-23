@@ -60,7 +60,7 @@ public class Logger: LogGenerator {
         }
         let fileInfo = parseFileInfo(file: file, function: function, line: line)
         let stringContent = message.reduce("") { result, next -> String in
-            return "\(result)\(result.characters.count > 0 ? " " : "")\(next)"
+            return "\(result)\(result.count > 0 ? " " : "")\(next)"
         }
 
         Logger.shared.queue.async {

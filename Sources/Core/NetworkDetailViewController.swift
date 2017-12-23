@@ -32,7 +32,7 @@ class NetworkDetailViewController: UITableViewController {
     //MARK: - tool
     func setupModels()
     {
-        guard let requestSerializer = httpModel?.requestSerializer else {return}//code never go here
+        guard let requestSerializer = httpModel?.requestSerializer else {return}
         var requestContent: String? = nil
         
         //容错判断,否则为nil时会崩溃
@@ -130,8 +130,6 @@ class NetworkDetailViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        NotificationCenter.default.addObserver(self, selector: #selector(tapStatusBar), name: NSNotification.Name("tapStatusBar"), object: nil)
-        
         //确定request格式(JSON/Form)
         detectRequestSerializer()
             
@@ -161,10 +159,6 @@ class NetworkDetailViewController: UITableViewController {
                 justCancelCallback()
             }
         }
-    }
-    
-    deinit {
-        NotificationCenter.default.removeObserver(self)
     }
     
     //MARK: - UITableViewDataSource
@@ -259,7 +253,7 @@ class NetworkDetailViewController: UITableViewController {
     //MARK: - UITableViewDelegate
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        guard let mainHost = LogsSettings.shared.mainHost else {return 0}//code never go here
+        guard let mainHost = LogsSettings.shared.mainHost else {return 0}
         let detailModel = detailModels[indexPath.row]
         
         if detailModel.blankContent == "..." {
@@ -295,7 +289,7 @@ class NetworkDetailViewController: UITableViewController {
                     return height + 57
                 }
             }
-            return 0 //code never go here --by liman
+            return 0  
         }
         
         if detailModel.image == nil {
@@ -307,7 +301,7 @@ class NetworkDetailViewController: UITableViewController {
                 let height = content.height(with: UIFont.systemFont(ofSize: 13), constraintToWidth: (UIScreen.main.bounds.size.width - 30))
                 return height + 70
             }
-            return 0 //code never go here --by liman
+            return 0  
         }
         
         return UIScreen.main.bounds.size.width + 50
@@ -317,7 +311,7 @@ class NetworkDetailViewController: UITableViewController {
     @IBAction func mockRequest(_ sender: UIBarButtonItem) {
         
         //请求参数格式(JSON/Form)
-        guard let requestSerializer = httpModel?.requestSerializer else {return}//code never go here
+        guard let requestSerializer = httpModel?.requestSerializer else {return}
         
         //请求参数
         if let requestData = self.httpModel?.requestData {
@@ -374,12 +368,5 @@ class NetworkDetailViewController: UITableViewController {
     
     @IBAction func close(_ sender: UIBarButtonItem) {
         (self.navigationController as! LogNavigationViewController).exit()
-    }
-    
-    //MARK: - notification
-    @objc func tapStatusBar() {
-        dispatch_main_async_safe { [weak self] in
-            self?.tableView.setContentOffset( CGPoint(x: 0, y: 0) , animated: true)
-        }
     }
 }

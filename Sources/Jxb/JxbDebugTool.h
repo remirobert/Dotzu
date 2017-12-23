@@ -61,8 +61,4 @@
  */
 - (NSString *)bytesOfUsedMemory;
 
-//liman mark
-- (void)showDebugWin;
-- (void)hideDebugWin;
-
 @end

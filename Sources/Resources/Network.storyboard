@@ -344,12 +344,12 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Details" id="EGv-T3-ncf">
                         <rightBarButtonItems>
-                            <barButtonItem image="debugman_close" style="plain" id="2K5-CR-fd3">
+                            <barButtonItem image="debugman_close" id="2K5-CR-fd3">
                                 <connections>
                                     <action selector="close:" destination="q3G-BB-F3V" id="Kqx-p8-JEG"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem image="debugman_refresh" style="plain" id="Uiv-Vd-Qpf">
+                            <barButtonItem image="debugman_refresh" id="Uiv-Vd-Qpf">
                                 <connections>
                                     <action selector="mockRequest:" destination="q3G-BB-F3V" id="daI-rh-fhm"/>
                                 </connections>
@@ -366,7 +366,7 @@
         <scene sceneID="rDz-FI-N6l">
             <objects>
                 <tableViewController storyboardIdentifier="EditViewController" id="ltn-IU-TOh" customClass="EditViewController" customModule="DebugMan" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" contentInsetAdjustmentBehavior="never" dataMode="static" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="cDS-DX-fHq">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" contentInsetAdjustmentBehavior="never" indicatorStyle="white" dataMode="static" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="cDS-DX-fHq">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

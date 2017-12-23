@@ -66,7 +66,7 @@ typedef void (^AFURLConnectionOperationProgressBlock)(NSUInteger bytes, long lon
 typedef void (^AFURLConnectionOperationAuthenticationChallengeBlock)(NSURLConnection *connection, NSURLAuthenticationChallenge *challenge);
 typedef NSCachedURLResponse * (^AFURLConnectionOperationCacheResponseBlock)(NSURLConnection *connection, NSCachedURLResponse *cachedResponse);
 typedef NSURLRequest * (^AFURLConnectionOperationRedirectResponseBlock)(NSURLConnection *connection, NSURLRequest *request, NSURLResponse *redirectResponse);
-typedef void (^AFURLConnectionOperationBackgroundTaskCleanupBlock)();
+typedef void (^AFURLConnectionOperationBackgroundTaskCleanupBlock)(void);
 
 static inline NSString * AFKeyPathFromOperationState(AFOperationState state) {
     switch (state) {

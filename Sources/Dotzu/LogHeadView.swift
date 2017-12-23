@@ -15,7 +15,7 @@ protocol LogHeadViewDelegate: class {
 private let _width: CGFloat = 130/2
 private let _height: CGFloat = 130/2
 
-class LogHeadView: UIView {
+class LogHeadView: UIWindow {
     
     weak var delegate: LogHeadViewDelegate?
     
@@ -62,7 +62,7 @@ class LogHeadView: UIView {
                 self.addSubview(label)
             }else{
                 label.frame = CGRect(x: self.center.x - WH/2, y: self.center.y - WH/2, width: WH, height: WH)
-                self.superview?.addSubview(label)
+                window?.addSubview(label)
             }
             //step 3
             UIView.animate(withDuration: 0.8, animations: {
@@ -95,7 +95,7 @@ class LogHeadView: UIView {
                 self.addSubview(label)
             }else{
                 label.frame = CGRect(x: self.center.x - WH/2, y: self.center.y - WH/2, width: WH, height: WH)
-                self.superview?.addSubview(label)
+                window?.addSubview(label)
             }
             //step 4
             UIView.animate(withDuration: 0.8, animations: {
@@ -149,12 +149,19 @@ class LogHeadView: UIView {
         super.init(frame: frame)
         initLayer()
         
+        self.windowLevel = UIWindowLevel(kDotzuWindowLevel)
+        
+        //添加手势
+        let selector = #selector(LogHeadView.panDidFire(panner:))
+        let panGesture = UIPanGestureRecognizer(target: self, action: selector)
+        self.addGestureRecognizer(panGesture)
+        
         //网络通知
         NotificationCenter.default.addObserver(self, selector: #selector(reloadHttp_notification(_ :)), name: NSNotification.Name("reloadHttp"), object: nil)
         
         //内存监控
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timerMonitor), userInfo: nil, repeats: true)
-        guard let timer = timer else {return}//code never go here
+        guard let timer = timer else {return}
         RunLoop.current.add(timer, forMode: .defaultRunLoopMode)
     }
     
@@ -203,8 +210,65 @@ class LogHeadView: UIView {
     
     @objc func tap() {
         delegate?.didTapLogHeadView()
+    }
+    
+    @objc func panDidFire(panner: UIPanGestureRecognizer) {
+        guard let window = UIApplication.shared.delegate?.window else {return}
+
+        if panner.state == .began {
+            UIView.animate(withDuration: 0.5, delay: 0, options: .curveLinear, animations: { [weak self] in
+                self?.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
+                }, completion: nil)
+        }
         
-        LogsSettings.shared.isControllerPresent = true //liman mark
+        let offset = panner.translation(in: window)
+        panner.setTranslation(CGPoint.zero, in: window)
+        var center = self.center
+        center.x += offset.x
+        center.y += offset.y
+        self.center = center
+        
+        if panner.state == .ended || panner.state == .cancelled {
+            
+            let location = panner.location(in: window)
+            let velocity = panner.velocity(in: window)
+            
+            var finalX: Double = Double(self.width/8*3)
+            var finalY: Double = Double(location.y)
+            
+            if location.x > UIScreen.main.bounds.size.width / 2 {
+                finalX = Double(UIScreen.main.bounds.size.width) - Double(self.width/8*3)
+            }
+            
+            self.changeSideDisplay()
+            
+            let horizentalVelocity = abs(velocity.x)
+            let positionX = abs(finalX - Double(location.x))
+            
+            let velocityForce = sqrt(pow(velocity.x, 2) * pow(velocity.y, 2))
+            
+            let durationAnimation = (velocityForce > 1000.0) ? min(0.3, positionX / Double(horizentalVelocity)) : 0.3
+            
+            if velocityForce > 1000.0 {
+                finalY += Double(velocity.y) * durationAnimation
+            }
+            
+            if finalY > Double(UIScreen.main.bounds.size.height) - Double(self.height/8*5) {
+                finalY = Double(UIScreen.main.bounds.size.height) - Double(self.height/8*5)
+            } else if finalY < Double(self.height/8*5) + 20 {
+                finalY = Double(self.height/8*5) + 20 //status bar height
+            }
+            
+            UIView.animate(withDuration: durationAnimation * 5, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 6, options: UIViewAnimationOptions.allowUserInteraction, animations: { [weak self] in
+                self?.center = CGPoint(x: finalX, y: finalY)
+                self?.transform = CGAffineTransform.identity
+                }, completion: { [weak self] _ in
+                    guard let x = self?.frame.origin.x, let y = self?.frame.origin.y, let width = self?.frame.size.width else {return}
+                    if x >= UIScreen.main.bounds.size.width || x <= -width {return}
+                    LogsSettings.shared.logHeadFrameX = Float(x)
+                    LogsSettings.shared.logHeadFrameY = Float(y)
+            })
+        }
     }
 }
 

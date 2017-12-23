@@ -37,56 +37,42 @@
     SEL selector = @selector(dataTaskWithURL:completionHandler:);
     SEL swizzledSelector = @selector(dataTaskWithURL_swizzling:completionHandler:);
     [self replaceImplementationOfSelector:selector withSelector:swizzledSelector forClass:cls];
-    
-     
 }
 
 + (void)swizzling_dataTaskWithRequest:(Class)cls {
     SEL selector = @selector(dataTaskWithRequest:completionHandler:);
     SEL swizzledSelector = @selector(dataTaskWithRequest_swizzling:completionHandler:);
     [self replaceImplementationOfSelector:selector withSelector:swizzledSelector forClass:cls];
-    
-     
 }
 
 + (void)swizzling_uploadTaskFromFileWithRequest:(Class)cls {
     SEL selector = @selector(uploadTaskWithRequest:fromFile:completionHandler:);
     SEL swizzledSelector = @selector(uploadTaskWithRequest_swizzling:fromFile:completionHandler:);
     [self replaceImplementationOfSelector:selector withSelector:swizzledSelector forClass:cls];
-    
-     
 }
 
 + (void)swizzling_uploadTaskFromDataWithRequest:(Class)cls {
     SEL selector = @selector(uploadTaskWithRequest:fromData:completionHandler:);
     SEL swizzledSelector = @selector(uploadTaskWithRequest_swizzling:fromData:completionHandler:);
     [self replaceImplementationOfSelector:selector withSelector:swizzledSelector forClass:cls];
-    
-     
 }
 
 + (void)swizzling_downloadTaskWithRequest:(Class)cls {
     SEL selector = @selector(downloadTaskWithRequest:completionHandler:);
     SEL swizzledSelector = @selector(downloadTaskWithRequest_swizzling:completionHandler:);
     [self replaceImplementationOfSelector:selector withSelector:swizzledSelector forClass:cls];
-    
-     
 }
 
 + (void)swizzling_downloadTaskWithURL:(Class)cls {
     SEL selector = @selector(downloadTaskWithURL:completionHandler:);
     SEL swizzledSelector = @selector(downloadTaskWithURL_swizzling:completionHandler:);
     [self replaceImplementationOfSelector:selector withSelector:swizzledSelector forClass:cls];
-    
-     
 }
 
 + (void)swizzling_downloadTaskWithResumeData:(Class)cls {
     SEL selector = @selector(downloadTaskWithResumeData:completionHandler:);
     SEL swizzledSelector = @selector(downloadTaskWithResumeData_swizzling:completionHandler:);
     [self replaceImplementationOfSelector:selector withSelector:swizzledSelector forClass:cls];
-    
-     
 }
 
 #pragma mark - hook替换函数
@@ -146,7 +132,5 @@
     } else {
         class_addMethod(cls, selector, implementation, types);
     }
-    
-     
 }
 @end
