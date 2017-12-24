@@ -32,7 +32,7 @@ class NetworkDetailViewController: UITableViewController {
     //MARK: - tool
     func setupModels()
     {
-        guard let requestSerializer = httpModel?.requestSerializer else {return}
+        guard let requestSerializer = httpModel?.requestSerializer else {return}//code never go here
         var requestContent: String? = nil
         
         //容错判断,否则为nil时会崩溃
@@ -253,7 +253,7 @@ class NetworkDetailViewController: UITableViewController {
     //MARK: - UITableViewDelegate
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        guard let mainHost = LogsSettings.shared.mainHost else {return 0}
+        guard let serverURL = LogsSettings.shared.serverURL else {return 0}//code never go here
         let detailModel = detailModels[indexPath.row]
         
         if detailModel.blankContent == "..." {
@@ -268,7 +268,7 @@ class NetworkDetailViewController: UITableViewController {
             if let cString = self.httpModel?.url.absoluteString.cString(using: String.Encoding.utf8) {
                 if let content_ = NSString(cString: cString, encoding: String.Encoding.utf8.rawValue) {
                     
-                    if self.httpModel?.url.absoluteString.contains(mainHost) == true {
+                    if self.httpModel?.url.absoluteString.contains(serverURL) == true {
                         //计算NSString高度
                         if #available(iOS 8.2, *) {
                             height = content_.height(with: UIFont.systemFont(ofSize: 13, weight: .heavy), constraintToWidth: (UIScreen.main.bounds.size.width - 92))
@@ -289,7 +289,7 @@ class NetworkDetailViewController: UITableViewController {
                     return height + 57
                 }
             }
-            return 0  
+            return 0 //code never go here --by liman
         }
         
         if detailModel.image == nil {
@@ -301,7 +301,7 @@ class NetworkDetailViewController: UITableViewController {
                 let height = content.height(with: UIFont.systemFont(ofSize: 13), constraintToWidth: (UIScreen.main.bounds.size.width - 30))
                 return height + 70
             }
-            return 0  
+            return 0 //code never go here --by liman
         }
         
         return UIScreen.main.bounds.size.width + 50
@@ -311,7 +311,7 @@ class NetworkDetailViewController: UITableViewController {
     @IBAction func mockRequest(_ sender: UIBarButtonItem) {
         
         //请求参数格式(JSON/Form)
-        guard let requestSerializer = httpModel?.requestSerializer else {return}
+        guard let requestSerializer = httpModel?.requestSerializer else {return}//code never go here
         
         //请求参数
         if let requestData = self.httpModel?.requestData {

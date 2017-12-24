@@ -15,15 +15,15 @@ protocol LogHeadViewDelegate: class {
 private let _width: CGFloat = 130/2
 private let _height: CGFloat = 130/2
 
-class LogHeadView: UIWindow {
+class LogHeadView: UIView {
     
     weak var delegate: LogHeadViewDelegate?
     
     public let width: CGFloat = _width
     public let height: CGFloat = _height
-    private var timer: Timer? //liman mark
+    private var timer: Timer? 
     
-    //liman mark
+    
     private lazy var _label: UILabel! = {
         let label = UILabel(frame: CGRect(x:_width/8, y:_height/2 - 16/2, width:_width/8*6, height:16))
         label.textColor = Color.mainGreen
@@ -36,7 +36,7 @@ class LogHeadView: UIWindow {
     
     
     static var originalPosition: CGPoint {
-        //liman mark
+        
         if LogsSettings.shared.logHeadFrameX != 0 && LogsSettings.shared.logHeadFrameY != 0 {
             return CGPoint(x: CGFloat(LogsSettings.shared.logHeadFrameX), y: CGFloat(LogsSettings.shared.logHeadFrameY))
         }
@@ -62,7 +62,7 @@ class LogHeadView: UIWindow {
                 self.addSubview(label)
             }else{
                 label.frame = CGRect(x: self.center.x - WH/2, y: self.center.y - WH/2, width: WH, height: WH)
-                window?.addSubview(label)
+                self.superview?.addSubview(label)
             }
             //step 3
             UIView.animate(withDuration: 0.8, animations: {
@@ -95,7 +95,7 @@ class LogHeadView: UIWindow {
                 self.addSubview(label)
             }else{
                 label.frame = CGRect(x: self.center.x - WH/2, y: self.center.y - WH/2, width: WH, height: WH)
-                window?.addSubview(label)
+                self.superview?.addSubview(label)
             }
             //step 4
             UIView.animate(withDuration: 0.8, animations: {
@@ -149,8 +149,6 @@ class LogHeadView: UIWindow {
         super.init(frame: frame)
         initLayer()
         
-        self.windowLevel = UIWindowLevel(kDotzuWindowLevel)
-        
         //添加手势
         let selector = #selector(LogHeadView.panDidFire(panner:))
         let panGesture = UIPanGestureRecognizer(target: self, action: selector)
@@ -161,7 +159,7 @@ class LogHeadView: UIWindow {
         
         //内存监控
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timerMonitor), userInfo: nil, repeats: true)
-        guard let timer = timer else {return}
+        guard let timer = timer else {return}//code never go here
         RunLoop.current.add(timer, forMode: .defaultRunLoopMode)
     }
     
@@ -210,19 +208,18 @@ class LogHeadView: UIWindow {
     
     @objc func tap() {
         delegate?.didTapLogHeadView()
+        LogsSettings.shared.isTabbarPresent = true 
     }
     
     @objc func panDidFire(panner: UIPanGestureRecognizer) {
-        guard let window = UIApplication.shared.delegate?.window else {return}
-
         if panner.state == .began {
             UIView.animate(withDuration: 0.5, delay: 0, options: .curveLinear, animations: { [weak self] in
                 self?.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
                 }, completion: nil)
         }
         
-        let offset = panner.translation(in: window)
-        panner.setTranslation(CGPoint.zero, in: window)
+        let offset = panner.translation(in: self.superview)
+        panner.setTranslation(CGPoint.zero, in: self.superview)
         var center = self.center
         center.x += offset.x
         center.y += offset.y
@@ -230,8 +227,8 @@ class LogHeadView: UIWindow {
         
         if panner.state == .ended || panner.state == .cancelled {
             
-            let location = panner.location(in: window)
-            let velocity = panner.velocity(in: window)
+            let location = panner.location(in: self.superview)
+            let velocity = panner.velocity(in: self.superview)
             
             var finalX: Double = Double(self.width/8*3)
             var finalY: Double = Double(location.y)
@@ -263,8 +260,7 @@ class LogHeadView: UIWindow {
                 self?.center = CGPoint(x: finalX, y: finalY)
                 self?.transform = CGAffineTransform.identity
                 }, completion: { [weak self] _ in
-                    guard let x = self?.frame.origin.x, let y = self?.frame.origin.y, let width = self?.frame.size.width else {return}
-                    if x >= UIScreen.main.bounds.size.width || x <= -width {return}
+                    guard let x = self?.frame.origin.x, let y = self?.frame.origin.y else {return}
                     LogsSettings.shared.logHeadFrameX = Float(x)
                     LogsSettings.shared.logHeadFrameY = Float(y)
             })

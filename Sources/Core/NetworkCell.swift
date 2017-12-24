@@ -45,11 +45,11 @@ class NetworkCell: UITableViewCell {
     var httpModel: JxbHttpModel? {
         didSet {
             
-            guard let mainHost = LogsSettings.shared.mainHost else {return}
+            guard let serverURL = LogsSettings.shared.serverURL else {return}//code never go here
             
             //域名
             requestUrlTextView.text = httpModel?.url.absoluteString
-            if requestUrlTextView.text?.contains(mainHost) == true {
+            if requestUrlTextView.text?.contains(serverURL) == true {
                 if #available(iOS 8.2, *) {
                     requestUrlTextView.font = UIFont.systemFont(ofSize: 13, weight: .heavy)
                 } else {

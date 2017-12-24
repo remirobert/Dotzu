@@ -1,5 +1,5 @@
 //
-//  IgnoredHostsViewController.swift
+//  IgnoredURLsViewController.swift
 //  PhiHome
 //
 //  Created by liman on 28/11/2017.
@@ -9,13 +9,13 @@
 import Foundation
 import UIKit
 
-class IgnoredHostsViewController: UITableViewController {
+class IgnoredURLsViewController: UITableViewController {
     
     var models: Array<String>?
     
-    static func instanceFromStoryBoard() -> IgnoredHostsViewController {
+    static func instanceFromStoryBoard() -> IgnoredURLsViewController {
         let storyboard = UIStoryboard(name: "App", bundle: Bundle(for: DebugMan.self))
-        return storyboard.instantiateViewController(withIdentifier: "IgnoredHostsViewController") as! IgnoredHostsViewController
+        return storyboard.instantiateViewController(withIdentifier: "IgnoredURLsViewController") as! IgnoredURLsViewController
     }
     
     //MARK: - init
@@ -24,7 +24,7 @@ class IgnoredHostsViewController: UITableViewController {
         
         tableView.tableFooterView = UIView()
 
-        models = LogsSettings.shared.ignoredHosts
+        models = LogsSettings.shared.ignoredURLs
     }
     
     //MARK: - UITableViewDataSource

@@ -18,6 +18,7 @@
 		EA02F4AA1FE26CBA00DF34EF /* debugman_refresh.png in Resources */ = {isa = PBXBuildFile; fileRef = EA02F49C1FE26CBA00DF34EF /* debugman_refresh.png */; };
 		EA02F4AB1FE26CBA00DF34EF /* debugman_bugs@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EA02F49D1FE26CBA00DF34EF /* debugman_bugs@2x.png */; };
 		EA02F4AC1FE26CBA00DF34EF /* Network.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA02F49E1FE26CBA00DF34EF /* Network.storyboard */; };
+		EA02F4AD1FE26CBA00DF34EF /* Manager.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA02F49F1FE26CBA00DF34EF /* Manager.storyboard */; };
 		EA02F4AE1FE26CBA00DF34EF /* App.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA02F4A01FE26CBA00DF34EF /* App.storyboard */; };
 		EA44B7871FE13ECD00DF7FF6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA44B7861FE13ECD00DF7FF6 /* AppDelegate.swift */; };
 		EA44B7891FE13ECD00DF7FF6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA44B7881FE13ECD00DF7FF6 /* ViewController.swift */; };
@@ -41,10 +42,13 @@
 		EA44B97B1FE140D600DF7FF6 /* ApplicationInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA44B91E1FE140D600DF7FF6 /* ApplicationInformation.swift */; };
 		EA44B97C1FE140D600DF7FF6 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA44B91F1FE140D600DF7FF6 /* Logger.swift */; };
 		EA44B97D1FE140D600DF7FF6 /* LogTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA44B9201FE140D600DF7FF6 /* LogTableViewCell.swift */; };
+		EA44B97E1FE140D600DF7FF6 /* NotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA44B9211FE140D600DF7FF6 /* NotificationCenter.swift */; };
 		EA44B97F1FE140D600DF7FF6 /* DeviceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA44B9221FE140D600DF7FF6 /* DeviceModel.swift */; };
 		EA44B9801FE140D600DF7FF6 /* LogsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA44B9231FE140D600DF7FF6 /* LogsViewController.swift */; };
 		EA44B9811FE140D600DF7FF6 /* LogLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA44B9241FE140D600DF7FF6 /* LogLevel.swift */; };
+		EA44B9821FE140D600DF7FF6 /* ManagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA44B9251FE140D600DF7FF6 /* ManagerViewController.swift */; };
 		EA44B9831FE140D600DF7FF6 /* DetailCrashTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA44B9261FE140D600DF7FF6 /* DetailCrashTableViewController.swift */; };
+		EA44B9841FE140D600DF7FF6 /* ManagerWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA44B9271FE140D600DF7FF6 /* ManagerWindow.swift */; };
 		EA44B9851FE140D600DF7FF6 /* DotzuManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA44B9281FE140D600DF7FF6 /* DotzuManager.swift */; };
 		EA44B9861FE140D600DF7FF6 /* LogNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA44B9291FE140D600DF7FF6 /* LogNavigationViewController.swift */; };
 		EA44B9871FE140D600DF7FF6 /* CrashListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA44B92A1FE140D600DF7FF6 /* CrashListTableViewCell.swift */; };
@@ -67,7 +71,7 @@
 		EA44B9981FE140D600DF7FF6 /* NetworkDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA44B93D1FE140D600DF7FF6 /* NetworkDetailModel.swift */; };
 		EA44B9991FE140D600DF7FF6 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA44B93E1FE140D600DF7FF6 /* AboutViewController.swift */; };
 		EA44B99A1FE140D600DF7FF6 /* DebugMan+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA44B93F1FE140D600DF7FF6 /* DebugMan+Extensions.swift */; };
-		EA44B99B1FE140D600DF7FF6 /* IgnoredHostsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA44B9401FE140D600DF7FF6 /* IgnoredHostsViewController.swift */; };
+		EA44B99B1FE140D600DF7FF6 /* IgnoredURLsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA44B9401FE140D600DF7FF6 /* IgnoredURLsViewController.swift */; };
 		EA44B99C1FE140D600DF7FF6 /* UIColor+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = EA44B9441FE140D600DF7FF6 /* UIColor+Utils.m */; };
 		EA44B99D1FE140D600DF7FF6 /* UIWindow+DHCShakeRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = EA44B9451FE140D600DF7FF6 /* UIWindow+DHCShakeRecognizer.m */; };
 		EA44B99E1FE140D600DF7FF6 /* NSString+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = EA44B9461FE140D600DF7FF6 /* NSString+Utils.m */; };
@@ -98,6 +102,7 @@
 		EA02F49C1FE26CBA00DF34EF /* debugman_refresh.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = debugman_refresh.png; sourceTree = "<group>"; };
 		EA02F49D1FE26CBA00DF34EF /* debugman_bugs@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "debugman_bugs@2x.png"; sourceTree = "<group>"; };
 		EA02F49E1FE26CBA00DF34EF /* Network.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Network.storyboard; sourceTree = "<group>"; };
+		EA02F49F1FE26CBA00DF34EF /* Manager.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Manager.storyboard; sourceTree = "<group>"; };
 		EA02F4A01FE26CBA00DF34EF /* App.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = App.storyboard; sourceTree = "<group>"; };
 		EA44B7831FE13ECD00DF7FF6 /* DebugMan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DebugMan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA44B7861FE13ECD00DF7FF6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -134,10 +139,13 @@
 		EA44B91E1FE140D600DF7FF6 /* ApplicationInformation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationInformation.swift; sourceTree = "<group>"; };
 		EA44B91F1FE140D600DF7FF6 /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		EA44B9201FE140D600DF7FF6 /* LogTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogTableViewCell.swift; sourceTree = "<group>"; };
+		EA44B9211FE140D600DF7FF6 /* NotificationCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationCenter.swift; sourceTree = "<group>"; };
 		EA44B9221FE140D600DF7FF6 /* DeviceModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceModel.swift; sourceTree = "<group>"; };
 		EA44B9231FE140D600DF7FF6 /* LogsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogsViewController.swift; sourceTree = "<group>"; };
 		EA44B9241FE140D600DF7FF6 /* LogLevel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogLevel.swift; sourceTree = "<group>"; };
+		EA44B9251FE140D600DF7FF6 /* ManagerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagerViewController.swift; sourceTree = "<group>"; };
 		EA44B9261FE140D600DF7FF6 /* DetailCrashTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailCrashTableViewController.swift; sourceTree = "<group>"; };
+		EA44B9271FE140D600DF7FF6 /* ManagerWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagerWindow.swift; sourceTree = "<group>"; };
 		EA44B9281FE140D600DF7FF6 /* DotzuManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DotzuManager.swift; sourceTree = "<group>"; };
 		EA44B9291FE140D600DF7FF6 /* LogNavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogNavigationViewController.swift; sourceTree = "<group>"; };
 		EA44B92A1FE140D600DF7FF6 /* CrashListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CrashListTableViewCell.swift; sourceTree = "<group>"; };
@@ -161,7 +169,7 @@
 		EA44B93D1FE140D600DF7FF6 /* NetworkDetailModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkDetailModel.swift; sourceTree = "<group>"; };
 		EA44B93E1FE140D600DF7FF6 /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		EA44B93F1FE140D600DF7FF6 /* DebugMan+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DebugMan+Extensions.swift"; sourceTree = "<group>"; };
-		EA44B9401FE140D600DF7FF6 /* IgnoredHostsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IgnoredHostsViewController.swift; sourceTree = "<group>"; };
+		EA44B9401FE140D600DF7FF6 /* IgnoredURLsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IgnoredURLsViewController.swift; sourceTree = "<group>"; };
 		EA44B9421FE140D600DF7FF6 /* UIWindow+DHCShakeRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWindow+DHCShakeRecognizer.h"; sourceTree = "<group>"; };
 		EA44B9431FE140D600DF7FF6 /* NSString+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Utils.h"; sourceTree = "<group>"; };
 		EA44B9441FE140D600DF7FF6 /* UIColor+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Utils.m"; sourceTree = "<group>"; };
@@ -228,6 +236,7 @@
 				EA02F4921FE26CBA00DF34EF /* NetworkCell.xib */,
 				EA02F4931FE26CBA00DF34EF /* Logs.storyboard */,
 				EA02F49E1FE26CBA00DF34EF /* Network.storyboard */,
+				EA02F49F1FE26CBA00DF34EF /* Manager.storyboard */,
 				EA02F4A01FE26CBA00DF34EF /* App.storyboard */,
 			);
 			path = Resources;
@@ -324,7 +333,7 @@
 		EA44B9191FE140D600DF7FF6 /* Dotzu */ = {
 			isa = PBXGroup;
 			children = (
-				EA44B9281FE140D600DF7FF6 /* DotzuManager.swift */,
+				EA44B9251FE140D600DF7FF6 /* ManagerViewController.swift */,
 				EA44B9231FE140D600DF7FF6 /* LogsViewController.swift */,
 				EA44B91A1FE140D600DF7FF6 /* LogTabBarViewController.swift */,
 				EA44B91B1FE140D600DF7FF6 /* LogCrash.swift */,
@@ -333,9 +342,12 @@
 				EA44B91E1FE140D600DF7FF6 /* ApplicationInformation.swift */,
 				EA44B91F1FE140D600DF7FF6 /* Logger.swift */,
 				EA44B9201FE140D600DF7FF6 /* LogTableViewCell.swift */,
+				EA44B9211FE140D600DF7FF6 /* NotificationCenter.swift */,
 				EA44B9221FE140D600DF7FF6 /* DeviceModel.swift */,
 				EA44B9241FE140D600DF7FF6 /* LogLevel.swift */,
 				EA44B9261FE140D600DF7FF6 /* DetailCrashTableViewController.swift */,
+				EA44B9271FE140D600DF7FF6 /* ManagerWindow.swift */,
+				EA44B9281FE140D600DF7FF6 /* DotzuManager.swift */,
 				EA44B9291FE140D600DF7FF6 /* LogNavigationViewController.swift */,
 				EA44B92A1FE140D600DF7FF6 /* CrashListTableViewCell.swift */,
 				EA44B92B1FE140D600DF7FF6 /* ListCrashesViewController.swift */,
@@ -364,7 +376,7 @@
 				EA44B93C1FE140D600DF7FF6 /* NetworkDetailCell.swift */,
 				EA44B93D1FE140D600DF7FF6 /* NetworkDetailModel.swift */,
 				EA44B93E1FE140D600DF7FF6 /* AboutViewController.swift */,
-				EA44B9401FE140D600DF7FF6 /* IgnoredHostsViewController.swift */,
+				EA44B9401FE140D600DF7FF6 /* IgnoredURLsViewController.swift */,
 				EA44B93F1FE140D600DF7FF6 /* DebugMan+Extensions.swift */,
 			);
 			path = Core;
@@ -478,6 +490,7 @@
 				EA02F4A41FE26CBA00DF34EF /* debugman_app@2x.png in Resources */,
 				EA02F4AA1FE26CBA00DF34EF /* debugman_refresh.png in Resources */,
 				EA02F4A91FE26CBA00DF34EF /* debugman_edit@2x.png in Resources */,
+				EA02F4AD1FE26CBA00DF34EF /* Manager.storyboard in Resources */,
 				EA44B7911FE13ECD00DF7FF6 /* LaunchScreen.storyboard in Resources */,
 				EA02F4AB1FE26CBA00DF34EF /* debugman_bugs@2x.png in Resources */,
 				EA9B47DD1FEA6084001DD838 /* debugman_logo.png in Resources */,
@@ -553,9 +566,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EA44B99B1FE140D600DF7FF6 /* IgnoredHostsViewController.swift in Sources */,
+				EA44B99B1FE140D600DF7FF6 /* IgnoredURLsViewController.swift in Sources */,
 				EA44B98B1FE140D600DF7FF6 /* Device.swift in Sources */,
 				EA44B9881FE140D600DF7FF6 /* ListCrashesViewController.swift in Sources */,
+				EA44B9821FE140D600DF7FF6 /* ManagerViewController.swift in Sources */,
 				EA44B9791FE140D600DF7FF6 /* LogGenerator.swift in Sources */,
 				EA44B9911FE140D600DF7FF6 /* KeyboardMan.swift in Sources */,
 				EA44B9851FE140D600DF7FF6 /* DotzuManager.swift in Sources */,
@@ -576,6 +590,7 @@
 				EA44B9731FE140D600DF7FF6 /* NSURLSessionTask+Data.m in Sources */,
 				EA44B9B31FE140D600DF7FF6 /* AFNetworkReachabilityManager.m in Sources */,
 				EA44B9931FE140D600DF7FF6 /* NetworkViewController.swift in Sources */,
+				EA44B97E1FE140D600DF7FF6 /* NotificationCenter.swift in Sources */,
 				EA44B9AD1FE140D600DF7FF6 /* AFHTTPSessionManager.m in Sources */,
 				EA44B97A1FE140D600DF7FF6 /* Log.swift in Sources */,
 				EA44B9AC1FE140D600DF7FF6 /* AFURLResponseSerialization.m in Sources */,
@@ -594,6 +609,7 @@
 				EA44B98D1FE140D600DF7FF6 /* StoreManager.swift in Sources */,
 				EA44B9701FE140D600DF7FF6 /* JxbUrlSessionHook_NSURLSessionAsynchronousConvenience.m in Sources */,
 				EA44B98C1FE140D600DF7FF6 /* LoggerCrash.swift in Sources */,
+				EA44B9841FE140D600DF7FF6 /* ManagerWindow.swift in Sources */,
 				EA44B99C1FE140D600DF7FF6 /* UIColor+Utils.m in Sources */,
 				EA44B99D1FE140D600DF7FF6 /* UIWindow+DHCShakeRecognizer.m in Sources */,
 				EA44B99A1FE140D600DF7FF6 /* DebugMan+Extensions.swift in Sources */,

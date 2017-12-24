@@ -36,9 +36,9 @@
 
 - (BOOL)addHttpRequset:(JxbHttpModel*)model
 {
-    //host过滤, 忽略大小写
-    for (NSString *host in [JxbDebugTool shareInstance].ignoredHosts) {
-        if ([[model.url.absoluteString lowercaseString] containsString:[host lowercaseString]]) {
+    //url过滤, 忽略大小写
+    for (NSString *urlString in [JxbDebugTool shareInstance].ignoredURLs) {
+        if ([[model.url.absoluteString lowercaseString] containsString:[urlString lowercaseString]]) {
             return NO;
         }
     }

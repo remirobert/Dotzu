@@ -11,6 +11,27 @@ import Foundation
 class LogsSettings {
 
     static let shared = LogsSettings()
+
+    var foo: Bool = false
+    
+    var isTabbarPresent: Bool {
+        didSet {
+            UserDefaults.standard.set(isTabbarPresent, forKey: "isTabbarPresent")
+            UserDefaults.standard.synchronize()
+            
+            //第一响应者链
+            if isTabbarPresent == true {
+                Dotzu.sharedManager.window.makeKeyAndVisible()
+                foo = true
+            }else{
+                if foo == true {
+                    if let window = UIApplication.shared.delegate?.window {
+                        window?.makeKeyAndVisible()
+                    }
+                }
+            }
+        }
+    }
     
     var mockTimeoutInterval: TimeInterval {
         didSet {
@@ -18,15 +39,35 @@ class LogsSettings {
             UserDefaults.standard.synchronize()
         }
     }
-    var isBallShow: Bool {
+    var showBall: Bool {
         didSet {
-            UserDefaults.standard.set(isBallShow, forKey: "isBallShow")
+            UserDefaults.standard.set(showBall, forKey: "showBall")
             UserDefaults.standard.synchronize()
+            
+            let x = Dotzu.sharedManager.controller.logHeadView.frame.origin.x
+            let width = Dotzu.sharedManager.controller.logHeadView.frame.size.width
+            
+            if showBall == true
+            {
+                if x > 0 {
+                    Dotzu.sharedManager.controller.logHeadView.frame.origin.x = UIScreen.main.bounds.size.width - width/8*7
+                }else{
+                    Dotzu.sharedManager.controller.logHeadView.frame.origin.x = -width + width/8*7
+                }
+            }
+            else
+            {
+                if x > 0 {
+                    Dotzu.sharedManager.controller.logHeadView.frame.origin.x = UIScreen.main.bounds.size.width
+                }else{
+                    Dotzu.sharedManager.controller.logHeadView.frame.origin.x = -width
+                }
+            }
         }
     }
-    var mainHost: String? = nil {
+    var serverURL: String? = nil {
         didSet {
-            UserDefaults.standard.set(mainHost, forKey: "mainHost")
+            UserDefaults.standard.set(serverURL, forKey: "serverURL")
             UserDefaults.standard.synchronize()
         }
     }
@@ -36,14 +77,14 @@ class LogsSettings {
             UserDefaults.standard.synchronize()
         }
     }
-    var onlyHosts: [String]? = nil {
+    var onlyURLs: [String]? = nil {
         didSet {
-            JxbDebugTool.shareInstance().onlyHosts = onlyHosts
+            JxbDebugTool.shareInstance().onlyURLs = onlyURLs
         }
     }
-    var ignoredHosts: [String]? = nil {
+    var ignoredURLs: [String]? = nil {
         didSet {
-            JxbDebugTool.shareInstance().ignoredHosts = ignoredHosts
+            JxbDebugTool.shareInstance().ignoredURLs = ignoredURLs
         }
     }
     var maxLogsCount: Int {
@@ -83,11 +124,12 @@ class LogsSettings {
     
     private init()
     {
-        //liman mark
-        mainHost = UserDefaults.standard.string(forKey: "mainHost") ?? ""
+        
+        serverURL = UserDefaults.standard.string(forKey: "serverURL") ?? ""
         maxLogsCount = UserDefaults.standard.integer(forKey: "maxLogsCount")
         mockTimeoutInterval = UserDefaults.standard.double(forKey: "mockTimeoutInterval")
-        isBallShow = UserDefaults.standard.bool(forKey: "isBallShow")
+        showBall = UserDefaults.standard.bool(forKey: "showBall")
+        isTabbarPresent = UserDefaults.standard.bool(forKey: "isTabbarPresent")
         tabBarSelectItem = UserDefaults.standard.integer(forKey: "tabBarSelectItem")
         logHeadFrameX = UserDefaults.standard.float(forKey: "logHeadFrameX")
         logHeadFrameY = UserDefaults.standard.float(forKey: "logHeadFrameY")

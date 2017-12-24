@@ -10,11 +10,6 @@ import UIKit
 
 class LogTabBarViewController: UITabBarController {
 
-    static func instanceFromStoryBoard() -> LogTabBarViewController {
-        let storyboard = UIStoryboard(name: "Logs", bundle: Bundle(for: DebugMan.self))
-        return storyboard.instantiateViewController(withIdentifier: "LogTabBarViewController") as! LogTabBarViewController
-    }
-    
     //MARK: - init
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,34 +20,16 @@ class LogTabBarViewController: UITabBarController {
         self.selectedIndex = LogsSettings.shared.tabBarSelectItem
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         
-        guard let x = Dotzu.sharedManager.logHeadView?.frame.origin.x, let width = Dotzu.sharedManager.logHeadView?.frame.size.width else {return}
-        if x > 0 {
-            UIView.animate(withDuration: 0.2) {
-                Dotzu.sharedManager.logHeadView?.frame.origin.x = UIScreen.main.bounds.size.width
-            }
-        }else{
-            UIView.animate(withDuration: 0.2) {
-                Dotzu.sharedManager.logHeadView?.frame.origin.x = -width
-            }
-        }
+        LogsSettings.shared.showBall = false
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
-        guard let x = Dotzu.sharedManager.logHeadView?.frame.origin.x, let width = Dotzu.sharedManager.logHeadView?.frame.size.width else {return}
-        if x > 0 {
-            UIView.animate(withDuration: 0.2) {
-                Dotzu.sharedManager.logHeadView?.frame.origin.x = UIScreen.main.bounds.size.width - width/8*7
-            }
-        }else{
-            UIView.animate(withDuration: 0.2) {
-                Dotzu.sharedManager.logHeadView?.frame.origin.x = -width + width/8*7
-            }
-        }
+        LogsSettings.shared.showBall = true
     }
     
     //MARK: - private
@@ -82,7 +59,7 @@ class LogTabBarViewController: UITabBarController {
             
             let selector = #selector(LogNavigationViewController.exit)
             
-            //liman mark
+            
             let image = UIImage(named: "debugman_close", in: Bundle(for: LogNavigationViewController.self), compatibleWith: nil)
             let leftButton = UIBarButtonItem(image: image,
                                              style: .done, target: self, action: selector)
@@ -99,6 +76,7 @@ class LogTabBarViewController: UITabBarController {
     //MARK: - target action
     @objc func exit() {
         dismiss(animated: true, completion: nil)
+        LogsSettings.shared.isTabbarPresent = false 
     }
     
     

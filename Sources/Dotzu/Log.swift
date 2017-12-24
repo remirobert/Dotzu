@@ -15,7 +15,7 @@ class Log {
     let fileInfo: String?
     let content: String
     let date: Date?
-    //liman mark
+    
     var isTag: Bool = false
     
     init(content: String, fileInfo: String? = nil, level: LogLevel = .verbose) {

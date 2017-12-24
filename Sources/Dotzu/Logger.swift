@@ -8,19 +8,19 @@
 
 import Foundation
 
-//liman mark
+
 public func print<T>(_ message: T,
                         file: String = #file,
                     function: String = #function,
                         line: Int = #line)
 {
-//#if DEBUG
+    //#if DEBUG
     if Logger.shared.enable {
         Logger.handleLog(message, level: .verbose, file: file, function: function, line: line)
     } else {
         Swift.print(message)
     }
-//#endif
+    //#endif
 }
 
 public class Logger: LogGenerator {
@@ -50,7 +50,7 @@ public class Logger: LogGenerator {
         guard let file = file, let function = function, let line = line else {return nil}
         guard let fileName = file.components(separatedBy: "/").last else { return nil }
         
-        //liman mark
+        
         return "\(fileName)[\(line)]\(function):\n"
     }
 

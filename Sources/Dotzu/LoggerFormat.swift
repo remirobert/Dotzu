@@ -22,7 +22,7 @@ class LoggerFormat {
         var lenghtDate: Int?
         let stringContent = NSMutableString()
         
-        //liman mark
+        
 //        stringContent.append("\(log.level.logColorConsole) ")
         if let date = log.date {
             stringContent.append("[\(formatDate(date: date))] ")

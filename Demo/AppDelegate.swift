@@ -15,7 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
-        DebugMan.shared.enable()//The simplest usage of DebugMan
+        DebugMan.shared.enable() //The Simplest Usage of DebugMan
         return true
     }
 }

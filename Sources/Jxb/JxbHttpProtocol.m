@@ -41,9 +41,9 @@
         return NO;
     }
     
-    if ([[JxbDebugTool shareInstance] onlyHosts].count > 0) {
+    if ([[JxbDebugTool shareInstance] onlyURLs].count > 0) {
         NSString* url = [request.URL.absoluteString lowercaseString];
-        for (NSString* _url in [JxbDebugTool shareInstance].onlyHosts) {
+        for (NSString* _url in [JxbDebugTool shareInstance].onlyURLs) {
             if ([url rangeOfString:[_url lowercaseString]].location != NSNotFound)
                 return YES;
         }
@@ -91,7 +91,7 @@
     model.totalDuration = [NSString stringWithFormat:@"%fs",[[NSDate date] timeIntervalSince1970] - self.startTime];
     model.startTime = [NSString stringWithFormat:@"%fs",self.startTime];
     
-    //liman mark
+    
     model.localizedErrorMsg = self.error.localizedDescription;
     model.headerFields = self.request.allHTTPHeaderFields;
     

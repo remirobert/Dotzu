@@ -18,8 +18,8 @@ class InformationsTableViewController: UITableViewController {
     @IBOutlet weak var labelDeviceModel: UILabel!
     @IBOutlet weak var labelCrashCount: UILabel!
     @IBOutlet weak var labelBundleID: UILabel!
-    @IBOutlet weak var labelIgnoredHosts: UILabel!
-    @IBOutlet weak var labelMainHost: UILabel!
+    @IBOutlet weak var labelignoredURLs: UILabel!
+    @IBOutlet weak var labelserverURL: UILabel!
     @IBOutlet weak var labelIOSVersion: UILabel!
     
     //MARK: - init
@@ -37,9 +37,9 @@ class InformationsTableViewController: UITableViewController {
         labelDeviceModel.text = "\(Device.deviceModel)"
         
         labelBundleID.text = Bundle.main.bundleIdentifier
-        labelIgnoredHosts.text = String(LogsSettings.shared.ignoredHosts?.count ?? 0)
+        labelignoredURLs.text = String(LogsSettings.shared.ignoredURLs?.count ?? 0)
         
-        labelMainHost.text = LogsSettings.shared.mainHost
+        labelserverURL.text = LogsSettings.shared.serverURL
         labelIOSVersion.text = UIDevice.current.systemVersion
     }
     
@@ -54,7 +54,7 @@ class InformationsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
     {
         if indexPath.section == 1 && indexPath.row == 4 {
-            if labelMainHost.text == nil || labelMainHost.text == "" {
+            if labelserverURL.text == nil || labelserverURL.text == "" {
                 return 0
             }
         }
@@ -75,20 +75,20 @@ class InformationsTableViewController: UITableViewController {
         }
         
         if indexPath.section == 1 && indexPath.row == 4 {
-            if labelMainHost.text == nil || labelMainHost.text == "" {
+            if labelserverURL.text == nil || labelserverURL.text == "" {
                 return
             }
             
-            UIPasteboard.general.string = LogsSettings.shared.mainHost
+            UIPasteboard.general.string = LogsSettings.shared.serverURL
             
-            let alert = UIAlertController.init(title: "copy main host to clipboard success", message: nil, preferredStyle: .alert)
+            let alert = UIAlertController.init(title: "copy server URL to clipboard success", message: nil, preferredStyle: .alert)
             let action = UIAlertAction.init(title: "OK", style: .default, handler: nil)
             alert.addAction(action)
             self.present(alert, animated: true, completion: nil)
         }
         
         if indexPath.section == 3 && indexPath.row == 0 {
-            let vc = IgnoredHostsViewController.instanceFromStoryBoard()
+            let vc = IgnoredURLsViewController.instanceFromStoryBoard()
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }

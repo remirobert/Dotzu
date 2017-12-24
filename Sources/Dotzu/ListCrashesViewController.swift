@@ -36,7 +36,7 @@ class ListCrashesViewController: UIViewController, UITableViewDataSource, UITabl
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        //liman mark, 否则偶尔crash
+        //否则偶尔crash
         if indexPath.row >= models.count {
             return UITableViewCell()
         }

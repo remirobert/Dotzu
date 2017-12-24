@@ -20,7 +20,7 @@
 @implementation NSURLSession (Swizzling)
 
 + (void)load {
-//#if DEBUG
+    //#if DEBUG
     Method oriMethod = class_getInstanceMethod([NSURLSession class], @selector(dataTaskWithRequest:));
     Method newMethod = class_getInstanceMethod([NSURLSession class], @selector(dataTaskWithRequest_swizzling:));
     method_exchangeImplementations(oriMethod, newMethod);
@@ -59,7 +59,7 @@
             }
         }
     }
-//#endif
+    //#endif
 }
 
 #pragma mark - NSURLSession task delegate with swizzling
@@ -141,10 +141,10 @@
         return;
     
     BOOL canHandle = YES;
-    if ([[JxbDebugTool shareInstance] onlyHosts].count > 0) {
+    if ([[JxbDebugTool shareInstance] onlyURLs].count > 0) {
         canHandle = NO;
         NSString* url = [req.URL.absoluteString lowercaseString];
-        for (NSString* _url in [JxbDebugTool shareInstance].onlyHosts) {
+        for (NSString* _url in [JxbDebugTool shareInstance].onlyURLs) {
             if ([url rangeOfString:[_url lowercaseString]].location != NSNotFound) {
                 canHandle = YES;
                 break;
@@ -178,7 +178,7 @@
     model.totalDuration = [NSString stringWithFormat:@"%fs",[[NSDate date] timeIntervalSince1970] - req.startTime.doubleValue];
     model.startTime = [NSString stringWithFormat:@"%fs",req.startTime.doubleValue];
     
-    //liman mark
+    
     model.localizedErrorMsg = error.localizedDescription;
     model.headerFields = req.allHTTPHeaderFields;
     
@@ -216,7 +216,7 @@
     [self swizzling_TaskDidReceiveDataIntoDelegateClass:cls];
     [self swizzling_TaskDidBecomeDownloadTaskIntoDelegateClass:cls];
     [self swizzling_TaskDidBecomeStreamTaskIntoDelegateClass:cls];
-//    [self swizzling_TaskWillCacheResponseIntoDelegateClass:cls];
+    [self swizzling_TaskWillCacheResponseIntoDelegateClass:cls]; //liman mark: 取消原作者的代码注释
 }
 
 + (void)swizzling_TaskDidReceiveResponseIntoDelegateClass:(Class)cls {
@@ -245,6 +245,7 @@
     struct objc_method_description methodDescription = protocol_getMethodDescription(protocol, selector, NO, YES);
     [self replaceImplementationOfSelector:selector withSelector:swizzledSelector forClass:cls withMethodDescription:methodDescription];
 }
+
 + (void)swizzling_TaskDidBecomeStreamTaskIntoDelegateClass:(Class)cls {
     SEL selector = @selector(URLSession:dataTask:didBecomeStreamTask:);
     SEL swizzledSelector = @selector(URLSession_swizzling:dataTask:didBecomeStreamTask:);

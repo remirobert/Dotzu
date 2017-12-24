@@ -22,7 +22,7 @@
 @property (nonatomic,copy)NSString  *totalDuration;
 @property (nonatomic,assign)BOOL    isImage;
 
-//liman mark
+
 @property (nonatomic,copy)NSString                              *localizedErrorMsg;
 @property (nonatomic,copy)NSDictionary<NSString*, id>           *headerFields;
 @property (nonatomic,assign)BOOL                                isTag;

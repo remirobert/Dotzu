@@ -19,7 +19,7 @@ class LogNavigationViewController: UINavigationController {
 
         let selector = #selector(LogNavigationViewController.exit)
 
-        //liman mark
+        
         let image = UIImage(named: "debugman_close", in: Bundle(for: LogNavigationViewController.self), compatibleWith: nil)
         let leftButton = UIBarButtonItem(image: image,
                                          style: .done, target: self, action: selector)
@@ -29,5 +29,6 @@ class LogNavigationViewController: UINavigationController {
     
     @objc func exit() {
         dismiss(animated: true, completion: nil)
+        LogsSettings.shared.isTabbarPresent = false 
     }
 }

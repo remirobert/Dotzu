@@ -49,14 +49,14 @@ class LoggerCrash: LogGenerator {
     var crashed = false
     var enable: Bool = true {
         didSet {
-//#if DEBUG
+            //#if DEBUG
             if enable {
                 LoggerCrash.register()
             }
             else {
                 LoggerCrash.unregister()
             }
-//#endif
+            //#endif
         }
     }
 
