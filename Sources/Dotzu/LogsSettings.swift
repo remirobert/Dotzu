@@ -8,17 +8,17 @@
 
 import Foundation
 
-class LogsSettings {
+public class LogsSettings {
 
-    static let shared = LogsSettings()
+    public static let shared = LogsSettings()
 
-    var mockTimeoutInterval: TimeInterval {
+    public var mockTimeoutInterval: TimeInterval {
         didSet {
             UserDefaults.standard.set(mockTimeoutInterval, forKey: "mockTimeoutInterval")
             UserDefaults.standard.synchronize()
         }
     }
-    var showBall: Bool {
+    public var showBall: Bool {
         didSet {
             UserDefaults.standard.set(showBall, forKey: "showBall")
             UserDefaults.standard.synchronize()
@@ -44,60 +44,60 @@ class LogsSettings {
             }
         }
     }
-    var serverURL: String? = nil {
+    public var serverURL: String? = nil {
         didSet {
             UserDefaults.standard.set(serverURL, forKey: "serverURL")
             UserDefaults.standard.synchronize()
         }
     }
-    var tabBarSelectItem: Int {
+    public var tabBarSelectItem: Int {
         didSet {
             UserDefaults.standard.set(tabBarSelectItem, forKey: "tabBarSelectItem")
             UserDefaults.standard.synchronize()
         }
     }
-    var onlyURLs: [String]? = nil {
+    public var onlyURLs: [String]? = nil {
         didSet {
             JxbDebugTool.shareInstance().onlyURLs = onlyURLs
         }
     }
-    var ignoredURLs: [String]? = nil {
+    public var ignoredURLs: [String]? = nil {
         didSet {
             JxbDebugTool.shareInstance().ignoredURLs = ignoredURLs
         }
     }
-    var maxLogsCount: Int {
+    public var maxLogsCount: Int {
         didSet {
             UserDefaults.standard.set(maxLogsCount, forKey: "maxLogsCount")
             UserDefaults.standard.synchronize()
             JxbDebugTool.shareInstance().maxLogsCount = maxLogsCount
         }
     }
-    var logHeadFrameX: Float {
+    public var logHeadFrameX: Float {
         didSet {
             UserDefaults.standard.set(logHeadFrameX, forKey: "logHeadFrameX")
             UserDefaults.standard.synchronize()
         }
     }
-    var logHeadFrameY: Float {
+    public var logHeadFrameY: Float {
         didSet {
             UserDefaults.standard.set(logHeadFrameY, forKey: "logHeadFrameY")
             UserDefaults.standard.synchronize()
         }
     }
-    var logSearchWord: String? = nil {
+    public var logSearchWord: String? = nil {
         didSet {
             UserDefaults.standard.set(logSearchWord, forKey: "logSearchWord")
             UserDefaults.standard.synchronize()
         }
     }
-    var networkSearchWord: String? = nil {
+    public var networkSearchWord: String? = nil {
         didSet {
             UserDefaults.standard.set(networkSearchWord, forKey: "networkSearchWord")
             UserDefaults.standard.synchronize()
         }
     }
-    var extraControllers: [UIViewController]? = nil
+    public var extraControllers: [UIViewController]? = nil
     
     
     
