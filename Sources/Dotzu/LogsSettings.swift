@@ -12,27 +12,6 @@ class LogsSettings {
 
     static let shared = LogsSettings()
 
-    var foo: Bool = false
-    
-    var isTabbarPresent: Bool {
-        didSet {
-            UserDefaults.standard.set(isTabbarPresent, forKey: "isTabbarPresent")
-            UserDefaults.standard.synchronize()
-            
-            //第一响应者链
-            if isTabbarPresent == true {
-                Dotzu.sharedManager.window.makeKeyAndVisible()
-                foo = true
-            }else{
-                if foo == true {
-                    if let window = UIApplication.shared.delegate?.window {
-                        window?.makeKeyAndVisible()
-                    }
-                }
-            }
-        }
-    }
-    
     var mockTimeoutInterval: TimeInterval {
         didSet {
             UserDefaults.standard.set(mockTimeoutInterval, forKey: "mockTimeoutInterval")
@@ -124,12 +103,10 @@ class LogsSettings {
     
     private init()
     {
-        
         serverURL = UserDefaults.standard.string(forKey: "serverURL") ?? ""
         maxLogsCount = UserDefaults.standard.integer(forKey: "maxLogsCount")
         mockTimeoutInterval = UserDefaults.standard.double(forKey: "mockTimeoutInterval")
         showBall = UserDefaults.standard.bool(forKey: "showBall")
-        isTabbarPresent = UserDefaults.standard.bool(forKey: "isTabbarPresent")
         tabBarSelectItem = UserDefaults.standard.integer(forKey: "tabBarSelectItem")
         logHeadFrameX = UserDefaults.standard.float(forKey: "logHeadFrameX")
         logHeadFrameY = UserDefaults.standard.float(forKey: "logHeadFrameY")

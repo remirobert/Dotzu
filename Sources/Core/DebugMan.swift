@@ -73,7 +73,6 @@ public class DebugMan : NSObject {
         //#if DEBUG
         NotificationCenter.default.addObserver(self, selector: #selector(methodThatIsCalledAfterShake), name: NSNotification.Name(DHCSHakeNotificationName), object: nil)
         
-        LogsSettings.shared.isTabbarPresent = false
         LogsSettings.shared.logSearchWord = nil
         LogsSettings.shared.networkSearchWord = nil
         

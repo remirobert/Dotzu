@@ -76,7 +76,6 @@ class LogTabBarViewController: UITabBarController {
     //MARK: - target action
     @objc func exit() {
         dismiss(animated: true, completion: nil)
-        LogsSettings.shared.isTabbarPresent = false 
     }
     
     

@@ -208,7 +208,6 @@ class LogHeadView: UIView {
     
     @objc func tap() {
         delegate?.didTapLogHeadView()
-        LogsSettings.shared.isTabbarPresent = true 
     }
     
     @objc func panDidFire(panner: UIPanGestureRecognizer) {
