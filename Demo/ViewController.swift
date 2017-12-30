@@ -13,44 +13,46 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        mockGET()
-        mockDELETE()
-        mockPOST()
-        mockPUT()
+        print("hello world")
+        print("hello world in red", .red)
+        
+        mockHTTP()
     }
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        printColor("test color print").with(.red)
-    }
-    
-    //MARK: - HTTP mock
-    func mockGET() {
+    func mockHTTP() {
+        
+        //1.GET
         NetworkManager.sharedInstance().requestData(withURL: "https://httpbin.org/get", method: "GET", parameter: nil, header: nil, cookies: nil, timeoutInterval: 10, requestSerializer: RequestSerializer(rawValue: 0), responseSerializer: ResponseSerializer(rawValue: 0), result: { (responseObject) in
-            print(responseObject) //you can see the logs in DebugMan
+            
+            //you can see logs in white color (default color)
+            print(responseObject)
         }) { (error) in
             print(error?.localizedDescription)
         }
-    }
-    
-    func mockDELETE() {
-        NetworkManager.sharedInstance().requestData(withURL: "https://httpbin.org/delete", method: "DELETE", parameter: nil, header: nil, cookies: nil, timeoutInterval: 10, requestSerializer: RequestSerializer(rawValue: 0), responseSerializer: ResponseSerializer(rawValue: 0), result: { (responseObject) in
-            print(responseObject) //you can see the logs in DebugMan
-        }) { (error) in
-            print(error?.localizedDescription)
-        }
-    }
-    
-    func mockPOST() {
+        
+        //2.POST
         NetworkManager.sharedInstance().requestData(withURL: "https://httpbin.org/post", method: "POST", parameter: ["data": "hello world"], header: nil, cookies: nil, timeoutInterval: 10, requestSerializer: RequestSerializer(rawValue: 0), responseSerializer: ResponseSerializer(rawValue: 0), result: { (responseObject) in
-            print(responseObject) //you can see the logs in DebugMan
+            
+            //you can see logs in blue color
+            print(responseObject, .blue)
         }) { (error) in
             print(error?.localizedDescription)
         }
-    }
-    
-    func mockPUT() {
+        
+        //3.DELETE
+        NetworkManager.sharedInstance().requestData(withURL: "https://httpbin.org/delete", method: "DELETE", parameter: nil, header: nil, cookies: nil, timeoutInterval: 10, requestSerializer: RequestSerializer(rawValue: 0), responseSerializer: ResponseSerializer(rawValue: 0), result: { (responseObject) in
+            
+            //you can see logs in red color
+            print(responseObject, .red)
+        }) { (error) in
+            print(error?.localizedDescription)
+        }
+        
+        //4.PUT
         NetworkManager.sharedInstance().requestData(withURL: "https://httpbin.org/put", method: "PUT", parameter: ["data": "hello world"], header: nil, cookies: nil, timeoutInterval: 10, requestSerializer: RequestSerializer(rawValue: 0), responseSerializer: ResponseSerializer(rawValue: 0), result: { (responseObject) in
-            print(responseObject) //you can see the logs in DebugMan
+            
+            //you can see logs in purple color
+            print(responseObject, .purple)
         }) { (error) in
             print(error?.localizedDescription)
         }

@@ -14,15 +14,17 @@ class Log {
     let fileInfo: String?
     let content: String
     let date: Date?
+    let color: UIColor?
     
     var isTag: Bool = false
-    var color: UIColor = UIColor.white
     
-    init(content: String, fileInfo: String? = nil) {
-        id = NSUUID().uuidString
+    
+    init(content: String, color: UIColor?, fileInfo: String? = nil) {
+        self.id = NSUUID().uuidString
         self.fileInfo = fileInfo
         self.content = content
-        date = Date()
+        self.date = Date()
+        self.color = color
     }
 }
 

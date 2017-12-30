@@ -37,7 +37,7 @@ class LoggerFormat {
         
         let attstr = NSMutableAttributedString(string: stringContent as String)
         attstr.addAttribute(NSAttributedStringKey.foregroundColor,
-                            value: log.color,
+                            value: log.color ?? UIColor.white,
                             range: NSMakeRange(0, stringContent.length))
         if let dateLenght = lenghtDate {
             let range = NSMakeRange(0, dateLenght)

@@ -8,44 +8,33 @@
 
 import Foundation
 
-
 public func print<T>(_ message: T,
-                        file: String = #file,
-                    function: String = #function,
-                        line: Int = #line)
+                          file: String = #file,
+                      function: String = #function,
+                          line: Int = #line)
 {
     if Logger.shared.enable {
-        Logger.shared.with(UIColor.white)//默认颜色
-        Logger.shared.handleLog(message, file: file, function: function, line: line)
+        Logger.shared.handleLog(message, color: nil, file: file, function: function, line: line)
     } else {
         Swift.print(message)
     }
 }
 
-@discardableResult public func printColor<T>(_ message: T,
-                     file: String = #file,
-                     function: String = #function,
-                     line: Int = #line) -> Logger
+public func print<T>(_ message: T,
+                       _ color: UIColor?,
+                          file: String = #file,
+                      function: String = #function,
+                          line: Int = #line)
 {
     if Logger.shared.enable {
-        Logger.shared.with(UIColor.white)//默认颜色
-        Logger.shared.handleLog(message, file: file, function: function, line: line)
+        Logger.shared.handleLog(message, color: color, file: file, function: function, line: line)
     } else {
         Swift.print(message)
     }
-    return Logger.shared
 }
 
 
 public class Logger: LogGenerator {
-
-    private var color: UIColor = UIColor.white
-    
-    public func with(_ color: UIColor) {
-        self.color = color
-    }
-    
-    //--------------------------------------------------------------------------------------------
     
     static let shared = Logger()
     private let queue = DispatchQueue(label: "logprint.log.queue")
@@ -60,7 +49,7 @@ public class Logger: LogGenerator {
         return "\(fileName)[\(line)]\(function):\n"
     }
 
-    fileprivate func handleLog(_ message: Any..., file: String?, function: String?, line: Int?) {
+    fileprivate func handleLog(_ message: Any..., color: UIColor?, file: String?, function: String?, line: Int?) {
         if !Logger.shared.enable {
             return
         }
@@ -69,9 +58,8 @@ public class Logger: LogGenerator {
             return "\(result)\(result.count > 0 ? " " : "")\(next)"
         }
 
-        Logger.shared.queue.async { [weak self] in
-            let newLog = Log(content: stringContent, fileInfo: fileInfo)
-            newLog.color = self?.color ?? UIColor.white
+        Logger.shared.queue.async {
+            let newLog = Log(content: stringContent, color: color, fileInfo: fileInfo)
             let format = LoggerFormat.format(newLog)
             Swift.print(format.str)
             StoreManager.shared.addLog(newLog)
