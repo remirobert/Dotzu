@@ -10,19 +10,18 @@ import UIKit
 
 class Log {
 
-    let level: LogLevel
     let id: String
     let fileInfo: String?
     let content: String
     let date: Date?
     
     var isTag: Bool = false
+    var color: UIColor = UIColor.white
     
-    init(content: String, fileInfo: String? = nil, level: LogLevel = .verbose) {
+    init(content: String, fileInfo: String? = nil) {
         id = NSUUID().uuidString
         self.fileInfo = fileInfo
         self.content = content
-        self.level = level
         date = Date()
     }
 }

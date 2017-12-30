@@ -20,7 +20,6 @@
 @implementation NSURLSession (Swizzling)
 
 + (void)load {
-    //#if DEBUG
     Method oriMethod = class_getInstanceMethod([NSURLSession class], @selector(dataTaskWithRequest:));
     Method newMethod = class_getInstanceMethod([NSURLSession class], @selector(dataTaskWithRequest_swizzling:));
     method_exchangeImplementations(oriMethod, newMethod);
@@ -59,7 +58,6 @@
             }
         }
     }
-    //#endif
 }
 
 #pragma mark - NSURLSession task delegate with swizzling

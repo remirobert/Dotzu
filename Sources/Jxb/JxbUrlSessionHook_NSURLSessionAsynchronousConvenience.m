@@ -20,7 +20,6 @@
 
 #pragma mark - 加载hook
 + (void)load {
-    //#if DEBUG
     Class cls = NSClassFromString(@"NSURLSession");
     [self swizzling_dataTaskWithURL:cls];
     [self swizzling_dataTaskWithRequest:cls];
@@ -29,7 +28,6 @@
     [self swizzling_downloadTaskWithRequest:cls];
     [self swizzling_downloadTaskWithURL:cls];
     [self swizzling_downloadTaskWithResumeData:cls];
-    //#endif
 }
 
 #pragma mark - hook处理

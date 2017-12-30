@@ -27,16 +27,16 @@ class LogsViewController: UITableViewController, UISearchBarDelegate {
         if searchText == "" {
             models = cacheModels
         }else{
-            guard var searchModels = searchModels else {return}
+            guard let searchModels = searchModels else {return}
             
             for _ in searchModels {
-                if let index = searchModels.index(where: { (model) -> Bool in
+                if let index = self.searchModels?.index(where: { (model) -> Bool in
                     return !model.content.lowercased().contains(searchText.lowercased())//忽略大小写
                 }) {
-                    searchModels.remove(at: index)
+                    self.searchModels?.remove(at: index)
                 }
             }
-            models = searchModels
+            models = self.searchModels ?? []
         }
     }
     

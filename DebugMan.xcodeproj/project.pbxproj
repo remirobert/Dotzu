@@ -45,7 +45,6 @@
 		EA44B97E1FE140D600DF7FF6 /* NotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA44B9211FE140D600DF7FF6 /* NotificationCenter.swift */; };
 		EA44B97F1FE140D600DF7FF6 /* DeviceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA44B9221FE140D600DF7FF6 /* DeviceModel.swift */; };
 		EA44B9801FE140D600DF7FF6 /* LogsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA44B9231FE140D600DF7FF6 /* LogsViewController.swift */; };
-		EA44B9811FE140D600DF7FF6 /* LogLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA44B9241FE140D600DF7FF6 /* LogLevel.swift */; };
 		EA44B9821FE140D600DF7FF6 /* ManagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA44B9251FE140D600DF7FF6 /* ManagerViewController.swift */; };
 		EA44B9831FE140D600DF7FF6 /* DetailCrashTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA44B9261FE140D600DF7FF6 /* DetailCrashTableViewController.swift */; };
 		EA44B9841FE140D600DF7FF6 /* ManagerWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA44B9271FE140D600DF7FF6 /* ManagerWindow.swift */; };
@@ -142,7 +141,6 @@
 		EA44B9211FE140D600DF7FF6 /* NotificationCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationCenter.swift; sourceTree = "<group>"; };
 		EA44B9221FE140D600DF7FF6 /* DeviceModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceModel.swift; sourceTree = "<group>"; };
 		EA44B9231FE140D600DF7FF6 /* LogsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogsViewController.swift; sourceTree = "<group>"; };
-		EA44B9241FE140D600DF7FF6 /* LogLevel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogLevel.swift; sourceTree = "<group>"; };
 		EA44B9251FE140D600DF7FF6 /* ManagerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagerViewController.swift; sourceTree = "<group>"; };
 		EA44B9261FE140D600DF7FF6 /* DetailCrashTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailCrashTableViewController.swift; sourceTree = "<group>"; };
 		EA44B9271FE140D600DF7FF6 /* ManagerWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagerWindow.swift; sourceTree = "<group>"; };
@@ -344,7 +342,6 @@
 				EA44B9201FE140D600DF7FF6 /* LogTableViewCell.swift */,
 				EA44B9211FE140D600DF7FF6 /* NotificationCenter.swift */,
 				EA44B9221FE140D600DF7FF6 /* DeviceModel.swift */,
-				EA44B9241FE140D600DF7FF6 /* LogLevel.swift */,
 				EA44B9261FE140D600DF7FF6 /* DetailCrashTableViewController.swift */,
 				EA44B9271FE140D600DF7FF6 /* ManagerWindow.swift */,
 				EA44B9281FE140D600DF7FF6 /* DotzuManager.swift */,
@@ -581,7 +578,6 @@
 				EA44B9861FE140D600DF7FF6 /* LogNavigationViewController.swift in Sources */,
 				EA44B9781FE140D600DF7FF6 /* LogCrash.swift in Sources */,
 				EA44B9901FE140D600DF7FF6 /* Color.swift in Sources */,
-				EA44B9811FE140D600DF7FF6 /* LogLevel.swift in Sources */,
 				EA44B9921FE140D600DF7FF6 /* NetworkCell.swift in Sources */,
 				EA44B9B01FE140D600DF7FF6 /* AFHTTPRequestOperationManager.m in Sources */,
 				EA44B9AF1FE140D600DF7FF6 /* AFURLSessionManager.m in Sources */,

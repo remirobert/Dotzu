@@ -19,12 +19,12 @@ class NetworkCell: UITableViewCell {
     @IBOutlet weak var requestTimeTextView: UITextView!
     @IBOutlet weak var requestUrlTextView: UITextView!
     @IBOutlet weak var imageLabel: UILabel!
-    @IBOutlet weak var tagView: UIView!
-    @IBOutlet weak var editView: UIView!
     @IBOutlet weak var statusCodeView: UIView!
+    @IBOutlet weak var refreshImageView: UIImageView!
     
     
-    var tapEditViewCallback:((JxbHttpModel?) -> Void)?
+    var tapStatusCodeViewCallback:((JxbHttpModel?) -> Void)?
+    var tapRefreshImageViewCallback:(() -> Void)?
     
     /*
      @interface JxbHttpModel : NSObject
@@ -99,9 +99,9 @@ class NetworkCell: UITableViewCell {
             
             //tag
             if httpModel?.isTag == true {
-                tagView.isHidden = false
+                self.contentView.backgroundColor = UIColor.init(hexString: "#007aff")
             }else{
-                tagView.isHidden = true
+                self.contentView.backgroundColor = UIColor.black
             }
             
             //isSelected
@@ -125,13 +125,20 @@ class NetworkCell: UITableViewCell {
         requestTimeTextView.textContainer.lineFragmentPadding = 0
         requestTimeTextView.textContainerInset = .zero
         
-        editView.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: #selector(tapEditView)))
+        statusCodeView.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: #selector(tapStatusCodeView)))
+        refreshImageView.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: #selector(tapRefreshImageView)))
     }
     
     //MARK: - target action
-    @objc func tapEditView() {
-        if let tapEditViewCallback = tapEditViewCallback {
-            tapEditViewCallback(httpModel)
+    @objc func tapStatusCodeView() {
+        if let tapStatusCodeViewCallback = tapStatusCodeViewCallback {
+            tapStatusCodeViewCallback(httpModel)
+        }
+    }
+    
+    @objc func tapRefreshImageView() {
+        if let tapRefreshImageViewCallback = tapRefreshImageViewCallback {
+            tapRefreshImageViewCallback()
         }
     }
 }

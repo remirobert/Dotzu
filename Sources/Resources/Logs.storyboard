@@ -12,7 +12,7 @@
         <!--Logs-->
         <scene sceneID="Ppy-kU-SGA">
             <objects>
-                <tableViewController storyboardIdentifier="LogsViewController" id="AVG-2n-hvN" customClass="LogsViewController" customModule="DebugMan" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="LogsViewController" title="Logs" id="AVG-2n-hvN" customClass="LogsViewController" customModule="DebugMan" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" indicatorStyle="white" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Uo3-eQ-AeA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -53,29 +53,14 @@
                                                 <constraint firstAttribute="width" id="gj5-Nu-R9k"/>
                                             </constraints>
                                         </view>
-                                        <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2mq-C1-tKJ">
-                                            <rect key="frame" x="0.0" y="10.5" width="10" height="10"/>
-                                            <color key="backgroundColor" red="0.0" green="0.47517639398574829" blue="0.99913233518600464" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="10" id="S8S-xY-Iw9"/>
-                                                <constraint firstAttribute="width" constant="10" id="qSe-Ga-AI0"/>
-                                            </constraints>
-                                            <userDefinedRuntimeAttributes>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                    <integer key="value" value="5"/>
-                                                </userDefinedRuntimeAttribute>
-                                            </userDefinedRuntimeAttributes>
-                                        </view>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstItem="K5b-mx-5Yj" firstAttribute="leading" secondItem="rlT-8f-zyl" secondAttribute="leading" constant="4" id="am3-bE-AbL"/>
-                                        <constraint firstItem="2mq-C1-tKJ" firstAttribute="leading" secondItem="rlT-8f-zyl" secondAttribute="leading" id="bIp-zb-uU3"/>
                                         <constraint firstAttribute="bottom" secondItem="K5b-mx-5Yj" secondAttribute="bottom" constant="7.5" id="i5h-EA-2I6"/>
                                         <constraint firstAttribute="trailing" secondItem="frq-th-OEB" secondAttribute="trailing" id="kRi-eK-MGs"/>
                                         <constraint firstItem="frq-th-OEB" firstAttribute="top" secondItem="rlT-8f-zyl" secondAttribute="top" id="m6D-c7-so7"/>
                                         <constraint firstItem="K5b-mx-5Yj" firstAttribute="top" secondItem="rlT-8f-zyl" secondAttribute="top" constant="8" id="nez-xd-kFa"/>
-                                        <constraint firstItem="2mq-C1-tKJ" firstAttribute="top" secondItem="rlT-8f-zyl" secondAttribute="top" constant="10.5" id="nz2-mI-zuO"/>
                                         <constraint firstAttribute="bottom" secondItem="frq-th-OEB" secondAttribute="bottom" id="qks-WQ-vnk"/>
                                         <constraint firstItem="frq-th-OEB" firstAttribute="leading" secondItem="K5b-mx-5Yj" secondAttribute="trailing" id="tF7-ub-pwy"/>
                                     </constraints>
@@ -83,7 +68,6 @@
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <outlet property="labelContent" destination="frq-th-OEB" id="OGw-zN-1NM"/>
-                                    <outlet property="tagView" destination="2mq-C1-tKJ" id="uBc-nD-XUd"/>
                                     <outlet property="viewTypeLogColor" destination="K5b-mx-5Yj" id="AOq-R3-V8b"/>
                                 </connections>
                             </tableViewCell>
@@ -95,6 +79,7 @@
                     </tableView>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Logs" id="DpU-H0-ZF2">
+                        <barButtonItem key="backBarButtonItem" title=" " id="9Uo-kH-0P4"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="trash" id="Uw0-Z9-dwT">
                             <connections>
                                 <action selector="resetLogs:" destination="AVG-2n-hvN" id="hjg-LT-89B"/>

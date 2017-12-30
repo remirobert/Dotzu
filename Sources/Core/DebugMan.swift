@@ -21,7 +21,7 @@ public class DebugMan : NSObject {
     /// mockTimeoutInterval: When mocking your custom network request just like Postman, you can set the timeout interval, the default is 10 seconds (mock自定义的网络请求时, 设置的超时时间, 默认10秒)
     /// extraControllers: Extra controllers to be added as child controllers of UITabBarController. the default is none (额外给UITabBarController增加的子控制器, 默认没有)
     public func enable(_ launchShow: Bool = true, serverURL: String? = nil, ignoredURLs: [String]? = nil, onlyURLs: [String]? = nil, maxLogsCount: Int = 100, mockTimeoutInterval: TimeInterval = 10, extraControllers: [UIViewController]? = nil) {
-        //#if DEBUG
+        
         if serverURL == nil {
             LogsSettings.shared.serverURL = ""
         }else{
@@ -54,7 +54,6 @@ public class DebugMan : NSObject {
         }else{
             LogsSettings.shared.showBall = false
         }
-        //#endif
     }
     
     /*
@@ -70,14 +69,13 @@ public class DebugMan : NSObject {
     public static let shared = DebugMan()
     private override init() {
         super.init()
-        //#if DEBUG
+        
         NotificationCenter.default.addObserver(self, selector: #selector(methodThatIsCalledAfterShake), name: NSNotification.Name(DHCSHakeNotificationName), object: nil)
         
         LogsSettings.shared.logSearchWord = nil
         LogsSettings.shared.networkSearchWord = nil
         
         let _ = StoreManager.shared
-        //#endif
     }
     
     //MARK: - deinit method

@@ -11,10 +11,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--List Crashes View Controller-->
+        <!--Crash sessions-->
         <scene sceneID="l2j-lN-VZs">
             <objects>
-                <viewController hidesBottomBarWhenPushed="YES" id="ocg-76-HeS" customClass="ListCrashesViewController" customModule="DebugMan" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Crash sessions" hidesBottomBarWhenPushed="YES" id="ocg-76-HeS" customClass="ListCrashesViewController" customModule="DebugMan" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="4Gw-A9-ME3"/>
                         <viewControllerLayoutGuide type="bottom" id="A5n-Uy-R5M"/>
@@ -77,6 +77,9 @@
                         </constraints>
                     </view>
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Crash sessions" id="LdB-8B-96p">
+                        <barButtonItem key="backBarButtonItem" title=" " id="ZK4-dX-hQh"/>
+                    </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="tableView" destination="8fZ-zc-Hz9" id="5Lq-q9-mUD"/>
@@ -189,7 +192,9 @@
                             <outlet property="delegate" destination="0sO-85-dbe" id="F77-uh-23h"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Details" id="uCh-Lu-9de"/>
+                    <navigationItem key="navigationItem" title="Details" id="uCh-Lu-9de">
+                        <barButtonItem key="backBarButtonItem" title=" " id="mEF-aY-qWg"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="textviewName" destination="VfO-ya-iWG" id="gry-vq-ffv"/>
                         <outlet property="textviewReason" destination="kbB-7c-HgE" id="MUi-k9-l8S"/>
@@ -223,6 +228,9 @@
                             <outlet property="delegate" destination="if5-nq-YeY" id="WcR-7y-fwZ"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Ignored URLs" id="isR-TM-jaf">
+                        <barButtonItem key="backBarButtonItem" title=" " id="Kb7-EV-zlP"/>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dPT-gm-xVS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -254,7 +262,7 @@
         <!--APP-->
         <scene sceneID="bwZ-u7-a4K">
             <objects>
-                <tableViewController id="jF1-Ov-37R" customClass="InformationsTableViewController" customModule="DebugMan" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController title="APP" id="jF1-Ov-37R" customClass="InformationsTableViewController" customModule="DebugMan" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" contentInsetAdjustmentBehavior="never" indicatorStyle="white" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="vkj-g7-DtV">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -753,7 +761,9 @@
                             <outlet property="delegate" destination="jF1-Ov-37R" id="LiC-7u-XBE"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="APP" id="nfh-qO-k6T"/>
+                    <navigationItem key="navigationItem" title="APP" id="nfh-qO-k6T">
+                        <barButtonItem key="backBarButtonItem" title=" " id="bL5-HO-27l"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="labelBuildNumber" destination="N5q-Tu-CeT" id="W9d-GI-HdH"/>
                         <outlet property="labelBundleID" destination="MBd-UL-t4v" id="7aK-4x-XoF"/>
@@ -931,6 +941,9 @@ Portions of DebugMan utilize the following copyrighted material, the use of whic
                             <outlet property="delegate" destination="JsU-Wb-nbO" id="XfB-9H-O9C"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="About" id="GUF-Y3-spN">
+                        <barButtonItem key="backBarButtonItem" title=" " id="f35-mx-N9q"/>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2lB-4W-SQr" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="69x-bA-QPQ">

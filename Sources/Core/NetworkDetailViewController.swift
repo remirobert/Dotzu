@@ -75,8 +75,8 @@ class NetworkDetailViewController: UITableViewController {
             }
             //3.
             detailModels.append(m1)
-            detailModels.append(m2)
             detailModels.append(m3)
+            detailModels.append(m2)
             detailModels.append(m4)
             detailModels.append(m7)
             detailModels.append(m6)
@@ -101,8 +101,8 @@ class NetworkDetailViewController: UITableViewController {
             }
             //3.
             detailModels.append(m1)
-            detailModels.append(m2)
             detailModels.append(m3)
+            detailModels.append(m2)
             detailModels.append(m4)
             detailModels.append(m7)
             detailModels.append(m6)
@@ -125,7 +125,66 @@ class NetworkDetailViewController: UITableViewController {
             httpModel?.requestSerializer = RequestSerializer(rawValue: 1)
         }
     }
+    
+    //模拟网络请求
+    func mockRequest() {
         
+        //1.请求参数格式(JSON/Form)
+        guard let requestSerializer = httpModel?.requestSerializer else {return}//code never go here
+        
+        //2.请求参数
+        if let requestData = self.httpModel?.requestData {
+            if (requestData as NSData).length > 0 {
+                
+                if Int(requestSerializer.rawValue) == 0 {
+                    //JSON
+                    requestDictionary = requestData.dataToDictionary()
+                }
+                if Int(requestSerializer.rawValue) == 1 {
+                    //Form
+                    if let dictionary = requestData.dataToDictionary() {
+                        requestDictionary = dictionary
+                    }else{
+                        requestDictionary = requestData.formDataToDictionary()
+                    }
+                }
+                if requestDictionary == nil {//error alert must has been showed
+                    return
+                }
+            }
+        }
+        
+        //3.alert
+        let alert = UIAlertController.init(title: "mocking...", message: nil, preferredStyle: .alert)
+        self.present(alert, animated: true, completion: nil)
+        
+        //4.mock http请求:
+        if let cString = self.httpModel?.url.absoluteString.cString(using: String.Encoding.utf8) {
+            if let content_ = NSString(cString: cString, encoding: String.Encoding.utf8.rawValue) {
+                
+                //核心代码
+                NetworkManager.sharedInstance().requestData(withURL: content_ as String!, method: self.httpModel?.method, parameter: requestDictionary, header: self.httpModel?.headerFields, cookies: nil, timeoutInterval: LogsSettings.shared.mockTimeoutInterval, requestSerializer: requestSerializer, responseSerializer: ResponseSerializer(rawValue: 1), result: { [weak self] (responseObject) in
+                    //success
+                    alert.dismiss(animated: true, completion: { [weak self] in
+                        self?.isMocked = true
+                        self?.navigationController?.popViewController(animated: true)
+                    })
+                    
+                    }, failure: { [weak self] (error) in
+                        //fail
+                        alert.dismiss(animated: true, completion: { [weak self] in
+                            self?.isMocked = true
+                            self?.navigationController?.popViewController(animated: true)
+                        })
+                })
+            }else{
+                alert.dismiss(animated: true, completion: nil)
+            }
+        }else{
+            alert.dismiss(animated: true, completion: nil)
+        }
+    }
+    
     //MARK: - init
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -173,7 +232,7 @@ class NetworkDetailViewController: UITableViewController {
             cell.httpModel = httpModel
             
             //1.点击了编辑view (仅编辑URL)
-            cell.tapEditViewCallback = { [weak self] httpModel in
+            cell.tapStatusCodeViewCallback = { [weak self] httpModel in
                 let vc = EditViewController.instanceFromStoryBoard()
                 vc.httpModel = httpModel
                 self?.navigationController?.pushViewController(vc, animated: true)
@@ -184,6 +243,13 @@ class NetworkDetailViewController: UITableViewController {
                     self?.tableView.reloadData()
                 }
             }
+            
+            //2.点击了refresh图片
+            cell.tapRefreshImageViewCallback = { [weak self] in
+                //模拟网络请求
+                self?.mockRequest()
+            }
+            
             return cell
         }
         
@@ -308,64 +374,6 @@ class NetworkDetailViewController: UITableViewController {
     }
     
     //MARK: - target action
-    @IBAction func mockRequest(_ sender: UIBarButtonItem) {
-        
-        //请求参数格式(JSON/Form)
-        guard let requestSerializer = httpModel?.requestSerializer else {return}//code never go here
-        
-        //请求参数
-        if let requestData = self.httpModel?.requestData {
-            if (requestData as NSData).length > 0 {
-                
-                if Int(requestSerializer.rawValue) == 0 {
-                    //JSON
-                    requestDictionary = requestData.dataToDictionary()
-                }
-                if Int(requestSerializer.rawValue) == 1 {
-                    //Form
-                    if let dictionary = requestData.dataToDictionary() {
-                        requestDictionary = dictionary
-                    }else{
-                        requestDictionary = requestData.formDataToDictionary()
-                    }
-                }
-                if requestDictionary == nil {//error alert must has been showed
-                    return
-                }
-            }
-        }
-        
-        //alert
-        let alert = UIAlertController.init(title: "mocking...", message: nil, preferredStyle: .alert)
-        self.present(alert, animated: true, completion: nil)
-        
-        //mock http请求:
-        if let cString = self.httpModel?.url.absoluteString.cString(using: String.Encoding.utf8) {
-            if let content_ = NSString(cString: cString, encoding: String.Encoding.utf8.rawValue) {
-                
-                //核心代码
-                NetworkManager.sharedInstance().requestData(withURL: content_ as String!, method: self.httpModel?.method, parameter: requestDictionary, header: self.httpModel?.headerFields, cookies: nil, timeoutInterval: LogsSettings.shared.mockTimeoutInterval, requestSerializer: requestSerializer, responseSerializer: ResponseSerializer(rawValue: 1), result: { [weak self] (responseObject) in
-                    //success
-                    alert.dismiss(animated: true, completion: { [weak self] in
-                        self?.isMocked = true
-                        self?.navigationController?.popViewController(animated: true)
-                    })
-                    
-                }, failure: { [weak self] (error) in
-                    //fail
-                    alert.dismiss(animated: true, completion: { [weak self] in
-                        self?.isMocked = true
-                        self?.navigationController?.popViewController(animated: true)
-                    })
-                })
-            }else{
-                alert.dismiss(animated: true, completion: nil)
-            }
-        }else{
-            alert.dismiss(animated: true, completion: nil)
-        }
-    }
-    
     @IBAction func close(_ sender: UIBarButtonItem) {
         (self.navigationController as! LogNavigationViewController).exit()
     }

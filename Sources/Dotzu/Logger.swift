@@ -14,39 +14,45 @@ public func print<T>(_ message: T,
                     function: String = #function,
                         line: Int = #line)
 {
-    //#if DEBUG
     if Logger.shared.enable {
-        Logger.handleLog(message, level: .verbose, file: file, function: function, line: line)
+        Logger.shared.with(UIColor.white)//默认颜色
+        Logger.shared.handleLog(message, file: file, function: function, line: line)
     } else {
         Swift.print(message)
     }
-    //#endif
 }
+
+@discardableResult public func printColor<T>(_ message: T,
+                     file: String = #file,
+                     function: String = #function,
+                     line: Int = #line) -> Logger
+{
+    if Logger.shared.enable {
+        Logger.shared.with(UIColor.white)//默认颜色
+        Logger.shared.handleLog(message, file: file, function: function, line: line)
+    } else {
+        Swift.print(message)
+    }
+    return Logger.shared
+}
+
 
 public class Logger: LogGenerator {
 
+    private var color: UIColor = UIColor.white
+    
+    public func with(_ color: UIColor) {
+        self.color = color
+    }
+    
+    //--------------------------------------------------------------------------------------------
+    
     static let shared = Logger()
     private let queue = DispatchQueue(label: "logprint.log.queue")
 
     var enable: Bool = true
 
-    public static func verbose(_ message: Any..., file: String = #file, function: String = #function, line: Int = #line) {
-        handleLog(message, level: .verbose, file: file, function: function, line: line)
-    }
-
-    public static func info(_ message: Any..., file: String = #file, function: String = #function, line: Int = #line) {
-        handleLog(message, level: .info, file: file, function: function, line: line)
-    }
-
-    public static func warning(_ message: Any..., file: String = #file, function: String = #function, line: Int = #line) {
-        handleLog(message, level: .warning, file: file, function: function, line: line)
-    }
-
-    public static func error(_ message: Any..., file: String = #file, function: String = #function, line: Int = #line) {
-        handleLog(message, level: .error, file: file, function: function, line: line)
-    }
-
-    fileprivate static func parseFileInfo(file: String?, function: String?, line: Int?) -> String? {
+    fileprivate func parseFileInfo(file: String?, function: String?, line: Int?) -> String? {
         guard let file = file, let function = function, let line = line else {return nil}
         guard let fileName = file.components(separatedBy: "/").last else { return nil }
         
@@ -54,7 +60,7 @@ public class Logger: LogGenerator {
         return "\(fileName)[\(line)]\(function):\n"
     }
 
-    fileprivate static func handleLog(_ message: Any..., level: LogLevel, file: String?, function: String?, line: Int?) {
+    fileprivate func handleLog(_ message: Any..., file: String?, function: String?, line: Int?) {
         if !Logger.shared.enable {
             return
         }
@@ -63,9 +69,10 @@ public class Logger: LogGenerator {
             return "\(result)\(result.count > 0 ? " " : "")\(next)"
         }
 
-        Logger.shared.queue.async {
-            let newLog = Log(content: stringContent, fileInfo: fileInfo, level: level)
-            let format = LoggerFormat.format(log: newLog)
+        Logger.shared.queue.async { [weak self] in
+            let newLog = Log(content: stringContent, fileInfo: fileInfo)
+            newLog.color = self?.color ?? UIColor.white
+            let format = LoggerFormat.format(newLog)
             Swift.print(format.str)
             StoreManager.shared.addLog(newLog)
         }

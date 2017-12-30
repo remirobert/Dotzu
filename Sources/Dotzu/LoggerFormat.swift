@@ -17,7 +17,7 @@ class LoggerFormat {
         return formatter.string(from: date)
     }
 
-    static func format(log: Log) -> (str: String, attr: NSMutableAttributedString) {
+    static func format(_ log: Log) -> (str: String, attr: NSMutableAttributedString) {
         var startIndex = 0
         var lenghtDate: Int?
         let stringContent = NSMutableString()
@@ -37,7 +37,7 @@ class LoggerFormat {
         
         let attstr = NSMutableAttributedString(string: stringContent as String)
         attstr.addAttribute(NSAttributedStringKey.foregroundColor,
-                            value: UIColor.white,
+                            value: log.color,
                             range: NSMakeRange(0, stringContent.length))
         if let dateLenght = lenghtDate {
             let range = NSMakeRange(0, dateLenght)

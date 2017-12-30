@@ -19,7 +19,6 @@ class ListCrashesViewController: UIViewController, UITableViewDataSource, UITabl
 
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.trash, target: self, action:#selector(ListCrashesViewController.deleteCrashes))
 
-        title = "Crash sessions"
         tableView.delegate = self
         tableView.dataSource = self
         tableView.tableFooterView = UIView()
