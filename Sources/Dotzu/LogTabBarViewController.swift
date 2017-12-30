@@ -20,17 +20,6 @@ class LogTabBarViewController: UITabBarController {
         self.selectedIndex = LogsSettings.shared.tabBarSelectItem
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        LogsSettings.shared.showTabBar = true
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        
-        LogsSettings.shared.showTabBar = false
-    }
-    
     //MARK: - private
     func setChildControllers() {
         let Logs = UIStoryboard(name: "Logs", bundle: Bundle(for: DebugMan.self))

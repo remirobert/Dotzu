@@ -18,20 +18,6 @@ public class LogsSettings {
             UserDefaults.standard.synchronize()
         }
     }
-    public var showTabBar: Bool {
-        didSet {
-            UserDefaults.standard.set(showTabBar, forKey: "showTabBar")
-            UserDefaults.standard.synchronize()
-            
-            if showTabBar == true {
-                Dotzu.sharedManager.window.makeKeyAndVisible()
-            }else{
-                if let window = UIApplication.shared.delegate?.window {
-                    window?.makeKeyAndVisible()
-                }
-            }
-        }
-    }
     public var showBall: Bool {
         didSet {
             UserDefaults.standard.set(showBall, forKey: "showBall")
@@ -120,7 +106,6 @@ public class LogsSettings {
         serverURL = UserDefaults.standard.string(forKey: "serverURL") ?? ""
         maxLogsCount = UserDefaults.standard.integer(forKey: "maxLogsCount")
         mockTimeoutInterval = UserDefaults.standard.double(forKey: "mockTimeoutInterval")
-        showTabBar = UserDefaults.standard.bool(forKey: "showTabBar")
         showBall = UserDefaults.standard.bool(forKey: "showBall")
         tabBarSelectItem = UserDefaults.standard.integer(forKey: "tabBarSelectItem")
         logHeadFrameX = UserDefaults.standard.float(forKey: "logHeadFrameX")
