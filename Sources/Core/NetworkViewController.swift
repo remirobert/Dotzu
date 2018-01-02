@@ -191,9 +191,6 @@ class NetworkViewController: UIViewController, UITableViewDataSource, UITableVie
         vc.httpModel = model.copy() as? JxbHttpModel
         self.navigationController?.pushViewController(vc, animated: true)
         
-        vc.mockCallback = { [weak self] in
-            self?.reloadHttp(true)
-        }
         vc.justCancelCallback = { [weak self] in
             self?.tableView.reloadData()
         }

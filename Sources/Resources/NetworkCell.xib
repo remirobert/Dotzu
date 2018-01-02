@@ -78,14 +78,6 @@
                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                     </textView>
-                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="debugman_refresh.png" translatesAutoresizingMaskIntoConstraints="NO" id="Oob-kS-MIe">
-                        <rect key="frame" x="274" y="16.5" width="20" height="20"/>
-                        <gestureRecognizers/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="20" id="K9Y-Me-7no"/>
-                            <constraint firstAttribute="height" constant="20" id="eJB-Im-GAM"/>
-                        </constraints>
-                    </imageView>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
@@ -93,10 +85,8 @@
                     <constraint firstItem="QzV-et-yBo" firstAttribute="top" secondItem="v8G-CW-gTr" secondAttribute="bottom" constant="4" id="25O-96-7iu"/>
                     <constraint firstItem="v8G-CW-gTr" firstAttribute="leading" secondItem="3fN-bI-W2p" secondAttribute="trailing" constant="9" id="Axs-Hx-CJy"/>
                     <constraint firstItem="kwZ-en-pn0" firstAttribute="leading" secondItem="v8G-CW-gTr" secondAttribute="trailing" constant="4" id="EAy-b1-Q4o"/>
-                    <constraint firstItem="JC4-1t-BQJ" firstAttribute="leading" secondItem="Oob-kS-MIe" secondAttribute="trailing" constant="7" id="GUL-qX-HYI"/>
                     <constraint firstItem="kwZ-en-pn0" firstAttribute="centerY" secondItem="v8G-CW-gTr" secondAttribute="centerY" id="Hqx-Wl-Nz6"/>
                     <constraint firstItem="JC4-1t-BQJ" firstAttribute="leading" secondItem="QzV-et-yBo" secondAttribute="trailing" constant="9" id="ITi-bD-aun"/>
-                    <constraint firstItem="Oob-kS-MIe" firstAttribute="centerY" secondItem="v8G-CW-gTr" secondAttribute="centerY" id="K4s-Db-A8v"/>
                     <constraint firstAttribute="trailing" secondItem="JC4-1t-BQJ" secondAttribute="trailing" id="TxK-j3-KWn"/>
                     <constraint firstAttribute="bottom" secondItem="3fN-bI-W2p" secondAttribute="bottom" constant="8" id="ijy-4W-A96"/>
                     <constraint firstItem="3fN-bI-W2p" firstAttribute="leading" secondItem="3rq-bh-2Xs" secondAttribute="leading" id="kZP-qQ-edH"/>
@@ -115,15 +105,12 @@
                 <outlet property="imageLabel" destination="5Uk-na-nYw" id="Ncd-fK-w3J"/>
                 <outlet property="leftAlignLine" destination="3fN-bI-W2p" id="Gab-fZ-a5I"/>
                 <outlet property="methodLabel" destination="v8G-CW-gTr" id="bZw-aK-ECZ"/>
-                <outlet property="refreshImageView" destination="Oob-kS-MIe" id="fjv-62-rYk"/>
                 <outlet property="requestTimeTextView" destination="kwZ-en-pn0" id="iyr-fA-0lY"/>
                 <outlet property="requestUrlTextView" destination="QzV-et-yBo" id="ssd-xu-keJ"/>
                 <outlet property="statusCodeLabel" destination="RDG-ui-8nx" id="GJ3-Oi-uwC"/>
                 <outlet property="statusCodeView" destination="JC4-1t-BQJ" id="LHX-zv-fWH"/>
             </connections>
+            <point key="canvasLocation" x="-135" y="7"/>
         </tableViewCell>
     </objects>
-    <resources>
-        <image name="debugman_refresh.png" width="20" height="20"/>
-    </resources>
 </document>

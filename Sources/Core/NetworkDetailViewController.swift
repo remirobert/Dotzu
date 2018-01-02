@@ -17,10 +17,6 @@ class NetworkDetailViewController: UITableViewController {
     
     var requestDictionary: [String: Any]? = Dictionary()
 
-    //判断是否mock
-    var isMocked: Bool = false
-    
-    var mockCallback:(() -> Void)?
     var justCancelCallback:(() -> Void)?
     
     static func instanceFromStoryBoard() -> NetworkDetailViewController {
@@ -44,11 +40,11 @@ class NetworkDetailViewController: UITableViewController {
         }
         
         //判断请求参数格式JSON/Form
-        if Int(requestSerializer.rawValue) == 0 {
+        if requestSerializer == JSONRequestSerializer {
             //JSON
             requestContent = httpModel?.requestData.dataToPrettyPrintString()
         }
-        if Int(requestSerializer.rawValue) == 1 {
+        if requestSerializer == FormRequestSerializer {
             //Form
             requestContent = httpModel?.requestData.dataToString()
         }
@@ -64,8 +60,8 @@ class NetworkDetailViewController: UITableViewController {
                 m3 = NetworkDetailModel.init(title: "RESPONSE", content: nil, UIImage.init(data: responseData))
             }
             //2.次要
-            let m5 = NetworkDetailModel.init(title: "DURATION", content: httpModel?.totalDuration)
-            let m6 = NetworkDetailModel.init(title: "MIMEType", content: httpModel?.mineType)
+            let m5 = NetworkDetailModel.init(title: "LATENCY", content: httpModel?.totalDuration)
+            let m6 = NetworkDetailModel.init(title: "MIME TYPE", content: httpModel?.mineType)
             var m7 = NetworkDetailModel.init(title: "HEADER", content: nil)
             if let headerFields = httpModel?.headerFields {
                 if !headerFields.isEmpty {
@@ -90,8 +86,8 @@ class NetworkDetailViewController: UITableViewController {
             let m3 = NetworkDetailModel.init(title: "RESPONSE", content: httpModel?.responseData.dataToPrettyPrintString())
             let m4 = NetworkDetailModel.init(title: "ERROR", content: httpModel?.localizedErrorMsg)
             //2.次要
-            let m5 = NetworkDetailModel.init(title: "DURATION", content: httpModel?.totalDuration)
-            let m6 = NetworkDetailModel.init(title: "MIMEType", content: httpModel?.mineType)
+            let m5 = NetworkDetailModel.init(title: "LATENCY", content: httpModel?.totalDuration)
+            let m6 = NetworkDetailModel.init(title: "MIME TYPE", content: httpModel?.mineType)
             var m7 = NetworkDetailModel.init(title: "HEADER", content: nil)
             if let headerFields = httpModel?.headerFields {
                 if !headerFields.isEmpty {
@@ -113,75 +109,16 @@ class NetworkDetailViewController: UITableViewController {
     //确定request格式(JSON/Form)
     func detectRequestSerializer() {
         guard let requestData = httpModel?.requestData else {
-            httpModel?.requestSerializer = RequestSerializer(rawValue: 0)//默认JSON格式
+            httpModel?.requestSerializer = JSONRequestSerializer//默认JSON格式
             return
         }
         
         if let _ = requestData.dataToDictionary() {
             //JSON格式
-            httpModel?.requestSerializer = RequestSerializer(rawValue: 0)
+            httpModel?.requestSerializer = JSONRequestSerializer
         }else{
             //Form格式
-            httpModel?.requestSerializer = RequestSerializer(rawValue: 1)
-        }
-    }
-    
-    //模拟网络请求
-    func mockRequest() {
-        
-        //1.请求参数格式(JSON/Form)
-        guard let requestSerializer = httpModel?.requestSerializer else {return}//code never go here
-        
-        //2.请求参数
-        if let requestData = self.httpModel?.requestData {
-            if (requestData as NSData).length > 0 {
-                
-                if Int(requestSerializer.rawValue) == 0 {
-                    //JSON
-                    requestDictionary = requestData.dataToDictionary()
-                }
-                if Int(requestSerializer.rawValue) == 1 {
-                    //Form
-                    if let dictionary = requestData.dataToDictionary() {
-                        requestDictionary = dictionary
-                    }else{
-                        requestDictionary = requestData.formDataToDictionary()
-                    }
-                }
-                if requestDictionary == nil {//error alert must has been showed
-                    return
-                }
-            }
-        }
-        
-        //3.alert
-        let alert = UIAlertController.init(title: "mocking...", message: nil, preferredStyle: .alert)
-        self.present(alert, animated: true, completion: nil)
-        
-        //4.mock http请求:
-        if let cString = self.httpModel?.url.absoluteString.cString(using: String.Encoding.utf8) {
-            if let content_ = NSString(cString: cString, encoding: String.Encoding.utf8.rawValue) {
-                
-                //核心代码
-                NetworkManager.sharedInstance().requestData(withURL: content_ as String!, method: self.httpModel?.method, parameter: requestDictionary, header: self.httpModel?.headerFields, cookies: nil, timeoutInterval: LogsSettings.shared.mockTimeoutInterval, requestSerializer: requestSerializer, responseSerializer: ResponseSerializer(rawValue: 1), result: { [weak self] (responseObject) in
-                    //success
-                    alert.dismiss(animated: true, completion: { [weak self] in
-                        self?.isMocked = true
-                        self?.navigationController?.popViewController(animated: true)
-                    })
-                    
-                    }, failure: { [weak self] (error) in
-                        //fail
-                        alert.dismiss(animated: true, completion: { [weak self] in
-                            self?.isMocked = true
-                            self?.navigationController?.popViewController(animated: true)
-                        })
-                })
-            }else{
-                alert.dismiss(animated: true, completion: nil)
-            }
-        }else{
-            alert.dismiss(animated: true, completion: nil)
+            httpModel?.requestSerializer = FormRequestSerializer
         }
     }
     
@@ -209,14 +146,8 @@ class NetworkDetailViewController: UITableViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
-        if isMocked == true {
-            if let mockCallback = mockCallback {
-                mockCallback()
-            }
-        }else{
-            if let justCancelCallback = justCancelCallback {
-                justCancelCallback()
-            }
+        if let justCancelCallback = justCancelCallback {
+            justCancelCallback()
         }
     }
     
@@ -230,25 +161,6 @@ class NetworkDetailViewController: UITableViewController {
             let cell = tableView.dequeueReusableCell(withIdentifier: "NetworkCell", for: indexPath)
                 as! NetworkCell
             cell.httpModel = httpModel
-            
-            //1.点击了编辑view (仅编辑URL)
-            cell.tapStatusCodeViewCallback = { [weak self] httpModel in
-                let vc = EditViewController.instanceFromStoryBoard()
-                vc.httpModel = httpModel
-                self?.navigationController?.pushViewController(vc, animated: true)
-
-                //2.保存了编辑结果 (仅编辑URL)
-                vc.saveCallback = { [weak self] httpModel, detailModel in
-                    self?.httpModel = httpModel
-                    self?.tableView.reloadData()
-                }
-            }
-            
-            //2.点击了refresh图片
-            cell.tapRefreshImageViewCallback = { [weak self] in
-                //模拟网络请求
-                self?.mockRequest()
-            }
             
             return cell
         }
@@ -282,35 +194,6 @@ class NetworkDetailViewController: UITableViewController {
             let vc = EditViewController.instanceFromStoryBoard()
             vc.detailModel = detailModel
             self?.navigationController?.pushViewController(vc, animated: true)
-            
-            //3.保存了编辑结果 (编辑request/header)
-            vc.saveCallback = { [weak self] httpModel, detailModel in
-                if let index = self?.detailModels.index(where: { (model_) -> Bool in
-                    return model_.title == detailModel?.title
-                }) {
-                    guard let detailModel = detailModel else {return}
-                    self?.detailModels.remove(at: index)
-                    self?.detailModels.insert(detailModel, at: index)
-                    
-                    if detailModel.title == "REQUEST" {
-                        self?.httpModel?.requestSerializer = detailModel.requestSerializer
-                        guard let requestSerializer = self?.httpModel?.requestSerializer else {return}
-                        if Int(requestSerializer.rawValue) == 0 {
-                            //JSON
-                            self?.httpModel?.requestData = detailModel.content?.stringToData()
-                        }
-                        if Int(requestSerializer.rawValue) == 1 {
-                            //Form
-                            self?.httpModel?.requestData = detailModel.content?.formStringToData()
-                        }
-                    }
-                    
-                    if detailModel.title == "HEADER" {
-                        self?.httpModel?.headerFields = detailModel.headerFields
-                    }
-                }
-                self?.tableView.reloadData()
-            }
         }
         
         return cell

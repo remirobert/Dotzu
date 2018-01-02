@@ -12,12 +12,6 @@ public class LogsSettings {
 
     public static let shared = LogsSettings()
 
-    public var mockTimeoutInterval: TimeInterval {
-        didSet {
-            UserDefaults.standard.set(mockTimeoutInterval, forKey: "mockTimeoutInterval")
-            UserDefaults.standard.synchronize()
-        }
-    }
     public var showBall: Bool {
         didSet {
             UserDefaults.standard.set(showBall, forKey: "showBall")
@@ -105,7 +99,6 @@ public class LogsSettings {
     {
         serverURL = UserDefaults.standard.string(forKey: "serverURL") ?? ""
         maxLogsCount = UserDefaults.standard.integer(forKey: "maxLogsCount")
-        mockTimeoutInterval = UserDefaults.standard.double(forKey: "mockTimeoutInterval")
         showBall = UserDefaults.standard.bool(forKey: "showBall")
         tabBarSelectItem = UserDefaults.standard.integer(forKey: "tabBarSelectItem")
         logHeadFrameX = UserDefaults.standard.float(forKey: "logHeadFrameX")

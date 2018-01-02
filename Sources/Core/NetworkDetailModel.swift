@@ -14,7 +14,7 @@ struct NetworkDetailModel {
     var image: UIImage?
     var blankContent: String?
     var isLast: Bool = false
-    var requestSerializer: RequestSerializer = RequestSerializer(rawValue: 0)//默认JSON格式
+    var requestSerializer: RequestSerializer = JSONRequestSerializer//默认JSON格式
     var headerFields: [String: Any]?
     
     init(title: String? = nil, content: String? = "", _ image: UIImage? = nil) {
@@ -23,7 +23,7 @@ struct NetworkDetailModel {
         self.image = image
         
         //超时时间
-        if title == "DURATION" {
+        if title == "LATENCY" {
             if let double_second_string = content?.replacingOccurrences(of: "s", with: "") {
                 if let double_second = Double(double_second_string) {
                     let int_second = Int(double_second)

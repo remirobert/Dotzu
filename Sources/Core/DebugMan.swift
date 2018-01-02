@@ -15,12 +15,11 @@ public class DebugMan : NSObject {
     
     /// launchShow: Whether to display the debug panel ball when APP launch. the default display (是否APP启动时就显示调试面板球, 默认显示)
     /// serverURL: if the catched URLs contain server URL ,set these URLs bold font to be marked. not mark when this value is nil by default (加粗标记服务器地址URL, 为nil就不标记, 默认值为nil)
-    /// ignoredURLs: Set the URLs which should not catched, ignore the case, catch all URLs when the value is nil. the default is nil (设置不抓取的域名, 忽略大小写, 为nil时默认抓取所有, 默认值为nil)
-    /// onlyURLs: Set the URLs which are only catched, ignore the case, catch all URLs when the value is nil. the default is nil (设置只抓取的域名, 忽略大小写, 为nil时默认抓取所有, 默认值为nil)
+    /// ignoredURLs: Set the URLs which should not catched, ignoring case, catch all URLs when the value is nil. the default is nil (设置不抓取的域名, 忽略大小写, 为nil时默认抓取所有, 默认值为nil)
+    /// onlyURLs: Set the URLs which are only catched, ignoring case, catch all URLs when the value is nil. the default is nil (设置只抓取的域名, 忽略大小写, 为nil时默认抓取所有, 默认值为nil)
     /// maxLogsCount: Custom set "Logs/Network/Crash" maximum record amount, the default is 100 (if exceed maximum record amount, DebugMan will automatically clear the earliest record, and update the recent record. so do not worry) (自定义logs/network/crash最大记录, 默认100条 (超过会自动清除最早的记录,并更新最近记录. 所以不必担心))
-    /// mockTimeoutInterval: When mocking your custom network request just like Postman, you can set the timeout interval, the default is 10 seconds (mock自定义的网络请求时, 设置的超时时间, 默认10秒)
     /// extraControllers: Extra controllers to be added as child controllers of UITabBarController. the default is none (额外给UITabBarController增加的子控制器, 默认没有)
-    public func enable(_ launchShow: Bool = true, serverURL: String? = nil, ignoredURLs: [String]? = nil, onlyURLs: [String]? = nil, maxLogsCount: Int = 100, mockTimeoutInterval: TimeInterval = 10, extraControllers: [UIViewController]? = nil) {
+    public func enable(_ launchShow: Bool = true, serverURL: String? = nil, ignoredURLs: [String]? = nil, onlyURLs: [String]? = nil, maxLogsCount: Int = 100, extraControllers: [UIViewController]? = nil) {
         
         if serverURL == nil {
             LogsSettings.shared.serverURL = ""
@@ -47,7 +46,6 @@ public class DebugMan : NSObject {
         JxbDebugTool.shareInstance().enable()
         LogsSettings.shared.showBall = true
         LogsSettings.shared.maxLogsCount = maxLogsCount
-        LogsSettings.shared.mockTimeoutInterval = mockTimeoutInterval
         
         if launchShow == true {
             LogsSettings.shared.showBall = true

@@ -22,10 +22,6 @@ class NetworkCell: UITableViewCell {
     @IBOutlet weak var statusCodeView: UIView!
     @IBOutlet weak var refreshImageView: UIImageView!
     
-    
-    var tapStatusCodeViewCallback:((JxbHttpModel?) -> Void)?
-    var tapRefreshImageViewCallback:(() -> Void)?
-    
     /*
      @interface JxbHttpModel : NSObject
      @property (nonatomic,copy)NSString  *requestId;
@@ -124,21 +120,5 @@ class NetworkCell: UITableViewCell {
         
         requestTimeTextView.textContainer.lineFragmentPadding = 0
         requestTimeTextView.textContainerInset = .zero
-        
-        statusCodeView.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: #selector(tapStatusCodeView)))
-        refreshImageView.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: #selector(tapRefreshImageView)))
-    }
-    
-    //MARK: - target action
-    @objc func tapStatusCodeView() {
-        if let tapStatusCodeViewCallback = tapStatusCodeViewCallback {
-            tapStatusCodeViewCallback(httpModel)
-        }
-    }
-    
-    @objc func tapRefreshImageView() {
-        if let tapRefreshImageViewCallback = tapRefreshImageViewCallback {
-            tapRefreshImageViewCallback()
-        }
     }
 }
