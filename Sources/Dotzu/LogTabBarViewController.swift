@@ -18,6 +18,10 @@ class LogTabBarViewController: UITabBarController {
         setChildControllers()
         
         self.selectedIndex = LogsSettings.shared.tabBarSelectItem
+        
+        if let window = UIApplication.shared.delegate?.window {
+            window?.endEditing(true)
+        }
     }
     
     //MARK: - private
