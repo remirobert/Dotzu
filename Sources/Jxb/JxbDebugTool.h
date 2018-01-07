@@ -21,22 +21,22 @@
 @property (nonatomic, weak) id<JxbDebugDelegate> delegate;
 
 /**
- *  http请求数据是否加密，默认不加密
+ *  http请求数据是否加密,默认不加密
  */
 @property (nonatomic, assign)   BOOL        isHttpRequestEncrypt;
 
 /**
- *  http响应数据是否加密，默认不加密
+ *  http响应数据是否加密,默认不加密
  */
 @property (nonatomic, assign)   BOOL        isHttpResponseEncrypt;
 
 /**
- *  设置只抓取的域名，忽略大小写，默认抓取所有
+ *  设置只抓取的域名,忽略大小写,默认抓取所有
  */
 @property (nonatomic, strong)   NSArray<NSString *>     *onlyURLs;
 
 /**
- *  设置不抓取的域名，忽略大小写，默认抓取所有
+ *  设置不抓取的域名,忽略大小写,默认抓取所有
  */
 @property (nonatomic, strong)   NSArray<NSString *>     *ignoredURLs;
 

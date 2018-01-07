@@ -8,6 +8,25 @@
 
 import Foundation
 
+//MARK: - NSLog
+public func NSLog<T>(_ message: T,
+                     file: String = #file,
+                     function: String = #function,
+                     line: Int = #line)
+{
+    print(message, file: file, function: function, line: line)
+}
+
+public func NSLog<T>(_ message: T,
+                     _ color: UIColor?,
+                     file: String = #file,
+                     function: String = #function,
+                     line: Int = #line)
+{
+    print(message, color, file: file, function: function, line: line)
+}
+
+//MARK: - print
 public func print<T>(_ message: T,
                           file: String = #file,
                       function: String = #function,
@@ -33,7 +52,7 @@ public func print<T>(_ message: T,
     }
 }
 
-
+//MARK: -
 public class Logger: LogGenerator {
     
     static let shared = Logger()

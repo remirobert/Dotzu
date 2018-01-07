@@ -14,26 +14,29 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //just for test...
+        //1.test logs
+        print("hello world Swift")
+        print("hello world Swift in red", .red)
         
-        print("hello world")
-        print("hello world in red", .red)
+        NSLog("hello world Objective-C")
+        NSLog("hello world Objective-C in orange", .orange)
         
+        //2.test http catch
         Alamofire.request("https://httpbin.org/get").responseJSON { response in
             switch response.result {
             case .success:
                 print(response)
             case .failure(let error):
-                print(error, .red)
+                print(error, .blue)
             }
         }
-        
+
         Alamofire.request("https://httpbin.org/post", method: .post, parameters: ["data": "hello world"], encoding: JSONEncoding.default).responseJSON { response in
             switch response.result {
             case .success:
                 print(response, .green)
             case .failure(let error):
-                print(error, .red)
+                print(error)
             }
         }
     }
