@@ -28,7 +28,7 @@ class NetworkDetailViewController: UITableViewController {
     //MARK: - tool
     func setupModels()
     {
-        guard let requestSerializer = httpModel?.requestSerializer else {return}//code never go here
+        guard let requestSerializer = httpModel?.requestSerializer else {return}
         var requestContent: String? = nil
         
         //容错判断,否则为nil时会崩溃
@@ -202,7 +202,7 @@ class NetworkDetailViewController: UITableViewController {
     //MARK: - UITableViewDelegate
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        guard let serverURL = LogsSettings.shared.serverURL else {return 0}//code never go here
+        guard let serverURL = LogsSettings.shared.serverURL else {return 0}
         let detailModel = detailModels[indexPath.row]
         
         if detailModel.blankContent == "..." {
@@ -238,7 +238,7 @@ class NetworkDetailViewController: UITableViewController {
                     return height + 57
                 }
             }
-            return 0 //code never go here --by liman
+            return 0  
         }
         
         if detailModel.image == nil {
@@ -250,7 +250,7 @@ class NetworkDetailViewController: UITableViewController {
                 let height = content.height(with: UIFont.systemFont(ofSize: 13), constraintToWidth: (UIScreen.main.bounds.size.width - 30))
                 return height + 70
             }
-            return 0 //code never go here --by liman
+            return 0  
         }
         
         return UIScreen.main.bounds.size.width + 50

@@ -41,7 +41,7 @@ class NetworkCell: UITableViewCell {
     var httpModel: JxbHttpModel? {
         didSet {
             
-            guard let serverURL = LogsSettings.shared.serverURL else {return}//code never go here
+            guard let serverURL = LogsSettings.shared.serverURL else {return}
             
             //域名
             requestUrlTextView.text = httpModel?.url.absoluteString

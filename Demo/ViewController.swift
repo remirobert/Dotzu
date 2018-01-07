@@ -15,11 +15,11 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         //1.test logs
-        print("hello world Swift")
-        print("hello world Swift in red", .red)
+        print("print hello world")
+        print("print hello world in red", .red)
         
-        NSLog("hello world Objective-C")
-        NSLog("hello world Objective-C in orange", .orange)
+        NSLog("NSLog hello world")
+        NSLog("NSLog hello world in red", .red)
         
         //2.test http catch
         Alamofire.request("https://httpbin.org/get").responseJSON { response in
@@ -27,14 +27,14 @@ class ViewController: UIViewController {
             case .success:
                 print(response)
             case .failure(let error):
-                print(error, .blue)
+                print(error)
             }
         }
 
         Alamofire.request("https://httpbin.org/post", method: .post, parameters: ["data": "hello world"], encoding: JSONEncoding.default).responseJSON { response in
             switch response.result {
             case .success:
-                print(response, .green)
+                print(response)
             case .failure(let error):
                 print(error)
             }

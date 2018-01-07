@@ -16,8 +16,8 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "DebugMan"
-  s.version      = "4.2.6"
-  s.summary      = "iOS debugger tool"
+  s.version      = "4.2.7"
+  s.summary      = "iOS debugger tool for Swift"
 
   # This description is used to generate tags and improve search results.
   #   * Think: What does it do? Why did you write it? What is the focus?

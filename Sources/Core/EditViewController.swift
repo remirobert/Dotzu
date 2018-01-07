@@ -174,7 +174,7 @@ class EditViewController: UITableViewController, UITextViewDelegate {
     
     //能点击segmentedControl, 说明一定是在编辑request
     @IBAction func segmentedControlAction(_ sender: UISegmentedControl) {
-        guard let requestSerializer = detailModel?.requestSerializer, let textView = textView else {return}//code never go here
+        guard let requestSerializer = detailModel?.requestSerializer, let textView = textView else {return}
         
         
         if requestSerializer == JSONRequestSerializer {//原格式为JSON

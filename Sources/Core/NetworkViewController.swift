@@ -141,7 +141,7 @@ class NetworkViewController: UIViewController, UITableViewDataSource, UITableVie
     //MARK: - UITableViewDelegate
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        guard let serverURL = LogsSettings.shared.serverURL else {return 0}//code never go here
+        guard let serverURL = LogsSettings.shared.serverURL else {return 0}
         let model = models?[indexPath.row]
         var height: CGFloat = 0.0
         
@@ -170,7 +170,7 @@ class NetworkViewController: UIViewController, UITableViewDataSource, UITableVie
             }
         }
         
-        return 0 //code never go here --by liman
+        return 0  
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
