@@ -8,11 +8,9 @@
 
 # DebugMan
 
-## Summary
-
 iOS debugger tool for Swift
 
-## Description
+## Introduction
 
 `DebugMan` is inspired by [remirobert/Dotzu](https://github.com/remirobert/Dotzu) and [JxbSir/JxbDebugTool](https://github.com/JxbSir/JxbDebugTool), but it is more powerful than them.
 
@@ -72,7 +70,7 @@ You can temporarily hide the black ball by shaking iPhone or Simulator. Then if 
 
 * Author: liman
 * WeChat: liman_888
-* E-mail: 723661989@163.com & gg723661989@gmail.com
+* E-mail: 723661989@163.com && gg723661989@gmail.com
 
 If you like `DebugMan`, you can star this project. Thanks! 😃
 
