@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
 
   s.name         = "DebugMan"
   s.version      = "4.2.6"
-  s.summary      = "Debugging tool for iOS in Swift"
+  s.summary      = "iOS debugger tool"
 
   # This description is used to generate tags and improve search results.
   #   * Think: What does it do? Why did you write it? What is the focus?
@@ -25,7 +25,13 @@ Pod::Spec.new do |s|
   #   * Write the description between the DESC delimiters below.
   #   * Finally, don't worry about the indent, CocoaPods strips it!
   s.description  = <<-DESC
-                    Debugging tool for iOS in Swift
+                    DebugMan is inspired by remirobert/Dotzu and JxbSir/JxbDebugTool, but it is more powerful than them.
+                    - display all APP logs in different colors as you like.
+                    - show all APP network requests (include third-party SDK in APP).
+                    - filter keywords in APP logs and APP network requests.
+                    - APP device informations and APP identity informations.
+                    - APP crash logs.
+                    - APP memory real-time monitoring.
                    DESC
 
   s.homepage     = "https://github.com/liman123/DebugMan"
