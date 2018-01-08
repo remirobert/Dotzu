@@ -46,11 +46,14 @@ The latest version is 4.2.7
 
 ## Usage
 
-	//AppDelegate.swift
+The simplest usage of DebugMan:
 
+	//AppDelegate.swift
+	
+	import DebugMan
+	
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
-        //the simplest usage of DebugMan
         DebugMan.shared.enable()
         
         return true
