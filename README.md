@@ -76,6 +76,7 @@ You can temporarily hide the black ball by shaking iPhone or Simulator. Then if 
 
 * Author: liman
 * WeChat: liman_888
+* QQ: 723661989
 * E-mail: 723661989@163.com && gg723661989@gmail.com
 
 If you like `DebugMan`, you can star this project. Thanks! 😃
