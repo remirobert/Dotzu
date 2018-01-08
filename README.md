@@ -51,16 +51,16 @@ The simplest usage of DebugMan:
 	//AppDelegate.swift
 	
 	#if DEBUG
-		import DebugMan
+	  import DebugMan
 	#endif
 	
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        
-		#if DEBUG
-			DebugMan.shared.enable()
-		#endif
-		
-		return true
+	    
+	    #if DEBUG
+	      DebugMan.shared.enable()
+	    #endif
+	    
+	    return true
 	}
     
 For advanced usage, you can check the parameters of function: `enable()` 
