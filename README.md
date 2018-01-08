@@ -21,6 +21,12 @@ iOS debugger tool for Swift
 - APP crash logs.
 - APP memory real-time monitoring.
 
+## Requirements
+
+- iOS 8.0+
+- Xcode 9.0+
+- Swift 3.0+
+
 ## Installation
 
 You can use [CocoaPods](http://cocoapods.org/) to install `DebugMan` by adding it to your `Podfile`:
