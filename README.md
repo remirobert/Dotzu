@@ -36,13 +36,12 @@ platform :ios, '8.0'
 use_frameworks!
 
 target 'your_project' do
-pod 'DebugMan', '~> 4.2.7' , :configurations => ['Debug']
+pod 'DebugMan', '~> 4.2.8' , :configurations => ['Debug']
 end
 ```
-The latest version is 4.2.7
 
-- use `~> 4.2.7` if your project use Swift 4
-- use `~> 3.2.7` if your project use Swift 3
+- use `~> 4.2.8` if your project use Swift 4
+- use `~> 3.2.8` if your project use Swift 3
 
 ## Usage
 
@@ -84,7 +83,7 @@ You can temporarily hide the black ball by shaking iPhone or Simulator. Then if 
 * Author: liman
 * WeChat: liman_888
 * QQ: 723661989
-* E-mail: 723661989@163.com && gg723661989@gmail.com
+* E-mail: 723661989@163.com || gg723661989@gmail.com
 
 If you like `DebugMan`, you can star this project. Thanks! 😃
 
