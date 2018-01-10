@@ -23,16 +23,6 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-#import <Foundation/Foundation.h>
-
-//! Project version number for DebugMan.
-FOUNDATION_EXPORT double DebugManVersionNumber;
-
-//! Project version string for DebugMan.
-FOUNDATION_EXPORT const unsigned char DebugManVersionString[];
-
-// In this header, you should import all the public headers of your framework using statements like #import <DebugMan/PublicHeader.h>
-
 #import "JxbDebugTool.h"
 #import "JxbHttpDatasource.h"
 #import "NSString+Utils.h"

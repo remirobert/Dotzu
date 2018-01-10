@@ -188,3 +188,17 @@ extension UIViewController {
     }
 }
 
+///数组拷贝
+extension Array where Element: JxbHttpModel {
+    func clone() -> Array<JxbHttpModel> {
+        var copiedArray = [JxbHttpModel]()
+        for element in self {
+            copiedArray.append(element.copy() as! JxbHttpModel)
+        }
+        return copiedArray
+    }
+}
+
+
+
+

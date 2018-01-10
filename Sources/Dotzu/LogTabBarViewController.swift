@@ -38,9 +38,9 @@ class LogTabBarViewController: UITabBarController {
         
         
         //添加额外的控制器
-        guard let extraControllers = LogsSettings.shared.extraControllers else {return}
+        guard let tabBarControllers = LogsSettings.shared.tabBarControllers else {return}
         
-        for vc in extraControllers {
+        for vc in tabBarControllers {
             
             let nav = UINavigationController.init(rootViewController: vc)
             

@@ -135,7 +135,7 @@
     [self URLSession_swizzling:session task:task didCompleteWithError:error];
    
     NSURLRequest* req = task.originalRequest;
-    if ([[[JxbHttpDatasource shareInstance] httpModelRequestIds] containsObject:req.requestId])
+    if ([[[[JxbHttpDatasource shareInstance] httpModelRequestIds] copy] containsObject:req.requestId])
         return;
     
     BOOL canHandle = YES;

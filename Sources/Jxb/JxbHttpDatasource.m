@@ -70,11 +70,11 @@
 
 - (void)remove:(JxbHttpModel *)model
 {
-    if ([self.httpModels containsObject:model]) {
+    if ([[self.httpModels copy] containsObject:model]) {
         [self.httpModels removeObject:model];
     }
 
-    if ([self.httpModelRequestIds containsObject:model.requestId]) {
+    if ([[self.httpModelRequestIds copy] containsObject:model.requestId]) {
         [self.httpModelRequestIds removeObject:model.requestId];
     }
 }

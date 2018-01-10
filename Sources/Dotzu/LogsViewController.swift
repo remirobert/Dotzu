@@ -29,7 +29,7 @@ class LogsViewController: UITableViewController, UISearchBarDelegate {
         }else{
             guard let searchModels = searchModels else {return}
             
-            for _ in searchModels {
+            for _ in searchModels.clone() {
                 if let index = self.searchModels?.index(where: { (model) -> Bool in
                     return !model.content.lowercased().contains(searchText.lowercased())//忽略大小写
                 }) {

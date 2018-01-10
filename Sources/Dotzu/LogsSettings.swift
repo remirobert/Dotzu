@@ -91,7 +91,7 @@ public class LogsSettings {
             UserDefaults.standard.synchronize()
         }
     }
-    public var extraControllers: [UIViewController]? = nil
+    public var tabBarControllers: [UIViewController]? = nil
     
     
     

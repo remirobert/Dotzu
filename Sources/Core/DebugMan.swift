@@ -18,18 +18,18 @@ public class DebugMan : NSObject {
     /// ignoredURLs: Set the URLs which should not catched, ignoring case, catch all URLs when the value is nil. the default is nil (设置不抓取的域名, 忽略大小写, 为nil时默认抓取所有, 默认值为nil)
     /// onlyURLs: Set the URLs which are only catched, ignoring case, catch all URLs when the value is nil. the default is nil (设置只抓取的域名, 忽略大小写, 为nil时默认抓取所有, 默认值为nil)
     /// maxLogsCount: Custom set "Logs/Network/Crash" maximum record amount, the default is 100 (if exceed maximum record amount, DebugMan will automatically clear the earliest record, and update the recent record. so do not worry) (自定义logs/network/crash最大记录, 默认100条 (超过会自动清除最早的记录,并更新最近记录. 所以不必担心))
-    /// extraControllers: Extra controllers to be added as child controllers of UITabBarController. the default is none (额外给UITabBarController增加的子控制器, 默认没有)
-    public func enable(_ launchShow: Bool = true, serverURL: String? = nil, ignoredURLs: [String]? = nil, onlyURLs: [String]? = nil, maxLogsCount: Int = 100, extraControllers: [UIViewController]? = nil) {
+    /// tabBarControllers: custom controllers to be added as child controllers of UITabBarController. the default is none (给UITabBarController增加的自定义子控制器, 默认没有)
+    public func enable(_ launchShow: Bool = true, serverURL: String? = nil, ignoredURLs: [String]? = nil, onlyURLs: [String]? = nil, maxLogsCount: Int = 100, tabBarControllers: [UIViewController]? = nil) {
         
         if serverURL == nil {
             LogsSettings.shared.serverURL = ""
         }else{
             LogsSettings.shared.serverURL = serverURL
         }
-        if extraControllers == nil {
-            LogsSettings.shared.extraControllers = []
+        if tabBarControllers == nil {
+            LogsSettings.shared.tabBarControllers = []
         }else{
-            LogsSettings.shared.extraControllers = extraControllers
+            LogsSettings.shared.tabBarControllers = tabBarControllers
         }
         if onlyURLs == nil {
             LogsSettings.shared.onlyURLs = []

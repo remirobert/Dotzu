@@ -67,11 +67,12 @@
 		EA44B9971FE140D600DF7FF6 /* NetworkDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA44B93C1FE140D600DF7FF6 /* NetworkDetailCell.swift */; };
 		EA44B9981FE140D600DF7FF6 /* NetworkDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA44B93D1FE140D600DF7FF6 /* NetworkDetailModel.swift */; };
 		EA44B9991FE140D600DF7FF6 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA44B93E1FE140D600DF7FF6 /* AboutViewController.swift */; };
-		EA44B99A1FE140D600DF7FF6 /* DebugMan+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA44B93F1FE140D600DF7FF6 /* DebugMan+Extensions.swift */; };
 		EA44B99B1FE140D600DF7FF6 /* IgnoredURLsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA44B9401FE140D600DF7FF6 /* IgnoredURLsViewController.swift */; };
 		EA44B99C1FE140D600DF7FF6 /* UIColor+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = EA44B9441FE140D600DF7FF6 /* UIColor+Utils.m */; };
 		EA44B99D1FE140D600DF7FF6 /* UIWindow+DHCShakeRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = EA44B9451FE140D600DF7FF6 /* UIWindow+DHCShakeRecognizer.m */; };
 		EA44B99E1FE140D600DF7FF6 /* NSString+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = EA44B9461FE140D600DF7FF6 /* NSString+Utils.m */; };
+		EA6760A02005F0BF00ADA56A /* ArrayDeepCopy.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA67609F2005F0BF00ADA56A /* ArrayDeepCopy.swift */; };
+		EA6760A22005F0D000ADA56A /* DebugMan+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA6760A12005F0D000ADA56A /* DebugMan+Extensions.swift */; };
 		EA9B47DD1FEA6084001DD838 /* debugman_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = EA9B47DC1FEA6084001DD838 /* debugman_logo.png */; };
 		EAEB4D2F1FFBD79000C06F6A /* debugman_edit.png in Resources */ = {isa = PBXBuildFile; fileRef = EAEB4D2E1FFBD79000C06F6A /* debugman_edit.png */; };
 /* End PBXBuildFile section */
@@ -153,7 +154,6 @@
 		EA44B93C1FE140D600DF7FF6 /* NetworkDetailCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkDetailCell.swift; sourceTree = "<group>"; };
 		EA44B93D1FE140D600DF7FF6 /* NetworkDetailModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkDetailModel.swift; sourceTree = "<group>"; };
 		EA44B93E1FE140D600DF7FF6 /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
-		EA44B93F1FE140D600DF7FF6 /* DebugMan+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DebugMan+Extensions.swift"; sourceTree = "<group>"; };
 		EA44B9401FE140D600DF7FF6 /* IgnoredURLsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IgnoredURLsViewController.swift; sourceTree = "<group>"; };
 		EA44B9421FE140D600DF7FF6 /* UIWindow+DHCShakeRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWindow+DHCShakeRecognizer.h"; sourceTree = "<group>"; };
 		EA44B9431FE140D600DF7FF6 /* NSString+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Utils.h"; sourceTree = "<group>"; };
@@ -161,6 +161,8 @@
 		EA44B9451FE140D600DF7FF6 /* UIWindow+DHCShakeRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+DHCShakeRecognizer.m"; sourceTree = "<group>"; };
 		EA44B9461FE140D600DF7FF6 /* NSString+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Utils.m"; sourceTree = "<group>"; };
 		EA44B9471FE140D600DF7FF6 /* UIColor+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Utils.h"; sourceTree = "<group>"; };
+		EA67609F2005F0BF00ADA56A /* ArrayDeepCopy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayDeepCopy.swift; sourceTree = "<group>"; };
+		EA6760A12005F0D000ADA56A /* DebugMan+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DebugMan+Extensions.swift"; sourceTree = "<group>"; };
 		EA9B47DC1FEA6084001DD838 /* debugman_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = debugman_logo.png; sourceTree = "<group>"; };
 		EAEB4D2E1FFBD79000C06F6A /* debugman_edit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = debugman_edit.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -339,7 +341,8 @@
 				EA44B93D1FE140D600DF7FF6 /* NetworkDetailModel.swift */,
 				EA44B93E1FE140D600DF7FF6 /* AboutViewController.swift */,
 				EA44B9401FE140D600DF7FF6 /* IgnoredURLsViewController.swift */,
-				EA44B93F1FE140D600DF7FF6 /* DebugMan+Extensions.swift */,
+				EA6760A12005F0D000ADA56A /* DebugMan+Extensions.swift */,
+				EA67609F2005F0BF00ADA56A /* ArrayDeepCopy.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -535,14 +538,15 @@
 				EA44B98D1FE140D600DF7FF6 /* StoreManager.swift in Sources */,
 				EA44B9701FE140D600DF7FF6 /* JxbUrlSessionHook_NSURLSessionAsynchronousConvenience.m in Sources */,
 				EA44B98C1FE140D600DF7FF6 /* LoggerCrash.swift in Sources */,
+				EA6760A02005F0BF00ADA56A /* ArrayDeepCopy.swift in Sources */,
 				EA44B9841FE140D600DF7FF6 /* ManagerWindow.swift in Sources */,
 				EA44B99C1FE140D600DF7FF6 /* UIColor+Utils.m in Sources */,
 				EA44B99D1FE140D600DF7FF6 /* UIWindow+DHCShakeRecognizer.m in Sources */,
-				EA44B99A1FE140D600DF7FF6 /* DebugMan+Extensions.swift in Sources */,
 				EA44B9971FE140D600DF7FF6 /* NetworkDetailCell.swift in Sources */,
 				EA44B9721FE140D600DF7FF6 /* NSURLRequest+Identify.m in Sources */,
 				EA44B9771FE140D600DF7FF6 /* LogTabBarViewController.swift in Sources */,
 				EA44B97C1FE140D600DF7FF6 /* Logger.swift in Sources */,
+				EA6760A22005F0D000ADA56A /* DebugMan+Extensions.swift in Sources */,
 				EA44B9801FE140D600DF7FF6 /* LogsViewController.swift in Sources */,
 				EA44B97B1FE140D600DF7FF6 /* ApplicationInformation.swift in Sources */,
 				EA44B9871FE140D600DF7FF6 /* CrashListTableViewCell.swift in Sources */,

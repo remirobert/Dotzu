@@ -8,8 +8,8 @@
 
 import UIKit
 
-class Log {
-
+class Log: Copying {
+    
     let id: String
     let fileInfo: String?
     let content: String
@@ -19,12 +19,23 @@ class Log {
     var isTag: Bool = false
     
     
-    init(content: String, color: UIColor?, fileInfo: String? = nil) {
+    
+    init(content: String, color: UIColor?, fileInfo: String? = nil, isTag: Bool = false) {
         self.id = NSUUID().uuidString
         self.fileInfo = fileInfo
         self.content = content
         self.date = Date()
         self.color = color
+        self.isTag = isTag
+    }
+    
+    required init(original: Log) {
+        id = original.id
+        fileInfo = original.fileInfo
+        content = original.content
+        date = original.date
+        color = original.color
+        isTag = original.isTag
     }
 }
 
