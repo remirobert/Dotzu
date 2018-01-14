@@ -15,13 +15,11 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         //1.test logs
-        print("print hello world")
-        print("print hello world in red", .red)
+        print("1111111")
+        print("2222222", .red)
         
-        NSLog("NSLog hello world")
-        NSLog("NSLog hello world in red", .red)
         
-        //2.test http catch
+        //2.test network
         Alamofire.request("https://httpbin.org/get").responseJSON { response in
             switch response.result {
             case .success:

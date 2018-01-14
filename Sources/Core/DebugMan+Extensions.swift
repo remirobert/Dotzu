@@ -155,12 +155,12 @@ extension Data {
 ///弹出alert
 extension UIAlertController {
     static func showError(title: String?, controller: UIViewController?) {
-        weak var weekController = controller
+        weak var weakVC = controller
         
         let alert = self.init(title: title, message: nil, preferredStyle: .alert)
         let action = UIAlertAction.init(title: "OK", style: .default, handler: nil)
         alert.addAction(action)
-        weekController?.present(alert, animated: true, completion: nil)
+        weakVC?.present(alert, animated: true, completion: nil)
     }
 }
 
@@ -185,17 +185,6 @@ extension UIViewController {
                 callback()
             })
         }
-    }
-}
-
-///数组拷贝
-extension Array where Element: JxbHttpModel {
-    func clone() -> Array<JxbHttpModel> {
-        var copiedArray = [JxbHttpModel]()
-        for element in self {
-            copiedArray.append(element.copy() as! JxbHttpModel)
-        }
-        return copiedArray
     }
 }
 

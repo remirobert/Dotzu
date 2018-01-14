@@ -13,8 +13,14 @@ class DetailCrashTableViewController: UITableViewController {
     @IBOutlet weak var textviewName: UITextView!
     @IBOutlet weak var textviewReason: UITextView!
     @IBOutlet weak var textviewStackTraces: UITextView!
-    var crash: LogCrash!
+    var crash: LogCrash?
 
+    static func instanceFromStoryBoard() -> DetailCrashTableViewController {
+        let storyboard = UIStoryboard(name: "App", bundle: Bundle(for: DebugMan.self))
+        return storyboard.instantiateViewController(withIdentifier: "DetailCrashTableViewController") as! DetailCrashTableViewController
+    }
+    
+    //MARK - init
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -22,15 +28,16 @@ class DetailCrashTableViewController: UITableViewController {
         tableView.estimatedRowHeight = 50
         tableView.delegate = self
 
-        textviewName.text = "\(crash.name ?? "N/A")"
-        textviewReason.text = "\(crash.reason ?? "N/A")"
+        textviewName.text = "\(crash?.name ?? "N/A")"
+        textviewReason.text = "\(crash?.reason ?? "N/A")"
 
-        let contentStack = crash.callStacks?.reduce("", {
+        let contentStack = crash?.callStacks?.reduce("", {
             $0 == "" ? $1 : $0 + "\n" + $1
         })
         textviewStackTraces.text = contentStack
     }
 
+    //MARK - UITableViewDelegate
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableViewAutomaticDimension
     }

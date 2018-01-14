@@ -18,7 +18,6 @@ class NetworkDetailCell: UITableViewCell {
     @IBOutlet weak var topLine: UIView!
     @IBOutlet weak var middleLine: UIView!
     @IBOutlet weak var bottomLine: UIView!
-    @IBOutlet weak var editImageView: UIImageView!
     @IBOutlet weak var editView: UIView!
     
     @IBOutlet weak var titleViewBottomSpaceToMiddleLine: NSLayoutConstraint!
@@ -60,15 +59,6 @@ class NetworkDetailCell: UITableViewCell {
                 bottomLine.isHidden = false
             }else{
                 bottomLine.isHidden = true
-            }
-            
-            //编辑图片
-            if detailModel?.title == "REQUEST" || detailModel?.title == "HEADER" {
-                editImageView.isHidden = false
-                editView.isHidden = false
-            }else{
-                editImageView.isHidden = true
-                editView.isHidden = true
             }
         }
     }

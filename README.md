@@ -12,14 +12,14 @@ iOS debugger tool for Swift
 
 ## Introduction
 
-`DebugMan` is inspired by [remirobert/Dotzu](https://github.com/remirobert/Dotzu) and [JxbSir/JxbDebugTool](https://github.com/JxbSir/JxbDebugTool), but it is more powerful than them.
+`DebugMan` is inspired by [remirobert/Dotzu](https://github.com/remirobert/Dotzu) and [JxbSir/JxbDebugTool](https://github.com/JxbSir/JxbDebugTool), but more powerful:
 
-- display all APP logs in different colors as you like.
-- show all APP network requests (include third-party SDK in APP).
-- filter keywords in APP logs and APP network requests.
-- APP device informations and APP identity informations.
-- APP crash logs.
-- APP memory real-time monitoring.
+- display all app logs in different colors as you like.
+- display all app network http requests details, including third-party SDK in app.
+- display app device informations and app identity informations.
+- display app crash logs.
+- filter keywords in app logs and app network http requests.
+- app memory real-time monitoring.
 
 ## Requirements
 
@@ -36,33 +36,44 @@ platform :ios, '8.0'
 use_frameworks!
 
 target 'your_project' do
-pod 'DebugMan', '~> 4.2.8' , :configurations => ['Debug']
+pod 'DebugMan', '~> 4.3.0' , :configurations => ['Debug']
 end
 ```
 
-- use `~> 4.2.8` if your project use Swift 4
-- use `~> 3.2.8` if your project use Swift 3
+- use `~> 4.3.0` if your project use Swift 4
+- use `~> 3.3.0` if your project use Swift 3
 
 ## Usage
 
-The simplest usage of DebugMan:
-
-	//AppDelegate.swift
+	import DebugMan
 	
-	#if DEBUG
-	  import DebugMan
-	#endif
+	@UIApplicationMain
+	class AppDelegate: UIResponder, UIApplicationDelegate {
 	
-	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-	    
-	    #if DEBUG
-	      DebugMan.shared.enable()
-	    #endif
-	    
-	    return true
+	    var window: UIWindow?
+	
+	    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+	        
+	        #if DEBUG
+	            //step 1: initialize DebugMan
+	            DebugMan.shared.enable()
+	        #endif
+	        
+	        return true
+	    }
 	}
-    
-For advanced usage, you can check the parameters of function: `enable()` 
+	
+	public func print<T>(file: String = #file,
+	                     function: String = #function,
+	                     line: Int = #line,
+	                     _ message: T,
+	                     _ color: UIColor? = nil)
+	{
+	    #if DEBUG
+	        //step 2: override system print method
+	        DebugManLog(file, function, line, message, color)
+	    #endif
+	}
 
 ## Screenshots
 
@@ -83,9 +94,11 @@ You can temporarily hide the black ball by shaking iPhone or Simulator. Then if 
 * Author: liman
 * WeChat: liman_888
 * QQ: 723661989
-* E-mail: 723661989@163.com || gg723661989@gmail.com
+* E-mail: gg723661989@gmail.com
 
-If you like `DebugMan`, you can star this project. Thanks! 😃
+Welcome to star `DebugMan`. 😃
+
+If you have any questions, welcome to open issues. 😃
 
 ## License
 

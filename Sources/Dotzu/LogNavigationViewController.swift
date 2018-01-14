@@ -28,6 +28,6 @@ class LogNavigationViewController: UINavigationController {
     
     
     @objc func exit() {
-        dismiss(animated: true, completion: nil)
+        dismiss(animated: false, completion: nil)
     }
 }

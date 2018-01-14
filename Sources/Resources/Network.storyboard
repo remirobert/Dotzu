@@ -237,24 +237,16 @@
                                                 <constraint firstAttribute="height" constant="49.5" id="kg7-dW-5Qv"/>
                                             </constraints>
                                         </view>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="debugman_edit.png" translatesAutoresizingMaskIntoConstraints="NO" id="fLf-Kq-ENh">
-                                            <rect key="frame" x="350" y="26" width="20" height="20"/>
+                                        <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LX3-In-PqH">
+                                            <rect key="frame" x="301" y="13.5" width="74" height="49.5"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="20" id="59Q-Ki-VmO"/>
-                                                <constraint firstAttribute="width" constant="20" id="n7n-Ie-OJZ"/>
-                                            </constraints>
-                                        </imageView>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LX3-In-PqH">
-                                            <rect key="frame" x="325.5" y="13.5" width="49.5" height="49.5"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="49.5" id="rg7-D4-feV"/>
+                                                <constraint firstAttribute="width" constant="74" id="rg7-D4-feV"/>
                                                 <constraint firstAttribute="height" constant="49.5" id="uhu-Hl-iAE"/>
                                             </constraints>
                                         </view>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="0OK-GH-Jip" firstAttribute="leading" secondItem="JkA-KQ-aXq" secondAttribute="leading" id="2lu-l3-iFm"/>
-                                        <constraint firstAttribute="trailing" secondItem="fLf-Kq-ENh" secondAttribute="trailing" constant="5" id="8ue-KF-1j6"/>
                                         <constraint firstAttribute="trailing" secondItem="0OK-GH-Jip" secondAttribute="trailing" id="Bdp-yZ-4mu"/>
                                         <constraint firstItem="LgN-MH-NgE" firstAttribute="top" secondItem="JkA-KQ-aXq" secondAttribute="top" constant="30" id="Cb9-Mt-qbb"/>
                                         <constraint firstAttribute="trailing" secondItem="huU-o6-oW4" secondAttribute="trailing" id="GEz-5f-lIe"/>
@@ -269,7 +261,6 @@
                                         <constraint firstItem="LgN-MH-NgE" firstAttribute="leading" secondItem="JkA-KQ-aXq" secondAttribute="leading" constant="15" id="WRn-jC-xl0"/>
                                         <constraint firstItem="huU-o6-oW4" firstAttribute="leading" secondItem="JkA-KQ-aXq" secondAttribute="leading" id="WnY-0H-dDN"/>
                                         <constraint firstItem="r8O-hu-g8b" firstAttribute="width" secondItem="LgN-MH-NgE" secondAttribute="width" constant="15" id="Xiq-6j-sw9"/>
-                                        <constraint firstItem="fLf-Kq-ENh" firstAttribute="bottom" secondItem="LgN-MH-NgE" secondAttribute="bottom" id="Zes-9x-4eQ"/>
                                         <constraint firstAttribute="trailing" secondItem="ZTG-PY-Xcv" secondAttribute="trailing" id="Zew-y6-yF9"/>
                                         <constraint firstAttribute="trailing" secondItem="LX3-In-PqH" secondAttribute="trailing" id="fgd-zK-CRK"/>
                                         <constraint firstItem="emT-kY-cWQ" firstAttribute="leading" secondItem="JkA-KQ-aXq" secondAttribute="leading" id="gWa-cZ-But"/>
@@ -284,7 +275,6 @@
                                 <connections>
                                     <outlet property="bottomLine" destination="ZTG-PY-Xcv" id="Lp2-Ol-YoD"/>
                                     <outlet property="contentTextView" destination="J5Y-09-1Ve" id="1hK-dJ-IlL"/>
-                                    <outlet property="editImageView" destination="fLf-Kq-ENh" id="qpj-vL-fC5"/>
                                     <outlet property="editView" destination="LX3-In-PqH" id="a02-Jx-40R"/>
                                     <outlet property="imgView" destination="0OK-GH-Jip" id="RLY-VN-YUA"/>
                                     <outlet property="middleLine" destination="emT-kY-cWQ" id="XuG-Bj-Afl"/>
@@ -402,7 +392,7 @@
         <!--network-->
         <scene sceneID="Z1b-qJ-9zV">
             <objects>
-                <navigationController storyboardIdentifier="Network" automaticallyAdjustsScrollViewInsets="NO" id="n2b-Ib-iXr" customClass="LogNavigationViewController" customModule="DebugMan" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="Network" automaticallyAdjustsScrollViewInsets="NO" hidesBarsOnSwipe="YES" id="n2b-Ib-iXr" customClass="LogNavigationViewController" customModule="DebugMan" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="network" image="debugman_network" selectedImage="debugman_network" id="HZO-tF-0ia"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="yog-aO-SHJ">
@@ -425,7 +415,6 @@
     </scenes>
     <resources>
         <image name="debugman_close" width="16" height="16"/>
-        <image name="debugman_edit.png" width="20" height="20"/>
         <image name="debugman_network" width="16" height="16"/>
     </resources>
 </document>

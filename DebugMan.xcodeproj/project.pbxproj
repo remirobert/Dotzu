@@ -71,10 +71,8 @@
 		EA44B99C1FE140D600DF7FF6 /* UIColor+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = EA44B9441FE140D600DF7FF6 /* UIColor+Utils.m */; };
 		EA44B99D1FE140D600DF7FF6 /* UIWindow+DHCShakeRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = EA44B9451FE140D600DF7FF6 /* UIWindow+DHCShakeRecognizer.m */; };
 		EA44B99E1FE140D600DF7FF6 /* NSString+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = EA44B9461FE140D600DF7FF6 /* NSString+Utils.m */; };
-		EA6760A02005F0BF00ADA56A /* ArrayDeepCopy.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA67609F2005F0BF00ADA56A /* ArrayDeepCopy.swift */; };
 		EA6760A22005F0D000ADA56A /* DebugMan+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA6760A12005F0D000ADA56A /* DebugMan+Extensions.swift */; };
 		EA9B47DD1FEA6084001DD838 /* debugman_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = EA9B47DC1FEA6084001DD838 /* debugman_logo.png */; };
-		EAEB4D2F1FFBD79000C06F6A /* debugman_edit.png in Resources */ = {isa = PBXBuildFile; fileRef = EAEB4D2E1FFBD79000C06F6A /* debugman_edit.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -161,10 +159,8 @@
 		EA44B9451FE140D600DF7FF6 /* UIWindow+DHCShakeRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+DHCShakeRecognizer.m"; sourceTree = "<group>"; };
 		EA44B9461FE140D600DF7FF6 /* NSString+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Utils.m"; sourceTree = "<group>"; };
 		EA44B9471FE140D600DF7FF6 /* UIColor+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Utils.h"; sourceTree = "<group>"; };
-		EA67609F2005F0BF00ADA56A /* ArrayDeepCopy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayDeepCopy.swift; sourceTree = "<group>"; };
 		EA6760A12005F0D000ADA56A /* DebugMan+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DebugMan+Extensions.swift"; sourceTree = "<group>"; };
 		EA9B47DC1FEA6084001DD838 /* debugman_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = debugman_logo.png; sourceTree = "<group>"; };
-		EAEB4D2E1FFBD79000C06F6A /* debugman_edit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = debugman_edit.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -212,7 +208,6 @@
 		EA02F4941FE26CBA00DF34EF /* images */ = {
 			isa = PBXGroup;
 			children = (
-				EAEB4D2E1FFBD79000C06F6A /* debugman_edit.png */,
 				EA9B47DC1FEA6084001DD838 /* debugman_logo.png */,
 				EA02F4961FE26CBA00DF34EF /* debugman_app@2x.png */,
 				EA02F4971FE26CBA00DF34EF /* debugman_logs@2x.png */,
@@ -342,7 +337,6 @@
 				EA44B93E1FE140D600DF7FF6 /* AboutViewController.swift */,
 				EA44B9401FE140D600DF7FF6 /* IgnoredURLsViewController.swift */,
 				EA6760A12005F0D000ADA56A /* DebugMan+Extensions.swift */,
-				EA67609F2005F0BF00ADA56A /* ArrayDeepCopy.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -423,7 +417,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EAEB4D2F1FFBD79000C06F6A /* debugman_edit.png in Resources */,
 				EA02F4AC1FE26CBA00DF34EF /* Network.storyboard in Resources */,
 				EA02F4A41FE26CBA00DF34EF /* debugman_app@2x.png in Resources */,
 				EA02F4AD1FE26CBA00DF34EF /* Manager.storyboard in Resources */,
@@ -538,7 +531,6 @@
 				EA44B98D1FE140D600DF7FF6 /* StoreManager.swift in Sources */,
 				EA44B9701FE140D600DF7FF6 /* JxbUrlSessionHook_NSURLSessionAsynchronousConvenience.m in Sources */,
 				EA44B98C1FE140D600DF7FF6 /* LoggerCrash.swift in Sources */,
-				EA6760A02005F0BF00ADA56A /* ArrayDeepCopy.swift in Sources */,
 				EA44B9841FE140D600DF7FF6 /* ManagerWindow.swift in Sources */,
 				EA44B99C1FE140D600DF7FF6 /* UIColor+Utils.m in Sources */,
 				EA44B99D1FE140D600DF7FF6 /* UIWindow+DHCShakeRecognizer.m in Sources */,

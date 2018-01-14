@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "DebugMan"
-  s.version      = "4.2.8"
+  s.version      = "4.3.0"
   s.summary      = "iOS debugger tool for Swift"
 
   # This description is used to generate tags and improve search results.
@@ -25,13 +25,13 @@ Pod::Spec.new do |s|
   #   * Write the description between the DESC delimiters below.
   #   * Finally, don't worry about the indent, CocoaPods strips it!
   s.description  = <<-DESC
-                    DebugMan is inspired by remirobert/Dotzu and JxbSir/JxbDebugTool, but it is more powerful than them.
-                    - display all APP logs in different colors as you like.
-                    - show all APP network requests (include third-party SDK in APP).
-                    - filter keywords in APP logs and APP network requests.
-                    - APP device informations and APP identity informations.
-                    - APP crash logs.
-                    - APP memory real-time monitoring.
+                    DebugMan is inspired by remirobert/Dotzu and JxbSir/JxbDebugTool, but more powerful:
+                    - display all app logs in different colors as you like.
+                    - display all app network http requests details, including third-party SDK in app.
+                    - display app device informations and app identity informations.
+                    - display app crash logs.
+                    - filter keywords in app logs and app network http requests.
+                    - app memory real-time monitoring.
                    DESC
 
   s.homepage     = "https://github.com/liman123/DebugMan"
@@ -59,7 +59,7 @@ Pod::Spec.new do |s|
   #  profile URL.
   #
 
-  s.author             = { "liman" => "723661989@163.com" }
+  s.author             = { "liman" => "gg723661989@gmail.com" }
   # Or just: s.author    = "liman"
   # s.authors            = { "liman" => "man.li@phicomm.com" }
   # s.social_media_url   = "http://twitter.com/liman"

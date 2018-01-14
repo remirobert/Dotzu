@@ -67,7 +67,7 @@ class LogTabBarViewController: UITabBarController {
     //************ 以下代码从LogNavigationViewController.swift复制 ************
     //MARK: - target action
     @objc func exit() {
-        dismiss(animated: true, completion: nil)
+        dismiss(animated: false, completion: nil)
     }
     
     

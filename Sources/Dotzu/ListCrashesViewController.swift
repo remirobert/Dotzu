@@ -8,10 +8,9 @@
 
 import UIKit
 
-class ListCrashesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class ListCrashesViewController: UITableViewController {
 
     var models: [LogCrash] = [LogCrash]()
-    @IBOutlet weak var tableView: UITableView!
     
     //MARK: - init
     override func viewDidLoad() {
@@ -29,11 +28,11 @@ class ListCrashesViewController: UIViewController, UITableViewDataSource, UITabl
 
     
     //MARK: - UITableViewDataSource
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return models.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         //否则偶尔crash
         if indexPath.row >= models.count {
@@ -47,13 +46,17 @@ class ListCrashesViewController: UIViewController, UITableViewDataSource, UITabl
     }
     
     //MARK: - UITableViewDelegate
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        performSegue(withIdentifier: "detailCrashSegue", sender: models[indexPath.row])
+        
+        let vc = DetailCrashTableViewController.instanceFromStoryBoard()
+        vc.crash = models[indexPath.row]
+        
+        self.navigationController?.pushViewController(vc, animated: true)
     }
   
     @available(iOS 11.0, *)
-    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
         let delete = UIContextualAction(style: .destructive, title: "Delete") { [weak self] (action, sourceView, completionHandler) in
             guard let models = self?.models else {return}
@@ -69,16 +72,16 @@ class ListCrashesViewController: UIViewController, UITableViewDataSource, UITabl
     }
     
     //MARK: - only for ios8/ios9/ios10, not ios11
-    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
+    override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
         return .delete
     }
-    func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String? {
+    override func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String? {
         return "Delete"
     }
-    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if (editingStyle == .delete) {
             StoreManager.shared.removeCrash(models[indexPath.row])
             self.models.remove(at: indexPath.row)
@@ -86,13 +89,6 @@ class ListCrashesViewController: UIViewController, UITableViewDataSource, UITabl
                 self?.tableView.deleteRows(at: [indexPath], with: .automatic)
             }
         }
-    }
-    
-    //MARK: - prepare
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let controller = segue.destination as? DetailCrashTableViewController,
-            let crash = sender as? LogCrash else {return}
-        controller.crash = crash
     }
     
     //MARK: - target action

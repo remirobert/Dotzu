@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Log: Copying {
+class Log {
     
     let id: String
     let fileInfo: String?
@@ -27,15 +27,6 @@ class Log: Copying {
         self.date = Date()
         self.color = color
         self.isTag = isTag
-    }
-    
-    required init(original: Log) {
-        id = original.id
-        fileInfo = original.fileInfo
-        content = original.content
-        date = original.date
-        color = original.color
-        isTag = original.isTag
     }
 }
 

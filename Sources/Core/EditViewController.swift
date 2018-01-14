@@ -7,7 +7,7 @@
 //
 
 enum EditType {
-    case url //已经弃用
+    case unknow
     case request
     case header
 }
@@ -24,7 +24,7 @@ class EditViewController: UITableViewController, UITextViewDelegate {
     let keyboardMan = KeyboardMan()
     private var button: UIButton?
     
-    var editType: EditType = .url//默认类型URL
+    var editType: EditType  = .unknow
     var httpModel: JxbHttpModel?
     var detailModel: NetworkDetailModel?
     
@@ -40,8 +40,8 @@ class EditViewController: UITableViewController, UITextViewDelegate {
     
     //MARK: - tool
     
-    //确定request格式(JSON/Form)
-    func detectRequestSerializer() {
+    //确定格式(JSON/Form)
+    func detectSerializer() {
         guard let content = detailModel?.content else {
             detailModel?.requestSerializer = JSONRequestSerializer//默认JSON格式
             return
@@ -98,6 +98,8 @@ class EditViewController: UITableViewController, UITextViewDelegate {
         textView.textContainer.lineFragmentPadding = 0
         textView.textContainerInset = .zero
         
+        self.title = detailModel?.title
+        
         //判断类型 (默认类型URL)
         if detailModel?.title == "REQUEST" {
             editType = .request
@@ -109,25 +111,23 @@ class EditViewController: UITableViewController, UITextViewDelegate {
         //设置UI
         if editType == .request
         {
-            self.title = detailModel?.title
             tableView.tableHeaderView?.frame.size.height = 28
             tableView.tableHeaderView?.isHidden = false
             textView.text = detailModel?.content
-            detectRequestSerializer()//确定request格式(JSON/Form)
+            detectSerializer()//确定格式(JSON/Form)
         }
-        if editType == .header
+        else if editType == .header
         {
-            self.title = detailModel?.title
             tableView.tableHeaderView?.frame.size.height = 0
             tableView.tableHeaderView?.isHidden = true
             textView.text = detailModel?.headerFields?.dictionaryToString()
         }
-        if editType == .url
+        else
         {
-            self.title = "URL"
             tableView.tableHeaderView?.frame.size.height = 0
             tableView.tableHeaderView?.isHidden = true
-            textView.text = httpModel?.url.absoluteString
+            textView.text = detailModel?.content
+            detectSerializer()//确定格式(JSON/Form)
         }
         
         //键盘
@@ -157,12 +157,8 @@ class EditViewController: UITableViewController, UITextViewDelegate {
         tableView.beginUpdates()
         tableView.endUpdates()
         
-        if editType == .url {
-            editedURLString = textView.text
-        }else{
-            editedContent = textView.text
-            detailModel?.content = textView.text
-        }
+        editedContent = textView.text
+        detailModel?.content = textView.text
     }
     
     //MARK: - UITableViewDelegate

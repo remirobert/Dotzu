@@ -8,45 +8,21 @@
 
 import Foundation
 
-//MARK: - NSLog
-public func NSLog<T>(_ message: T,
-                     file: String = #file,
-                     function: String = #function,
-                     line: Int = #line)
-{
-    print(message, file: file, function: function, line: line)
-}
+//MARK: - ****************** Usage of DebugManLog ******************
 
-public func NSLog<T>(_ message: T,
-                     _ color: UIColor?,
-                     file: String = #file,
-                     function: String = #function,
-                     line: Int = #line)
-{
-    print(message, color, file: file, function: function, line: line)
-}
-
-//MARK: - print
-public func print<T>(_ message: T,
-                          file: String = #file,
-                      function: String = #function,
-                          line: Int = #line)
+/// file: logs file (打印日志所在的文件名) |
+/// function: logs function (打印日志所在的函数名) |
+/// line: logs line (打印日志所在的行数) |
+/// message: logs content (打印日志的内容) |
+/// color: logs color, default is white (打印日志的颜色, 默认白色) |
+public func DebugManLog<T>(_ file: String = #file,
+                           _ function: String = #function,
+                           _ line: Int = #line,
+                           _ message: T,
+                           _ color: UIColor? = nil)
 {
     if Logger.shared.enable {
-        Logger.shared.handleLog(message, color: nil, file: file, function: function, line: line)
-    } else {
-        Swift.print(message)
-    }
-}
-
-public func print<T>(_ message: T,
-                       _ color: UIColor?,
-                          file: String = #file,
-                      function: String = #function,
-                          line: Int = #line)
-{
-    if Logger.shared.enable {
-        Logger.shared.handleLog(message, color: color, file: file, function: function, line: line)
+        Logger.shared.handleLog(file: file, function: function, line: line, message: message, color: color)
     } else {
         Swift.print(message)
     }
@@ -68,7 +44,7 @@ public class Logger: LogGenerator {
         return "\(fileName)[\(line)]\(function):\n"
     }
 
-    fileprivate func handleLog(_ message: Any..., color: UIColor?, file: String?, function: String?, line: Int?) {
+    fileprivate func handleLog(file: String?, function: String?, line: Int?, message: Any..., color: UIColor?) {
         if !Logger.shared.enable {
             return
         }

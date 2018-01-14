@@ -31,7 +31,7 @@ class ManagerViewController: UIViewController, LogHeadViewDelegate {
         Dotzu.sharedManager.displayedList = true
         let storyboard = UIStoryboard(name: "Manager", bundle: Bundle(for: ManagerViewController.self))
         guard let controller = storyboard.instantiateInitialViewController() else {return}
-        self.present(controller, animated: true, completion: nil)
+        self.present(controller, animated: false, completion: nil)
     }
 
     override func viewWillAppear(_ animated: Bool) {
