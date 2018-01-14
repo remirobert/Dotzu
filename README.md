@@ -1,128 +1,105 @@
 <p align="center">
-  <img src ="https://cloud.githubusercontent.com/assets/3276768/22606144/035a4a28-ea53-11e6-8359-323c214c2439.png"/>
+  <img src ="https://raw.githubusercontent.com/liman123/DebugMan/master/Sources/Resources/images/debugman_logo.png"/>
 </p>
 
-# Dotzu
+[![Platform](https://img.shields.io/cocoapods/p/DebugMan.svg?style=flat)](http://cocoadocs.org/docsets/DebugMan)
+[![CocoaPods Compatible](https://img.shields.io/cocoapods/v/DebugMan.svg)](https://img.shields.io/cocoapods/v/DebugMan.svg)
+<img src="https://img.shields.io/badge/license-MIT-blue.svg?style=flat" alt="License MIT"/>
 
-In-App iOS Debugging Tool With Enhanced Logging, Networking Info, Crash reporting And More.
+# DebugMan
 
-<img src="https://img.shields.io/badge/platform-iOS-blue.svg?style=flat" alt="Platform iOS" />
-<img src="https://img.shields.io/badge/Carthage-compatible-brightgreen.svg?style=flat" alt="Carthage compatible" />
-<img src="https://img.shields.io/badge/license-MIT-blue.svg?style=flat" alt="License MIT" />
+iOS debugger tool for Swift
 
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/972a1a6db90348bfb7e072cd3e0705ac)](https://www.codacy.com/app/remi.robert/Dotzu?utm_source=github.com&utm_medium=referral&utm_content=remirobert/Dotzu&utm_campaign=badger)
+## Introduction
 
+`DebugMan` is inspired by [remirobert/Dotzu](https://github.com/remirobert/Dotzu) and [JxbSir/JxbDebugTool](https://github.com/JxbSir/JxbDebugTool), but more powerful:
 
-The debugger tool for iOS developer. Display *logs*, *network request*, *device informations*, *crash logs* while using the app. Easy accessible with **its bubble head button** 🔘. Easy to integrate in any apps, to handle development or testing apps **easier**. First version, there is plenty of room for improvement.
+- display all app logs in different colors as you like.
+- display all app network http requests details, including third-party SDK in app.
+- display app device informations and app identity informations.
+- display app crash logs.
+- filter keywords in app logs and app network http requests.
+- app memory real-time monitoring.
 
-👉 [Objective-c example](https://github.com/remirobert/Dotzu-Objective-c) 🐢
+## Requirements
 
-</br>
-<p align="center">
-  <img src ="https://cloud.githubusercontent.com/assets/3276768/22604003/dd161210-ea49-11e6-923d-b4b32acfd642.gif"/>
-</p>
-
-## Usage
-
-In the `AppDelegate` instanciate `Dotzu manager`.
-Be careful to use Dotzu for development purpose only.
-
-
-
-```swift
-   func application(_ application: UIApplication,
-   didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        #if DEBUG
-            Dotzu.sharedManager.enable()
-        #endif
-        return true
-   }
-```
-
-## Logs
-
-Dotzu override `print`, so you can use it and see your logs. otherwise, you can add level, and get more details (file, and line) about your logs. With the `Logger` class provided by the framework. Get new logs count on the badge, or *warning/error* notification on the bubble head.
-<a href="http://promisesaplus.com/">
-    <img src="https://cloud.githubusercontent.com/assets/3276768/22610650/ba71cf2a-ea66-11e6-8f94-6d3c9916740e.gif" align="right" />
-</a>
-```swift
-print("logs")
-Logger.verbose("some logs")
-Logger.info("infos")
-Logger.warning("warning ! ⚠️")
-Logger.error("error ❌")
-```
-
-## Network
-
-Dotzu use `URLProcotol` to logg the request. Can can add the logger on a custom URLSessionConfiguration. Works with **Alamofire**. Works by default with `URLSession.shared`. You can disabled the networking logging in the settings screen. Get notified by a 🚀, when a request is launched.
-
-<a href="http://promisesaplus.com/">
-    <img src="https://cloud.githubusercontent.com/assets/3276768/22646311/02988ba2-ec6c-11e6-8870-08b88ec1ce1c.gif" align="right" />
-</a>
-
-```swift
-//Your custom configuration
-let configuration = URLSessionConfiguration.default
-
-///Add the network logger on the configuration
-Dotzu.sharedManager.addLogger(session: configuration)
-
-//Use it:
-//For Alamofire
-let sessionManager = Alamofire.SessionManager(configuration: configuration)
-
-//For URLSession
-let session = URLSession(configuration: configuration)
-```
+- iOS 8.0+
+- Xcode 9.0+
+- Swift 3.0+
 
 ## Installation
 
-### [CocoaPods](http://cocoapods.org/)
-You can use [CocoaPods](http://cocoapods.org/) to install `Dotzu` by adding it to your `Podfile`:
+You can use [CocoaPods](http://cocoapods.org/) to install `DebugMan` by adding it to your `Podfile`:
 
 ```ruby
-platform :ios, '9.0'
+platform :ios, '8.0'
 use_frameworks!
-pod 'Dotzu'
+
+target 'your_project' do
+pod 'DebugMan', '~> 4.3.0' , :configurations => ['Debug']
+end
 ```
 
-**For Objective-c use :**
+- use `~> 4.3.0` if your project use Swift 4
+- use `~> 3.3.0` if your project use Swift 3
 
-```ruby
-pod 'DotzuObjc'
-```
+## Usage
 
-### [Carthage](https://github.com/Carthage/Carthage)
+	import DebugMan
+	
+	@UIApplicationMain
+	class AppDelegate: UIResponder, UIApplicationDelegate {
+	
+	    var window: UIWindow?
+	
+	    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+	        
+	        #if DEBUG
+	            //step 1: initialize DebugMan
+	            DebugMan.shared.enable()
+	        #endif
+	        
+	        return true
+	    }
+	}
+	
+	public func print<T>(file: String = #file,
+	                     function: String = #function,
+	                     line: Int = #line,
+	                     _ message: T,
+	                     _ color: UIColor? = nil)
+	{
+	    #if DEBUG
+	        //step 2: override system print method
+	        DebugManLog(file, function, line, message, color)
+	    #endif
+	}
 
-Add this to your Cartfile:
+## Screenshots
 
-```ruby
-github "remirobert/Dotzu"
-```
+👉 Tips 👈
 
-### Manually
+You can temporarily hide the black ball by shaking iPhone or Simulator. Then if you want to show the black ball, just shake again.😃APP memory real-time monitoring data displayed on the black ball.😃
 
-Drag the source files into your project.
-
-## Installation - Objective-c
-
-### [CocoaPods](http://cocoapods.org/)
-You can use [CocoaPods](http://cocoapods.org/) to install `DotzuObjc` by adding it to your `Podfile`:
-
-```ruby
-platform :ios, '9.0'
-use_frameworks!
-pod 'DotzuObjc'
-```
-
-
+<img src="https://raw.githubusercontent.com/liman123/DebugMan/master/Screenshots/1.png" width="200">
+<img src="https://raw.githubusercontent.com/liman123/DebugMan/master/Screenshots/2.png" width="200">
+<img src="https://raw.githubusercontent.com/liman123/DebugMan/master/Screenshots/3.png" width="200">
+<img src="https://raw.githubusercontent.com/liman123/DebugMan/master/Screenshots/4.png" width="200">
+<img src="https://raw.githubusercontent.com/liman123/DebugMan/master/Screenshots/5.png" width="200">
+<img src="https://raw.githubusercontent.com/liman123/DebugMan/master/Screenshots/6.png" width="200">
+<img src="https://raw.githubusercontent.com/liman123/DebugMan/master/Screenshots/7.png" width="200">
 
 ## Contact
 
-* Rémi ROBERT
-* Twitter: [@remi936](https://twitter.com/remi936)
+* Author: liman
+* WeChat: liman_888
+* QQ: 723661989
+* E-mail: gg723661989@gmail.com
+
+Welcome to star `DebugMan`. 😃
+
+If you have any questions, welcome to open issues. 😃
 
 ## License
 
-Dotzu is released under the [MIT License](http://www.opensource.org/licenses/MIT).
+`DebugMan` is released under the [MIT License](http://www.opensource.org/licenses/MIT).
