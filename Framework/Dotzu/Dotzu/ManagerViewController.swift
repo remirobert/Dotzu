@@ -104,6 +104,9 @@ class ManagerViewController: UIViewController, LogHeadViewDelegate {
     }
 
     func shouldReceive(point: CGPoint) -> Bool {
+        if (UIApplication.shared.keyWindow?.subviews.count ?? 0) > 1 {
+            return true
+        }
         if Dotzu.sharedManager.displayedList {
             return true
         }
