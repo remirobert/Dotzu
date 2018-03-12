@@ -21,7 +21,7 @@ class ManagerListLogViewController: UIViewController {
         }
     }
 
-    private let dataSourceLogs = ListLogDataSource<Log>()
+    fileprivate let dataSourceLogs = ListLogDataSource<Log>()
     fileprivate let dataSourceNetwork = ListLogDataSource<LogRequest>()
 
     private var firstLaunch = true
@@ -248,5 +248,21 @@ extension ManagerListLogViewController: MFMailComposeViewControllerDelegate {
                                       error: Error?) {
 
         controller.dismiss(animated: true, completion: nil)
+    }
+}
+
+extension ManagerListLogViewController {
+    func tableView(_ tableView: UITableView, shouldShowMenuForRowAt indexPath: IndexPath) -> Bool {
+        return state == .logs
+    }
+    
+    func tableView(_ tableView: UITableView, canPerformAction action: Selector, forRowAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
+        return action == #selector(copy(_:))
+    }
+    
+    func tableView(_ tableView: UITableView, performAction action: Selector, forRowAt indexPath: IndexPath, withSender sender: Any?) {
+        guard let log = dataSourceLogs[indexPath.row] else {return}
+        let format = LoggerFormat.format(log: log)
+        UIPasteboard.general.string = format.attr.string
     }
 }
