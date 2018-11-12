@@ -8,7 +8,7 @@
 
 import UIKit
 
-enum DeviceModel {
+public enum DeviceModel {
 
     case iPhone4
     case iPhone4S
@@ -22,6 +22,12 @@ enum DeviceModel {
     case iPhoneSE
     case iPhone7
     case iPhone7Plus
+    case iPhone8
+    case iPhone8Plus
+    case iPhoneX
+    case iPhoneXR
+    case iPhoneXS
+    case iPhoneXSMax
     case iPad1
     case iPad2
     case iPad3
@@ -42,7 +48,7 @@ enum DeviceModel {
     case simulator
     case unknown
 
-    static var current: DeviceModel {
+    public static var current: DeviceModel {
         var systemInfo = utsname()
         uname(&systemInfo)
 
@@ -63,6 +69,12 @@ enum DeviceModel {
         case "iPhone8,4":                                return .iPhoneSE
         case "iPhone9,1", "iPhone9,3":                   return .iPhone7
         case "iPhone9,2", "iPhone9,4":                   return .iPhone7Plus
+        case "iPhone10,1", "iPhone10,4":                 return .iPhone8
+        case "iPhone10,2", "iPhone10,5":                 return .iPhone8Plus
+        case "iPhone10,3", "iPhone10,6":                 return .iPhoneX
+        case "iPhone11,1", "iPhone11,8":                 return .iPhoneXR
+        case "iPhone11,2", "iPhone11,3":                 return .iPhoneXS
+        case "iPhone11,4", "iPhone11,5", "iPhone11,6":   return .iPhoneXSMax
         case "iPad1,1":                                  return .iPad1
         case "iPad2,1", "iPad2,2", "iPad2,3", "iPad2,4": return .iPad2
         case "iPad3,1", "iPad3,2", "iPad3,3":            return .iPad3
@@ -85,3 +97,18 @@ enum DeviceModel {
         }
     }
 }
+
+
+/*
+ if ([platform isEqualToString:@"iPhone11,8"])    return @"iPhone XR (GSM)";
+ if ([platform isEqualToString:@"iPhone11,1"])    return @"iPhone XR (GSM+CDMA)";
+ 
+ if ([platform isEqualToString:@"iPhone11,2"])    return @"iPhone XS (GSM+CDMA)";
+ if ([platform isEqualToString:@"iPhone11,3"])    return @"iPhone XS (GSM)";
+ 
+ if ([platform isEqualToString:@"iPhone11,4"])    return @"iPhone XS Max (GSM+CDMA)";
+ if ([platform isEqualToString:@"iPhone11,5"])    return @"iPhone XS Max (GSM, Dual Sim, China)";
+ if ([platform isEqualToString:@"iPhone11,6"])    return @"iPhone XS Max (GSM)";
+ 
+ 
+ */
