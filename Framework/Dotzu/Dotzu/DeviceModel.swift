@@ -51,7 +51,6 @@ public enum DeviceModel {
     public static var current: DeviceModel {
         var systemInfo = utsname()
         uname(&systemInfo)
-
         guard let bytesString = NSString(bytes: &systemInfo.machine, length: Int(_SYS_NAMELEN),
                                          encoding: String.Encoding.ascii.rawValue) else {return .unknown}
         guard let versionCode = String(validatingUTF8: bytesString.utf8String!) else { return .unknown }
@@ -97,18 +96,3 @@ public enum DeviceModel {
         }
     }
 }
-
-
-/*
- if ([platform isEqualToString:@"iPhone11,8"])    return @"iPhone XR (GSM)";
- if ([platform isEqualToString:@"iPhone11,1"])    return @"iPhone XR (GSM+CDMA)";
- 
- if ([platform isEqualToString:@"iPhone11,2"])    return @"iPhone XS (GSM+CDMA)";
- if ([platform isEqualToString:@"iPhone11,3"])    return @"iPhone XS (GSM)";
- 
- if ([platform isEqualToString:@"iPhone11,4"])    return @"iPhone XS Max (GSM+CDMA)";
- if ([platform isEqualToString:@"iPhone11,5"])    return @"iPhone XS Max (GSM, Dual Sim, China)";
- if ([platform isEqualToString:@"iPhone11,6"])    return @"iPhone XS Max (GSM)";
- 
- 
- */
